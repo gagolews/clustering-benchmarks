@@ -1,0 +1,9 @@
+Source: Ultsch, A.: Clustering with SOM: U*C,
+In Proc. Workshop on Self-Organizing Maps, Paris, France, 2005, 75-82.
+
+Web: https://www.uni-marburg.de/fb12/arbeitsgruppen/datenbionik/data
+
+One of the datasets in the Fundamental Clustering Problems Suite (FCPS).
+
+`labels0` come from the Author. `0` denotes the noise class (if present).
+

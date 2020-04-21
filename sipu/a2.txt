@@ -1,0 +1,9 @@
+Source: I. Kärkkäinen, P. Fränti, Dynamic local search algorithm
+for the clustering problem, Research Report A-2002-6.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+Synthetic 2D data with varying number of vectors and clusters.
+There are 150 vectors per cluster.
+
+`labels0` come from the Authors. `0` denotes the noise class (if present).

@@ -1,0 +1,14 @@
+The (? - see below) famous Fisher's *iris* data set.
+
+Source: Fisher R.A. (1936). The use of multiple measurements in taxonomic
+problems, Annual Eugenics 7, pp. 179-188.
+
+Note that there are many flavors of this dataset available on the internet.
+Here, we use the one available in the R package `datasets`
+(as of R version 3.5.1). In particular, the one available in the UCI repository
+has errors in rows #35 and #38.
+
+For discussion, see: Bezdek J.C. et al. (1999). Will the real iris data please
+stand up?, IEEE Transactions on Fuzzy Systems 7(3), pp. 368-369.
+doi:10.1109/91.771092
+

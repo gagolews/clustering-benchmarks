@@ -1,0 +1,12 @@
+An imbalanced version of the famous Fisher's *iris* data set,
+in which we take only 5 last observations from the 1st group (*iris setosa*).
+This benchmark set was proposed in Gagolewski M., Bartoszuk M., Cena A. (2016).
+Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm,
+Information Sciences 363, pp. 8-23. doi:10.1016/j.ins.2016.05.003
+
+Source: Fisher R.A. (1936). The use of multiple measurements in taxonomic
+problems, Annual Eugenics 7, pp. 179-188.
+
+Note that there are many flavors of this dataset available on the internet.
+Here, we use the one available in the R package `datasets`
+(as of R version 3.5.1).

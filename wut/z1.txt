@@ -1,0 +1,4 @@
+Author: Anna Gierlak (Warsaw University of Technology)
+
+`labels0` come from the Author herself.
+`0` denotes the noise class (if present).

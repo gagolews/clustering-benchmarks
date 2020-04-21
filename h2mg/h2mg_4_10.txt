@@ -1,0 +1,15 @@
+h2mg clustering benchmark
+Two 4-dimensional clusters, each with 1024 points. Each point is sampled
+from a sphere centered at its own cluster's centre, of radius that follows
+the Gaussian distribution with scale 10*4.
+
+
+Author: Marek Gagolewski (http://www.gagolewski.com)
+Copyleft 2020
+Licensed under the Creative Commons Attribution 4.0 International License
+
+`labels0` gives reference labels based on which probability distribution's
+mixture component was used to generate the corresponding points.
+`labels1` gives reference labels based on the distance to
+the true cluster centre (i.e., arg max_ p_i(x)).
+There is no noise class.

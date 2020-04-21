@@ -1,0 +1,7 @@
+Source: C.J. Veenman, M.J.T. Reinders, E. Backer, A maximum variance cluster
+algorithm, IEEE Transactions on Pattern Analysis and Machine Intelligence 24(9),
+2002, pp. 1273-1280.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+`labels0` come from the Authors.

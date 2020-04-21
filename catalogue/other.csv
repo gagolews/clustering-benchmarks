@@ -1,0 +1,9 @@
+dataset,n,d,labels,k,noise,g
+other/chameleon_t4_8k,8000,2,labels0,6,761,0.25133305705207903
+other/chameleon_t5_8k,8000,2,labels0,6,1187,0.032790253926317334
+other/chameleon_t7_10k,10000,2,labels0,9,926,0.4734405995150981
+other/chameleon_t8_8k,8000,2,labels0,8,346,0.36537384747470975
+other/hdbscan,2309,2,labels0,6,510,0.18087826570316842
+other/iris,150,4,labels0,3,0,0.0
+other/iris5,105,4,labels0,3,0,0.42857142857142855
+other/square,1000,2,labels0,2,0,0.0
