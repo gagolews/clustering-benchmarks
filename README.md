@@ -194,7 +194,8 @@ We have tried to resolve any conflicts in the *best* possible manner.
     authored by the fantastic students
     of Marek's [Python for Data Analysis course](http://www.gagolewski.com/teaching/padpy/) @
     [Warsaw University of Technology](https://ww4.mini.pw.edu.pl/):
-    Przemysław Kosewski, Jędrzej Krauze, Eliza Kaczorek and Anna Gierlak.
+    Przemysław Kosewski, Jędrzej Krauze, Eliza Kaczorek, Anna Gierlak,
+    Adam Wawrzyniak, Aleksander Truszczyński, Mateusz Kobyłka and Michał Maciąg.
 
 
 5. [`g2mg`](catalogue/g2mg.md) -
@@ -265,15 +266,28 @@ We have tried to resolve any conflicts in the *best* possible manner.
 |43 |sipu/s4                |   5000|  2|
 |44 |sipu/spiral            |    312|  2|
 |45 |sipu/unbalance         |   6500|  2|
-|46 |wut/cross              |   2000|  2|
-|47 |wut/smile              |   1000|  2|
-|48 |wut/twosplashes        |    400|  2|
-|49 |wut/x1                 |    120|  2|
-|50 |wut/x2                 |    120|  2|
-|51 |wut/x3                 |    185|  2|
-|52 |wut/z1                 |    192|  2|
-|53 |wut/z2                 |    900|  2|
-|54 |wut/z3                 |   1000|  2|
+|46 |wut/circles            |   4000|  2|
+|47 |wut/cross              |   2000|  2|
+|48 |wut/graph              |   2500|  2|
+|49 |wut/isolation          |   9000|  2|
+|50 |wut/labirynth          |   3546|  2|
+|51 |wut/mk1                |    300|  2|
+|52 |wut/mk2                |   1000|  2|
+|53 |wut/mk3                |    600|  3|
+|54 |wut/mk4                |   1500|  3|
+|55 |wut/olympic            |   5000|  2|
+|56 |wut/smile              |   1000|  2|
+|57 |wut/stripes            |   5000|  2|
+|58 |wut/trajectories       |  10000|  2|
+|59 |wut/trapped_lovers     |   5000|  3|
+|60 |wut/twosplashes        |    400|  2|
+|61 |wut/windows            |   2977|  2|
+|62 |wut/x1                 |    120|  2|
+|63 |wut/x2                 |    120|  2|
+|64 |wut/x3                 |    185|  2|
+|65 |wut/z1                 |    192|  2|
+|66 |wut/z2                 |    900|  2|
+|67 |wut/z3                 |   1000|  2|
 
 
 We recommend that `h2mg` sets should be studied separately

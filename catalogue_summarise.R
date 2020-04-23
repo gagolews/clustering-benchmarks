@@ -20,7 +20,7 @@
 library("stringi")
 file_names <- list.files("catalogue", glob2rx("*.csv"), full.names=TRUE)
 file_names <- file_names[!stri_detect_regex(file_names, "[hg]2mg")]
-file_names <- "catalogue/g2mg.csv"
+#file_names <- "catalogue/g2mg.csv"
 x <- lapply(file_names, function(file_name)
     unique(read.csv(file_name)[,c("dataset", "n", "d")]))
 x <- do.call(rbind, x)
