@@ -108,7 +108,7 @@ In other words, use
 
 
 On a side note, we discourage the use of the (raw) Fowlkes-Mallows (FM) index,
-because its expected value for two "uncorrelated" partitions is 1/k,
+because its expected value for two unrelated partitions is 1/k,
 therefore averaging of FM scores for partitions of different cardinalities
 becomes meaningless.
 
@@ -198,14 +198,14 @@ We have tried to resolve any conflicts in the *best* possible manner.
 
 
 5. [`g2mg`](catalogue/g2mg.md) -
-    a "corrected" version of the SIPU `G2`-sets with variances
+    a modified version of the SIPU `G2`-sets with variances
     dependent on datasets' dimensionalities
 
     Each dataset consists of 2048 observations belonging
     to either of two Gaussian clusters in 1, 2, ..., 128 dimensions.
 
 6. [`h2mg`](catalogue/h2mg.md) -
-    two Gaussian-like "hubs" with spread dependent on datasets' dimensionalities
+    two Gaussian-like hubs with spread dependent on datasets' dimensionalities
 
     Each dataset consists of 2048 observations in 1, 2, ..., 128 dimensions.
     Each point is sampled from a sphere centred at its own cluster's centre,
@@ -277,7 +277,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
 
 
 We recommend that `h2mg` sets should be studied separately
-(there are too many of them - they can easily "overshadow" the
+(there are too many of them -- they can easily overshadow the
 above ones).
 
 |   |dataset          |    n|   d|
@@ -355,11 +355,12 @@ ground truth label vectors
 
     * a gzipped text file with exactly `n` integers, one per each line
     * the `i`-th label (line) corresponds to the `i`-th data point
-    * `0` denotes the noise class (if present), first "meaningful" cluster is
+    * `0` denotes the noise class (if present), first meaningful cluster is
     named `1`
     * hence, class labels are consecutive integers: `0`, `1`, `2`, ..., `k`,
-    where `k` is the total number of "meaningful" clusters
-    * `labels0` usually denotes the "original" label vector as defined by
+    where `k` is the total number of clusters (noise not included in
+    the counting)
+    * `labels0` usually denotes the original label vector as defined by
     the dataset's creator (if provided)
 
 
@@ -385,7 +386,7 @@ scientific computing packages.
 
 ```python
 import numpy as np
-dataset = "..." # e.g., wut/smile
+dataset = "..." # e.g., "wut/smile" (UNIX-like) or r"wut\smile" (Windows)
 data    = np.loadtxt(dataset+".data.gz", ndmin=2)
 labels  = np.loadtxt(dataset+".labels0.gz", dtype=np.intc)
 # recall that 0 denotes the noise class, 1 - 1st cluster, 2 - 2nd one, etc.
