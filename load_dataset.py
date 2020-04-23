@@ -54,12 +54,13 @@ def load_dataset(name, path="."):
     Examples
     ========
 
-    data, labels, name = load_dataset("wut/wut_smile")
+    import os.path
+    data, labels, name = load_dataset(os.path.join("wut", "smile"),
+        "/usr/share/clustering_benchmarks_v1")
 
-    ret = load_dataset("wut_smile", "wut")
+    ret = load_dataset("smile", "/usr/share/clustering_benchmarks_v1/wut")
     print(ret.data, ret.labels, ret.name)
 
-    ret = load_dataset("wut/wut_smile", "/usr/share/clustering_benchmarks_v1")
     """
     base_name = os.path.join(path, name)
 
