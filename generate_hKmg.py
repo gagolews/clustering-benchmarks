@@ -28,7 +28,7 @@ def generate_hKmg(d, n, mu, s, random_state=None):
     corresponding labels.
 
     The i-th group, i=1,...,K, consists of n[i-1] points
-    that are sampled from a sphere centered at mu[i-1,:], of radius that follows
+    that are sampled from a sphere centred at mu[i-1,:], of radius that follows
     the Gaussian distribution with mean 0 and standard deviation of s[i-1].
     """
     assert mu.shape[0] == n.shape[0] == s.shape[0]

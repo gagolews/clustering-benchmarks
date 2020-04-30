@@ -5,6 +5,7 @@
 ./catalogue_generate.py other
 ./catalogue_generate.py sipu
 ./catalogue_generate.py uci
+./catalogue_generate.py mnist
 ./catalogue_generate.py wut
 ./catalogue_generate.py h2mg
 ./catalogue_generate.py g2mg

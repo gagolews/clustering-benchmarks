@@ -1,0 +1,9 @@
+THE MNIST DATABASE of handwritten digits
+-- train and test sample combined
+
+Authors: Yann LeCun, Corinna Cortes and Christopher J.C. Burges
+
+Source: http://yann.lecun.com/exdb/mnist/
+
+
+`labels0` come from the authors.

@@ -4,7 +4,7 @@
 
 Copyright (C) 2018-2020 Marek.Gagolewski.com
 
-A generalized version of SIPU's G2 sets
+A generalised version of SIPU's G2 sets
 (see https://cs.joensuu.fi/sipu/datasets/G2.txt),
 but with a correction for dimensionality.
 

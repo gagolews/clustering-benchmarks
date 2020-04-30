@@ -141,7 +141,13 @@ We have tried to resolve any conflicts in the *best* possible manner.
     Each dataset consists of 200-1050 observations in 2 dimensions.
 
 
-3. [`other`](catalogue/other.md) includes:
+3. [`mnist`](catalogue/mnist.md) -
+    LeCun's MNIST database of handwritten digits
+    and Zalando's Fashion-MNIST dataset.
+
+
+
+4. [`other`](catalogue/other.md) includes:
 
     * `hdbscan` - a dataset used for demonstrating the outputs of the
         [Python implementation](https://github.com/scikit-learn-contrib/hdbscan)
@@ -172,7 +178,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
     (TODO: help needed).
 
 
-4. [`sipu`](catalogue/sipu.md) -
+5. [`sipu`](catalogue/sipu.md) -
     datasets available at the SIPU (Speech and Image Processing Unit,
     School of Computing, University of Eastern Finland) website
 
@@ -190,7 +196,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
     We excluded the `DIM`-sets as they turn out to be too easy
     for most algorithms.
 
-5. [`uci`](catalogue/uci.md) -
+6. [`uci`](catalogue/uci.md) -
     a selection of datasets available at the University of California, Irvine,
     [Machine Learning Repository](http://archive.ics.uci.edu/ml/)
     (Dua and Graff, 2019)
@@ -201,7 +207,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
     also listed in the SIPU repository.
     Note that "the" Iris dataset is available elsewhere (see `other`).
 
-6. [`wut`](catalogue/wut.md) -
+7. [`wut`](catalogue/wut.md) -
     authored by the fantastic students
     of Marek Gagolewski's Python for Data Analysis course at
     Warsaw University of Technology:
@@ -209,7 +215,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
     Adam Wawrzyniak, Aleksander Truszczyński, Mateusz Kobyłka and Michał Maciąg.
 
 
-7. [`g2mg`](catalogue/g2mg.md) -
+8. [`g2mg`](catalogue/g2mg.md) -
     a modified version of `G2`-sets from SIPU with variances
     dependent on datasets' dimensionalities, i.e., s*np.sqrt(d/2),
     which makes these problems more difficult.
@@ -217,7 +223,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
     Each dataset consists of 2048 observations belonging
     to either of two Gaussian clusters in 1, 2, ..., 128 dimensions.
 
-8. [`h2mg`](catalogue/h2mg.md) -
+9. [`h2mg`](catalogue/h2mg.md) -
     two Gaussian-like hubs with spread dependent on datasets' dimensionalities
 
     Each dataset consists of 2048 observations in 1, 2, ..., 128 dimensions.
@@ -231,85 +237,88 @@ We have tried to resolve any conflicts in the *best* possible manner.
 ## List of Datasets
 
 
-|   |dataset                |      n|  d|
-|:--|:----------------------|------:|--:|
-|1  |fcps/atom              |    800|  3|
-|2  |fcps/chainlink         |   1000|  3|
-|3  |fcps/engytime          |   4096|  2|
-|4  |fcps/hepta             |    212|  3|
-|5  |fcps/lsun              |    400|  2|
-|6  |fcps/target            |    770|  2|
-|7  |fcps/tetra             |    400|  3|
-|8  |fcps/twodiamonds       |    800|  2|
-|9  |fcps/wingnut           |   1016|  2|
-|10 |graves/dense           |    200|  2|
-|11 |graves/fuzzyx          |   1000|  2|
-|12 |graves/line            |    250|  2|
-|13 |graves/parabolic       |   1000|  2|
-|14 |graves/ring            |   1000|  2|
-|15 |graves/ring_noisy      |   1050|  2|
-|16 |graves/ring_outliers   |   1030|  2|
-|17 |graves/zigzag          |    250|  2|
-|18 |graves/zigzag_noisy    |    300|  2|
-|19 |graves/zigzag_outliers |    280|  2|
-|20 |other/chameleon_t4_8k  |   8000|  2|
-|21 |other/chameleon_t5_8k  |   8000|  2|
-|22 |other/chameleon_t7_10k |  10000|  2|
-|23 |other/chameleon_t8_8k  |   8000|  2|
-|24 |other/hdbscan          |   2309|  2|
-|25 |other/iris             |    150|  4|
-|26 |other/iris5            |    105|  4|
-|27 |other/square           |   1000|  2|
-|28 |sipu/a1                |   3000|  2|
-|29 |sipu/a2                |   5250|  2|
-|30 |sipu/a3                |   7500|  2|
-|31 |sipu/aggregation       |    788|  2|
-|32 |sipu/birch1            | 100000|  2|
-|33 |sipu/birch2            | 100000|  2|
-|34 |sipu/compound          |    399|  2|
-|35 |sipu/d31               |   3100|  2|
-|36 |sipu/flame             |    240|  2|
-|37 |sipu/jain              |    373|  2|
-|38 |sipu/pathbased         |    300|  2|
-|39 |sipu/r15               |    600|  2|
-|40 |sipu/s1                |   5000|  2|
-|41 |sipu/s2                |   5000|  2|
-|42 |sipu/s3                |   5000|  2|
-|43 |sipu/s4                |   5000|  2|
-|44 |sipu/spiral            |    312|  2|
-|45 |sipu/unbalance         |   6500|  2|
-|46 |sipu/worms_2           | 105600|  2|
-|47 |sipu/worms_64          | 105000| 64|
-|48 |uci/ecoli              |    336|  7|
-|49 |uci/glass              |    214|  9|
-|50 |uci/ionosphere         |    351| 34|
-|51 |uci/sonar              |    208| 60|
-|52 |uci/statlog            |   2310| 19|
-|53 |uci/wdbc               |    569| 30|
-|54 |uci/wine               |    178| 13|
-|55 |uci/yeast              |   1484|  8|
-|56 |wut/circles            |   4000|  2|
-|57 |wut/cross              |   2000|  2|
-|58 |wut/graph              |   2500|  2|
-|59 |wut/isolation          |   9000|  2|
-|60 |wut/labirynth          |   3546|  2|
-|61 |wut/mk1                |    300|  2|
-|62 |wut/mk2                |   1000|  2|
-|63 |wut/mk3                |    600|  3|
-|64 |wut/mk4                |   1500|  3|
-|65 |wut/olympic            |   5000|  2|
-|66 |wut/smile              |   1000|  2|
-|67 |wut/stripes            |   5000|  2|
-|68 |wut/trajectories       |  10000|  2|
-|69 |wut/trapped_lovers     |   5000|  3|
-|70 |wut/twosplashes        |    400|  2|
-|71 |wut/windows            |   2977|  2|
-|72 |wut/x1                 |    120|  2|
-|73 |wut/x2                 |    120|  2|
-|74 |wut/x3                 |    185|  2|
-|75 |wut/z1                 |    192|  2|
-|76 |wut/z2                 |    900|  2|
-|77 |wut/z3                 |   1000|  2|
+|   |dataset                |      n|   d|
+|:--|:----------------------|------:|---:|
+|1  |fcps/atom              |    800|   3|
+|2  |fcps/chainlink         |   1000|   3|
+|3  |fcps/engytime          |   4096|   2|
+|4  |fcps/hepta             |    212|   3|
+|5  |fcps/lsun              |    400|   2|
+|6  |fcps/target            |    770|   2|
+|7  |fcps/tetra             |    400|   3|
+|8  |fcps/twodiamonds       |    800|   2|
+|9  |fcps/wingnut           |   1016|   2|
+|10 |graves/dense           |    200|   2|
+|11 |graves/fuzzyx          |   1000|   2|
+|12 |graves/line            |    250|   2|
+|13 |graves/parabolic       |   1000|   2|
+|14 |graves/ring            |   1000|   2|
+|15 |graves/ring_noisy      |   1050|   2|
+|16 |graves/ring_outliers   |   1030|   2|
+|17 |graves/zigzag          |    250|   2|
+|18 |graves/zigzag_noisy    |    300|   2|
+|19 |graves/zigzag_outliers |    280|   2|
+|20 |mnist/digits           |  70000| 784|
+|21 |mnist/fashion          |  70000| 784|
+|22 |other/chameleon_t4_8k  |   8000|   2|
+|23 |other/chameleon_t5_8k  |   8000|   2|
+|24 |other/chameleon_t7_10k |  10000|   2|
+|25 |other/chameleon_t8_8k  |   8000|   2|
+|26 |other/hdbscan          |   2309|   2|
+|27 |other/iris             |    150|   4|
+|28 |other/iris5            |    105|   4|
+|29 |other/square           |   1000|   2|
+|30 |sipu/a1                |   3000|   2|
+|31 |sipu/a2                |   5250|   2|
+|32 |sipu/a3                |   7500|   2|
+|33 |sipu/aggregation       |    788|   2|
+|34 |sipu/birch1            | 100000|   2|
+|35 |sipu/birch2            | 100000|   2|
+|36 |sipu/compound          |    399|   2|
+|37 |sipu/d31               |   3100|   2|
+|38 |sipu/flame             |    240|   2|
+|39 |sipu/jain              |    373|   2|
+|40 |sipu/pathbased         |    300|   2|
+|41 |sipu/r15               |    600|   2|
+|42 |sipu/s1                |   5000|   2|
+|43 |sipu/s2                |   5000|   2|
+|44 |sipu/s3                |   5000|   2|
+|45 |sipu/s4                |   5000|   2|
+|46 |sipu/spiral            |    312|   2|
+|47 |sipu/unbalance         |   6500|   2|
+|48 |sipu/worms_2           | 105600|   2|
+|49 |sipu/worms_64          | 105000|  64|
+|50 |uci/ecoli              |    336|   7|
+|51 |uci/glass              |    214|   9|
+|52 |uci/ionosphere         |    351|  34|
+|53 |uci/sonar              |    208|  60|
+|54 |uci/statlog            |   2310|  19|
+|55 |uci/wdbc               |    569|  30|
+|56 |uci/wine               |    178|  13|
+|57 |uci/yeast              |   1484|   8|
+|58 |wut/circles            |   4000|   2|
+|59 |wut/cross              |   2000|   2|
+|60 |wut/graph              |   2500|   2|
+|61 |wut/isolation          |   9000|   2|
+|62 |wut/labirynth          |   3546|   2|
+|63 |wut/mk1                |    300|   2|
+|64 |wut/mk2                |   1000|   2|
+|65 |wut/mk3                |    600|   3|
+|66 |wut/mk4                |   1500|   3|
+|67 |wut/olympic            |   5000|   2|
+|68 |wut/smile              |   1000|   2|
+|69 |wut/stripes            |   5000|   2|
+|70 |wut/trajectories       |  10000|   2|
+|71 |wut/trapped_lovers     |   5000|   3|
+|72 |wut/twosplashes        |    400|   2|
+|73 |wut/windows            |   2977|   2|
+|74 |wut/x1                 |    120|   2|
+|75 |wut/x2                 |    120|   2|
+|76 |wut/x3                 |    185|   2|
+|77 |wut/z1                 |    192|   2|
+|78 |wut/z2                 |    900|   2|
+|79 |wut/z3                 |   1000|   2|
+
 
 
 
