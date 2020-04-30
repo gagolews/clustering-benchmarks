@@ -164,7 +164,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
        `chameleon_t4_8k` and suggests its relation with CHAMELEON, but
        its screenshot does not appear in the paper.
 
-    * `iris`, `iris5` - the (? - see Bezdek et al., 1999 for discussion)
+    * `iris`, `iris5` - "the" (for discussion see Bezdek et al., 1999)
         famous Iris dataset and its imbalanced version considered
         in (Gagolewski et al., 2016).
 
@@ -176,7 +176,7 @@ We have tried to resolve any conflicts in the *best* possible manner.
     datasets available at the SIPU (Speech and Image Processing Unit,
     School of Computing, University of Eastern Finland) website
 
-    Many datasets were proposed by Fränti et al., see
+    Many datasets were proposed by P. Fränti et al., see
     (Fränti, Sieranoja, 2018). However, some datasets gathered from other
     sources (see the referenced catalogue for citations) but available
     for download via the SIPU website are also included.
@@ -190,7 +190,18 @@ We have tried to resolve any conflicts in the *best* possible manner.
     We excluded the `DIM`-sets as they turn out to be too easy
     for most algorithms.
 
-5. [`wut`](catalogue/wut.md) -
+5. [`uci`](catalog/uci.md) -
+    a selection of datasets available at the University of California, Irvine,
+    [Machine Learning Repository](http://archive.ics.uci.edu/ml/)
+    (Dua and Graff, 2018)
+
+    Some of these datasets in this selection were considered
+    for benchmark purposes
+    in - among others - (Graves and Pedrycz, 2010); they are
+    also listed in the SIPU repository.
+    Note that "the" Iris dataset is available elsewhere (see `other`).
+
+6. [`wut`](catalogue/wut.md) -
     authored by the fantastic students
     of Marek's [Python for Data Analysis course](http://www.gagolewski.com/teaching/padpy/) @
     [Warsaw University of Technology](https://ww4.mini.pw.edu.pl/):
@@ -198,14 +209,15 @@ We have tried to resolve any conflicts in the *best* possible manner.
     Adam Wawrzyniak, Aleksander Truszczyński, Mateusz Kobyłka and Michał Maciąg.
 
 
-5. [`g2mg`](catalogue/g2mg.md) -
+7. [`g2mg`](catalogue/g2mg.md) -
     a modified version of the SIPU `G2`-sets with variances
-    dependent on datasets' dimensionalities
+    dependent on datasets' dimensionalities, i.e., s*np.sqrt(d/2),
+    which makes these problems more difficult.
 
     Each dataset consists of 2048 observations belonging
     to either of two Gaussian clusters in 1, 2, ..., 128 dimensions.
 
-6. [`h2mg`](catalogue/h2mg.md) -
+8. [`h2mg`](catalogue/h2mg.md) -
     two Gaussian-like hubs with spread dependent on datasets' dimensionalities
 
     Each dataset consists of 2048 observations in 1, 2, ..., 128 dimensions.
@@ -266,28 +278,37 @@ We have tried to resolve any conflicts in the *best* possible manner.
 |43 |sipu/s4                |   5000|  2|
 |44 |sipu/spiral            |    312|  2|
 |45 |sipu/unbalance         |   6500|  2|
-|46 |wut/circles            |   4000|  2|
-|47 |wut/cross              |   2000|  2|
-|48 |wut/graph              |   2500|  2|
-|49 |wut/isolation          |   9000|  2|
-|50 |wut/labirynth          |   3546|  2|
-|51 |wut/mk1                |    300|  2|
-|52 |wut/mk2                |   1000|  2|
-|53 |wut/mk3                |    600|  3|
-|54 |wut/mk4                |   1500|  3|
-|55 |wut/olympic            |   5000|  2|
-|56 |wut/smile              |   1000|  2|
-|57 |wut/stripes            |   5000|  2|
-|58 |wut/trajectories       |  10000|  2|
-|59 |wut/trapped_lovers     |   5000|  3|
-|60 |wut/twosplashes        |    400|  2|
-|61 |wut/windows            |   2977|  2|
-|62 |wut/x1                 |    120|  2|
-|63 |wut/x2                 |    120|  2|
-|64 |wut/x3                 |    185|  2|
-|65 |wut/z1                 |    192|  2|
-|66 |wut/z2                 |    900|  2|
-|67 |wut/z3                 |   1000|  2|
+|46 |uci/ecoli              |    336|  7|
+|47 |uci/glass              |    214|  9|
+|48 |uci/ionosphere         |    351| 34|
+|49 |uci/sonar              |    208| 60|
+|50 |uci/statlog            |   2310| 19|
+|51 |uci/wdbc               |    569| 30|
+|52 |uci/wine               |    178| 13|
+|53 |uci/yeast              |   1484|  8|
+|54 |wut/circles            |   4000|  2|
+|55 |wut/cross              |   2000|  2|
+|56 |wut/graph              |   2500|  2|
+|57 |wut/isolation          |   9000|  2|
+|58 |wut/labirynth          |   3546|  2|
+|59 |wut/mk1                |    300|  2|
+|60 |wut/mk2                |   1000|  2|
+|61 |wut/mk3                |    600|  3|
+|62 |wut/mk4                |   1500|  3|
+|63 |wut/olympic            |   5000|  2|
+|64 |wut/smile              |   1000|  2|
+|65 |wut/stripes            |   5000|  2|
+|66 |wut/trajectories       |  10000|  2|
+|67 |wut/trapped_lovers     |   5000|  3|
+|68 |wut/twosplashes        |    400|  2|
+|69 |wut/windows            |   2977|  2|
+|70 |wut/x1                 |    120|  2|
+|71 |wut/x2                 |    120|  2|
+|72 |wut/x3                 |    185|  2|
+|73 |wut/z1                 |    192|  2|
+|74 |wut/z2                 |    900|  2|
+|75 |wut/z3                 |   1000|  2|
+
 
 
 We recommend that `h2mg` sets should be studied separately
@@ -458,7 +479,7 @@ Dasgupta S., Ng V. (2009). *Single Data, Multiple Clusterings*, In:
 Proc. NIPS Workshop *Clustering: Science or Art? Towards Principled Approaches*.
 Available at [clusteringtheory.org](http://clusteringtheory.org)
 
-Dua D., Karra Taniskidou E. (2018). *UCI Machine Learning Repository*
+Dua D., Graff C. (2019). *UCI Machine Learning Repository*
 [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California,
 School of Information and Computer Science.
 
