@@ -24,6 +24,8 @@ is maintained by [Marek Gagolewski](http://www.gagolewski.com)**
 * [sipu/s4](#sipu_s4)
 * [sipu/spiral](#sipu_spiral)
 * [sipu/unbalance](#sipu_unbalance)
+* [sipu/worms_2](#sipu_worms_2)
+* [sipu/worms_64](#sipu_worms_64)
 
 --------------------------------------------------------------------------------
 
@@ -519,6 +521,57 @@ true_k= 8, noise=    0, true_g=0.626
 label_counts=[2000, 2000, 2000, 100, 100, 100, 100, 100]
 
 ![](sipu/unbalance.labels0.png)
+
+
+
+
+## sipu/worms_2 (n=105600, d=2) <a name="sipu_worms_2"></a>
+
+    Synthetic 2D data with worm-like shapes
+    
+    Source: S. Sieranoja and P. Fränti,
+    Fast and general density peaks clustering,
+    Pattern Recognition Letters, 128, 551-558, 2019.
+    
+    Web: https://cs.joensuu.fi/sipu/datasets/
+    
+    `labels0` come from the Authors.
+    
+
+
+#### `labels0`
+
+true_k=35, noise=    0, true_g=0.283
+
+label_counts=[3120, 4560, 4368, 4008, 3648, 3144, 1992, 1008, 4464, 936, 2904, 1296, 2496, 2328, 4968, 5880, 3696, 4896, 2160, 2160, 3048, 5640, 1752, 1176, 4968, 4920, 768, 2472, 1392, 1752, 3840, 2664, 840, 3336, 3000]
+
+![](sipu/worms_2.labels0.png)
+
+
+
+
+## sipu/worms_64 (n=105000, d=64) <a name="sipu_worms_64"></a>
+
+    Synthetic 64D data with worm-like shapes
+    
+    Source: S. Sieranoja and P. Fränti,
+    Fast and general density peaks clustering,
+    Pattern Recognition Letters, 128, 551-558, 2019.
+    
+    Web: https://cs.joensuu.fi/sipu/datasets/
+    
+    `labels0` come from the Authors.
+    
+
+
+#### `labels0`
+
+true_k=25, noise=    0, true_g=0.000
+
+label_counts=[4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200, 4200]
+
+> **(preview generation suppressed)**
+
 
 
 

@@ -190,10 +190,10 @@ We have tried to resolve any conflicts in the *best* possible manner.
     We excluded the `DIM`-sets as they turn out to be too easy
     for most algorithms.
 
-5. [`uci`](catalog/uci.md) -
+5. [`uci`](catalogue/uci.md) -
     a selection of datasets available at the University of California, Irvine,
     [Machine Learning Repository](http://archive.ics.uci.edu/ml/)
-    (Dua and Graff, 2018)
+    (Dua and Graff, 2019)
 
     Some of these datasets in this selection were considered
     for benchmark purposes
@@ -203,14 +203,14 @@ We have tried to resolve any conflicts in the *best* possible manner.
 
 6. [`wut`](catalogue/wut.md) -
     authored by the fantastic students
-    of Marek's [Python for Data Analysis course](http://www.gagolewski.com/teaching/padpy/) @
-    [Warsaw University of Technology](https://ww4.mini.pw.edu.pl/):
+    of Marek Gagolewski's Python for Data Analysis course at
+    Warsaw University of Technology:
     Przemysław Kosewski, Jędrzej Krauze, Eliza Kaczorek, Anna Gierlak,
     Adam Wawrzyniak, Aleksander Truszczyński, Mateusz Kobyłka and Michał Maciąg.
 
 
 7. [`g2mg`](catalogue/g2mg.md) -
-    a modified version of the SIPU `G2`-sets with variances
+    a modified version of `G2`-sets from SIPU with variances
     dependent on datasets' dimensionalities, i.e., s*np.sqrt(d/2),
     which makes these problems more difficult.
 
@@ -278,40 +278,43 @@ We have tried to resolve any conflicts in the *best* possible manner.
 |43 |sipu/s4                |   5000|  2|
 |44 |sipu/spiral            |    312|  2|
 |45 |sipu/unbalance         |   6500|  2|
-|46 |uci/ecoli              |    336|  7|
-|47 |uci/glass              |    214|  9|
-|48 |uci/ionosphere         |    351| 34|
-|49 |uci/sonar              |    208| 60|
-|50 |uci/statlog            |   2310| 19|
-|51 |uci/wdbc               |    569| 30|
-|52 |uci/wine               |    178| 13|
-|53 |uci/yeast              |   1484|  8|
-|54 |wut/circles            |   4000|  2|
-|55 |wut/cross              |   2000|  2|
-|56 |wut/graph              |   2500|  2|
-|57 |wut/isolation          |   9000|  2|
-|58 |wut/labirynth          |   3546|  2|
-|59 |wut/mk1                |    300|  2|
-|60 |wut/mk2                |   1000|  2|
-|61 |wut/mk3                |    600|  3|
-|62 |wut/mk4                |   1500|  3|
-|63 |wut/olympic            |   5000|  2|
-|64 |wut/smile              |   1000|  2|
-|65 |wut/stripes            |   5000|  2|
-|66 |wut/trajectories       |  10000|  2|
-|67 |wut/trapped_lovers     |   5000|  3|
-|68 |wut/twosplashes        |    400|  2|
-|69 |wut/windows            |   2977|  2|
-|70 |wut/x1                 |    120|  2|
-|71 |wut/x2                 |    120|  2|
-|72 |wut/x3                 |    185|  2|
-|73 |wut/z1                 |    192|  2|
-|74 |wut/z2                 |    900|  2|
-|75 |wut/z3                 |   1000|  2|
+|46 |sipu/worms_2           | 105600|  2|
+|47 |sipu/worms_64          | 105000| 64|
+|48 |uci/ecoli              |    336|  7|
+|49 |uci/glass              |    214|  9|
+|50 |uci/ionosphere         |    351| 34|
+|51 |uci/sonar              |    208| 60|
+|52 |uci/statlog            |   2310| 19|
+|53 |uci/wdbc               |    569| 30|
+|54 |uci/wine               |    178| 13|
+|55 |uci/yeast              |   1484|  8|
+|56 |wut/circles            |   4000|  2|
+|57 |wut/cross              |   2000|  2|
+|58 |wut/graph              |   2500|  2|
+|59 |wut/isolation          |   9000|  2|
+|60 |wut/labirynth          |   3546|  2|
+|61 |wut/mk1                |    300|  2|
+|62 |wut/mk2                |   1000|  2|
+|63 |wut/mk3                |    600|  3|
+|64 |wut/mk4                |   1500|  3|
+|65 |wut/olympic            |   5000|  2|
+|66 |wut/smile              |   1000|  2|
+|67 |wut/stripes            |   5000|  2|
+|68 |wut/trajectories       |  10000|  2|
+|69 |wut/trapped_lovers     |   5000|  3|
+|70 |wut/twosplashes        |    400|  2|
+|71 |wut/windows            |   2977|  2|
+|72 |wut/x1                 |    120|  2|
+|73 |wut/x2                 |    120|  2|
+|74 |wut/x3                 |    185|  2|
+|75 |wut/z1                 |    192|  2|
+|76 |wut/z2                 |    900|  2|
+|77 |wut/z3                 |   1000|  2|
 
 
 
-We recommend that `h2mg` sets should be studied separately
+
+We recommend that the `h2mg` sets should be studied separately
 (there are too many of them -- they can easily overshadow the
 above ones).
 
@@ -336,7 +339,7 @@ above ones).
 |72 |h2mg/h2mg_128_90 | 2048| 128|
 
 
-We recommend that `g2mg` sets should be studied separately as well.
+The `g2mg` sets should be studied separately too.
 
 
 |   |dataset          |    n|   d|
