@@ -4,6 +4,7 @@ Benchmark Suite for Clustering Algorithms - Version 1
 Maintained by [Marek Gagolewski](http://www.gagolewski.com),
 with contributions from [Anna Cena](http://cena.rexamine.com)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3815066.svg)](https://doi.org/10.5281/zenodo.3815066)
 
 It is not rare for clustering papers/graduate theses to consider only few
 (say, 5-10) datasets. Some authors just stick to 5-10 UCI datasets,
@@ -35,11 +36,17 @@ no new datasets will be added. This will ensure
 that everyone evaluates their methods on the same test data.
 
 
+You can download the repository in its entirety at:
+https://github.com/gagolews/clustering_benchmarks_v1/releases/tag/v1
+
+
+
 Please cite this repository as:
 
 > M. Gagolewski and A. Cena (Eds.),
 > *Benchmark Suite for Clustering Algorithms -- Version 1*,
-> 2020, https://github.com/gagolews/clustering_benchmarks_v1.
+> 2020, https://github.com/gagolews/clustering_benchmarks_v1,
+> doi:10.5281/zenodo.3815066
 
 
 ```bibtex
@@ -47,7 +54,8 @@ Please cite this repository as:
     editor = {Marek Gagolewski and Anna Cena},
     title = {Benchmark Suite for Clustering Algorithms -- Version 1},
     year = {2020},
-    url = {https://github.com/gagolews/clustering_benchmarks_v1}
+    url = {https://github.com/gagolews/clustering_benchmarks_v1},
+    doi = {10.5281/zenodo.3815066}
 }
 ```
 
