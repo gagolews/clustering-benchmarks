@@ -1,14 +1,16 @@
-Benchmark Suite for Clustering Algorithms - Version 1 (BETA)
-============================================================
+Benchmark Suite for Clustering Algorithms - Version 1
+=====================================================
 
 Maintained by [Marek Gagolewski](http://www.gagolewski.com),
 with contributions from [Anna Cena](http://cena.rexamine.com)
 
 
 It is not rare for clustering papers/graduate theses to consider only few
-(say, 5-10) datasets. Some authors propose own datasets, not
-testing their methods against other benchmarks, risking their evaluation
-be biased. Some authors who share their data (kudos to them!)
+(say, 5-10) datasets. Some authors just stick to 5-10 UCI datasets,
+which is not enough. Other authors propose own datasets, not
+testing their methods against other benchmarks batteries,
+risking their evaluation be biased. Some authors who share
+their data (kudos to them!)
 might not necessarily make the use of their suites particularly
 smooth (different file formats, different ways to access, etc.,
 even across a single repository).
@@ -27,10 +29,9 @@ and data mining literature. Moreover, we introduce **new datasets**
 of different dimensionalities, sizes and cluster types.
 
 
-This is **version 1** (BETA) of the suite,
-dated XX YYYY 2020 (TODO).
-The contents of this repository (TODO: will be) frozen --
-no new datasets will be added here. This will ensure
+This is **version 1** of the suite, dated 8 May 2020.
+The contents of this repository are frozen --
+no new datasets will be added. This will ensure
 that everyone evaluates their methods on the same test data.
 
 
@@ -51,11 +52,13 @@ Please cite this repository as:
 ```
 
 
-New releases/versions of this benchmark suite (as separate repositories)
+New releases/versions of this benchmark suite
+(as separate repositories)
 are likely to appear in the future.
-If you have any suggestions regarding its scope (e.g., request the addition
-of new datasets),
-please contact the maintainer, [Marek Gagolewski](http://www.gagolewski.com).
+If you have any suggestions regarding its scope
+(e.g., request the addition of new datasets),
+please contact the maintainer,
+[Marek Gagolewski](http://www.gagolewski.com).
 
 
 The following is provided **solely for research purposes**,
