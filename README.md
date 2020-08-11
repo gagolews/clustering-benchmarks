@@ -78,6 +78,9 @@ that make use of these.
 
 # Measuring Clustering Quality
 
+> For an example study featuring this benchmark battery,
+> see https://genieclust.gagolewski.com.
+
 
 
 **Ground-truth/reference label vectors are provided alongside each dataset.**
