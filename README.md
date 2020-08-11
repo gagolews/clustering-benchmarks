@@ -1,8 +1,7 @@
 Benchmark Suite for Clustering Algorithms - Version 1
 =====================================================
 
-Maintained by [Marek Gagolewski](http://www.gagolewski.com),
-with contributions from [Anna Cena](http://cena.rexamine.com)
+Maintained by [Marek Gagolewski](http://www.gagolewski.com).
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3815066.svg)](https://doi.org/10.5281/zenodo.3815066)
 
@@ -43,7 +42,7 @@ https://github.com/gagolews/clustering_benchmarks_v1/releases/tag/v1
 
 Please cite this repository as:
 
-> M. Gagolewski and A. Cena (Eds.),
+> M. Gagolewski and others (Eds.),
 > *Benchmark Suite for Clustering Algorithms -- Version 1*,
 > 2020, https://github.com/gagolews/clustering_benchmarks_v1,
 > doi:10.5281/zenodo.3815066
@@ -51,7 +50,7 @@ Please cite this repository as:
 
 ```bibtex
 @misc{clustering_benchmarks_v1,
-    editor = {Marek Gagolewski and Anna Cena},
+    author = {Marek Gagolewski and others},
     title = {Benchmark Suite for Clustering Algorithms -- Version 1},
     year = {2020},
     url = {https://github.com/gagolews/clustering_benchmarks_v1},
