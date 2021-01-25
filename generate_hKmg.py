@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-"""Generators for `hKmg` Clustering Datasets
+"""Generators for the `hKmg` Clustering Datasets
 
-Copyright (C) 2018-2020 Marek.Gagolewski.com
+Copyleft (C) 2018-2021 Marek Gagolewski <https://www.gagolewski.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -2,7 +2,8 @@
 
 # Summarise the list of the Clustering Datasets as provided
 # in the catalogue/*.csv files
-# Copyright (C) 2018-2020 Marek.Gagolewski.com
+#
+# Copyleft (C) 2018-2021 Marek Gagolewski <https://www.gagolewski.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

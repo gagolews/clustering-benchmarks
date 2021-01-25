@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-"""Generators for `gKmg` Clustering Datasets
+"""Generators for the `gKmg` Clustering Datasets
 
-Copyright (C) 2018-2020 Marek.Gagolewski.com
+Copyleft (C) 2018-2021 Marek Gagolewski <https://www.gagolewski.com>
 
 A generalised version of SIPU's G2 sets
 (see https://cs.joensuu.fi/sipu/datasets/G2.txt),

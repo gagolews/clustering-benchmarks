@@ -1,11 +1,9 @@
 #!/bin/bash
 
-./catalogue_generate.py fcps
-./catalogue_generate.py graves
-./catalogue_generate.py other
-./catalogue_generate.py sipu
-./catalogue_generate.py uci
-./catalogue_generate.py mnist
-./catalogue_generate.py wut
-./catalogue_generate.py h2mg
-./catalogue_generate.py g2mg
+# Copyleft (C) 2018-2021 Marek Gagolewski <https://www.gagolewski.com>
+
+batteries="fcps graves other sipu uci wut mnist h2mg g2mg"
+for b in $batteries; do
+    ./catalogue_generate.py $b
+    pandoc catalogue/$b.md --to html -o catalogue/$b.html
+done

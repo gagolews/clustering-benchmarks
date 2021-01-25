@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-"""Generates the Catalogue of Clustering Datasets in a Given Directory
+"""Generates the Catalogue of Clustering Datasets
 
-Copyright (C) 2018-2020 Marek.Gagolewski.com
+Copyleft (C) 2018-2021 Marek Gagolewski <https://www.gagolewski.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ def process(f, dataset):
     X = np.loadtxt(dataset+".data.gz", ndmin=2)
     # X = (X-X.mean(axis=0))/X.std(axis=None, ddof=1) # scale all axes proportionally
 
-    print('## %s (n=%d, d=%d) <a name="%s"></a>\n'%(
+    print('## %s (n=%d, d=%d) <a name="%s"></a>\n' % (
         dataset, X.shape[0], X.shape[1], str.replace(dataset, os.path.sep, "_")
     ), file=f)
 
@@ -55,19 +55,21 @@ def process(f, dataset):
     print("\n", file=f)
 
     label_names = sorted([re.search(r'\.(labels[0-9]+)\.gz', name).group(1) for name in glob.glob(dataset+".labels*.gz")])
-    labels = [np.loadtxt("%s.%s.gz" % (dataset,name), dtype='int') for name in label_names]
+    labels = [np.loadtxt("%s.%s.gz" % (dataset, name), dtype='int') for name in label_names]
     label_counts = [np.bincount(l) for l in labels]
     noise_counts = [c[0] for c in label_counts]
     #have_noise = [bool(c[0]) for c in label_counts]
     label_counts = [c[1:] for c in label_counts]
     true_K = [len(c) for c in label_counts]
-    true_G = [genieclust.inequity.gini(c) for c in label_counts]
+    true_G = [genieclust.inequity.gini_index(c) for c in label_counts]
 
     for i in range(len(label_names)):
         print("#### `%s`\n\ntrue_k=%2d, noise=%5d, true_g=%.3f\n\nlabel_counts=%r\n" % (
-                    label_names[i], true_K[i], noise_counts[i], true_G[i], label_counts[i].tolist()),
-                    file=f
-                 )
+                label_names[i], true_K[i], noise_counts[i],
+                true_G[i], label_counts[i].tolist()
+            ),
+            file=f
+        )
 
         if X.shape[1] not in [1, 2, 3]:
             print('> **(preview generation suppressed)**\n\n', file=f)
@@ -154,7 +156,7 @@ if __name__ == "__main__":
     f = open(output, "w")
 
     print("**[Benchmark Suite for Clustering Algorithms -- Version 1](https://github.com/gagolews/clustering_benchmarks_v1)", file=f)
-    print("is maintained by [Marek Gagolewski](http://www.gagolewski.com)**\n", file=f)
+    print("is maintained by [Marek Gagolewski](https://www.gagolewski.com)**\n", file=f)
     print("\n"+("-"*80)+"\n", file=f)
 
     print("**Datasets**\n", file=f)

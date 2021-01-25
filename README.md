@@ -1,19 +1,19 @@
-Benchmark Suite for Clustering Algorithms - Version 1
+Benchmark Suite for Clustering Algorithms — Version 1
 =====================================================
 
-Maintained by [Marek Gagolewski](http://www.gagolewski.com).
+Maintained by [Marek Gagolewski](https://www.gagolewski.com).
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3815066.svg)](https://doi.org/10.5281/zenodo.3815066)
 
-It is not rare for clustering papers/graduate theses to consider only few
-(say, 5-10) datasets. Some authors just stick to 5-10 UCI datasets,
-which is not enough. Other authors propose own datasets, not
-testing their methods against other benchmarks batteries,
-risking their evaluation be biased. Some authors who share
-their data (kudos to them!)
-might not necessarily make the use of their suites particularly
-smooth (different file formats, different ways to access, etc.,
-even across a single repository).
+It is not rare for clustering papers/graduate theses to consider only a small
+number of datasets, say 5-10 UCI-sourced ones,
+which obviously is too few to make any evaluations rigorous enough.
+Other authors propose their own datasets, but forget to test their methods
+against other benchmarks batteries, risking their evaluations be biased.
+
+Authors who share their data (kudos to them!) might not necessarily make
+the use of their suites particularly smooth (different file formats,
+different ways to access, etc., even across a single repository).
 On the other hand, other machine learning domains
 (but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization))
 have had some standardised, well agreed-upon approaches for testing
@@ -30,7 +30,7 @@ of different dimensionalities, sizes and cluster types.
 
 
 This is **version 1** of the suite, dated 8 May 2020.
-The contents of this repository are frozen --
+The contents of this repository are frozen –
 no new datasets will be added. This will ensure
 that everyone evaluates their methods on the same test data.
 
@@ -43,7 +43,7 @@ https://github.com/gagolews/clustering_benchmarks_v1/releases/tag/v1
 Please cite this repository as:
 
 > M. Gagolewski and others (Eds.),
-> *Benchmark Suite for Clustering Algorithms -- Version 1*,
+> *Benchmark Suite for Clustering Algorithms – Version 1*,
 > 2020, https://github.com/gagolews/clustering_benchmarks_v1,
 > doi:10.5281/zenodo.3815066
 
@@ -65,7 +65,7 @@ are likely to appear in the future.
 If you have any suggestions regarding its scope
 (e.g., request the addition of new datasets),
 please contact the maintainer,
-[Marek Gagolewski](http://www.gagolewski.com).
+[Marek Gagolewski](https://www.gagolewski.com).
 
 
 The following is provided **solely for research purposes**,
@@ -89,7 +89,7 @@ They define the desired number of clusters, `k`.
 
 Cluster similarity measures (such as the adjusted Rand index or
 normalised mutual information score,
-see, e.g, Hubert and Arabie, 1985) can be used to compare
+see, e.g., Hubert and Arabie, 1985) can be used to compare
 the agreement between the reference and the generated partition.
 
 
@@ -222,8 +222,8 @@ We have tried to resolve any conflicts in the *best* possible manner.
 
 7. [`wut`](catalogue/wut.md) -
     authored by the fantastic students
-    of Marek Gagolewski's Python for Data Analysis course at
-    Warsaw University of Technology:
+    of [Marek Gagolewski](https://www.gagolewski.com)'s Python
+    for Data Analysis course at Warsaw University of Technology:
     Przemysław Kosewski, Jędrzej Krauze, Eliza Kaczorek, Anna Gierlak,
     Adam Wawrzyniak, Aleksander Truszczyński, Mateusz Kobyłka and Michał Maciąg.
 
@@ -429,13 +429,11 @@ ground truth label vectors
 
 
 It is assumed that you, the researcher/graduate student/curious user,
-are already able to
-work with (e.g., import, batch process) structured data
+are already able to work with (e.g., import, batch process) structured data
 in your favourite programming language (e.g., C, Java, Python, Matlab, R etc.).
 Please do not ask for help on the basics of computer programming here
-(in particular: in this repository's *Issues* section),
-we all have [StackOverflow](https://stackoverflow.com/) (amongst others)
-for that.
+(in particular: in this repository's *Issues* section), we all have
+[StackOverflow](https://stackoverflow.com/) (amongst others) for that.
 Below are just few *illustrations* on how to load the datasets in some popular
 scientific computing packages.
 
@@ -493,12 +491,12 @@ TODO: describe (help needed)
 
 Bezdek J.C. et al. (1999). Will the real iris data please
 stand up?, *IEEE Transactions on Fuzzy Systems* **7**, pp. 368-369.
-[doi:10.1109/91.771092](http://dx.doi.org/10.1109/91.771092)
+[doi:10.1109/91.771092](https://dx.doi.org/10.1109/91.771092)
 
 Campello R., Moulavi D., Zimek A., Sander J. (2015).
 Hierarchical Density Estimates for Data Clustering, Visualization and Outlier Detection,
 *ACM Transactions on Knowledge Discovery from Data* **10**, art. no. 5.
-[doi:10.1145/2733381](http://dx.doi.org/10.1145/2733381)
+[doi:10.1145/2733381](https://dx.doi.org/10.1145/2733381)
 
 Dasgupta S., Ng V. (2009). *Single Data, Multiple Clusterings*, In:
 Proc. NIPS Workshop *Clustering: Science or Art? Towards Principled Approaches*.
@@ -512,23 +510,23 @@ Fränti P., Mariescu-Istodor R., Zhong C. (2016). XNN graph,
 In: *Proc. IAPR Joint Int. Workshop on Structural, Syntactic,
 and Statistical Pattern Recognition*, Merida, Mexico,
 *Lecture Notes in Computer Science* **10029**, pp. 207-217.
-[doi:10.1007/978-3-319-49055-7_19](http://dx.doi.org/10.1007/978-3-319-49055-7_19)
+[doi:10.1007/978-3-319-49055-7_19](https://dx.doi.org/10.1007/978-3-319-49055-7_19)
 
 Fränti P., Sieranoja S. (2018).
 K-means properties on six clustering benchmark datasets,
 *Applied Intelligence* **48**, 2018, pp. 4743-4759.
-[doi:10.1007/s10489-018-1238-7](http://dx.doi.org/10.1007/s10489-018-1238-7)
+[doi:10.1007/s10489-018-1238-7](https://dx.doi.org/10.1007/s10489-018-1238-7)
 
 Gagolewski M., Bartoszuk M., Cena A. (2016).
 Genie: A new, fast and outlier-resistant hierarchical clustering algorithm,
 *Information Sciences* **363**, pp. 8-23.
-[doi:10.1016/j.ins.2016.05.003](http://dx.doi.org/10.1016/j.ins.2016.05.003)
+[doi:10.1016/j.ins.2016.05.003](https://dx.doi.org/10.1016/j.ins.2016.05.003)
 
 Graves D., Pedrycz W. (2010).
 Kernel-based fuzzy clustering and fuzzy clustering:
 A comparative experimental study,
 *Fuzzy Sets and Systems* **161**(4), pp. 522-543.
-[doi:10.1016/j.fss.2009.10.021](http://dx.doi.org/10.1016/j.fss.2009.10.021)
+[doi:10.1016/j.fss.2009.10.021](https://dx.doi.org/10.1016/j.fss.2009.10.021)
 
 Hubert L., Arabie P. (1985). Comparing Partitions,
 *Journal of Classification* **2**(1), pp. 193-218.
@@ -536,7 +534,7 @@ Hubert L., Arabie P. (1985). Comparing Partitions,
 Karypis G., Han E.H., Kumar V. (1999).
 CHAMELEON: A hierarchical clustering algorithm using dynamic modeling,
 *IEEE Transactions on Computers* **32**(8), pp. 68-75.
-[doi:10.1109/2.781637](http://dx.doi.org/10.1109/2.781637)
+[doi:10.1109/2.781637](https://dx.doi.org/10.1109/2.781637)
 
 Ultsch A. (2005). Clustering with SOM: U\*C,
 In: *Proc. Workshop on Self-Organizing Maps*, Paris, France, pp. 75-82.

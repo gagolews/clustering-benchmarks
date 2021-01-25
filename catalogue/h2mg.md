@@ -1,5 +1,5 @@
 **[Benchmark Suite for Clustering Algorithms -- Version 1](https://github.com/gagolews/clustering_benchmarks_v1)
-is maintained by [Marek Gagolewski](http://www.gagolewski.com)**
+is maintained by [Marek Gagolewski](https://www.gagolewski.com)**
 
 
 --------------------------------------------------------------------------------
