@@ -21,13 +21,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt, matplotlib, matplotlib.image
-from mpl_toolkits.mplot3d import Axes3D
-import seaborn as sns
-import sklearn.metrics, os.path, os, glob, re, sys
-import scipy.spatial.distance
+import matplotlib.pyplot as plt
+import os.path
+import os
+import glob
+import re
+import sys
 import genieclust
-import tempfile, base64
 from natsort import natsorted
 
 #################################################################################
@@ -56,7 +56,7 @@ def process(f, dataset):
 
     label_names = sorted([re.search(r'\.(labels[0-9]+)\.gz', name).group(1) for name in glob.glob(dataset+".labels*.gz")])
     labels = [np.loadtxt("%s.%s.gz" % (dataset, name), dtype='int') for name in label_names]
-    label_counts = [np.bincount(l) for l in labels]
+    label_counts = [np.bincount(ll) for ll in labels]
     noise_counts = [c[0] for c in label_counts]
     #have_noise = [bool(c[0]) for c in label_counts]
     label_counts = [c[1:] for c in label_counts]
@@ -76,38 +76,44 @@ def process(f, dataset):
             continue
 
         plt.figure()
-        ax = plt.subplot(111, projection=None if X.shape[1] in [1,2] else '3d')
+        ax = plt.subplot(111, projection=None if X.shape[1] in [1, 2] else '3d')
 
 
         if X.shape[1] == 2:
-            genieclust.plots.plot_scatter(X, labels=labels[i], alpha=0.25)
+            genieclust.plots.plot_scatter(X, labels=labels[i], alpha=0.5)
             plt.axis("equal")
 
         elif X.shape[1] == 1:
             X_aug = np.insert(X, 1, np.random.randn(len(X))*(X.max()-X.min())*1e-6, axis=1)
-            genieclust.plots.plot_scatter(X_aug, labels=labels[i], alpha=0.25)
+            genieclust.plots.plot_scatter(X_aug, labels=labels[i], alpha=0.5)
             plt.axis("equal")
 
         elif X.shape[1] == 3:
-            ax.scatter(X[:,0], X[:,1],
-                       c=np.array(genieclust.plots.col,dtype=np.object)[
-                           (labels[i])%len(genieclust.plots.col)
-                       ],
-                       alpha=0.25)
+            ax.scatter(
+                X[:, 0],
+                X[:, 1],
+                c=np.array(genieclust.plots.col, dtype=object)[
+                    (labels[i]) % len(genieclust.plots.col)
+                ],
+                alpha=0.5
+            )
             #plt.axis("equal")
 
-        plt.title("%s.%s (n=%d, k=%d%s)"%(dataset, label_names[i],
-                                                X.shape[0],
-                                                true_K[i],
-                                                ", noise=%d"%noise_counts[i] if noise_counts[i] else ""))
+        plt.title("%s.%s (n=%d, k=%d%s)" % (
+            dataset,
+            label_names[i],
+            X.shape[0],
+            true_K[i],
+            ", noise=%d" % noise_counts[i] if noise_counts[i] else ""
+        ))
 
-        _fig_name = "%s.%s.png"%(dataset,label_names[i])
+        _fig_name = "%s.%s.png" % (dataset, label_names[i])
         _fig_path = os.path.join("catalogue", _fig_name)
         plt.savefig(_fig_path, format='png', transparent=True,
                     bbox_inches='tight', dpi=150)
         plt.close()
 
-        print("![](%s)\n"%(_fig_name), file=f)
+        print("![](%s)\n" % (_fig_name), file=f)
 
         # with open(_fig_path, "rb") as img:
             # encoded_string = base64.b64encode(img.read()).decode("US-ASCII")
@@ -132,8 +138,6 @@ def process(f, dataset):
     ]
 
 
-
-
 ###############################################################################
 # Do the job.
 
@@ -152,7 +156,7 @@ if __name__ == "__main__":
     image_folder = os.path.join("catalogue", folder)
     if not os.path.isdir(image_folder): os.mkdir(image_folder)
 
-    output = os.path.join("catalogue", "%s.md"%folder)
+    output = os.path.join("catalogue", "%s.md" % folder)
     f = open(output, "w")
 
     print("**[Benchmark Suite for Clustering Algorithms -- Version 1](https://github.com/gagolews/clustering_benchmarks_v1)", file=f)
@@ -161,18 +165,18 @@ if __name__ == "__main__":
 
     print("**Datasets**\n", file=f)
     for dataset in datasets:
-        print("* [%s](#%s)"%(dataset,str.replace(dataset,"/","_")), file=f)
+        print("* [%s](#%s)" % (dataset, str.replace(dataset, "/", "_")), file=f)
     print("\n"+("-"*80)+"\n", file=f)
 
     metadata = []
     for dataset in datasets:
-        print("Generating %s..."%dataset)
+        print("Generating %s..." % dataset)
         metadata += process(f, dataset)
     f.close()
 
-    metadata_file = os.path.join("catalogue", "%s.csv"%folder)
+    metadata_file = os.path.join("catalogue", "%s.csv" % folder)
     pd.DataFrame(metadata).\
-        loc[:,["dataset", "n", "d", "labels", "k", "noise", "g"]].\
+        loc[:, ["dataset", "n", "d", "labels", "k", "noise", "g"]].\
         to_csv(metadata_file, header=True, index=False)
 
     print("Done.")
