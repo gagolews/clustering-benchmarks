@@ -1,5 +1,5 @@
-Benchmark Suite for Clustering Algorithms — Version 1
-=====================================================
+# Benchmark Suite for Clustering Algorithms
+## Version 1
 
 Maintained by [Marek Gagolewski](https://www.gagolewski.com).
 
