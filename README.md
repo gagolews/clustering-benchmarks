@@ -10,7 +10,7 @@ Maintained by [Marek Gagolewski](https://www.gagolewski.com).
 
 
 It is not rare for clustering papers/graduate theses to consider only a small
-number of datasets, say 5-10 UCI-sourced ones,
+number of datasets, say 5–10 UCI-sourced ones,
 which obviously is too few to make any evaluations rigorous enough.
 Other authors propose their own datasets, but forget to test their methods
 against other benchmarks batteries, risking their evaluations be biased.
@@ -128,7 +128,7 @@ In other words, use
 
 
 On a side note, we discourage the use of the (raw) Fowlkes-Mallows (FM) index,
-because its expected value for two unrelated partitions is 1/k,
+because its expected value for two unrelated partitions is `1/k`,
 therefore averaging of FM scores for partitions of different cardinalities
 becomes meaningless.
 
@@ -528,6 +528,11 @@ Gagolewski M., Bartoszuk M., Cena A. (2016).
 Genie: A new, fast and outlier-resistant hierarchical clustering algorithm,
 *Information Sciences* **363**, pp. 8-23.
 [doi:10.1016/j.ins.2016.05.003](https://dx.doi.org/10.1016/j.ins.2016.05.003)
+
+Gagolewski M., Bartoszuk M., Cena A. (2021).
+Are cluster validity measures (in)valid?, 
+*Information Sciences* **581**, pp. 620–636.
+[doi:10.1016/j.ins.2021.10.004](https://dx.doi.org/10.1016/j.ins.2021.10.004)
 
 Graves D., Pedrycz W. (2010).
 Kernel-based fuzzy clustering and fuzzy clustering:
