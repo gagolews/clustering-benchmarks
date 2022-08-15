@@ -43,9 +43,10 @@ def load_dataset(name, path="."):
 
 
     Returns
-    ----
+    -------
 
-    A named tuple with the following elements:
+    dataset
+        A named tuple with the following elements:
 
         data
             data matrix
