@@ -1,2 +1,47 @@
 __pycache__
 todo_*
+build/
+*.egg-info
+dist/
+*.kate-swp
+.vscode
+.pytest_cache
+pytest/__pycache__
+.ipynb_checkpoints
+*.Rmd-tmp-*
+devel/sphinx/_build
+cache-*
+coverage.xml
+.coverage
+htmlcov
+devel/sphinx/_build
+
+# Compiled files:
+*.o
+*.so
+*.dll
+*.a
+src-i386/
+src-x64/
+
+
+# Backup and temporary files:
+*~
+*.backup
+*.cache
+*.bak
+*.tmp
+tmp*
+delme*
+
+# LaTeX/knitr dust:
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+cache-knitr/
+cache/
+
+# Sphinx documentation
+devel/sphinx/_build
