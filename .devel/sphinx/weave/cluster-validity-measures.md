@@ -2,7 +2,9 @@
 
 
 
-# Cluster *(In)Validity* Measures
+# Side Note: Cluster *(In)Validity* Measures
+
+
 
 
 Cluster *validity* measures (see, e.g.,
@@ -23,8 +25,6 @@ at least not uncritically.
 
 Overall, **we do not recommend relying on cluster *validity* measures
 to judge whether a partition is meaningful or not**.
-
-
 
 
 

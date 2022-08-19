@@ -1,4 +1,4 @@
-# Cluster *(In)Validity* Measures
+# Side Note: Cluster *(In)Validity* Measures
 
 <!--
 TODO: clustering results - explore cvi_optim

@@ -53,18 +53,24 @@ Author <https://www.gagolewski.com/>
 
 ::::{toctree}
 :maxdepth: 2
-:caption: Examples and Tutorials
+:caption: Introduction
 
 weave/partition-similarity-scores
+weave/noise-points
+weave/many-partitions
+weave/data-v1
+weave/file-format
+weave/how-to-access
 weave/cluster-validity-measures
 ::::
 
 
 ::::{toctree}
 :maxdepth: 1
-:caption: API Documentation
+:caption: Python API Documentation
 
-clustbench
+weave/clustbench-usage
+clustbench-documentation
 ::::
 
 

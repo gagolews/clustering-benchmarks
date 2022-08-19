@@ -3,41 +3,105 @@
 Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the input dataset
 that consists of $n$ objects.
 
+As an illustration, in this section we will be considering
+the [`wut/x2`](https://github.com/gagolews/clustering-data-v1) dataset,
+which consists of 120 points in $\mathbb{R}^2$.
+
+
+```{python}
+import numpy as np
+import pandas as pd
+dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/wut/x2"
+X = np.loadtxt(dataset + ".data.gz")
+X[:5, :]  # preview
+```
+
+::::{epigraph}
+*To learn more about Python, which we use in this tutorial,
+check out Marek's recent open-access (free!) textbook*
+[Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
+{cite}`datawranglingpy`.
+*In a {any}`further section <sec:how-to-access>`, we explain
+how to use our benchmark framework from other environments.*
+::::
+
+
+
 Assume we are given a $k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
 encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
 $y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
 
-Furthermore, let $\hat{mathbf{y}}$ be a label vector
-encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$,
-possibly with $l\neq k$.
+
+
 
 [^footpart]: We say that $\{X_1,\dots,X_k\}$ is a $k$-partition of $X$,
-    if each $X_i$ is nonempty, $X_i\cap X_j=\emptyset$ for $i\neq j$,
-    and $\bigcup_{i=1}^k X_i=X$.
+    whenever $\bigcup_{i=1}^k X_i=X$, each $X_i$ is nonempty,
+    and the subsets are pairwise disjoint, i.e., $X_i\cap X_j=\emptyset$
+    for $i\neq j$.
 
 [^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
+
+
+
+In our context, this will be the reference partition
+assigned by the experts that comes along this dataset.
+
+
+```{python}
+(y_true := np.loadtxt(dataset+".labels0.gz", dtype=np.intc))
+```
+
+```{python}
+np.bincount(y_true)
+```
+
+There are thus 0 noise points (which would be encoded as 0),
+50 points in the 1st cluster, 40 points in the 2nd group, and 30 points
+in the 3rd set. Hence, $k=3$.
+
+Furthermore, let $\hat{\mathbf{y}}$ be a label vector
+encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$.
+
+For example, let's consider the output of the
+[*Genie*](https://genieclust.gagolewski.com) algorithm
+with $l=k=3$:
+
+```{python}
+import genieclust
+g = genieclust.Genie(n_clusters=3)  # default parameters
+(y_genie := g.fit_predict(X) + 1)  # +1 so that cluster IDs are in 1:3, not 0:2
+```
+
+The figure below depicts the two partitions side by side.
+
+
+```{python partition-similarity-example,results="hide",fig.cap="Two example paritions that we would like to compare"}
+plt.subplot(1, 2, 1)
+genieclust.plots.plot_scatter(X, labels=y_true-1)
+plt.axis("equal")
+plt.title("y_true")
+plt.subplot(1, 2, 2)
+genieclust.plots.plot_scatter(X, labels=y_genie-1)
+plt.axis("equal")
+plt.title("y_genie")
+plt.show()
+```
 
 Partition similarity scores aim to quantify the similarity between
 $\mathbf{y}$ and $\hat{\mathbf{y}}$.
 
-...
 
-$\mathbf{y}$ - reference partition (expert labels)
-
-$\hat{\mathbf{y}}$ - output of a clustering algorithm
 
 can be used as external cluster validity
 measures — for comparing the outputs of clustering algorithms
 with reference (ground truth) labels
 
-small dataset, e.g., iris example
-output of kmeans
 
 
 
-...
 
-genieclust:: bibliography, compare_partitions.pyx
+
+
 
 Let $\mathbf{C}$ be the
 confusion matrix (with :math:`K` rows and :math:`L` columns, :math:`K \\leq L`)
@@ -45,6 +109,13 @@ corresponding to `x` and `y`, see also
 `genieclust.compare_partitions.confusion_matrix`.
 
 
+```{python}
+(C := genieclust.compare_partitions.confusion_matrix(y_true, y_genie))
+```
+
+genieclust:: bibliography, compare_partitions.pyx
+
+some axioms
 
 Every index except `mi_score` (which computes the mutual
 information score) outputs the value of 1.0 if two identical partitions

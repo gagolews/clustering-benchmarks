@@ -33,14 +33,14 @@ weave:
 news:
 	cd .devel/sphinx && cp ../../NEWS news.md
 
-sphinx: python news weave
+html: python news weave
 	rm -rf .devel/sphinx/_build/
 	cd .devel/sphinx && make html
 	.devel/sphinx/fix-html.sh .devel/sphinx/_build/html/weave/
 	@echo "*** Browse at"\
 	    "file://`pwd`/.devel/sphinx/_build/html/index.html"
 
-docs: sphinx
+docs: html
 	rm -rf docs/
 	mkdir docs/
 	cp -rf .devel/sphinx/_build/html/* docs/
