@@ -43,16 +43,22 @@ the $i$-th point, $i\in[1:n]=\{1,2,\dots,n\}$.
 
 A $k$-partition $\{X_1,\dots,X_k\}$ of a set
 $\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$
-can be encoded by means of a
-surjection $C: [1:n]\stackrel{\text{onto}}{\to}[1:k]$, where
-$C(i)\in[1:k]$ gives the cluster number of the $i$-th point.
+can be encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
+$y_i\in[1:k]$ gives the cluster number of the $i$-th point.
+
+[^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
 
 
 The measures listed below are based on Euclidean distances between all pairs
 of points, $\|\mathbf{x}_i-\mathbf{x}_j\|$, or the input points and some
-other pivots, such as their corresponding cluster centroids,
-$\|\mathbf{x}_i-\boldsymbol\mu_j\|,$ where
-$\mu_{j,l} = \frac{1}{|X_j|} \sum_{\mathbf{x}_i\in X_j} x_{i,l}$.
+other pivots, such as their corresponding *cluster centroids*,
+$\|\mathbf{x}_i-\boldsymbol\mu_j\|,$ where for $j\in[1:k]$ and $l\in[1:d]$:
+
+$$
+\mu_{j,l} = \frac{1}{|X_j|} \sum_{\mathbf{x}_i\in X_j} x_{i,l}.
+$$
+
+
 
 
 
@@ -65,7 +71,7 @@ $\mu_{j,l} = \frac{1}{|X_j|} \sum_{\mathbf{x}_i\in X_j} x_{i,l}$.
 The Ball--Hall index {cite}`BallHall1965:isodata` is the within-cluster
 sum of squares weighted by the cluster cardinality:
 
-$$\mathrm{BallHall}(C) = -\sum_{i=1}^n \frac{1}{|X_{C(i)}|}  \| \mathbf{x}_i - \boldsymbol\mu_{C(i)} \|^2.
+$$\mathrm{BallHall}(\mathbf{y}) = -\sum_{i=1}^n \frac{1}{|X_{y_i}|}  \| \mathbf{x}_i - \boldsymbol\mu_{y_i} \|^2.
 $$
 
 
@@ -83,17 +89,18 @@ The Caliński–Harabasz index (Eq. (3) in {cite}`CalinskiHarabasz1974:index`;
 "variance ratio criterion") is given by:
 
 $$
-\mathrm{CalińskiHarabasz}(C) =
+\mathrm{CalińskiHarabasz}(\mathbf{y}) =
 \frac{n-k}{k-1}
 \frac{
-\sum_{i=1}^n   \| \boldsymbol\mu - \boldsymbol\mu_{C(i)} \|^2
+\sum_{i=1}^n   \| \boldsymbol\mu - \boldsymbol\mu_{y_i} \|^2
 }{
-\sum_{i=1}^n   \| \mathbf{x}_i - \boldsymbol\mu_{C(i)} \|^2
+\sum_{i=1}^n   \| \mathbf{x}_i - \boldsymbol\mu_{y_i} \|^2
 },
 $$
 
 where $\boldsymbol\mu$ denotes the centroid of the whole dataset $\mathbf{X}$,
-$\mu_{l} = \frac{1}{n} \sum_{x=1}^n x_{i,l}.$
+i.e., a vector such that
+$\mu_{l} = \frac{1}{n} \sum_{x=1}^n x_{i,l}$ for $l\in[1:d]$.
 
 It may be shown that the task of minimising the (unweighted) within-cluster
 sum of squares is equivalent to maximising the Caliński--Harabasz index.
@@ -112,7 +119,7 @@ is given as the average similarity between each cluster and its most
 similar counterpart (note the minus sign again):
 
 $$
-\mathrm{DaviesBouldin}(C) =
+\mathrm{DaviesBouldin}(\mathbf{y}) =
 -\frac{1}{k}
 \sum_{i=1}^k\left(
 \max_{j\neq i}
@@ -145,14 +152,14 @@ Denote the average dissimilarity between the $i$-th point and all other
 points in its own cluster with:
 
 $$
-a_i = \frac{1}{|X_{C(i)}|-1} \sum_{\mathbf{x}_u\in X_{C(i)}} \| \mathbf{x}_i-\mathbf{x}_u \|
+a_i = \frac{1}{|X_{y_i}|-1} \sum_{\mathbf{x}_u\in X_{y_i}} \| \mathbf{x}_i-\mathbf{x}_u \|
 $$
 
 and the average dissimilarity between the $i$-th point and all other
 entities in the "closest" cluster with:
 
 $$
-b_i = \min_{j\neq C(i)} \left(
+b_i = \min_{j\neq y_i} \left(
 \frac{1}{|X_j|} \sum_{\mathbf{x}_v\in X_{j}} \| \mathbf{x}_i-\mathbf{x}_v \|
 \right).
 $$
@@ -161,7 +168,7 @@ Then the *Silhouette* index is defined as the average
 silhouette score:
 
 $$
-\mathrm{Silhouette}(C) = \frac{1}{n}\sum_{i=1}^n \frac{b_i-a_i}{\max\{ a_i, b_i \}},
+\mathrm{Silhouette}(\mathbf{y}) = \frac{1}{n}\sum_{i=1}^n \frac{b_i-a_i}{\max\{ a_i, b_i \}},
 $$
 
 with convention $\pm\infty/\infty=0$.
@@ -177,9 +184,9 @@ what we call here the *SilhouetteW* index,
 being the mean of the cluster average silhouette widths:
 
 $$
-\mathrm{SilhouetteW}(C) = \frac{1}{k-s}
+\mathrm{SilhouetteW}(\mathbf{y}) = \frac{1}{k-s}
 \sum_{i=1}^n
-\frac{1}{|X_{C(i)}|}
+\frac{1}{|X_{y_i}|}
 \frac{b_i-a_i}{\max\{ a_i, b_i \}},
 $$
 
@@ -202,7 +209,7 @@ This index has been generalised by Bezdek and Pal in
 {cite}`BezdekPal1998:gdunn` as:
 
 $$
-\mathrm{GDunn}(C)=
+\mathrm{GDunn}(\mathbf{y})=
 \frac{
 \min_{i\neq j} d\left( X_i, X_j \right)
 }{

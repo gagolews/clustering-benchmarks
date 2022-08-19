@@ -1,3 +1,64 @@
 # Partition Similarity Scores
 
+Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the input dataset
+that consists of $n$ objects.
+
+Assume we are given a $k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
+encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
+$y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
+
+Furthermore, let $\hat{mathbf{y}}$ be a label vector
+encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$,
+possibly with $l\neq k$.
+
+[^footpart]: We say that $\{X_1,\dots,X_k\}$ is a $k$-partition of $X$,
+    if each $X_i$ is nonempty, $X_i\cap X_j=\emptyset$ for $i\neq j$,
+    and $\bigcup_{i=1}^k X_i=X$.
+
+[^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
+
+Partition similarity scores aim to quantify the similarity between
+$\mathbf{y}$ and $\hat{\mathbf{y}}$.
+
+...
+
+$\mathbf{y}$ - reference partition (expert labels)
+
+$\hat{\mathbf{y}}$ - output of a clustering algorithm
+
+can be used as external cluster validity
+measures — for comparing the outputs of clustering algorithms
+with reference (ground truth) labels
+
+small dataset, e.g., iris example
+output of kmeans
+
+
+
+...
+
+genieclust:: bibliography, compare_partitions.pyx
+
+Let $\mathbf{C}$ be the
+confusion matrix (with :math:`K` rows and :math:`L` columns, :math:`K \\leq L`)
+corresponding to `x` and `y`, see also
+`genieclust.compare_partitions.confusion_matrix`.
+
+
+
+Every index except `mi_score` (which computes the mutual
+information score) outputs the value of 1.0 if two identical partitions
+are given.
+Note that partitions are always defined up to a bijection of the set of
+possible labels, e.g., (1, 1, 2, 1) and (4, 4, 2, 4)
+represent the same 2-partition.
+
+
+...
+
+Their implementation is included
+in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python.
+
+https://genieclust.gagolewski.com/genieclust_compare_partitions.html
+
 ...
