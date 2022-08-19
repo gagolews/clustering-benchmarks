@@ -9,12 +9,10 @@ dist/
 pytest/__pycache__
 .ipynb_checkpoints
 *.Rmd-tmp-*
-devel/sphinx/_build
 cache-*
 coverage.xml
 .coverage
 htmlcov
-devel/sphinx/_build
 
 # Compiled files:
 *.o
@@ -44,4 +42,4 @@ cache-knitr/
 cache/
 
 # Sphinx documentation
-devel/sphinx/_build
+.devel/sphinx/_build

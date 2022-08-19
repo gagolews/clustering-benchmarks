@@ -1,0 +1,408 @@
+# Cluster *(In)Validity* Measures
+
+
+Cluster *validity* measures (see, e.g.,
+{cite}`Milligan1985:psycho,Maulik2002:cvi_comp,Halkidi2001:cluster_validity,
+ArbelaitzEtAl2013:extensive_CVI,XU2020:external_synthetic`)
+are sometimes used to compare the outputs of different clustering algorithms
+on the same dataset.
+
+However, in {cite}`cvi`
+(see [preprint](https://github.com/gagolews/bibliography/raw/master/preprints/2021cvi.pdf))
+we have pointed out that **many measures
+promote rather random groupings while other ones work better
+as... outlier detectors**.
+
+We should therefore not deem a high value of, say,
+the Silhouette or Davies–Bouldin index *better* than a lower one,
+at least not uncritically.
+
+Overall, **we do not recommend relying on cluster *validity* measures
+to judge whether a partition is meaningful or not**.
+
+
+
+<!--
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import genieclust.plots
+```
+
+
+```{python}
+print("test 1")
+print("test 2")
+```
+
+```{python}
+print("test 3")
+```
+
+```{python}
+genieclust.plots.plot_scatter(np.arange(10), np.sin(np.arange(10)))
+plt.show()
+```
+-->
+
+
+## Notation
+
+Still, for the sake of completeness, let us recall the definitions
+of some of the more popular indices. Their implementation is included
+in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python.
+Note that this section contains excerpts from our paper {cite}`cvi`.
+
+
+Let $\mathbf{X}\in\mathbb{R}^{n\times d}$ denote the input dataset
+comprised of $n$ points in a $d$-dimensional Euclidean space, with
+$\mathbf{x}_i = (x_{i,1},\dots,x_{i,d})$ giving the coordinates of
+the $i$-th point, $i\in[1:n]=\{1,2,\dots,n\}$.
+
+A $k$-partition $\{X_1,\dots,X_k\}$ of a set
+$\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$
+can be encoded by means of a
+surjection $C: [1:n]\stackrel{\text{onto}}{\to}[1:k]$, where
+$C(i)\in[1:k]$ gives the cluster number of the $i$-th point.
+
+<!-- Let us denote the set of all such possible mappings with $\mathcal{C}_k$. -->
+
+The measures listed below are based on Euclidean distances between all pairs
+of points, $\|\mathbf{x}_i-\mathbf{x}_j\|$, or the input points and some
+other pivots, such as their corresponding cluster centroids,
+$\|\mathbf{x}_i-\boldsymbol\mu_j\|,$ where
+$\mu_{j,l} = \frac{1}{|X_j|} \sum_{\mathbf{x}_i\in X_j} x_{i,l}$.
+
+<!--
+The fixation of the distance metric is not at all restrictive, as various
+transformations can be applied onto $\mathbf{X}$ at the data
+pre-processing stage, including variable selection, standardisation,
+outlier removal, feature engineering (by means of spectral/kernel-based
+methods).
+-->
+
+
+
+## Indices Based on Cluster Centroids
+
+### Ball–Hall
+
+<!--
+The two following indices are based on within-cluster sum of squares (WCSS),
+which itself can be rewritten in terms of the squared Euclidean
+distances between the points and their respective centroids.
+-->
+
+The Ball--Hall index {cite}`BallHall1965:isodata` is the within-cluster
+sum of squares weighted by the cluster cardinality:
+
+$$\mathrm{BallHall}(C) = -\sum_{i=1}^n \frac{1}{|X_{C(i)}|}  \| \mathbf{x}_i - \boldsymbol\mu_{C(i)} \|^2.
+$$
+
+
+Note the minus sign that accounts for the fact that we would rather
+have the index maximised.
+
+*Implementation: [`genieclust.cluster_validity.negated_ball_hall_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+
+
+
+### Caliński–Harabasz
+
+
+The Caliński–Harabasz index (Eq. (3) in {cite}`CalinskiHarabasz1974:index`;
+"variance ratio criterion") is given by:
+
+$$
+\mathrm{CalińskiHarabasz}(C) =
+\frac{n-k}{k-1}
+\frac{
+\sum_{i=1}^n   \| \boldsymbol\mu - \boldsymbol\mu_{C(i)} \|^2
+}{
+\sum_{i=1}^n   \| \mathbf{x}_i - \boldsymbol\mu_{C(i)} \|^2
+},
+$$
+
+where $\boldsymbol\mu$ denotes the centroid of the whole dataset $\mathbf{X}$,
+$\mu_{l} = \frac{1}{n} \sum_{x=1}^n x_{i,l}.$
+
+It may be shown that the task of minimising the (unweighted) within-cluster
+sum of squares is equivalent to maximising the Caliński--Harabasz index.
+Hence, this index is precisely the objective function in the $k$-means method
+{cite}`lloyd` and the algorithms by Ward, Edwards, and Cavalli–Sforza;
+see {cite}`Ward1963:hier,EdwardsSforza1965:divisive,CalinskiHarabasz1974:index`.
+
+*Implementation: [`genieclust.cluster_validity.calinski_harabasz_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+
+
+
+### Davies–Bouldin
+
+The Davies-Bouldin (Def. 5 in {cite}`DaviesBouldin1979:index`)
+is given as the average similarity between each cluster and its most
+similar counterpart (note the minus sign again):
+
+$$
+\mathrm{DaviesBouldin}(C) =
+-\frac{1}{k}
+\sum_{i=1}^k\left(
+\max_{j\neq i}
+\frac{s_i+s_j}{m_{i,j}}
+\right),
+$$
+
+where $s_i$ is the dispersion of the $i$-th cluster: if
+$|X_i|>1$, it is given by
+$s_i=\frac{1}{|X_i|}\sum_{\mathbf{x}_u\in X_i} \|\mathbf{x}_u-\boldsymbol\mu_i\|$
+and otherwise we set $s_i=\infty$. Furthermore, $m_{i,j}$ is the
+intra-cluster distance, $m_{i,j}=\|\boldsymbol\mu_i-\boldsymbol\mu_j\|$.
+
+On a side note, in {cite}`DaviesBouldin1979:index`, other choices of $s_i$
+and $m_{i,j}$ are also suggested. We have recalled only the most popular setting
+here (used, e.g., in {cite}`ArbelaitzEtAl2013:extensive_CVI`).
+
+*Implementation: [`genieclust.cluster_validity.negated_davies_bouldin_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+
+
+
+## Silhouettes
+
+### Silhouette
+
+In Sec. 2 of {cite}`Rousseeuw1987:silhouettes`, Rousseeuw proposes the notion of
+a silhouette as a graphical aid in cluster analysis.
+
+Denote the average dissimilarity between the $i$-th point and all other
+points in its own cluster with:
+
+$$
+a_i = \frac{1}{|X_{C(i)}|-1} \sum_{\mathbf{x}_u\in X_{C(i)}} \| \mathbf{x}_i-\mathbf{x}_u \|
+$$
+
+and the average dissimilarity between the $i$-th point and all other
+entities in the "closest" cluster with:
+
+$$
+b_i = \min_{j\neq C(i)} \left(
+\frac{1}{|X_j|} \sum_{\mathbf{x}_v\in X_{j}} \| \mathbf{x}_i-\mathbf{x}_v \|
+\right).
+$$
+
+Then the *Silhouette* index is defined as the average
+silhouette score:
+
+$$
+\mathrm{Silhouette}(C) = \frac{1}{n}\sum_{i=1}^n \frac{b_i-a_i}{\max\{ a_i, b_i \}},
+$$
+
+with convention $\pm\infty/\infty=0$.
+
+*Implementation: [`genieclust.cluster_validity.silhouette_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+
+
+### SilhouetteW
+
+
+The paper {cite}`Rousseeuw1987:silhouettes` also defines
+what we call here the *SilhouetteW* index,
+being the mean of the cluster average silhouette widths:
+
+$$
+\mathrm{SilhouetteW}(C) = \frac{1}{k-s}
+\sum_{i=1}^n
+\frac{1}{|X_{C(i)}|}
+\frac{b_i-a_i}{\max\{ a_i, b_i \}},
+$$
+
+where $s$ is the number of singletons, i.e., clusters of size 1.
+Note that *SilhouetteW*, just like *BallHall*, employs
+weighting by cluster cardinalities.
+
+
+*Implementation: [`genieclust.cluster_validity.silhouette_w_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+
+
+## Generalised Dunn Indices
+
+In {cite}`Dunn1974:index` (see Eq. (3) therein),
+Dunn proposed an index defined as the
+ratio between the smallest between-cluster distance and the largest
+cluster diameter.
+
+This index has been generalised by Bezdek and Pal in
+{cite}`BezdekPal1998:gdunn` as:
+
+$$
+\mathrm{GDunn}(C)=
+\frac{
+\min_{i\neq j} d\left( X_i, X_j \right)
+}{
+\max_{i} D\left( X_i \right)
+}.
+$$
+
+The numerator measures the between-cluster separation whilst the
+denominator quantifies the cluster compactness.
+
+Function $d$ can be assumed one of:
+
+-   $d_1(X_i, X_j)=\mathrm{Min}\left(
+    \left\{ \|\mathbf{x}_{u}-\mathbf{x}_{v}\|: \mathbf{x}_{u}\in X_i, \mathbf{x}_{v}\in X_j\right\}
+    \right)$,
+
+-   $d_2(X_i, X_j)=\mathrm{Max}\left(
+    \left\{ \|\mathbf{x}_{u}-\mathbf{x}_{v}\|: \mathbf{x}_{u}\in X_i, \mathbf{x}_{v}\in X_j \right\}
+    \right)$,
+
+-   $d_3(X_i, X_j)=\mathrm{Mean}\left(
+    \left\{ \|\mathbf{x}_{u}-\mathbf{x}_{v}\|: \mathbf{x}_{u}\in X_i, \mathbf{x}_{v}\in X_j \right\}
+    \right)$,
+
+-   $d_4(X_i, X_j)= \|\boldsymbol\mu_i-\boldsymbol\mu_j\|$,
+
+-   $d_5(X_i, X_j)=
+    \frac{
+    |X_i|\,\mathrm{Mean}\left(
+    \left\{ \|\mathbf{x}_{u}-\boldsymbol\mu_i \|: \mathbf{x}_{u}\in X_i\right\}
+    \right)
+    +
+    |X_j|\,\mathrm{Mean}\left(
+    \left\{ \|\mathbf{x}_{v}-\boldsymbol\mu_j \|: \mathbf{x}_{v}\in X_j\right\}
+    \right)
+    }{
+    |X_i|+|X_j|
+    }$.
+
+Bezdek and Pal in {cite}`Dunn1974:index` also considered a function
+based on the Hausdorff metric, but it is overall quite slow to compute.
+
+On the other hand, $D$ can be, for example:
+
+-   $D_1(X_i)=\mathrm{Max}\left(
+    \left\{ \|\mathbf{x}_{u}-\mathbf{x}_{v}\|: \mathbf{x}_{u},\mathbf{x}_{v}\in X_i\right\}
+    \right)$,
+
+-   $D_2(X_i)=\mathrm{Mean}\left(
+    \left\{ \|\mathbf{x}_{u}-\mathbf{x}_{v}\|: \mathbf{x}_{u},\mathbf{x}_{v}\in X_i\right\}
+    \right)$,
+
+-   $D_3(X_i)=\mathrm{Mean}\left(
+    \left\{ \|\mathbf{x}_{u}-\boldsymbol\mu_i\|: \mathbf{x}_{u}\in X_i\right\}
+    \right)$.
+
+There are thus 15 different combinations of the possible numerators and
+denominators, hence 15 different indices, which we may denote
+as *GDunn_dX_DY*. In particular, *GDunn_d1_D1* gives the original Dunn
+{cite}`Dunn1974:index` index.
+
+
+*Implementation: [`genieclust.cluster_validity.generalised_dunn_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+
+<!--
+
+## CVIs based on near-neighbour graphs
+
+Let $\mathrm{NN}_M(i)=\{{j_1}, \dots, {j_M}\}$ denote the set of the
+$i$-th point's $M$ nearest neighbours,
+$0<\|\mathbf{x}_i-\mathbf{x}_{j_1}\|<\dots<\|\mathbf{x}_i-\mathbf{x}_{j_M}\|$
+(assuming there are no tied distances, otherwise, some small random
+noise can be added).
+
+#### 21--50) DuNN_OWAs_OWAc
+
+Note that the original Dunn index (denoted *GDunn_d1_D1* above) can be
+viewed as:
+
+$$
+\mathrm{Dunn}(C)=\frac{
+   \mathrm{Min}\left( \left\{ \|\mathbf{x}_i-\mathbf{x}_j\|: C(i)\neq C(j)\right\} \right)
+}{
+    \mathrm{Max}\left( \left\{ \|\mathbf{x}_i-\mathbf{x}_j\|: C(i) = C(j)\right\} \right)
+}.
+$$
+
+In {cite}`cvi` we proposed the following generalisation of the above -- a
+generalised Dunn-type index based on the notion of the
+$M$-near-neighbour graph and ordered weighted averaging {cite}`Yager1988:owa`
+operators -- convex combinations (weighted sums) of ordered inputs.
+Namely:
+
+$$
+\mathrm{DuNN}(C)=\frac{
+    \mathrm{OWA}_s\left( \left\{ \|\mathbf{x}_i-\mathbf{x}_j\|: C(i)\neq C(j), i\in\mathrm{NN}_M(j)\text{ or }j\in \mathrm{NN}_M(i) \right\} \right)
+}{
+    \mathrm{OWA}_c\left( \left\{ \|\mathbf{x}_i-\mathbf{x}_j\|: C(i)= C(j), i\in\mathrm{NN}_M(j)\text{ or }j\in \mathrm{NN}_M(i) \right\}\right)
+}.
+$$
+
+As a measure of cluster separation we aggregate the ordered
+between-point distances but only provided that they are part of the
+near-neighbour graph. This will enable us to take the local point
+density into account and detect well-separable clusters of even quite
+sophisticated shapes. In a similar manner, cluster compactness will be
+based on the nearest neighbours as well.
+
+Below we shall study pairs of $\mathrm{OWA}_s$ and $\mathrm{OWA}_c$
+chosen amongst:
+
+-   $\mathrm{Min}$,
+
+-   $\mathrm{Max}$,
+
+-   $\mathrm{Mean}$,
+
+-   $\mathrm{SMin}_\delta(q_1,q_2,\dots,q_z)=
+    \sum_{i=1}^{z} w_{i,z} q_{(i)}$, with
+    $w_{i, z}=\frac{\psi(i; z, \delta)}{\sum_{j=z-3\delta+1}^z \psi(j; z, \delta)}$
+    for $i> z-3\delta$ and 0 otherwise ("smooth minimum"),
+
+-   $\mathrm{SMax}_\delta(q_1,q_2,\dots,q_z)=
+    \sum_{i=1}^{z} w_{i,z} q_{(i)}$, with
+    $w_{i, z}=\frac{\psi(i; z, \delta)}{\sum_{j=1}^{3\delta} \psi(j; 1, \delta)}$
+    for $i\le 3\delta$ and 0 otherwise ("smooth maximum"),
+
+where $q_{(1)} \ge q_{(2)} \ge \dots \ge q_{(z)}$ and
+$\psi(\cdot; \mu, \sigma)$ denotes the probability density function of
+the normal distribution with expectation $\mu$ and standard deviation
+$\sigma$, see also {cite}`CenaGagolewski2020:genieowa`.
+
+For instance, *DuNN_25_SMin:5_Max* denotes a generalised Dunn index
+based on each point's 25 nearest neighbours. It uses $\mathrm{SMin}_5$
+as a separation measure (computed over a subset of $25n$ distances
+restricted to the pair of points belonging to different clusters) and
+$\mathrm{Max}$ as a measure of compactness (the remainder of the $25n$
+distances comprised of point pairs belonging to the same clusters).
+Moreover, we will study indices like *DuNN_25_Mean_Const*, where the
+denominator is fixed at 1.
+
+In the sequel we will consider $M=5$ and $M=25$. In order to keep the
+number of cases within reasonable limits, we will restrict ourselves to
+30 different CVIs of this type (see
+Table [3](#tab:res2){reference-type="ref" reference="tab:res2"} for a
+complete listing).
+
+#### 51,52) WCNN_M
+
+The within-cluster near-neighbours (WCNN; see {cite}`cvi`) index is parametrised by
+$M\ge 1$. It aims to reflect how many nearest neighbours of every point
+actually belong to the very same cluster:
+
+$$
+\mathrm{WCNN}(C) =
+\frac{
+\left|C(i) = C(j):
+j\in\mathrm{NN}_M(i)\right|
+}{
+nM
+}.
+$$
+
+Ideally, $\mathrm{WCNN}(C) = 1$. Hence, this is a measure of how
+well the clusters are separated from each other.
+
+Additionally, to prevent the formation of small clusters, we will assume
+$\mathrm{WCNN}(C)=-\infty$ whenever there is a cluster of cardinality
+$\le M$. Similarly as above, we shall consider $M\in\{5, 25\}$.
+
+-->
