@@ -27,8 +27,12 @@ environments.*
 ::::
 
 
+With each dataset like the one above,
+we are given a reference partition assigned by experts, representing
+a desired grouping of the points into $k$ clusters for some $k\ge 2$.
 
-Assume we are given a $k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
+More formally, we have a
+$k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
 encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
 $y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
 
@@ -43,22 +47,19 @@ $y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
 [^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
 
 
-
-In our context, this will be the reference partition
-assigned by the experts that comes along this dataset.
-
-
 ```{python}
 (y_true := np.loadtxt(dataset+".labels0.gz", dtype=np.intc))
 ```
 
 ```{python}
-np.bincount(y_true)
+np.histogram(y_true, return_counts=True)
 ```
 
-There are thus 0 noise points (which would be encoded as 0),
-50 points in the 1st cluster, 40 points in the 2nd group, and 30 points
-in the 3rd set. Hence, $k=3$.
+There are thus 50 points in the 1st cluster,
+40 points in the 2nd group,
+and 30 points in the 3rd set. Hence, $k=3$.
+
+
 
 Furthermore, let $\hat{\mathbf{y}}$ be a label vector
 encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$.
