@@ -34,6 +34,13 @@ and data mining literature. Moreover, we introduce **new datasets**
 of different dimensionalities, sizes and cluster types.
 
 
+**How to cite.**
+Gagolewski M.,
+A Framework for Benchmarking Clustering Algorithms,
+2022,
+<https://clustering-benchmarks.gagolewski.com>
+
+
 **Acknowledgements.**
 ...TO DO...
 Anna Cena
@@ -62,7 +69,6 @@ weave/many-partitions
 weave/data-v1
 weave/file-format
 weave/how-to-access
-weave/cluster-validity-measures
 ::::
 
 
@@ -91,6 +97,7 @@ genieclust Package <https://genieclust.gagolewski.com/>
 :maxdepth: 1
 :caption: Appendix
 
+weave/cluster-validity-measures
 news
 z_bibliography
 ::::

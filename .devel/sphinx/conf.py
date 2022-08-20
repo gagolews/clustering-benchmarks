@@ -4,8 +4,6 @@
 import sphinx_rtd_theme
 import clustbench
 
-
-
 pkg_name = "clustbench"
 pkg_title = "Clustering Benchmarks"
 pkg_version = clustbench.__version__
@@ -16,7 +14,7 @@ github_star_repo = "gagolews/clustering-benchmarks"  # or None to disable
 analytics_id = None  # don't use it! this site does not track its users
 author = "Marek Gagolewski"
 copyright = f"{copyright_year}"
-html_title = f"{pkg_title} by {author}"
+html_title = f"{pkg_title}"
 html_short_title = f"{pkg_title}"
 
 html_version_text = f'\
@@ -78,20 +76,18 @@ numfig_format = {
 }
 numfig_secnum_depth = 1
 
-
 plot_include_source = True
 plot_html_show_source_link = False
 plot_pre_code = """
 import numpy as np
 import clustbench
+import matplotlib.pyplot as plt
 np.random.seed(123)
 """
 
 doctest_global_setup = plot_pre_code
 
 numpydoc_use_plots = True
-
-
 
 # https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html
 autosummary_imported_members = True

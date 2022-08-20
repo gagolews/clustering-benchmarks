@@ -32,8 +32,9 @@ X[:5, :]  # preview
 check out Marek's recent open-access (free!) textbook*
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
 {cite}`datawranglingpy`.
-*In a {any}`further section <sec:how-to-access>`, we explain
-how to use our benchmark framework from other environments.*
+*Also note that in a {any}`further section <sec:how-to-access>`,
+we explain how to use our benchmark framework in other programming
+environments.*
 ::::
 
 
