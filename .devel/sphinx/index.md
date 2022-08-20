@@ -63,7 +63,7 @@ Author <https://www.gagolewski.com/>
 :maxdepth: 2
 :caption: Introduction
 
-weave/partition-similarity-scores
+weave/true-vs-predicted
 weave/noise-points
 weave/many-partitions
 weave/data-v1
@@ -76,6 +76,7 @@ weave/how-to-access
 :maxdepth: 1
 :caption: Python API Documentation
 
+weave/partition-similarity-scores
 weave/clustbench-usage
 clustbench-documentation
 ::::

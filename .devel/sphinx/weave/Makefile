@@ -8,7 +8,8 @@ FILES_RMD = \
 	how-to-access.Rmd \
 	many-partitions.Rmd \
 	noise-points.Rmd \
-	partition-similarity-scores.Rmd
+	partition-similarity-scores.Rmd \
+	true-vs-predicted.Rmd
 
 RMD_MD_OUTPUTS=$(patsubst %.Rmd,%.md,$(FILES_RMD))
 #RMD_RST_OUTPUTS=$(patsubst %.Rmd,%.rst,$(FILES_RMD))

@@ -1,119 +1,47 @@
+(sec:partition-similarity-scores)=
 # Partition Similarity Scores
 
-Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the input dataset
-that consists of $n$ objects.
+In this section we review the partition similarity scores that are defined
+in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
+and R.
 
-As an illustration, in this section we will be considering
-the [`wut/x2`](https://github.com/gagolews/clustering-data-v1) dataset,
-which consists of 120 points in $\mathbb{R}^2$.
+Let $\mathbf{y}$ be a label vector representing one of the reference
+$k$-partitions[^footpart] $\{X_1,\dots,X_k\}$ of a benchmark dataset $X$,
+where $y_i\in[1:k]$ gives the true cluster number (ID) of the $i$-th object.
 
+Furthermore, let $\hat{\mathbf{y}}$ be a label vector
+encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$,
+which we would like to *relate* to the reference one, $\mathbf{y}$.
+In our context, we assume that $\hat{\mathbf{y}}$ has been output by some
+clustering algorithm.
 
-```{python}
-import numpy as np
-import pandas as pd
-dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/wut/x2"
-X = np.loadtxt(dataset + ".data.gz")
-X[:5, :]  # preview
-```
-
-::::{epigraph}
-*To learn more about Python, which we use in this tutorial,
-check out Marek's recent open-access (free!) textbook*
-[Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
-{cite}`datawranglingpy`.
-*Also note that in a {any}`further section <sec:how-to-access>`,
-we explain how to use our benchmark framework in other programming
-environments.*
+::::{note}
+Below we assume $k \le l$, i.e., the true clustering
+might theoretically be more coarse-grained than the reference one.
+Also, any noise points in $X$ have been removed.
 ::::
 
 
-With each dataset like the one above,
-we are given a reference partition assigned by experts, representing
-a desired grouping of the points into $k$ clusters for some $k\ge 2$.
-
-More formally, we have a
-$k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
-encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
-$y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
 
 
-
-
-[^footpart]: We say that $\{X_1,\dots,X_k\}$ is a $k$-partition of $X$,
-    whenever $\bigcup_{i=1}^k X_i=X$, each $X_i$ is nonempty,
-    and the subsets are pairwise disjoint, i.e., $X_i\cap X_j=\emptyset$
-    for $i\neq j$.
-
-[^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
+Let $\mathbf{C}$ be the confusion matrix with $k$ rows and $l$ columns,
+i.e., $c_{u,v}$ gives the number point indices $i$ for which $y_i=u$
+and $\hat{y}_v$. In other words, $c_{u,v}$ gives the number of points
+from the $u$-th reference cluster that the clustering algorithm
+classified as belonging to the $v$-th group.
 
 
 ```{python}
-(y_true := np.loadtxt(dataset+".labels0.gz", dtype=np.intc))
+# (C := genieclust.compare_partitions.confusion_matrix(y_true, y_pred))
 ```
 
-```{python}
-np.histogram(y_true, return_counts=True)
-```
+pivoting...
 
-There are thus 50 points in the 1st cluster,
-40 points in the 2nd group,
-and 30 points in the 3rd set. Hence, $k=3$.
-
-
-
-Furthermore, let $\hat{\mathbf{y}}$ be a label vector
-encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$.
-
-For example, let's consider the output of the
-[*Genie*](https://genieclust.gagolewski.com) algorithm
-with $l=k=3$:
-
-```{python}
-import genieclust
-g = genieclust.Genie(n_clusters=3)  # default parameters
-(y_genie := g.fit_predict(X) + 1)  # +1 so that cluster IDs are in 1:3, not 0:2
-```
-
-The figure below depicts the two partitions side by side.
-
-
-```{python partition-similarity-example,results="hide",fig.cap="Two example paritions that we would like to compare"}
-plt.subplot(1, 2, 1)
-genieclust.plots.plot_scatter(X, labels=y_true-1)
-plt.axis("equal")
-plt.title("y_true")
-plt.subplot(1, 2, 2)
-genieclust.plots.plot_scatter(X, labels=y_genie-1)
-plt.axis("equal")
-plt.title("y_genie")
-plt.show()
-```
-
-Partition similarity scores aim to quantify the similarity between
-$\mathbf{y}$ and $\hat{\mathbf{y}}$.
-
-
-
-can be used as external cluster validity
-measures — for comparing the outputs of clustering algorithms
-with reference (ground truth) labels
+say that this is different than accuracy in classification
 
 
 
 
-
-
-
-
-Let $\mathbf{C}$ be the
-confusion matrix (with :math:`K` rows and :math:`L` columns, :math:`K \\leq L`)
-corresponding to `x` and `y`, see also
-`genieclust.compare_partitions.confusion_matrix`.
-
-
-```{python}
-(C := genieclust.compare_partitions.confusion_matrix(y_true, y_genie))
-```
 
 genieclust:: bibliography, compare_partitions.pyx
 
@@ -126,12 +54,3 @@ Note that partitions are always defined up to a bijection of the set of
 possible labels, e.g., (1, 1, 2, 1) and (4, 4, 2, 4)
 represent the same 2-partition.
 
-
-...
-
-Their implementation is included
-in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python.
-
-https://genieclust.gagolewski.com/genieclust_compare_partitions.html
-
-...

@@ -3,7 +3,7 @@
 
 
 (sec:how-to-access)=
-# Accessing From Python, R, Matlab, etc.
+# Accessing from Python, R, Matlab, etc.
 
 
 ## Python
