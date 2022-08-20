@@ -1,45 +1,39 @@
 # Copyleft (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com>
 # Configuration file for the Sphinx documentation builder.
 
-#import sys
-#import os
-#import sphinx
-#import matplotlib.sphinxext
-#import IPython.sphinxext
 import sphinx_rtd_theme
 import clustbench
 
-# -- Project information -----------------------------------------------------
 
-copyright_year = '2020–2022'
-author = 'Marek Gagolewski'
 
 pkg_name = "clustbench"
-pkg_title = 'Clustering Benchmarks'
+pkg_title = "Clustering Benchmarks"
 pkg_version = clustbench.__version__
-
-print("This is %s %s by %s.\n" % (pkg_title, pkg_version, author))
-
-
-github_url = "https://github.com/gagolews/clustering-benchmarks/"
+copyright_year = '2020–2022'
 html_baseurl = "https://clustering-benchmarks.gagolewski.com/"
+github_url = "https://github.com/gagolews/clustering-benchmarks/"
 github_star_repo = "gagolews/clustering-benchmarks"  # or None to disable
-analytics_id = None  # "d2cambjfe3"  # https://clarity.microsoft.com
+analytics_id = None  # don't use it! this site does not track its users
+author = "Marek Gagolewski"
 copyright = f"{copyright_year}"
 html_title = f"{pkg_title} by {author}"
 html_short_title = f"{pkg_title}"
 
+html_version_text = f'\
+    by <a style="color: inherit" href="https://www.gagolewski.com">Marek \
+    Gagolewski</a><br />\
+    v{pkg_version}'
+
 pygments_style = 'default'  #'trac' - 'default' is more readable for some
-project = f'{pkg_title} [{pkg_version}]'
+project = f'{pkg_title}'
 version = f'by {author}'
-release = f'[{pkg_version}]'
+release = f'{pkg_version}'
 
 nitpicky = True
 smartquotes = True
 today_fmt = "%Y-%m-%dT%H:%M:%S%Z"
 highlight_language = "python"
 html_last_updated_fmt = today_fmt
-
 
 extensions = [
     'myst_parser',
@@ -62,9 +56,9 @@ extensions = [
 ]
 
 myst_enable_extensions = [
-    "deflist",
     "colon_fence",
     "dollarmath",
+    "deflist",
 ]
 
 templates_path = ['_templates']
@@ -111,10 +105,9 @@ html_theme_options = {
     'sticky_navigation': True,
     'display_version': True,
     'style_external_links': True,
-    'vcs_pageview_mode': github_star_repo,
-    'analytics_id': analytics_id,
-    #'display_github': "blob",
-    #'style_nav_header_background': '#ff704d',
+    'vcs_pageview_mode': github_star_repo,  # Marek (layout.html)
+    'analytics_id': analytics_id,           # Marek (layout.html)
+    'display_version': html_version_text    # Marek (layout.html)
 }
 
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
@@ -122,7 +115,6 @@ html_show_sourcelink = False
 
 html_static_path = ['_static']
 html_css_files = ['css/custom.css']
-
 
 
 bibtex_bibfiles = ['bibliography.bib']

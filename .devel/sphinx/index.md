@@ -34,11 +34,12 @@ and data mining literature. Moreover, we introduce **new datasets**
 of different dimensionalities, sizes and cluster types.
 
 
-::::{epigraph}
-*To learn more about Python, check out Marek's recent open-access (free!) textbook*
-[Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
-{cite}`datawranglingpy`.
-::::
+**Acknowledgements.**
+...TO DO...
+Anna Cena
+datasets: SIPU etc.
+
+
 
 
 ::::{toctree}

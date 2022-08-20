@@ -11,14 +11,6 @@ As an illustration, in this section we will be considering
 the [`wut/x2`](https://github.com/gagolews/clustering-data-v1) dataset,
 which consists of 120 points in $\mathbb{R}^2$.
 
-::::{epigraph}
-*To learn more about Python, which we use in this tutorial,
-check out Marek's recent open-access (free!) textbook*
-[Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
-{cite}`datawranglingpy`.
-*In a {any}`further section <sec:how-to-access>`, we explain
-how to use our benchmark framework from other environments.*
-::::
 
 
 
@@ -34,6 +26,17 @@ X[:5, :]  # preview
 ##        [ 0.63048803, -2.15249344],
 ##        [-1.46511622,  0.36344556]])
 ```
+
+::::{epigraph}
+*To learn more about Python, which we use in this tutorial,
+check out Marek's recent open-access (free!) textbook*
+[Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
+{cite}`datawranglingpy`.
+*In a {any}`further section <sec:how-to-access>`, we explain
+how to use our benchmark framework from other environments.*
+::::
+
+
 
 Assume we are given a $k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
 encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
