@@ -4,13 +4,12 @@
 
 ## Motivation
 
-Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the input dataset
+Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the **input dataset**
 that consists of $n$ objects.
 
-As an illustration, in this section we will be considering
+As an illustration, in this section we consider
 the [`wut/x2`](https://github.com/gagolews/clustering-data-v1) dataset,
 which consists of 120 points in $\mathbb{R}^2$.
-
 
 ```{python}
 import numpy as np
@@ -20,20 +19,20 @@ X = np.loadtxt(dataset + ".data.gz")
 X[:5, :]  # preview
 ```
 
-::::{epigraph}
-*To learn more about Python, which we use in this tutorial,
-check out Marek's recent open-access (free!) textbook*
+::::{note}
+The code below should be quite self-explanatory even to the readers
+who do not know Python. To learn more about this environment
+check out Marek's recent open-access (free!) textbook
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
 {cite}`datawranglingpy`.
-*Also note that in a {ref}`further section <sec:how-to-access>`,
-we explain how to use our benchmark framework in other programming
-environments.*
+Also note that in a {ref}`further section <sec:how-to-access>`,
+we explain how to use our benchmark framework in R or Matlab.
 ::::
 
 
 With each dataset like the one above,
-we are given a reference[^footmanyreference]
-partition assigned by experts, representing
+we are given a **reference[^footmanyreference]
+partition** assigned by experts, representing
 a desired grouping of the points into $k \ge 2$ clusters.
 
 [^footmanyreference]: {ref}`Later <sec:many-partitions>` we will note
@@ -48,8 +47,8 @@ a desired grouping of the points into $k \ge 2$ clusters.
 
 More formally, we have here a
 $k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
-encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
-$y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
+encoded using a **label vector**[^footsurj] $\mathbf{y}$, where
+$y_i\in[1:k]$ gives the subset number (ID) of the $i$-th object.
 
 
 [^footpart]: We say that $\{X_1,\dots,X_k\}$ is a $k$-partition of $X$,
@@ -60,7 +59,7 @@ $y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
 [^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
 
 
-The number of clusters $k\ge 2$ is thus an inherent part of the
+The number of subsets $k\ge 2$ is thus an inherent part of the
 reference set.
 
 ```{python}
@@ -78,8 +77,9 @@ and 30 points in the 3rd set.
 -->
 
 
-Now, let say that we have a clustering algorithm whose usefulness we would
-like to assess. We apply it on $X$ to discover a new $k$-partition.
+Now, let's say that we have **a clustering algorithm whose usefulness
+we would like to assess**. We apply it on $X$ to **discover a new
+$k$-partition**.
 
 For example, let's consider the output of the
 [*Genie*](https://genieclust.gagolewski.com) algorithm:
@@ -90,36 +90,33 @@ g = genieclust.Genie(n_clusters=k)  # using default parameters
 (y_pred := g.fit_predict(X) + 1)  # +1 makes cluster IDs in 1..k, not 0..(k-1)
 ```
 
-We thus obtained a label vector $\hat{\mathbf{y}}$
-encoding a different partition, $\{\hat{X}_1,\dots,\hat{X}_k\}$.
+We thus obtained a vector of **predicted labels** $\hat{\mathbf{y}}$
+encoding a new grouping, $\{\hat{X}_1,\dots,\hat{X}_k\}$.
 
 The figure below depicts the two partitions side by side.
+Intuitively, we can thus consider clustering a method to
+assign colours to all the input points.
 
 
-```{python partition-similarity-example-2,results="hide",fig.cap="Two example paritions that we would like to compare"}
+```{python partition-similarity-example-2,results="hide",fig.cap="Two example partitions that we would like to compare"}
 plt.subplot(1, 2, 1)
-genieclust.plots.plot_scatter(X, labels=y_true-1)
-plt.axis("equal")
-plt.title("y_true")
+genieclust.plots.plot_scatter(X, labels=y_true-1, axis="equal", title="y_true")
 plt.subplot(1, 2, 2)
-genieclust.plots.plot_scatter(X, labels=y_pred-1)
-plt.axis("equal")
-plt.title("y_pred")
+genieclust.plots.plot_scatter(X, labels=y_pred-1, axis="equal", title="y_pred")
 plt.show()
 ```
 
-Our aim is to *relate* the predicted labels to the reference ones.
-
 ::::{important}
-Ideally, we would like to work with algorithms that output partitions
-matching the reference ones closely on as wide a set of problem tasks
+Ideally, we would like to work with algorithms that yield partitions
+closely matching the reference ones on as wide a set of problems
 as possible.
+::::
 
+Our aim is therefore to *relate* the predicted labels to the reference ones.
 Note that the automated discovery of $\hat{\mathbf{y}}$
 never relies on the information included in $\mathbf{y}$.
 In other words, clustering is an unsupervised[^footsemisupervised]
 learning process.
-::::
 
 
 [^footsemisupervised]: Tasks such as semi-supervised clustering,
@@ -130,21 +127,61 @@ learning process.
 
 
 
+## Permuting Cluster IDs
+
+A partition is a *set* of point groups, and sets are, by definition, unordered.
+Therefore, the **actual cluster IDs do not really matter**.
+
+Looking at the above figure, we see that
+the red (ID=2), black (ID=1), and green (ID=3) discovered clusters
+can be paired with, respectively,
+the black (ID=1), red (ID=2), and green (ID=3) reference ones.
+
+We can easily recode[^footmanualrelabel] `y_pred`
+so that the cluster IDs nicely correspond to each other:
+
+
+```{python}
+o = np.array([2, 1, 3])  # relabelling: 1→2, 2→1, 3→3
+(y_pred := o[y_pred-1])  # Python uses 0-based indexing, hence the -1
+```
+
+See below for an updated figure.
+
+
+```{python partition-similarity-example-2b,results="hide",fig.cap="The two partitions with after the cluster ID (colour) matching"}
+plt.subplot(1, 2, 1)
+genieclust.plots.plot_scatter(X, labels=y_true-1, axis="equal", title="y_true")
+plt.subplot(1, 2, 2)
+genieclust.plots.plot_scatter(X, labels=y_pred-1, axis="equal", title="y_pred")
+plt.show()
+```
+
+
+[^footmanualrelabel]: In a
+    {ref}`later section <sec:partition-similarity-scores>` we discuss a way
+    to automatically discover an optimal relabelling based on the solution
+    to the maximal assignment problem.
+
+
+
 ## Confusion Matrix
 
 We can determine the confusion matrix $\mathbf{C}$ for the two label vectors:
 
 ```{python}
-(C := genieclust.compare_partitions.confusion_matrix(y_true, y_pred))
+genieclust.compare_partitions.confusion_matrix(y_true, y_pred)
 ```
 
 Here, $c_{u, v}$ denotes the number of points in the $u$-th reference cluster
-that the algorithms assigned as members of the $v$-th cluster.
+that the algorithm assigned to the $v$-th cluster.
 
-TODO:
-A partition is a *set* of point groups, and sets are unordered by definition
+Overall, *Genie* returned a clustering quite similar to the reference one.
+$c_{1,1}+c_{2, 2}+c_{3,3}=37+40+30=107$ out of the $120$ input points.
+In particular, all the red and green reference points (the 2nd and the 3rd row)
+have been assigned correctly.
 
-red (cluster ID of 2) <-> black (cluster ID of 1)
+However, $12$ red points and $1$ green point should be coloured black.
 
 
 ## Measuring Partition Similarity
@@ -152,20 +189,116 @@ red (cluster ID of 2) <-> black (cluster ID of 1)
 A confusion matrix nicely summarises all the information we need to
 judge the clustering quality. However,
 if we wish to compare the quality of different algorithms,
-we would rather have the information summarised as a single number.
+we would rather have the information summarised in the form of a single number.
 
-By using *partition similarity scores*,
-we can quantify the similarity between $\mathbf{y}$ and $\hat{\mathbf{y}}$,
-and thus assess the degree to which the output of a clustering algorithm
-matches the reference (ground truth) labels.
-
-TODO ...
-
-ARI only here
-
-more: {ref}`sec:partition-similarity-scores`
+The **adjusted Rand index** {cite}`comparing_partitions`
+is one of the many *partition similarity scores*
+which we can use to quantify the agreement between $\mathbf{y}$ and
+$\hat{\mathbf{y}}$, and thus assess the degree to which the output of
+a clustering algorithm matches the reference (ground truth) labels.
 
 
-some axioms
+```{python}
+genieclust.compare_partitions.adjusted_rand_score(y_true, y_pred)
+```
 
+the {ref}`Appendix <sec:partition-similarity-scores>`
+
+
+
+TODO: citations
+
+The Rand index (1971):
+
+$$
+R(\mathbf{C}) = \frac{ {n \choose 2} + 2 \sum_{i,j\in[k]} {c_{i,j}\choose 2}
+                  - \sum_{i\in[k]} {c_{i,\cdot}\choose 2}
+                  - \sum_{j\in[k]} {c_{\cdot,j}\choose 2}
+    }{{n\choose 2}},
+$$
+
+under the assumption that ${0\choose 2}={1\choose 2}=0$.
+
+
+The normalised total number of pairs
+$\{\vect{x}_i, \vect{x}_j\}$
+with ($u_i=u_j$ and $v_i=v_j$) or ($u_i\neq u_j$ and $v_i\neq v_j$).
+
+
+\vfill
+\bigskip\hrule\bigskip
+
+\tiny
+
+Other (similar) measures: e.g., the Fowlkes--Mallows index,
+see Hubert L., Comparing Partitions, {\it Journal of Classification} {\bf 2}, 1985, pp.~193--218 and also M.~Rezaei and P. Fränti. Set matching measures for external cluster validity. \textit{IEEE Transactions on Knowledge and Data Engineering} {\bf 28}(8), 2016, pp.~2173–2186. doi:10.1109/TKDE.2016.2551240.
+
+\nocite{psi}
+
+\end{frame}
+
+\begin{frame}[fragile]\slidetitleA{Comparing Partitions}
+
+Properties:
+\begin{itemize}
+ \pause\item For every $\mathbf{C}$, $R(\mathbf{C})\ge 0$ and if $\vect{u}=\vect{v}$, then $R(\mathbf{C})=1$;
+ \pause\item if $\sigma$ is a permutation of $[k]$
+and $\mathbf{C}'$ is such that $c_{i,j}'=c_{i,\sigma(j)}$,
+then $R(\mathbf{C})=R(\mathbf{C}')$;
+\pause\item if $c_{i,j}=m$ for all $i,j$ and given $k$,
+then $R(\mathbf{C}) \stackrel{m\to\infty}{\to} 1-\frac{2(k-1)}{k^2}$.
+% \pause\item if $c_{i,j}=m$ for all $j$ and $i=1$ and $c_{i,j}=0$ otherwise,
+% then
+% $R(\mathbf{C}) \stackrel{m\to\infty}{\to} 1-\frac{k-1}{k}=\frac{1}{k}$.
+\end{itemize}
+\pause
+$\Rightarrow$ The need for a {\color{red2}\bf ``correction for chance''}:
+
+\pause
+we'd like the expected index to be equal to $0$ if the
+partitions were ``picked at random''.
+
+\medskip\pause
+If both $k$-partitions are picked at random, subject to having the original
+number of classes and objects in each,
+then $
+ \mathbb{E}\,  {c_{i,j}\choose 2} =
+ \frac{{c_{i,\cdot}\choose 2}{c_{\cdot,j}\choose 2}}{{n\choose 2}}.
+$
+
+
+\bigskip\pause
+This yields the \textbf{Adjusted Rand Index} {cite}`comparing_partitions`:
+
+$$
+\mathrm{AR}(\mathbf{C})=\tfrac{ \mathrm{R}(\mathbf{C})-\mathbb{E}\,\mathrm{R}(\mathbf{C})}{1-\mathbb{E}\,\mathrm{R}(\mathbf{C})}=
+\frac{ \sum_{i,j\in[k]} {c_{i,j}\choose 2}
+ - \sum_{i\in[k]} {c_{i,\cdot}\choose 2}
+   \sum_{j\in[k]} {c_{\cdot,j}\choose 2} / {n\choose 2}
+    }{
+     \sum_{i\in[k]} {c_{i,\cdot}\choose 2}/2
+   +\sum_{j\in[k]} {c_{\cdot,j}\choose 2}/2
+ - \sum_{i\in[k]} {c_{i,\cdot}\choose 2}
+   \sum_{j\in[k]} {c_{\cdot,j}\choose 2} / {n\choose 2}
+    },
+$$
+
+% {\footnotesize\color{gray}
+% % see Hubert L., Comparing Partitions, {\it Journal of Classification} {\bf 2}, 1985, p.~193--218.
+% }
+
+
+TODO: ARI
+
+TODO: some axioms
+
+
+
+
+More partition similarity scores are discussed
+in the {ref}`Appendix <sec:partition-similarity-scores>`.
+This is also where we explain in more detail why **accuracy**,
+which is a measure popular in classification tasks,
+**should not be used in clustering problems**,
+at least not without a prior cluster relabelling which we mentioned above.
 

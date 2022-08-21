@@ -33,7 +33,7 @@ to judge whether a partition is meaningful or not**.
 Still, for the sake of completeness, let us recall the definitions
 of some of the more popular indices. Their implementation is included
 in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
-and R.
+and R {cite}`genieclust`.
 Note that this section contains excerpts from our paper {cite}`cvi`.
 
 
