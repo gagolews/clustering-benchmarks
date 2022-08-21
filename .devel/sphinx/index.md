@@ -76,7 +76,6 @@ weave/how-to-access
 :maxdepth: 1
 :caption: Python API Documentation
 
-weave/partition-similarity-scores
 weave/clustbench-usage
 clustbench-documentation
 ::::
@@ -98,6 +97,7 @@ genieclust Package <https://genieclust.gagolewski.com/>
 :maxdepth: 1
 :caption: Appendix
 
+weave/partition-similarity-scores
 weave/cluster-validity-measures
 news
 z_bibliography

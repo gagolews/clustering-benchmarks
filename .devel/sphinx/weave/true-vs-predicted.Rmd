@@ -1,5 +1,8 @@
 (sec:true-vs-predicted)=
-# True vs Predicted Labels
+# True vs Predicted Clusters
+
+
+## Motivation
 
 Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the input dataset
 that consists of $n$ objects.
@@ -22,7 +25,7 @@ X[:5, :]  # preview
 check out Marek's recent open-access (free!) textbook*
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
 {cite}`datawranglingpy`.
-*Also note that in a {any}`further section <sec:how-to-access>`,
+*Also note that in a {ref}`further section <sec:how-to-access>`,
 we explain how to use our benchmark framework in other programming
 environments.*
 ::::
@@ -33,7 +36,7 @@ we are given a reference[^footmanyreference]
 partition assigned by experts, representing
 a desired grouping of the points into $k \ge 2$ clusters.
 
-[^footmanyreference]: {any}`Later <sec:many-partitions>` we will note
+[^footmanyreference]: {ref}`Later <sec:many-partitions>` we will note
     that there may be many possible ways to split a dataset into groups.
 
 
@@ -43,7 +46,7 @@ a desired grouping of the points into $k \ge 2$ clusters.
 ```
 
 
-More formally, we have a
+More formally, we have here a
 $k$-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$
 encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
 $y_i\in[1:k]$ gives the cluster number (ID) of the $i$-th object.
@@ -61,7 +64,7 @@ The number of clusters $k\ge 2$ is thus an inherent part of the
 reference set.
 
 ```{python}
-np.max(y_true)
+(k := np.max(y_true))
 ```
 
 <!--
@@ -76,25 +79,24 @@ and 30 points in the 3rd set.
 
 
 Now, let say that we have a clustering algorithm whose usefulness we would
-like to assess. We need to run it on $X$ to determine a $k$-partition.
+like to assess. We apply it on $X$ to discover a new $k$-partition.
 
 For example, let's consider the output of the
 [*Genie*](https://genieclust.gagolewski.com) algorithm:
 
 ```{python}
 import genieclust
-g = genieclust.Genie(n_clusters=3)  # default parameters
-(y_pred := g.fit_predict(X) + 1)  # +1 so that cluster IDs are in 1:3, not 0:2
+g = genieclust.Genie(n_clusters=k)  # using default parameters
+(y_pred := g.fit_predict(X) + 1)  # +1 makes cluster IDs in 1..k, not 0..(k-1)
 ```
 
-We obtained a label vector $\hat{\mathbf{y}}$
+We thus obtained a label vector $\hat{\mathbf{y}}$
 encoding a different partition, $\{\hat{X}_1,\dots,\hat{X}_k\}$.
 
-We would like to *relate* the predicted labels to the reference ones.
 The figure below depicts the two partitions side by side.
 
 
-```{python partition-similarity-example,results="hide",fig.cap="Two example paritions that we would like to compare"}
+```{python partition-similarity-example-2,results="hide",fig.cap="Two example paritions that we would like to compare"}
 plt.subplot(1, 2, 1)
 genieclust.plots.plot_scatter(X, labels=y_true-1)
 plt.axis("equal")
@@ -106,52 +108,63 @@ plt.title("y_pred")
 plt.show()
 ```
 
+Our aim is to *relate* the predicted labels to the reference ones.
+
+::::{important}
+Ideally, we would like to work with algorithms that output partitions
+matching the reference ones closely on as wide a set of problem tasks
+as possible.
+
+Note that the automated discovery of $\hat{\mathbf{y}}$
+never relies on the information included in $\mathbf{y}$.
+In other words, clustering is an unsupervised[^footsemisupervised]
+learning process.
+::::
+
+
+[^footsemisupervised]: Tasks such as semi-supervised clustering,
+    where the right assignment of *some* of the input points is known in
+    advance, are of our interest here. However, the current framework can
+    trivially be adjusted to fit such scenarios.
 
 
 
-Let $\mathbf{C}$ be the
-confusion matrix (with :math:`K` rows and :math:`L` columns, :math:`K \\leq L`)
-corresponding to `x` and `y`, see also
-`genieclust.compare_partitions.confusion_matrix`.
 
+## Confusion Matrix
+
+We can determine the confusion matrix $\mathbf{C}$ for the two label vectors:
 
 ```{python}
 (C := genieclust.compare_partitions.confusion_matrix(y_true, y_pred))
 ```
+
+Here, $c_{u, v}$ denotes the number of points in the $u$-th reference cluster
+that the algorithms assigned as members of the $v$-th cluster.
+
+TODO:
+A partition is a *set* of point groups, and sets are unordered by definition
+
+red (cluster ID of 2) <-> black (cluster ID of 1)
+
+
+## Measuring Partition Similarity
+
+A confusion matrix nicely summarises all the information we need to
+judge the clustering quality. However,
+if we wish to compare the quality of different algorithms,
+we would rather have the information summarised as a single number.
 
 By using *partition similarity scores*,
 we can quantify the similarity between $\mathbf{y}$ and $\hat{\mathbf{y}}$,
 and thus assess the degree to which the output of a clustering algorithm
 matches the reference (ground truth) labels.
 
-
-::::{important}
-Ideally, we would like to work with algorithms that output partitions
-matching the reference ones closely on as wide set of problem tasks as possible.
-::::
-
-
-
-::::{note}
-Note that the automated discovery of $\hat{\mathbf{y}}$
-never relies on the information included in $\mathbf{y}$.
-In other words, clustering is an unsupervised learning process.
-
-Tasks such as semi-supervised clustering, where the right assignment of
-*some* of the input points is known in advance, are of our interest here.
-However, the current framework can trivially be adjusted to fit such scenarios.
-::::
-
-
-...
-
+TODO ...
 
 ARI only here
 
 more: {ref}`sec:partition-similarity-scores`
 
-
-....
 
 some axioms
 

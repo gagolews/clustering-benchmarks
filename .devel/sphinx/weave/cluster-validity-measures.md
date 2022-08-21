@@ -72,7 +72,8 @@ $$
 The Ball--Hall index {cite}`BallHall1965:isodata` is the within-cluster
 sum of squares weighted by the cluster cardinality:
 
-$$\mathrm{BallHall}(\mathbf{y}) = -\sum_{i=1}^n \frac{1}{|X_{y_i}|}  \| \mathbf{x}_i - \boldsymbol\mu_{y_i} \|^2.
+$$\mathrm{BallHall}(\mathbf{y}) = -\sum_{i=1}^n \frac{1}{|X_{y_i}|}
+\| \mathbf{x}_i - \boldsymbol\mu_{y_i} \|^2.
 $$
 
 

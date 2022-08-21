@@ -38,7 +38,7 @@ extensions = [
     'myst_parser',
     'sphinx.ext.mathjax',
     'sphinxcontrib.bibtex',
-    #'sphinxcontrib.proof',  # proof:exercise, proof:example
+    'sphinxcontrib.proof',  # proof:exercise, proof:example
     #'sphinx_multitoc_numbering', # so that chapter numbers do not reset across parts [book only]
 
     # [Python package API docs only]
@@ -58,6 +58,22 @@ myst_enable_extensions = [
     "deflist",
 ]
 
+proof_theorem_types = {
+    "exercise": "Exercise",
+    "algorithm": "Algorithm",
+    "conjecture": "Conjecture",
+    "corollary": "Corollary",
+    "definition": "Definition",
+    "example": "Example",
+    "lemma": "Lemma",
+    "observation": "Observation",
+    "proof": "Proof",
+    "property": "Property",
+    "theorem": "Theorem",
+}
+proof_html_nonumbers = ["proof"]
+proof_latex_parent = "section"
+
 templates_path = ['_templates']
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -68,12 +84,12 @@ source_suffix = ['.md', '.rst']
 
 numfig = True
 numfig_format = {
-    'figure': 'Figure %s',
-    'table': 'Table %s',
-    'code-block': 'Listing %s',
-    'section': 'Section %s'
+    'figure': 'Figure %s: ',
+    'table': 'Table %s: ',
+    'code-block': 'Listing %s: ',
+    'section': 'Section %s: '
 }
-numfig_secnum_depth = 1
+numfig_secnum_depth = 0
 
 plot_include_source = True
 plot_html_show_source_link = False

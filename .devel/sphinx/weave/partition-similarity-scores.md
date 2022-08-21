@@ -5,27 +5,77 @@
 (sec:partition-similarity-scores)=
 # Partition Similarity Scores
 
-In this section we review the partition similarity scores that are defined
+In this section we review the partition similarity scores that are implemented
 in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
 and R.
 
-Let $\mathbf{y}$ be a label vector representing one of the reference
-$k$-partitions[^footpart] $\{X_1,\dots,X_k\}$ of a benchmark dataset $X$,
+Let $\mathbf{y}$ be a {ref}`label <sec:true-vs-predicted>`
+vector representing {ref}`one <sec:many-partitions>` of the reference
+$k$-partitions $\{X_1,\dots,X_k\}$ of a benchmark dataset $X$,
 where $y_i\in[1:k]$ gives the true cluster number (ID) of the $i$-th object.
 
 Furthermore, let $\hat{\mathbf{y}}$ be a label vector
 encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$,
 which we would like to *relate* to the reference one, $\mathbf{y}$.
-In our context, we assume that $\hat{\mathbf{y}}$ has been output by some
+In our context, we assume that $\hat{\mathbf{y}}$ has been determined by some
 clustering algorithm.
+
 
 ::::{note}
 Below we assume $k \le l$, i.e., the true clustering
 might theoretically be more coarse-grained than the reference one.
-Also, any noise points in $X$ have been removed.
+Also, any {ref}`noise points <sec:noise-points>` in $X$ have been removed
+before the data analysis.
 ::::
 
 
+
+::::{proof:example}
+120 points in $\mathbb{R}^2$...
+
+
+
+```python
+import numpy as np
+import pandas as pd
+dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/wut/x2"
+X = np.loadtxt(dataset + ".data.gz")
+y_true = np.loadtxt(dataset+".labels0.gz", dtype=np.intc)
+k = max(y_true)
+import genieclust
+g = genieclust.Genie(n_clusters=k)  # default parameters
+y_genie = g.fit_predict(X) + 1
+np.random.seed(123)
+y_random = np.random.choice(np.arange(k), len(y_true)) + 1  # sample from 1..k
+import sklearn.cluster
+c = sklearn.cluster.KMeans(n_clusters=k)
+y_kmeans = c.fit_predict(X) + 1
+plt.subplot(2, 2, 1)
+genieclust.plots.plot_scatter(X, labels=y_true-1)
+plt.axis("equal")
+plt.title("y_true")
+plt.subplot(2, 2, 2)
+genieclust.plots.plot_scatter(X, labels=y_genie-1)
+plt.axis("equal")
+plt.title("y_genie")
+plt.subplot(2, 2, 3)
+genieclust.plots.plot_scatter(X, labels=y_random-1)
+plt.axis("equal")
+plt.title("y_random")
+plt.subplot(2, 2, 4)
+genieclust.plots.plot_scatter(X, labels=y_kmeans-1)
+plt.axis("equal")
+plt.title("y_kmeans")
+plt.show()
+```
+
+(fig:partition-similarity-example-4)=
+```{figure} partition-similarity-scores-figures/partition-similarity-example-4-1.*
+The reference partition and three different clusterings that we would like to relate thereto
+```
+
+
+::::
 
 
 Let $\mathbf{C}$ be the confusion matrix with $k$ rows and $l$ columns,
@@ -37,11 +87,16 @@ classified as belonging to the $v$-th group.
 
 
 
+
 ```python
 # (C := genieclust.compare_partitions.confusion_matrix(y_true, y_pred))
 ```
 
-pivoting...
+normalized_confusion_matrix
+pivoting... relocate the largest
+    elements in each row onto the main diagonal.
+
+
 
 say that this is different than accuracy in classification
 
@@ -59,4 +114,7 @@ are given.
 Note that partitions are always defined up to a bijection of the set of
 possible labels, e.g., (1, 1, 2, 1) and (4, 4, 2, 4)
 represent the same 2-partition.
+
+
+
 
