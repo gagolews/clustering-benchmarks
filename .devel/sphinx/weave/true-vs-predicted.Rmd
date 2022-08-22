@@ -191,106 +191,40 @@ judge the clustering quality. However,
 if we wish to compare the quality of different algorithms,
 we would rather have the information summarised in the form of a single number.
 
-The **adjusted Rand index** {cite}`comparing_partitions`
-is one of the many *partition similarity scores*
-which we can use to quantify the agreement between $\mathbf{y}$ and
+The **adjusted Rand index** {cite}`comparing_partitions`, $\mathrm{AR}$, which
+we define formally in the {ref}`Appendix <sec:partition-similarity-scores>`,
+is one of the many *partition similarity scores*.
+We can use it to quantify the agreement between $\mathbf{y}$ and
 $\hat{\mathbf{y}}$, and thus assess the degree to which the output of
 a clustering algorithm matches the reference (ground truth) labels.
 
+The greater the number[^footar] of point pairs that both belong to either
+the same or different reference and predicted clusters, the greater
+the similarity score.
+
+[^footar]: The number of $(i,j)$s such that either
+    ($y_i=y_j$ and $\hat{y}_i=\hat{y}_j$) or
+    ($y_i\neq y_j$ and $\hat{y}_i\neq \hat{y}_j$).
+
+This measure is normalised in such a way that if two partitions are identical,
+then $\mathrm{AR}(\mathbf{y}, \hat{\mathbf{y}})=1$. Furthermore, it is adjusted
+for chance: its expected value is equal to $0$ if the partitions were picked
+at random. Also, the relabelling of cluster ID (see above) does not affect
+the score.
+
+
+
+<!-- TODO -->
+
+For example:
 
 ```{python}
 genieclust.compare_partitions.adjusted_rand_score(y_true, y_pred)
 ```
 
-the {ref}`Appendix <sec:partition-similarity-scores>`
+indicates a decent degree of similarity between the reference
+and the discovered partitions.
 
-
-
-TODO: citations
-
-The Rand index (1971):
-
-$$
-R(\mathbf{C}) = \frac{ {n \choose 2} + 2 \sum_{i,j\in[k]} {c_{i,j}\choose 2}
-                  - \sum_{i\in[k]} {c_{i,\cdot}\choose 2}
-                  - \sum_{j\in[k]} {c_{\cdot,j}\choose 2}
-    }{{n\choose 2}},
-$$
-
-under the assumption that ${0\choose 2}={1\choose 2}=0$.
-
-
-The normalised total number of pairs
-$\{\vect{x}_i, \vect{x}_j\}$
-with ($u_i=u_j$ and $v_i=v_j$) or ($u_i\neq u_j$ and $v_i\neq v_j$).
-
-
-\vfill
-\bigskip\hrule\bigskip
-
-\tiny
-
-Other (similar) measures: e.g., the Fowlkes--Mallows index,
-see Hubert L., Comparing Partitions, {\it Journal of Classification} {\bf 2}, 1985, pp.~193--218 and also M.~Rezaei and P. Fränti. Set matching measures for external cluster validity. \textit{IEEE Transactions on Knowledge and Data Engineering} {\bf 28}(8), 2016, pp.~2173–2186. doi:10.1109/TKDE.2016.2551240.
-
-\nocite{psi}
-
-\end{frame}
-
-\begin{frame}[fragile]\slidetitleA{Comparing Partitions}
-
-Properties:
-\begin{itemize}
- \pause\item For every $\mathbf{C}$, $R(\mathbf{C})\ge 0$ and if $\vect{u}=\vect{v}$, then $R(\mathbf{C})=1$;
- \pause\item if $\sigma$ is a permutation of $[k]$
-and $\mathbf{C}'$ is such that $c_{i,j}'=c_{i,\sigma(j)}$,
-then $R(\mathbf{C})=R(\mathbf{C}')$;
-\pause\item if $c_{i,j}=m$ for all $i,j$ and given $k$,
-then $R(\mathbf{C}) \stackrel{m\to\infty}{\to} 1-\frac{2(k-1)}{k^2}$.
-% \pause\item if $c_{i,j}=m$ for all $j$ and $i=1$ and $c_{i,j}=0$ otherwise,
-% then
-% $R(\mathbf{C}) \stackrel{m\to\infty}{\to} 1-\frac{k-1}{k}=\frac{1}{k}$.
-\end{itemize}
-\pause
-$\Rightarrow$ The need for a {\color{red2}\bf ``correction for chance''}:
-
-\pause
-we'd like the expected index to be equal to $0$ if the
-partitions were ``picked at random''.
-
-\medskip\pause
-If both $k$-partitions are picked at random, subject to having the original
-number of classes and objects in each,
-then $
- \mathbb{E}\,  {c_{i,j}\choose 2} =
- \frac{{c_{i,\cdot}\choose 2}{c_{\cdot,j}\choose 2}}{{n\choose 2}}.
-$
-
-
-\bigskip\pause
-This yields the \textbf{Adjusted Rand Index} {cite}`comparing_partitions`:
-
-$$
-\mathrm{AR}(\mathbf{C})=\tfrac{ \mathrm{R}(\mathbf{C})-\mathbb{E}\,\mathrm{R}(\mathbf{C})}{1-\mathbb{E}\,\mathrm{R}(\mathbf{C})}=
-\frac{ \sum_{i,j\in[k]} {c_{i,j}\choose 2}
- - \sum_{i\in[k]} {c_{i,\cdot}\choose 2}
-   \sum_{j\in[k]} {c_{\cdot,j}\choose 2} / {n\choose 2}
-    }{
-     \sum_{i\in[k]} {c_{i,\cdot}\choose 2}/2
-   +\sum_{j\in[k]} {c_{\cdot,j}\choose 2}/2
- - \sum_{i\in[k]} {c_{i,\cdot}\choose 2}
-   \sum_{j\in[k]} {c_{\cdot,j}\choose 2} / {n\choose 2}
-    },
-$$
-
-% {\footnotesize\color{gray}
-% % see Hubert L., Comparing Partitions, {\it Journal of Classification} {\bf 2}, 1985, p.~193--218.
-% }
-
-
-TODO: ARI
-
-TODO: some axioms
 
 
 
@@ -301,4 +235,3 @@ This is also where we explain in more detail why **accuracy**,
 which is a measure popular in classification tasks,
 **should not be used in clustering problems**,
 at least not without a prior cluster relabelling which we mentioned above.
-
