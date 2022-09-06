@@ -2,35 +2,37 @@
 
 
 
-# Side Note: Cluster *(In)Validity* Measures
+(sec:internal-validity-measures)=
+# Side Note: Internal *(In)Validity* Measures
 
 
 
 
-Cluster *validity* measures (see, e.g.,
+Internal cluster *validity* measures (see, e.g.,
 {cite}`Milligan1985:psycho,Maulik2002:cvi_comp,Halkidi2001:cluster_validity,
 ArbelaitzEtAl2013:extensive_CVI,XU2020:external_synthetic`)
-are sometimes used to compare the outputs of different clustering algorithms
-on the same dataset.
+might aid in selecting the number of clusters a dataset should
+be partitioned to. They do not require the presence of expert labels.
 
-However, in {cite}`cvi`
+However, they are sometimes also used to compare the outputs of different
+clustering algorithms on the same dataset and judging which one is
+more correct. In {cite}`cvi`
 (see [preprint](https://github.com/gagolews/bibliography/raw/master/preprints/2021cvi.pdf))
-we have pointed out that **many measures
-promote rather random groupings while other ones work better
-as... outlier detectors**.
+we have pointed out that **many measures promote some rather random groupings while
+other ones work better as... outlier detectors**.
 
 We should therefore not deem a high value of, say,
 the Silhouette or Davies–Bouldin index *better* than a lower one,
 at least not uncritically.
 
-Overall, **we do not recommend relying on cluster *validity* measures
-to judge whether a partition is meaningful or not**.
+Overall, **we do not recommend relying on such measures to judge whether
+a partition is meaningful or not**.
 
 
 
 ## Notation
 
-Still, for the sake of completeness, let us recall the definitions
+For the sake of completeness, let us recall the definitions
 of some of the more popular indices. Their implementation is included
 in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
 and R {cite}`genieclust`.

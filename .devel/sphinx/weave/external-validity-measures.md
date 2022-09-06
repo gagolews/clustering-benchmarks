@@ -2,12 +2,15 @@
 
 
 
-(sec:partition-similarity-scores)=
-# Partition Similarity Scores
+(sec:external-validity-measures)=
+# External Cluster Validity Measures
 
 In this section we review the partition similarity scores that are implemented
 in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
-and R {cite}`genieclust`.
+and R {cite}`genieclust` and discussed in detail in {cite}`aaa`
+(this section contains excerpts therefrom).
+
+
 
 Let $\mathbf{y}$ be a {ref}`label <sec:true-vs-predicted>`
 vector representing {ref}`one <sec:many-partitions>` of the reference
@@ -108,7 +111,7 @@ plt.show()
 ```
 
 (fig:partition-similarity-example-4)=
-```{figure} partition-similarity-scores-figures/partition-similarity-example-4-1.*
+```{figure} external-validity-measures-figures/partition-similarity-example-4-1.*
 The reference partition and three different clusterings that we would like to relate thereto
 ```
 

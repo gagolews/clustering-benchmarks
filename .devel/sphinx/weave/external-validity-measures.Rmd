@@ -1,9 +1,12 @@
-(sec:partition-similarity-scores)=
-# Partition Similarity Scores
+(sec:external-validity-measures)=
+# External Cluster Validity Measures
 
-In this section we review the partition similarity scores that are implemented
+In this section we review the external cluster validity scores that are implemented
 in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
-and R {cite}`genieclust`.
+and R {cite}`genieclust` and discussed in detail in {cite}`aaa`
+(this section contains excerpts therefrom).
+
+
 
 Let $\mathbf{y}$ be a {ref}`label <sec:true-vs-predicted>`
 vector representing {ref}`one <sec:many-partitions>` of the reference
@@ -11,17 +14,15 @@ $k$-partitions $\{X_1,\dots,X_k\}$ of a benchmark dataset $X$,
 where $y_i\in[1:k]$ gives the true cluster number (ID) of the $i$-th object.
 
 Furthermore, let $\hat{\mathbf{y}}$ be a label vector
-encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_l\}$,
+encoding another partition, $\{\hat{X}_1,\dots,\hat{X}_k\}$,
 which we would like to *relate* to the reference one, $\mathbf{y}$.
 In our context, we assume that $\hat{\mathbf{y}}$ has been determined by some
 clustering algorithm.
 
 
 ::::{note}
-Below we assume $k \le l$, i.e., the true clustering
-might theoretically be more coarse-grained than the reference one.
-Also, any {ref}`noise points <sec:noise-points>` in $X$ have been removed
-before the data analysis.
+Below we assume any potential {ref}`noise points <sec:noise-points>` in $X$ have
+been removed before the data analysis.
 ::::
 
 

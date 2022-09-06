@@ -197,7 +197,7 @@ plt.show()
 
 (fig:partition-similarity-example-2b)=
 ```{figure} true-vs-predicted-figures/partition-similarity-example-2b-3.*
-The two partitions with after the cluster ID (colour) matching
+The two partitions after the cluster ID (colour) matching
 ```
 
 
@@ -261,15 +261,15 @@ at random. Also, the relabelling of cluster ID (see above) does not affect
 the score.
 
 
+
+
 For example:
 
 
 
 ```python
 genieclust.compare_partitions.adjusted_rand_score(y_true, y_pred)
-genieclust.compare_partitions.normalized_accuracy(y_true, y_pred)
 ## 0.6882872342370341
-## 0.8374999999999999
 ```
 
 indicates a decent degree of similarity between the reference
@@ -280,7 +280,7 @@ and the discovered partitions.
 
 
 More partition similarity scores are discussed
-in the {ref}`Appendix <sec:partition-similarity-scores>`.
+in the {ref}`Appendix <sec:external-validity-measures>`.
 This is also where we explain in more detail why **accuracy**,
 which is a measure popular in classification tasks,
 **should not be used in clustering problems**,

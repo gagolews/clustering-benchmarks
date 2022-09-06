@@ -14,37 +14,55 @@ A Framework for Benchmarking Clustering Algorithms
     :width: 128px
 -->
 
-It is not rare for clustering papers/graduate theses to consider only a small
-number of datasets, say 5–10 UCI-sourced ones,
-which obviously is too few to make any evaluations rigorous enough.
-Other authors propose their own datasets, but forget to test their methods
-against other benchmarks batteries, risking their evaluations be biased.
+There is no, nor will there ever be, single best clustering algorithm.
+Still, we would like to be able to separate the wheat from the chaff:
+to pinpoint those which are well-performing on certain task types
+and filter out the systematically disappointing ones.
+To do so, we can run the algorithms on a variety of datasets
+and compare their outputs to the reference, ground truth groupings
+that are provided by experts.
 
-Authors who share their data (thanks!) might not necessarily make
+However, it is not rare for research papers/graduate theses to consider
+only a small number of datasets, say 5–10 UCI-sourced ones.
+This is obviously too few to make any evaluation rigorous enough.
+
+Other authors propose their own datasets, but forget to test their methods
+against other benchmarks batteries. This might lead to biased conclusions.
+
+Also, researchers who share their data (thanks!) might not necessarily make
 the use of their suites particularly smooth (different file formats,
 different ways to access, etc., even across a single repository).
 On the other hand, other machine learning domains
-(but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization))
-have had some standardised, well agreed-upon approaches for testing
-the quality of the algorithms for quite a long time.
+(e.g., classification and regression problems included in the said UCI
+{cite}`uci`; but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization))
+developed some standardised, well agreed-upon approaches for testing
+the quality of the algorithms long time ago.
 
-In this project we aim to **aggregate, polish and standardise the existing
-clustering benchmark suites** referred to across the machine learning
-and data mining literature. Moreover, we introduce **new datasets**
-of different dimensionalities, sizes and cluster types.
+This project aims to:
+
+* **aggregate, polish, and standardise the existing clustering benchmark suites**
+    referred to across the machine learning and data mining literature,
+* introduce **new datasets** of different dimensionalities,
+    sizes, and cluster types,
+* propose a **consistent methodology** for evaluating clustering algorithms.
 
 
-**How to cite.**
-Gagolewski M.,
-A Framework for Benchmarking Clustering Algorithms,
-2022,
-<https://clustering-benchmarks.gagolewski.com>
 
+
+**Author/Editor/Maintainer**: [Marek Gagolewski](https://www.gagolewski.com)
+
+**How to cite**: Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*,
+2022, <https://clustering-benchmarks.gagolewski.com>
 
 **Acknowledgements.**
 ...TO DO...
 Anna Cena
 datasets: SIPU etc.
+
+Data are provided solely for research purposes, unless stated otherwise.
+Please cite the literature references mentioned in the description files
+corresponding to each dataset if you use them in your publications.
+
 
 
 
@@ -56,6 +74,9 @@ datasets: SIPU etc.
 
 About <self>
 Author <https://www.gagolewski.com/>
+Source Code (GitHub) <https://github.com/gagolews/clustering-benchmarks>
+Bug Tracker and Feature Suggestions <https://github.com/gagolews/clustering-benchmarks/issues>
+PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 ::::
 
 
@@ -85,9 +106,6 @@ clustbench-documentation
 :maxdepth: 1
 :caption: See Also
 
-Source Code (GitHub) <https://github.com/gagolews/clustering-benchmarks>
-Bug Tracker and Feature Suggestions <https://github.com/gagolews/clustering-benchmarks/issues>
-PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 Data Wrangling in Python <https://datawranglingpy.gagolewski.com/>
 genieclust Package <https://genieclust.gagolewski.com/>
 ::::
@@ -97,8 +115,8 @@ genieclust Package <https://genieclust.gagolewski.com/>
 :maxdepth: 1
 :caption: Appendix
 
-weave/partition-similarity-scores
-weave/cluster-validity-measures
+weave/external-validity-measures
+weave/internal-validity-measures
 news
 z_bibliography
 ::::

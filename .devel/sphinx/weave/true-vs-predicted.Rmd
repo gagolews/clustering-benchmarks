@@ -149,7 +149,7 @@ o = np.array([2, 1, 3])  # relabelling: 1→2, 2→1, 3→3
 See below for an updated figure.
 
 
-```{python partition-similarity-example-2b,results="hide",fig.cap="The two partitions with after the cluster ID (colour) matching"}
+```{python partition-similarity-example-2b,results="hide",fig.cap="The two partitions after the cluster ID (colour) matching"}
 plt.subplot(1, 2, 1)
 genieclust.plots.plot_scatter(X, labels=y_true-1, axis="equal", title="y_true")
 plt.subplot(1, 2, 2)
@@ -230,7 +230,7 @@ and the discovered partitions.
 
 
 More partition similarity scores are discussed
-in the {ref}`Appendix <sec:partition-similarity-scores>`.
+in the {ref}`Appendix <sec:external-validity-measures>`.
 This is also where we explain in more detail why **accuracy**,
 which is a measure popular in classification tasks,
 **should not be used in clustering problems**,
