@@ -360,8 +360,15 @@ $$
 \max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, \cdot}} - \frac{1}{k}
 }{
 1 - \frac{1}{k}
-}.
+}=
+1-
+\min_\sigma
+\left(
+\frac{1}{k}
+\sum_{i=1}^k \frac{c_{i, \cdot}-c_{i, \sigma(i)}}{ \frac{k-1}{k} c_{i, \cdot} }
+\right).
 $$
+
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.adjusted_asymmetric_accuracy`*
 
