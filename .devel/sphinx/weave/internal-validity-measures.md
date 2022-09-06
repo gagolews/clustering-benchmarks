@@ -44,20 +44,18 @@ Note that this section contains excerpts from our paper {cite}`cvi`.
 Let $\mathbf{X}\in\mathbb{R}^{n\times d}$ denote the input dataset
 comprised of $n$ points in a $d$-dimensional Euclidean space, with
 $\mathbf{x}_i = (x_{i,1},\dots,x_{i,d})$ giving the coordinates of
-the $i$-th point, $i\in[1:n]=\{1,2,\dots,n\}$.
+the $i$-th point, $i\in\{1,2,\dots,n\}$.
 
 A $k$-partition $\{X_1,\dots,X_k\}$ of a set
 $\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$
 can be encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
-$y_i\in[1:k]$ gives the cluster number of the $i$-th point.
-
-[^footsurj]: More precisely, a surjection $[1:n]\stackrel{\text{onto}}{\to}[1:k]$.
+$y_i\in\{1,\dots,k\}$ gives the cluster number of the $i$-th point.
 
 
 The measures listed below are based on Euclidean distances between all pairs
 of points, $\|\mathbf{x}_i-\mathbf{x}_j\|$, or the input points and some
 other pivots, such as their corresponding *cluster centroids*,
-$\|\mathbf{x}_i-\boldsymbol\mu_j\|,$ where for $j\in[1:k]$ and $l\in[1:d]$:
+$\|\mathbf{x}_i-\boldsymbol\mu_j\|,$ where for $j\in\{1,\dots,k\}$ and $l\in\{1,\dots,d\}$:
 
 $$
 \mu_{j,l} = \frac{1}{|X_j|} \sum_{\mathbf{x}_i\in X_j} x_{i,l}.
@@ -84,7 +82,7 @@ $$
 Note the minus sign that accounts for the fact that we would rather
 have the index maximised.
 
-*Implementation: [`genieclust.cluster_validity.negated_ball_hall_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.negated_ball_hall_index`*
 
 
 
@@ -106,7 +104,7 @@ $$
 
 where $\boldsymbol\mu$ denotes the centroid of the whole dataset $\mathbf{X}$,
 i.e., a vector such that
-$\mu_{l} = \frac{1}{n} \sum_{x=1}^n x_{i,l}$ for $l\in[1:d]$.
+$\mu_{l} = \frac{1}{n} \sum_{x=1}^n x_{i,l}$ for $l\in\{1,\dots,d\}$.
 
 It may be shown that the task of minimising the (unweighted) within-cluster
 sum of squares is equivalent to maximising the Caliński--Harabasz index.
@@ -114,7 +112,7 @@ Hence, this index is precisely the objective function in the $k$-means method
 {cite}`lloyd` and the algorithms by Ward, Edwards, and Cavalli–Sforza;
 see {cite}`Ward1963:hier,EdwardsSforza1965:divisive,CalinskiHarabasz1974:index`.
 
-*Implementation: [`genieclust.cluster_validity.calinski_harabasz_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.calinski_harabasz_index`*
 
 
 
@@ -143,7 +141,7 @@ On a side note, in {cite}`DaviesBouldin1979:index`, other choices of $s_i$
 and $m_{i,j}$ are also suggested. We have recalled only the most popular setting
 here (used, e.g., in {cite}`ArbelaitzEtAl2013:extensive_CVI`).
 
-*Implementation: [`genieclust.cluster_validity.negated_davies_bouldin_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.negated_davies_bouldin_index`*
 
 
 
@@ -179,7 +177,7 @@ $$
 
 with convention $\pm\infty/\infty=0$.
 
-*Implementation: [`genieclust.cluster_validity.silhouette_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.silhouette_index`*
 
 
 ### SilhouetteW
@@ -201,7 +199,7 @@ Note that *SilhouetteW*, just like *BallHall*, employs
 weighting by cluster cardinalities.
 
 
-*Implementation: [`genieclust.cluster_validity.silhouette_w_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.silhouette_w_index`*
 
 
 ## Generalised Dunn Indices
@@ -278,5 +276,5 @@ as *GDunn_dX_DY*. In particular, *GDunn_d1_D1* gives the original Dunn
 {cite}`Dunn1974:index` index.
 
 
-*Implementation: [`genieclust.cluster_validity.generalised_dunn_index`](https://genieclust.gagolewski.com/genieclust_cluster_validity.html)*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.generalised_dunn_index`*
 
