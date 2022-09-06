@@ -12,14 +12,16 @@ Internal cluster *validity* measures (see, e.g.,
 {cite}`Milligan1985:psycho,Maulik2002:cvi_comp,Halkidi2001:cluster_validity,
 ArbelaitzEtAl2013:extensive_CVI,XU2020:external_synthetic`)
 might aid in selecting the number of clusters a dataset should
-be partitioned to. They do not require the presence of expert labels.
+be partitioned to. They do not require the presence of expert labels:
+their aim is quantify different aspects of the obtained partitions,
+e.g., the average degree of cluster compactness or point separability.
 
 However, they are sometimes also used to compare the outputs of different
-clustering algorithms on the same dataset and judging which one is
-more correct. In {cite}`cvi`
-(see [preprint](https://github.com/gagolews/bibliography/raw/master/preprints/2021cvi.pdf))
+clustering algorithms on the same dataset and judging which one is more correct.
+In {cite}`cvi` (see
+[preprint](https://github.com/gagolews/bibliography/raw/master/preprints/2021cvi.pdf))
 we have pointed out that **many measures promote some rather random groupings while
-other ones work better as... outlier detectors**.
+other ones are more suitable for... detecting outliers**.
 
 We should therefore not deem a high value of, say,
 the Silhouette or Davies–Bouldin index *better* than a lower one,
