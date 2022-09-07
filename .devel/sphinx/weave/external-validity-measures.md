@@ -29,7 +29,7 @@ the more *similar* the partitions, the higher the score.
 They are normalised so that identical partitions give the highest similarity
 score which is equal to 1.
 Some are adjusted for chance, yielding approximately 0 for random
-partitionings.
+partitions.
 
 Oftentimes, **partition similarity scores** (e.g.,
 the adjusted Rand index or the normalised mutual information score)
@@ -207,7 +207,6 @@ in the largest point group.
 
 
 
-
 ### Adjusted Asymmetric Accuracy
 
 In {cite}`aaa`, the adjusted for both cluster sizes
@@ -221,8 +220,15 @@ $$
 \max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, \cdot}} - \frac{1}{k}
 }{
 1 - \frac{1}{k}
-}.
+}=
+1-
+\min_\sigma
+\left(
+\frac{1}{k}
+\sum_{i=1}^k \frac{c_{i, \cdot}-c_{i, \sigma(i)}}{ \frac{k-1}{k} c_{i, \cdot} }
+\right).
 $$
+
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.adjusted_asymmetric_accuracy`*
 
@@ -239,10 +245,51 @@ As argued in {cite}`aaa`, this is a perfectly fine behaviour
 in our context, where we validate the predicted partitions.
 
 
+::::{note}
+The optimal relabelling (permutation $\sigma$) can be determined by
+normalising each row of the confusion matrix so that the elements
+therein sum to 1:
+
+
+
+```python
+C = np.array([
+    [12, 37,  1],
+    [40,  0,  0],
+    [0,   0, 30]
+])
+(C_norm := C/C.sum(axis=1).reshape(-1, 1))
+## array([[0.24, 0.74, 0.02],
+##        [1.  , 0.  , 0.  ],
+##        [0.  , 0.  , 1.  ]])
+```
+
+and then by calling:
+
+
+
+```python
+(o := genieclust.compare_partitions.normalizing_permutation(C_norm) + 1)
+## array([2, 1, 3])
+```
+
+Note that indexing in Python is 0-based, hence the `+1` part.
+Here is a version of the confusion matrix with the columns
+reordered accordingly:
+
+
+
+```python
+C[:, o-1]
+## array([[37, 12,  1],
+##        [ 0, 40,  0],
+##        [ 0,  0, 30]])
+```
+::::
 
 ### Pair Sets Index
 
-If the symmetry property is required, the Rezaei–Fränti index (pair sets index)
+If the symmetry property is required, the pair sets index
 {cite}`psi` can be used as partition similarity score.
 In the case of partitions of the same cardinalities it reduces to:
 
