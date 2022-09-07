@@ -253,12 +253,12 @@ therein sum to 1:
 
 
 ```python
-C = np.array([
+C = np.array([  # an example confusion matrix
     [12, 37,  1],
     [40,  0,  0],
     [0,   0, 30]
 ])
-(C_norm := C/C.sum(axis=1).reshape(-1, 1))
+(C_norm := C / C.sum(axis=1).reshape(-1, 1))
 ## array([[0.24, 0.74, 0.02],
 ##        [1.  , 0.  , 0.  ],
 ##        [0.  , 0.  , 1.  ]])
@@ -287,11 +287,14 @@ C[:, o-1]
 ```
 ::::
 
+
+
+
 ### Pair Sets Index
 
 If the symmetry property is required, the pair sets index
-{cite}`psi` can be used as partition similarity score.
-In the case of partitions of the same cardinalities it reduces to:
+{cite}`psi` can be used as a partition similarity score.
+In the case of partitions of the same cardinalities, it reduces to:
 
 $$
 \mathrm{PS}(\mathbf{C}) =

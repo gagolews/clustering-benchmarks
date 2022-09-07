@@ -74,8 +74,8 @@ $y_i\in\{1,\dots,k\}$ gives the subset/cluster number (ID) of the $i$-th object.
     for $i\neq j$.
 
 
-The number of subsets $k\ge 2$ is thus an inherent part of the
-reference set.
+The number of subsets $k$ is thus an inherent part of the
+reference set:
 
 
 

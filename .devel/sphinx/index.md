@@ -38,6 +38,7 @@ On the other hand, other machine learning domains
 developed some standardised, well agreed-upon approaches for testing
 the quality of the algorithms long time ago.
 
+
 This project aims to:
 
 * **aggregate, polish, and standardise the existing clustering benchmark suites**
@@ -47,6 +48,15 @@ This project aims to:
 * propose a **consistent methodology** for evaluating clustering algorithms.
 
 
+The proposed methodology at a glance: ***TODO**
+
+* various datasets or different dimensionality, and cluster sizes, including imbalanced problems
+* each dataset is equipped with at least one or more ground truth partition provided by experts – as there can be many equally valid partitions
+* an algorithm is run to partition the datasets into a desired number of clusters (e.g., to find all 2-, 3-, 4-... -clusterings)
+* external cluster validity scores are used to relate the outputs to all the possible reference sets
+* noise points can be included in the dataset to make the clustering harder,
+but they are ignored when computing the similarity score
+* the best result is reported (has or has not the algorithm reproduced at least one of the ground-truth partitions well?)
 
 
 **Author/Editor/Maintainer**: [Marek Gagolewski](https://www.gagolewski.com)
