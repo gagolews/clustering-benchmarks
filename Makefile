@@ -16,7 +16,7 @@ python:
 
 test: python
 	pytest
-	cd .devel/sphinx && make doctest && cd ../../
+	#cd .devel/sphinx && make doctest && cd ../../
 
 check: python
 	flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics \

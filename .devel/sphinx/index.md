@@ -100,6 +100,7 @@ weave/many-partitions
 weave/data-v1
 weave/file-format
 weave/how-to-access
+weave/contributing
 ::::
 
 
@@ -125,6 +126,7 @@ genieclust Package <https://genieclust.gagolewski.com/>
 :maxdepth: 1
 :caption: Appendix
 
+weave/colouriser
 weave/external-validity-measures
 weave/internal-validity-measures
 news

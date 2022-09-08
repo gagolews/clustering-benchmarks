@@ -28,20 +28,34 @@ import re
 from collections import namedtuple
 
 
-#https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
-
-def load_dataset(name, path="."):
+def load_dataset(battery, dataset, path=".", expanduser=True, expandvars=True):
     """
-    Loads a dataset named `name` relative to the directory `path`.
+    Load a benchmark dataset
+
+    Reads a dataset named `battery/dataset.data.gz`
+    relative to the directory `path` as well as all the corresponding labels
+    (`battery/dataset.labels0.gz`, `battery/dataset.labels1.gz`, ...).
 
     Parameters
     ----------
 
-    name
-        Dataset name
+    battery
+        Name of the battery, e.g., ``"wut"`` or ``"other"``.
+        Can be an empty string or ``"."`` if all files are
+        in a single directory as specified by `path`.
+
+    dataset
+        Dataset name, e.g., ``"x2"`` or ``"iris"``.
 
     path
-        Path to the downloaded suite, defaults to the current working directory
+        Path to the downloaded benchmark datasets suite.
+        Defaults to the current working directory.
+
+    expanduser
+        Whether to call ``os.path.expanduser``.
+
+    expandvars
+        Whether to call ``os.path.expandvars``.
 
 
     Returns
@@ -51,30 +65,40 @@ def load_dataset(name, path="."):
         A named tuple with the following elements:
 
         data
-            data matrix
+            Data matrix.
 
         labels
-            a list with at least one label vectors
+            A list consisting of the label vectors.
 
         name
-            same as the `name` argument
+            A string of the form `battery/name`.
 
 
     Examples
     --------
 
     >>> import os.path
-    >>> #data, labels, name = load_dataset(os.path.join("wut", "smile"), "/usr/share/clustering_benchmarks_v1")
-    >>> #ret = load_dataset("smile", "/usr/share/clustering_benchmarks_v1/wut")
-    >>> # print(ret.data, ret.labels, ret.name)
+    >>> import clustbench
+    >>> data_path = os.path.join("~", "Projects", "clustering-data-v1")  # up to you
+    >>> benchmark = clustbench.load_dataset("wut", "x2", data_path)
+    >>> print(benchmark.data, benchmark.labels, benchmark.name)
 
     """
-    base_name = os.path.join(path, name)
+    base_name = os.path.join(path, battery, dataset)
 
-    data_file = base_name+".data.gz"
+    if expanduser:
+        base_name = os.path.expanduser(base_name)
+
+    if expandvars:
+        base_name = os.path.expandvars(base_name)
+
+    data_file = base_name + ".data.gz"
     data = np.loadtxt(data_file, ndmin=2)
-    labels_files = sorted(glob.glob(base_name+".labels?.gz"))
-    assert len(labels_files) > 0
+
+    labels_files = sorted(glob.glob(base_name+".labels*.gz"))
+
+    #if len(labels_files) <= 0:
+    #    raise ValueError("No label files found.")
 
     labels = [
         np.loadtxt(labels_file, dtype='int')
@@ -82,4 +106,4 @@ def load_dataset(name, path="."):
     ]
 
     RetClass = namedtuple("ClusteringBenchmark", ["data", "labels", "name"])
-    return RetClass(data=data, labels=labels, name=name)
+    return RetClass(data=data, labels=labels, name=battery+"/"+dataset)

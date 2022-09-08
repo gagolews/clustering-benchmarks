@@ -9,6 +9,8 @@ FILES_RMD = \
 	how-to-access.Rmd \
 	many-partitions.Rmd \
 	noise-points.Rmd \
+	contributing.Rmd \
+	colouriser.Rmd \
 	true-vs-predicted.Rmd
 
 RMD_MD_OUTPUTS=$(patsubst %.Rmd,%.md,$(FILES_RMD))

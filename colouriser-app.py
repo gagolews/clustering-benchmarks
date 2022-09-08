@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Interactive Manual Planar Data Clustering
+Interactive Planar Data Editor
+
+A standalone console app using clustbench.Colouriser
 
 See <https://clustering-benchmarks.gagolewski.com> for more details.
 """
@@ -42,7 +44,7 @@ if __name__ == "__main__":
     # read input data
 
     print("""\
-Colouriser: Interactive Manual Planar Data Clustering
+Colouriser: Interactive Planar Data Editor
 Copyright (C) 2018-2022 Marek Gagolewski <https://www.gagolewski.com>
 This program is free software licensed under the GNU GPL v3 or later.
 See <https://clustering-benchmarks.gagolewski.com> for more details.
@@ -68,9 +70,10 @@ See <https://clustering-benchmarks.gagolewski.com> for more details.
     clr = clustbench.Colouriser(data, labels)
     clr.print_help()
     clr.show()
-    labels = clr.get_labels()
     # --------------------------------------------------------------------------
 
-    np.savetxt(labels_file, labels, fmt="%d")
+    # TODO: check changed
+    # TODO: save copy filename~
+    np.savetxt(labels_file, clr.get_labels(), fmt="%d")
 
     print("File %s saved." % labels_file)
