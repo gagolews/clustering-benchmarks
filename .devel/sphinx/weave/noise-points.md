@@ -23,7 +23,7 @@ dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/other/hdbsc
 X = np.loadtxt(dataset + ".data.gz")
 ```
 
-Loading the true labels:
+Loading the true labels, $\mathbf{y}$:
 
 
 
@@ -55,8 +55,8 @@ some points as noise (see the lefthand side plot in the figure below).
 
 Suppose we want to evaluate how [Genie](https://genieclust.gagolewski.com)
 handles such a noisy dataset. Of course, the algorithm must
-not know about the presence of such problematic points. After all,
-it is an unsupervised learning task.
+not be informed about the exact location of such problematic points.
+After all, it is an unsupervised learning task.
 
 
 
@@ -67,9 +67,11 @@ g = genieclust.Genie(n_clusters=k)  # using default parameters
 y_pred = g.fit_predict(X) + 1  # +1 makes cluster IDs in 1..k, not 0..(k-1)
 ```
 
-Below we plot the reference and the predicted partitions.
-Additionally, we draw a version of `y_pred` whose noise point markers
-are propagated from `y_true` (as a kind of data postprocessing).
+Below we plot the reference  ($\mathbf{y}$)
+and the predicted ($\hat{\mathbf{y}}$) partitions.
+Additionally, we draw a version of $\hat{\mathbf{y}}$ whose
+noise point markers are propagated from  ($\mathbf{y}$)
+(as a kind of data postprocessing).
 
 
 
@@ -87,7 +89,7 @@ plt.show()
 
 (fig:partition-similarity-example-noise)=
 ```{figure} noise-points-figures/partition-similarity-example-noise-1.*
-.....
+Noise points make the life of a clustering algorithm harder.
 ```
 
 
@@ -110,13 +112,16 @@ The first row denotes the "noise cluster": we do not actually
 care how the algorithm classifies such points. After all, most classical
 algorithms are not equipped with noise point detectors[^footnoisedetect]
 and they should not be penalised for this.
+
 Genie discovered four clusters very well (3, 4, 5, 6),
 but failed on the first two (it created a "combined" cluster instead
 and considered some noise points as a separate point group).
 
+
 ::::{important}
-When computing external cluster validity measures, we should omit the
-noise points whatsoever.
+Once a clustering is obtained,
+when computing external cluster validity measures,
+we should omit the noise points whatsoever.
 ::::
 
 

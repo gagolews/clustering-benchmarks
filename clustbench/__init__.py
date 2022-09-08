@@ -21,6 +21,8 @@ clustering-benchmarks Package
 # ############################################################################ #
 
 from .load_dataset import load_dataset
+from .colouriser import Colouriser
+
 
 #__all__ = [
     #"load_dataset",

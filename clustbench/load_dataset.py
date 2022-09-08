@@ -38,10 +38,10 @@ def load_dataset(name, path="."):
     ----------
 
     name
-        dataset name
+        Dataset name
 
     path
-        path to the downloaded suite, defaults to the current working dir
+        Path to the downloaded suite, defaults to the current working directory
 
 
     Returns
