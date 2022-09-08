@@ -47,7 +47,7 @@ pd.Series(y_true).value_counts()
 ## dtype: int64
 ```
 
-We see that there are six clusters (1, ..., 6)
+We see that there are six clusters (1–6)
 and a special point group with ID of 0 that marks
 some points as noise (see the lefthand side plot in the figure below).
 

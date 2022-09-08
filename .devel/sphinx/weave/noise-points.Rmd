@@ -29,7 +29,7 @@ Here is a summary of the number of points in each cluster:
 pd.Series(y_true).value_counts()
 ```
 
-We see that there are six clusters (1, ..., 6)
+We see that there are six clusters (1–6)
 and a special point group with ID of 0 that marks
 some points as noise (see the lefthand side plot in the figure below).
 
