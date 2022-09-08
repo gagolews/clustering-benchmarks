@@ -26,11 +26,6 @@ See <https://clustering-benchmarks.gagolewski.com> for more details.
 #                                                                              #
 # ############################################################################ #
 
-
-# TODO: redraw only locally
-# TODO: MSTs for each cluster, computed on-state-change only
-
-
 import sys, os.path
 import numpy as np
 import clustbench
