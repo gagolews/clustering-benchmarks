@@ -27,7 +27,6 @@ See <https://clustering-benchmarks.gagolewski.com> for more details.
 
 # TODO: redraw only locally
 # TODO: MSTs for each cluster, computed on-state-change only
-# TODO: add new points to the dataset interactively
 
 
 import matplotlib.pyplot as plt
@@ -35,10 +34,13 @@ import numpy as np
 import scipy.spatial
 import genieclust
 
+
 ##############################################################################
 class Colouriser:
     """
     Interactive planar data editor
+
+    See the dedicated section on the package homepage for more details.
 
 
     Parameters
@@ -62,7 +64,6 @@ class Colouriser:
         0 denotes the noise cluster
 
 
-
     Examples
     --------
 
@@ -76,21 +77,24 @@ class Colouriser:
     >>> new_labels = clr.get_labels()
     """
 
+    _modes = ["colourise", "insert", "remove"]
+
+
     def __init__(self, data, labels=None):
         self.data = data
-        self._n = self.data.shape[0]
-        if self._n <= 1 or self.data.shape[1] != 2:
+
+        if self.data.ndim != 2 or self.data.shape[1] != 2:
             raise ValueError(
                 "Wrong data shape. An n-by-2 matrix should be provided."
             )
 
         # read labels or set them as missing/noise (represented by 0)
         if labels is None:
-            self.labels = np.repeat(0, self._n)
+            self.labels = np.repeat(0, self.data.shape[0])
         else:
             self.labels = labels
 
-        if len(self.labels) != self._n:
+        if len(self.labels) != self.data.shape[0]:
             raise ValueError("Wrong number of labels in the input vector.")
 
 
@@ -98,15 +102,26 @@ class Colouriser:
         """
         Changes the state of labels at indices in q to current_colour
         """
-        num_q = len(q)
-        num_q_new = np.sum(self.labels[q] != self._current_colour)
         self.labels[q] = self._current_colour
-        #print(
-        #    "%6d selected, %6d changed; "
-        #    "colour distribution = %s." % (
-        #        num_q, num_q_new,
-        #        np.bincount(self.labels.tolist())
-        #    ))
+
+
+    def _delete_points(self, q):
+        """
+        Changes the state of labels at indices in q to current_colour
+        """
+        self.labels = np.delete(self.labels, q, axis=0)
+        self.data = np.delete(self.data, q, axis=0)
+        self._tree = scipy.spatial.KDTree(self.data)
+
+
+    def _insert_point(self, xy, r):
+
+        t = np.random.rand()*2*np.pi
+        r = np.random.rand()*r
+        xy = [[xy[0]+r*np.cos(t), xy[1]+r*np.sin(t)]]
+        self.labels = np.append(self.labels, [self._current_colour], axis=0)
+        self.data = np.append(self.data, xy, axis=0)
+        self._tree = scipy.spatial.KDTree(self.data)
 
 
     def _key_press(self, event):
@@ -114,31 +129,26 @@ class Colouriser:
         Keyboard event handler (via matplotlib)
         """
         try:
-            self._current_colour = int(event.key, 16)   # {0,1,...,e} (and f) - set colour
-            #print("Current colour: %2d" % self._current_colour)
+            # {0,1,...,e} (and f) - set colour
+            self._current_colour = int(event.key, 16)
         except: pass
 
         if event.key in ["+", "=", "-"]: # set radius
             # why bother with the SHIFT key? → = is +
-            if event.key in ["=", "+"]: self.r *= 1.25
-            if event.key == "-":        self.r /= 1.25
-            #print("Current radius: %5g." % self.r)
-
-        if event.key == "n":             # normalise labels
-            self._normalise_labels()
-
-        if event.key == "z":             # undo last paint
+            if event.key in ["=", "+"]: self._r *= 1.25
+            if event.key == "-":        self._r /= 1.25
+        elif event.key == "n":             # normalise labels
+            self.normalise_labels()
+        elif event.key == "z":             # undo last paint
             self.labels, self._undo_labels = self._undo_labels, self.labels
-            #print("Last brush stroke undone, %6d changed; "
-            #"colour distribution = %s." % (
-            #    np.sum(self.labels != self._undo_labels),
-            #    np.bincount(self.labels.tolist())
-            #    ))
+            self.data, self._undo_data = self._undo_data, self.data
+            self._tree = scipy.spatial.KDTree(self.data)
+        elif event.key == "m":
+            self._current_mode = (self._current_mode+1) % len (Colouriser._modes)
 
-        #if event.key == "m":             # toggle the MSTs view
+        #elif event.key == "t":             # toggle the MSTs view
             #self._show_msts = not self._show_msts
 
-        #sys.stdout.flush()
         self._redraw()
 
 
@@ -150,17 +160,25 @@ class Colouriser:
             self._undo_started = False
         elif event.button == 1 and not self._undo_started:
             self._undo_labels = self.labels.copy()
+            self._undo_data = self.data.copy()
             self._undo_started = True
 
         if event.inaxes is None:
-            self.xy = None
+            self._xy = None
             self._redraw()
             return
-        self.xy = np.r_[event.xdata, event.ydata]
+
+        self._xy = np.r_[event.xdata, event.ydata]
 
         if event.button == 1:
-            q = self.tree.query_ball_point(self.xy, self.r)
-            self._recolour_labels(q)
+            if self._current_mode == 0:  # colourise
+                q = self._tree.query_ball_point(self._xy, self._r)
+                self._recolour_labels(q)
+            elif self._current_mode == 1:  # insert
+                self._insert_point(self._xy, self._r)
+            elif self._current_mode == 2:  # delete
+                q = self._tree.query_ball_point(self._xy, self._r)
+                self._delete_points(q)
 
         self._redraw()
 
@@ -169,6 +187,9 @@ class Colouriser:
         """
         The plotting routine
         """
+        if self._xlim is not None: self._xlim = self._ax.get_xlim()
+        if self._ylim is not None: self._ylim = self._ax.get_ylim()
+
         self._ax.clear()
 
         #if self._show_msts:
@@ -183,18 +204,30 @@ class Colouriser:
                 marker=self._mrk[(i-1) % len(self._mrk)],
                 alpha=0.5 if i>0 else 1.0)
 
-        if self.xy is not None:
-            # draw the "cursor"
-            self._ax.add_artist(plt.Circle(self.xy, self.r,
-                color=self._col[(self._current_colour-1)], alpha=0.4))
-        self._fig.canvas.draw()
+        if self._xlim is None:
+            self._xlim = self._ax.get_xlim()
+        else:
+            self._ax.set_xlim(self._xlim )
+
+        if self._ylim is None:
+            self._ylim = self._ax.get_ylim()
+        else:
+            self._ax.set_ylim(self._ylim )
 
         self._fig.suptitle(
-            "Current radius: %5g; Colour: %d\nCluster size distribution: %s" % (
-                self.r,
+            "Mode {m}: %s; Radius {+,-}: %5g; Colour {0-9,a-e}: %d\n"
+            "Cluster size distribution {n}: %s" % (
+                Colouriser._modes[self._current_mode],
+                self._r,
                 self._current_colour,
                 np.bincount(self.labels.tolist())
         ))
+
+        if self._xy is not None:
+            # draw the "cursor"
+            self._ax.add_artist(plt.Circle(self._xy, self._r,
+                color=self._col[(self._current_colour-1)], alpha=0.4))
+        self._fig.canvas.draw()
 
 
     def normalise_labels(self):
@@ -210,41 +243,38 @@ class Colouriser:
         srt = -np.bincount(self.labels[self.labels>0])[1:]  # decreasing
         srt = np.argsort(srt, kind="mergesort")  # the ordering permutation
         srt = np.argsort(srt, kind="mergesort")  # the inverse permutation
-        for i in range(self._n):
+        for i in range(self.data.shape[0]):
             if self.labels[i] > 0:
                 self.labels[i] = srt[self.labels[i]-1]+1
-
-        #print("New colour distribution = %r." % (
-        #    np.bincount(self.labels.tolist()),
-        #))
 
 
     def show(self):
         """
-        Start the interactive colouriser app.
+        Start the interactive Colouriser.
         """
 
-        self.tree = scipy.spatial.KDTree(self.data) # spatial search data struct
-        self.xy = None                     # last mouse position; in plot coords
+        self._tree = scipy.spatial.KDTree(self.data)  # for spatial search
+        self._xy = None  # last mouse position; in plot coords
 
-        self.r = (self.data.max()-self.data.min())*0.1
+        self._r = max(
+            (self.data[:,0].max()-self.data[:,0].min()) * 0.1,
+            (self.data[:,1].max()-self.data[:,1].min()) * 0.1
+        )
+
+        self._current_mode = 0
 
         self._current_colour = 0
 
         self._show_msts = False  # TODO: future feature
 
         self._undo_labels = self.labels.copy()
+        self._undo_data = self.data.copy()
         self._undo_started = False
 
         self._fig, self._ax = plt.subplots()
         self._ax.axis("equal")
-
-        #xmin = self.data[:,0].min()
-        #xmax = self.data[:,0].max()
-        #ymin = self.data[:,1].min()
-        #ymax = self.data[:,1].max()
-        #self._ax.set_xlim(xmin, xmax)
-        #self._ax.set_ylim(ymin, ymax)
+        self._xlim = None
+        self._ylim = None
 
         plt.get_current_fig_manager().set_window_title(
             "Colouriser: Interactive Planar Data Editor"
@@ -291,9 +321,9 @@ class Colouriser:
         """
         List the keyboard shortcuts available.
         """
+        print("Press {m} to toggle between modes (colourise/insert/delete).")
         print("Press {n} to normalise the cluster labels/size distribution")
         print("    (only affects the non-noise points, i.e., those with ID>0).")
-        #print("Press {m} to toggle the MST (minimum spanning trees) view.")
-        print("Press {z} to undo/redo the last brush stroke or label normalisation.")
+        print("Press {z} to undo/redo the last operation.")
         print("Press {0,1,...,9,a,...,e} to change the current colour.")
-        print("Press {+,-} to change the radius.")
+        print("Press {+,-} to change the cursor radius.")

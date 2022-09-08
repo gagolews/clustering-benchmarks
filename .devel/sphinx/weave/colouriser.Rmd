@@ -2,8 +2,8 @@
 # Colouriser: Interactive Planar Data Editor
 
 The *{any}`clustbench.Colouriser <clustbench.Colouriser>`* class
-can help us with preparing or modifying label vectors interactively
-in the case of 2D datasets.
+can help us with preparing or modifying label vectors and data points
+interactively in the case of 2D datasets.
 
 ::::{note}
 Contributions to the benchmark battery

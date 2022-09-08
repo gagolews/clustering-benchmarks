@@ -5,6 +5,8 @@ Interactive Planar Data Editor
 
 A standalone console app using clustbench.Colouriser
 
+Be careful: input files will be overwritten!
+
 See <https://clustering-benchmarks.gagolewski.com> for more details.
 """
 
@@ -43,6 +45,8 @@ Colouriser: Interactive Planar Data Editor
 Copyright (C) 2018-2022 Marek Gagolewski <https://www.gagolewski.com>
 This program is free software licensed under the GNU GPL v3 or later.
 See <https://clustering-benchmarks.gagolewski.com> for more details.
+
+Be careful: input files will be overwritten!
     """)
 
     if len(sys.argv) != 3:
@@ -67,8 +71,9 @@ See <https://clustering-benchmarks.gagolewski.com> for more details.
     clr.show()
     # --------------------------------------------------------------------------
 
-    # TODO: check changed
-    # TODO: save copy filename~
-    np.savetxt(labels_file, clr.get_labels(), fmt="%d")
+    np.savetxt(data_file, clr.get_data(), fmt="%g")
+    print("File %s saved." % data_file)
 
+    np.savetxt(labels_file, clr.get_labels(), fmt="%d")
     print("File %s saved." % labels_file)
+
