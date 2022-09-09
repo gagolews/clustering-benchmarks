@@ -68,9 +68,9 @@ class Colouriser:
     --------
 
     >>> import clustbench
-    >>> data_path = os.path.join("~", "Projects", "clustering-data-v1")  # up to you
-    >>> benchmark = clustbench.load_dataset("wut", "x2", data_path)
-    >>> clr = clustbench.Colouriser(benchmark.data, benchmark.labels[0])
+    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+    >>> wut_smile = clustbench.load_dataset("wut", "smile", url=data_url)
+    >>> clr = clustbench.Colouriser(wut_smile.data, wut_smile.labels[0])
     >>> clr.print_help()
     >>> clr.show()  # starts the interactive mode
     >>> new_data = clr.get_data()

@@ -13,17 +13,16 @@ For example, consider the {ref}`other/hdbscan <sec:data-v1>` dataset
 ```{python}
 import numpy as np
 import pandas as pd
-dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/other/hdbscan"
-X = np.loadtxt(dataset + ".data.gz")
+import clustbench
+# Accessing <https://github.com/gagolews/clustering-data-v1> directly:
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+benchmark = clustbench.load_dataset("other", "hdbscan", url=data_url)
+X = benchmark.data
+y_true = benchmark.labels[0]
 ```
 
-Loading the true labels, $\mathbf{y}$:
-
-```{python}
-y_true = np.loadtxt(dataset+".labels0.gz", dtype=np.intc)
-```
-
-Here is a summary of the number of points in each cluster:
+Here is a summary of the number of points in each cluster
+in the reference partition $\mathbf{y}$:
 
 ```{python}
 pd.Series(y_true).value_counts()

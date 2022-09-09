@@ -26,5 +26,3 @@ Reviewers: Please ask the authors to verify their
 proposals against this or any other large benchmark battery.
 
 
-See also the *{ref}`Colouriser <sec:colouriser>`* class
-for a way to generate label vectors interactively (for 2D datasets).

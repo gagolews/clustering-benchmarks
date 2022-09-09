@@ -18,9 +18,10 @@ dataset, which consists of 120 points in $\mathbb{R}^2$.
 
 ```python
 import numpy as np
-import pandas as pd
-dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/wut/x2"
-X = np.loadtxt(dataset + ".data.gz")
+import clustbench
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+benchmark = clustbench.load_dataset("wut", "x2", url=data_url)
+X = benchmark.data
 X[:5, :]  # preview
 ## array([[ 0.29087439,  0.27966267],
 ##        [ 0.24996994, -0.97430785],
@@ -52,13 +53,13 @@ a desired grouping of the points into $k \ge 2$ clusters.
 
 
 ```python
-(y_true := np.loadtxt(dataset+".labels0.gz", dtype=np.intc))
+(y_true := benchmark.labels[0])
 ## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
 ##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1,
 ##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 ##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 ##        1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-##        3, 3, 3, 3, 3, 3, 3, 3, 3, 3], dtype=int32)
+##        3, 3, 3, 3, 3, 3, 3, 3, 3, 3])
 ```
 
 

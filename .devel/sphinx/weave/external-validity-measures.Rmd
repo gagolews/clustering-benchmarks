@@ -98,8 +98,10 @@ As an illustration, we consider the two-dimensional
 ```{python echo=FALSE,results="hide"}
 import numpy as np
 import pandas as pd
-dataset = "https://github.com/gagolews/clustering-data-v1/raw/master/wut/x2"
-X = np.loadtxt(dataset + ".data.gz")
+import clustbench
+data_path = os.path.join("~", "Projects", "clustering-data-v1")
+benchmark = clustbench.load_dataset("wut", "x2", data_path)
+X = benchmark.data
 ```
 
 <!--
@@ -107,7 +109,7 @@ The reference partition consists of $k=3$ clusters:
 -->
 
 ```{python echo=FALSE,results="hide"}
-y_true = np.loadtxt(dataset+".labels0.gz", dtype=np.intc)
+y_true = benchmark.labels[0]
 k = max(y_true)
 ```
 

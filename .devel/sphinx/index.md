@@ -22,6 +22,10 @@ To do so, we can run the algorithms on a variety of datasets
 and compare their outputs to the reference, ground truth groupings
 that are provided by experts.
 
+::::{todo}
+show some example outputs - plot
+::::
+
 However, it is not rare for research papers/graduate theses to consider
 only a small number of datasets, say 5–10 UCI-sourced ones.
 This is obviously too few to make any evaluation rigorous enough.
@@ -38,7 +42,7 @@ On the other hand, other machine learning domains
 developed some standardised, well agreed-upon approaches for testing
 the quality of the algorithms long time ago.
 
-
+::::{important}
 This project aims to:
 
 * **aggregate, polish, and standardise the existing clustering benchmark suites**
@@ -46,9 +50,11 @@ This project aims to:
 * introduce **new datasets** of different dimensionalities,
     sizes, and cluster types,
 * propose a **consistent methodology** for evaluating clustering algorithms.
+::::
 
 
-The proposed methodology at a glance: ***TODO**
+::::{note}
+Here is the proposed methodology at a glance:
 
 * various datasets or different dimensionality, and cluster sizes, including imbalanced problems
 * each dataset is equipped with at least one or more ground truth partition provided by experts – as there can be many equally valid partitions
@@ -57,6 +63,10 @@ The proposed methodology at a glance: ***TODO**
 * noise points can be included in the dataset to make the clustering harder,
 but they are ignored when computing the similarity score
 * the best result is reported (has or has not the algorithm reproduced at least one of the ground-truth partitions well?)
+
+Details follow in the sections below.
+::::
+
 
 
 **Author/Editor/Maintainer**: [Marek Gagolewski](https://www.gagolewski.com)
@@ -84,9 +94,7 @@ corresponding to each dataset if you use them in your publications.
 
 About <self>
 Author <https://www.gagolewski.com/>
-Source Code (GitHub) <https://github.com/gagolews/clustering-benchmarks>
 Bug Tracker and Feature Suggestions <https://github.com/gagolews/clustering-benchmarks/issues>
-PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 ::::
 
 
@@ -106,10 +114,12 @@ weave/contributing
 
 ::::{toctree}
 :maxdepth: 1
-:caption: Python API Documentation
+:caption: Python API
 
 weave/clustbench-usage
 clustbench-documentation
+Source Code (GitHub) <https://github.com/gagolews/clustering-benchmarks>
+PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 ::::
 
 
