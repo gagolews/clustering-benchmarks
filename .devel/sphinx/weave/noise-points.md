@@ -11,7 +11,9 @@ to make the clustering problem more difficult.
 They are specially marked in the ground-truth vectors (cluster ID=0).
 
 
-For example, consider the {ref}`other/hdbscan <sec:data-v1>` dataset
+## Example
+
+For example, consider the {ref}`other/hdbscan <sec:suite-v1>` dataset
 {cite}`hdbscanpkg`, which consists of 2309 points in $\mathbb{R}^2$.
 
 
@@ -44,51 +46,68 @@ pd.Series(y_true).value_counts()
 ## dtype: int64
 ```
 
-We see that there are six clusters (1–6)
+There are six clusters (1–6)
 and a special point group with ID of 0 that marks
-some points as noise (see the lefthand side plot in the figure below).
-
-
-
-Suppose we want to evaluate how [Genie](https://genieclust.gagolewski.com)
-handles such a noisy dataset. Of course, the algorithm must
-not be informed about the exact location of such problematic points.
-After all, it is an unsupervised learning task.
+some points as noise.
 
 
 
 ```python
 import genieclust
+genieclust.plots.plot_scatter(X, labels=y_true-1, axis="equal", title="y_true")
+plt.show()
+```
+
+(fig:partition-similarity-noise-data)=
+```{figure} noise-points-figures/partition-similarity-noise-data-1.*
+An example dataset featuring noise points (light gray whatchamacallits).
+```
+
+## Discovering Clusters
+
+Suppose we want to evaluate how [Genie](https://genieclust.gagolewski.com)
+handles such a noisy dataset.
+
+::::{important}
+The algorithm must
+not be informed about the exact location of such problematic points.
+After all, it is an unsupervised learning task.
+::::
+
+
+
+
+```python
 k = np.max(y_true)  # number of clusters to detect
 g = genieclust.Genie(n_clusters=k)  # using default parameters
 y_pred = g.fit_predict(X) + 1  # +1 makes cluster IDs in 1..k, not 0..(k-1)
 ```
 
-Below we plot the reference  ($\mathbf{y}$)
-and the predicted ($\hat{\mathbf{y}}$) partitions.
+Below we plot the reference the predicted ($\hat{\mathbf{y}}$) partition.
 Additionally, we draw a version of $\hat{\mathbf{y}}$ whose
 noise point markers are propagated from  ($\mathbf{y}$)
 (as a kind of data postprocessing).
 
 
 
+
 ```python
-plt.subplot(1, 3, 1)
-genieclust.plots.plot_scatter(X, labels=y_true-1, axis="equal", title="y_true")
-plt.subplot(1, 3, 2)
+plt.subplot(1, 2, 1)
 genieclust.plots.plot_scatter(X, labels=y_pred-1, axis="equal", title="y_pred")
-plt.subplot(1, 3, 3)
+plt.subplot(1, 2, 2)
 y_pred2 = np.where(y_true > 0, y_pred, 0)  # y_pred, but noise points get ID=0
 genieclust.plots.plot_scatter(X, labels=y_pred2-1, axis="equal",
     title="y_pred (noise from y_true)")
 plt.show()
 ```
 
-(fig:partition-similarity-example-noise)=
-```{figure} noise-points-figures/partition-similarity-example-noise-1.*
+(fig:partition-similarity-noise-genie)=
+```{figure} noise-points-figures/partition-similarity-noise-genie-3.*
 Noise points make the life of a clustering algorithm harder.
 ```
 
+
+## Evaluating Similarity
 
 Here is the confusion matrix:
 

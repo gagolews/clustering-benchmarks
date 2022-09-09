@@ -21,16 +21,16 @@ clustering-benchmarks Package
 # ############################################################################ #
 
 
-import sys, os.path
+import os.path
 import numpy as np
-import glob
-import re
 from collections import namedtuple
+from .preprocess_data import preprocess_data
 
 
 def load_dataset(
     battery, dataset, path=None,
-    url=None, expanduser=True, expandvars=True
+    url=None, expanduser=True, expandvars=True,
+    preprocess=True, random_state=None
 ):
     """
     Load a benchmark dataset
@@ -66,6 +66,12 @@ def load_dataset(
 
     expandvars
         Whether to call ``os.path.expandvars`` on the file path.
+
+    preprocess
+        Whether to call :any:`preprocess_data` on the data matrix.
+
+    random_state
+        Seed of the random number generator; passed to :any:`preprocess_data`.
 
 
     Returns
@@ -113,6 +119,9 @@ def load_dataset(
 
     if data.ndim != 2:
         raise ValueError("Not a matrix.")
+
+    if preprocess:
+        data = preprocess_data(data, random_state=random_state)
 
     labels = []
     i = 0

@@ -6,12 +6,12 @@
 # True vs Predicted Clusters
 
 
-## Motivation
+## Data
 
 Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the **input dataset**
 that consists of $n$ objects.
 
-As an illustration, in this section we consider the {ref}`wut/x2 <sec:data-v1>`
+As an illustration, in this section we consider the {ref}`wut/x2 <sec:suite-v1>`
 dataset, which consists of 120 points in $\mathbb{R}^2$.
 
 
@@ -23,11 +23,11 @@ data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
 benchmark = clustbench.load_dataset("wut", "x2", url=data_url)
 X = benchmark.data
 X[:5, :]  # preview
-## array([[ 0.29087439,  0.27966267],
-##        [ 0.24996994, -0.97430785],
-##        [ 0.43587577, -0.31895699],
-##        [ 0.63048803, -2.15249344],
-##        [-1.46511622,  0.36344556]])
+## array([[-0.16911746, -0.25135197],
+##        [-0.17667309, -0.48302249],
+##        [-0.1423283 , -0.36194485],
+##        [-0.10637601, -0.70068834],
+##        [-0.49353012, -0.23587515]])
 ```
 
 ::::{note}
@@ -40,6 +40,8 @@ Also note that in a {ref}`further section <sec:how-to-access>`,
 we explain how to use our benchmark framework from within R and Matlab.
 ::::
 
+
+## Reference Labels
 
 Each dataset like the one above is equipped with a
 **reference[^footmanyreference] partition** assigned by experts, representing
@@ -86,6 +88,8 @@ reference set:
 ```
 
 
+
+## Predicted Labels
 
 Let us take any **clustering algorithm whose usefulness
 we would like to assess**. As an example, we will consider the outputs

@@ -4,7 +4,9 @@ FILES_RMD = \
 	clustbench-usage.Rmd \
 	internal-validity-measures.Rmd \
 	external-validity-measures.Rmd \
+	suite-v1.Rmd \
 	data-v1.Rmd \
+	results-v1.Rmd \
 	file-format.Rmd \
 	how-to-access.Rmd \
 	many-partitions.Rmd \

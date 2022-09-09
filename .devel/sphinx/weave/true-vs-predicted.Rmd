@@ -2,12 +2,12 @@
 # True vs Predicted Clusters
 
 
-## Motivation
+## Data
 
 Let $X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$ be the **input dataset**
 that consists of $n$ objects.
 
-As an illustration, in this section we consider the {ref}`wut/x2 <sec:data-v1>`
+As an illustration, in this section we consider the {ref}`wut/x2 <sec:suite-v1>`
 dataset, which consists of 120 points in $\mathbb{R}^2$.
 
 ```{python}
@@ -29,6 +29,8 @@ Also note that in a {ref}`further section <sec:how-to-access>`,
 we explain how to use our benchmark framework from within R and Matlab.
 ::::
 
+
+## Reference Labels
 
 Each dataset like the one above is equipped with a
 **reference[^footmanyreference] partition** assigned by experts, representing
@@ -73,6 +75,8 @@ There are thus 50 points in the 1st cluster,
 and 30 points in the 3rd set.
 -->
 
+
+## Predicted Labels
 
 Let us take any **clustering algorithm whose usefulness
 we would like to assess**. As an example, we will consider the outputs

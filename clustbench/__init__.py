@@ -21,11 +21,7 @@ clustering-benchmarks Package
 # ############################################################################ #
 
 from .load_dataset import load_dataset
+from .preprocess_data import preprocess_data
 from .colouriser import Colouriser
-
-
-#__all__ = [
-    #"load_dataset",
-#]
 
 __version__ = '1.1.0'  # see also ../setup.py; e.g., '0.9.6.9001'

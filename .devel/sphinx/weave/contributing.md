@@ -9,8 +9,8 @@
 Do you have any interesting additions to the benchmark battery?
 Let's prepare Version 2 thereof some time soon together!
 
-Contributors of new datasets and/or label vectors
-are welcome.
+Contributions of new datasets and/or label vectors
+following the {ref}`sec:file-format` are warmly welcome.
 
 Please contact the [maintainer/editor](https://www.gagolewski.com)
 or post an

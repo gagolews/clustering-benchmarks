@@ -45,8 +45,9 @@ the quality of the algorithms long time ago.
 ::::{important}
 This project aims to:
 
-* **aggregate, polish, and standardise the existing clustering benchmark suites**
-    referred to across the machine learning and data mining literature,
+* **aggregate, polish, and standardise the existing clustering
+    benchmark batteries** referred to across the machine learning
+    and data mining literature,
 * introduce **new datasets** of different dimensionalities,
     sizes, and cluster types,
 * propose a **consistent methodology** for evaluating clustering algorithms.
@@ -56,13 +57,21 @@ This project aims to:
 ::::{note}
 Here is the proposed methodology at a glance:
 
-* various datasets or different dimensionality, and cluster sizes, including imbalanced problems
-* each dataset is equipped with at least one or more ground truth partition provided by experts – as there can be many equally valid partitions
-* an algorithm is run to partition the datasets into a desired number of clusters (e.g., to find all 2-, 3-, 4-... -clusterings)
-* external cluster validity scores are used to relate the outputs to all the possible reference sets
-* noise points can be included in the dataset to make the clustering harder,
-but they are ignored when computing the similarity score
-* the best result is reported (has or has not the algorithm reproduced at least one of the ground-truth partitions well?)
+* {ref}`Datasets <sec:suite-v1>` of different origin,
+    difficulty, dimensionality, and cluster structure (including clusters
+    of imbalanced sizes and different shapes) are included.
+* A clustering algorithm under scrutiny run so as to split the datasets into
+    different number of clusters (e.g., to find all 2-, 3-, 4-... -clusterings).
+* Each dataset is equipped with at least one ground truth partition
+    provided by experts. Clustering is an unsupervised data mining problem, so
+    {ref}`there can be many equally valid partitions <sec:many-partitions>`.
+* {ref}`External cluster validity scores <sec:external-validity-measures>`
+    are used to relate the outputs to all the possible reference sets.
+* {ref}`Noise points <sec:noise-points>` can be included in the dataset
+    to make the clustering harder. The way they are classified
+    is ignored when computing the final similarity score.
+* The best result is reported (has or has not the algorithm
+    reproduced at least one of the ground-truth partitions well?)
 
 Details follow in the sections below.
 ::::
@@ -71,46 +80,37 @@ Details follow in the sections below.
 
 **Author/Editor/Maintainer**: [Marek Gagolewski](https://www.gagolewski.com)
 
-**How to cite**: Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*,
-2022, <https://clustering-benchmarks.gagolewski.com>
+**How to Cite**:
+Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022, <https://clustering-benchmarks.gagolewski.com>, submitted for publication.
 
-**Acknowledgements.**
-...TO DO...
-Anna Cena
-datasets: SIPU etc.
 
 Data are provided solely for research purposes, unless stated otherwise.
 Please cite the literature references mentioned in the description files
 corresponding to each dataset if you use them in your publications.
 
 
-
-
-
 ::::{toctree}
 :maxdepth: 2
-:caption: Clustering Benchmarks
-:hidden:
+:caption: Methodology
 
-About <self>
-Author <https://www.gagolewski.com/>
-Bug Tracker and Feature Suggestions <https://github.com/gagolews/clustering-benchmarks/issues>
+Introduction <self>
+weave/true-vs-predicted
+weave/noise-points
+weave/many-partitions
 ::::
 
 
 ::::{toctree}
 :maxdepth: 2
-:caption: Introduction
+:caption: Benchmark Batteries
 
-weave/true-vs-predicted
-weave/noise-points
-weave/many-partitions
+weave/suite-v1
 weave/data-v1
+weave/results-v1
 weave/file-format
 weave/how-to-access
 weave/contributing
 ::::
-
 
 ::::{toctree}
 :maxdepth: 1
@@ -127,6 +127,7 @@ PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 :maxdepth: 1
 :caption: See Also
 
+Author's Homepage <https://www.gagolewski.com/>
 Data Wrangling in Python <https://datawranglingpy.gagolewski.com/>
 genieclust Package <https://genieclust.gagolewski.com/>
 ::::
