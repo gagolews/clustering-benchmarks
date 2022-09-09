@@ -57,6 +57,27 @@ and the *maximal* similarity score should be reported.
 ::::
 
 
+
+```{python}
+scores = []
+g = genieclust.Genie()
+for y_true in labels:
+    k = max(y_true)
+    g.set_params(n_clusters=k)
+    y_pred = g.fit_predict(X) + 1  # +1 makes cluster IDs in 1..k, not 0..(k-1)
+    scores.append(
+        genieclust.compare_partitions.adjusted_asymmetric_accuracy(
+            y_true[y_true>0],  # do not count noise points
+            y_pred[y_true>0]
+        )
+    )
+print(scores)
+```
+
+```{python}
+max(scores)
+```
+
 TO DO...
 
 

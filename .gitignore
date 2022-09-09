@@ -13,6 +13,8 @@ cache-*
 coverage.xml
 .coverage
 htmlcov
+github.com
+.virtual_documents
 
 # Compiled files:
 *.o
