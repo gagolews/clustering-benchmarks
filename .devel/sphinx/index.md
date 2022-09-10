@@ -27,20 +27,24 @@ show some example outputs - plot
 ::::
 
 However, it is not rare for research papers/graduate theses to consider
-only a small number of datasets, say 5–10 UCI-sourced ones.
+only a small number of datasets. Usually, the same 5–10 datasets from
+the UCI database are considered.
 This is obviously too few to make any evaluation rigorous enough.
 
 Other authors propose their own datasets, but forget to test their methods
-against other benchmarks batteries. This might lead to biased conclusions.
+against other benchmark batteries. This might lead to biased conclusions.
 
-Also, researchers who share their data (thanks!) might not necessarily make
-the use of their suites particularly smooth (different file formats,
-different ways to access, etc., even across a single repository).
+Some researchers who share their data (thanks!) might not necessarily
+make the use of their batteries particularly smooth
+(different file formats, different ways to access, etc.,
+even across a single repository).
 On the other hand, other machine learning domains
 (e.g., classification and regression problems included in the said UCI
 {cite}`uci`; but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization))
 developed some standardised, well agreed-upon approaches for testing
 the quality of the algorithms long time ago.
+
+Thus:
 
 ::::{important}
 This project aims to:
@@ -50,7 +54,8 @@ This project aims to:
     and data mining literature,
 * introduce **new datasets** of different dimensionalities,
     sizes, and cluster types,
-* propose a **consistent methodology** for evaluating clustering algorithms.
+* propose a **consistent methodology** for evaluating clustering
+    algorithms.
 ::::
 
 
@@ -78,15 +83,17 @@ Details follow in the sections below.
 
 
 
-**Author/Editor/Maintainer**: [Marek Gagolewski](https://www.gagolewski.com)
+**Author/Editor/Maintainer**:
+[Marek Gagolewski](https://www.gagolewski.com)
 
 **How to Cite**:
 Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022, <https://clustering-benchmarks.gagolewski.com>, submitted for publication.
 
-
 Data are provided solely for research purposes, unless stated otherwise.
 Please cite the literature references mentioned in the description files
 corresponding to each dataset if you use them in your publications.
+
+
 
 
 ::::{toctree}
