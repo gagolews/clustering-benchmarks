@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 import clustbench
 # Accessing <https://github.com/gagolews/clustering-data-v1> directly:
-data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
 benchmark = clustbench.load_dataset("other", "hdbscan", url=data_url)
 X = benchmark.data
 y_true = benchmark.labels[0]

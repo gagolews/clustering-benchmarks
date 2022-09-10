@@ -23,7 +23,7 @@ dataset {cite}`graves`:
 ```python
 import numpy as np
 import clustbench
-data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
 benchmark = clustbench.load_dataset("graves", "zigzag_noisy", url=data_url)
 ```
 

@@ -63,7 +63,7 @@ def preprocess_data(data, noise_factor=1e-6, random_state=None):
 
     >>> import os.path
     >>> import clustbench
-    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
     >>> wut_smile = clustbench.load_dataset(
     ...     "wut", "smile", url=data_url, preprocess=False)
     >>> np.random.seed(123)  # assure reprodicibility

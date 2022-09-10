@@ -58,7 +58,7 @@ def load_dataset(
 
     url
         Mutually exclusive with `path`. For example,
-        ``"https://github.com/gagolews/clustering-data-v1/raw/master"``
+        ``"https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"``
         to get access to <https://github.com/gagolews/clustering-data-v1>,
 
     expanduser
@@ -100,7 +100,7 @@ def load_dataset(
     >>> wut_x2 = clustbench.load_dataset("wut", "x2", path=data_path)
     >>> print(wut_x2.data, wut_x2.labels, wut_x2.name)
     >>> # load from GitHub:
-    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/master"
+    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
     >>> wut_smile = clustbench.load_dataset("wut", "smile", url=data_url)
     >>> print(wut_smile.data, wut_smile.labels, wut_smile.name)
     """

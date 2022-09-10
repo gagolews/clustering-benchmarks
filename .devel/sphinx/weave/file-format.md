@@ -5,9 +5,9 @@
 (sec:file-format)=
 # File Format Specification
 
-The files in our benchmark dataset batteries
+The files in our benchmark dataset suite
 (<https://github.com/gagolews/clustering-data-v1>)
-and the corresponding clustering result repository
+and the corresponding clustering results repository
 (<https://github.com/gagolews/clustering-results-v1>)
 follow the following convention.
 

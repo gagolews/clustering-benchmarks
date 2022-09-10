@@ -87,7 +87,8 @@ Details follow in the sections below.
 [Marek Gagolewski](https://www.gagolewski.com)
 
 **How to Cite**:
-Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022, <https://clustering-benchmarks.gagolewski.com>, submitted for publication.
+Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022,
+<https://clustering-benchmarks.gagolewski.com>, submitted for publication.
 
 Data are provided solely for research purposes, unless stated otherwise.
 Please cite the literature references mentioned in the description files
