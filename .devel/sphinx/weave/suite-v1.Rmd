@@ -189,28 +189,30 @@ Both datasets consist of 70,000 flattened 28x28 grayscale images
 (sec:battery-other)=
 ## `other`
 
-Datasets from other sources:
-
-*   `hdbscan` - a dataset used for demonstrating the outputs of the
-    [Python implementation](https://github.com/scikit-learn-contrib/hdbscan)
-    of the HDBSCAN (Campello et al., 2015) algorithm
-
-    Source: <https://github.com/scikit-learn-contrib/hdbscan/blob/master/notebooks/clusterable_data.npy>
+Datasets from multiple sources:
 
 *   `chameleon_t4_8k`, `chameleon_t5_8k`, `chameleon_t7_10k`,
-    `chameleon_t8_8k` - datasets supposedly related to the
-    CHAMELEON algorithm (Karypis et al., 1999).
+    `chameleon_t8_8k` – datasets supposedly related to the
+    CHAMELEON algorithm by G. Karypis {cite}`chameleon`.
 
     Source: <http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download>
 
-    In fact, (Karypis et al., 1999) studies two of the above
-    and two quite different ones:
-    `chameleon_t7_10k` is named `DS3` in the paper, while
-    `chameleon_t8_8k` is referred to as `DS4`.
-    The `DS2` set looks like a more noisy version of `fcps_twodiamonds`.
-    Interestingly,  [SIPU](https://cs.joensuu.fi/sipu/datasets/) also provides
-    `chameleon_t4_8k` and suggests its relation with CHAMELEON, but
-    its screenshot does not appear in the paper.
+    In fact, in {cite}`chameleon` only two of the above
+    (and some other ones) datasets are studied:
+    `chameleon_t7_10k` is referred to as `DS3`,
+    whilst `chameleon_t8_8k` is nicknamed `DS4`.
+    The `DS2` set mentioned therein looks like a more noisy version
+    of `fcps/twodiamonds`.
+
+    <!--
+    `chameleon_t4_8k` comes from the
+    [SIPU](https://cs.joensuu.fi/sipu/datasets/) website;
+    still, its screenshot does not appear in the aforementioned paper.
+    -->
+
+*   `hdbscan` – a dataset used for demonstrating the outputs of the
+    [*hdbscan*](https://github.com/scikit-learn-contrib/hdbscan)
+    package for Python {cite}`hdbscanpkg`;
 
 * `iris`, `iris5` - "the" (see {cite}`bezdek_iris` for discussion)
     famous Iris {cite}`Fisher1936:iris` dataset
