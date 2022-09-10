@@ -1,9 +1,0 @@
-dataset,n,d,labels,k,noise,g
-uci/ecoli,336,7,labels0,8,0,0.6454081632653061
-uci/glass,214,9,labels0,6,0,0.48411214953271026
-uci/ionosphere,351,34,labels0,2,0,0.28205128205128205
-uci/sonar,208,60,labels0,2,0,0.0673076923076923
-uci/statlog,2310,19,labels0,7,0,0.0
-uci/wdbc,569,30,labels0,2,0,0.2548330404217926
-uci/wine,178,13,labels0,3,0,0.12921348314606743
-uci/yeast,1484,8,labels0,10,0,0.6323749625636418

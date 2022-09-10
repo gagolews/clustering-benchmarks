@@ -1,9 +1,0 @@
-Synthetic 2D data with worm-like shapes
-
-Source: S. Sieranoja and P. Fränti,
-Fast and general density peaks clustering,
-Pattern Recognition Letters, 128, 551-558, 2019.
-
-Web: https://cs.joensuu.fi/sipu/datasets/
-
-`labels0` come from the Authors.

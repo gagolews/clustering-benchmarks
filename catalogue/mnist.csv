@@ -1,3 +1,0 @@
-dataset,n,d,labels,k,noise,g
-mnist/digits,70000,784,labels0,10,0,0.03069206349206349
-mnist/fashion,70000,784,labels0,10,0,0.0
