@@ -7,7 +7,8 @@
 
 
 Some datasets feature **noise points**
-to make the clustering problem more difficult.
+to make the clustering problem more difficult
+(e.g., outliers or irrelevant points in-between actual clusters).
 They are specially marked in the ground-truth vectors (cluster ID=0).
 
 
