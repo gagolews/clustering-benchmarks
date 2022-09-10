@@ -173,10 +173,12 @@ Thanks!
 (sec:battery-mnist)=
 ## `mnist`
 
-1. [MNIST database](https://en.wikipedia.org/wiki/MNIST_database)
-    of handwritten digits (a preprocessed remix of
+This battery features two large, high-dimensional datasets:
+
+1. [MNIST](https://en.wikipedia.org/wiki/MNIST_database) –
+    a database of handwritten digits (a preprocessed remix of
     [NIST](https://www.nist.gov/srd/nist-special-database-19) data
-    made by Y. LeCun, C. Cortes, and C.J.C. Burges);
+    made by Y. LeCun, C. Cortes, and C.J.C. Burges),
 
 2. [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) –
     a similarly-structured dataset of Zalando articles
@@ -191,56 +193,74 @@ Both datasets consist of 70,000 flattened 28x28 grayscale images
 (sec:battery-other)=
 ## `other`
 
-Datasets from other sources
+Datasets from multiple sources:
 
-* `hdbscan` - a dataset used for demonstrating the outputs of the
-    [Python implementation](https://github.com/scikit-learn-contrib/hdbscan)
-    of the HDBSCAN (Campello et al., 2015) algorithm
-
-    Source: <https://github.com/scikit-learn-contrib/hdbscan/blob/master/notebooks/clusterable_data.npy>
-
-* `chameleon_t4_8k`, `chameleon_t5_8k`, `chameleon_t7_10k`,
-    `chameleon_t8_8k` - datasets supposedly related to the
-    CHAMELEON algorithm (Karypis et al., 1999).
+*   `chameleon_t4_8k`, `chameleon_t5_8k`, `chameleon_t7_10k`,
+    `chameleon_t8_8k` – datasets supposedly related to the
+    CHAMELEON algorithm by G. Karypis et al. {cite}`chameleon`.
 
     Source: <http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download>
 
-    In fact, (Karypis et al., 1999) studies two of the above
-    and two quite different ones:
-    `chameleon_t7_10k` is named `DS3` in the paper, while
-    `chameleon_t8_8k` is referred to as `DS4`.
-    The `DS2` set looks like a more noisy version of `fcps_twodiamonds`.
-    Interestingly,  [SIPU](https://cs.joensuu.fi/sipu/datasets/) also provides
-    `chameleon_t4_8k` and suggests its relation with CHAMELEON, but
-    its screenshot does not appear in the paper.
+    In fact, in {cite}`chameleon` only two of the above
+    (and some other ones) datasets are studied:
+    `chameleon_t7_10k` is referred to as `DS3`,
+    whilst `chameleon_t8_8k` is nicknamed `DS4`.
+    The `DS2` set mentioned therein looks like a more noisy version
+    of `fcps/twodiamonds`.
 
-* `iris`, `iris5` - "the" (for discussion see Bezdek et al., 1999)
-    famous Iris {cite}`Fisher1936:iris`
-    dataset and its imbalanced version considered
-    in {cite}`genieins`.
+    
+*   `hdbscan` – a dataset used for demonstrating the outputs of the
+    [*hdbscan*](https://github.com/scikit-learn-contrib/hdbscan)
+    package for Python {cite}`hdbscanpkg`;
+
+* `iris`, `iris5` - "the" (see {cite}`bezdek_iris` for discussion)
+    famous Iris {cite}`Fisher1936:iris` dataset
+    and its imbalanced version considered in {cite}`genieins`;
+
+* `square` – a dataset of unknown/unconfirmed origin (TODO: help needed).
 
 
-as well as some datasets of unknown/unconfirmed origin
-(TODO: help needed).
 
 (sec:battery-g2mg)=
 ## `g2mg`
 
-a modified version of `G2`-sets from SIPU with variances
-dependent on datasets' dimensionalities, i.e., s*np.sqrt(d/2),
-which makes these problems more difficult.
+Each dataset consists of 2,048 observations from
+two equisized Gaussian clusters in $d=1, 2, \dots, 128$ dimensions
+(the components are sampled independently from a normal distribution).
 
-Each dataset consists of 2048 observations belonging
-to either of two Gaussian clusters in 1, 2, ..., 128 dimensions.
+They can be considered a modified version of Gaussian `G2`-sets from
+<https://cs.joensuu.fi/sipu/datasets/>, but with variances
+dependent on datasets' dimensionalities, i.e., $s\sqrt{d/2}$
+for different $s$. This makes these new problems more difficult than
+their original counterparts.
+
+It is well-known that such a data distribution
+(multivariate normal with independent components)
+is subject to the so-called curse of dimensionality,
+leading to some weird behaviour for high $d$;
+see, e.g., the Gaussian Annulus Theorem mentioned in {cite}`foundds`.
+
+Generator: <https://github.com/gagolews/clustering-benchmarks/blob/master/.devel/generate_gKmg.py>
+
+We suggest that these datasets should be studied separately
+from other batteries, because they are too plentiful.
+Also, *parametric* algorithms that *specialise* in detecting
+Gaussian blobs (*k*-means, expectation-maximisation (EM)
+for Gaussian mixtures) will naturally perform better thereon than
+the non-parametric approaches.
 
 
 (sec:battery-h2mg)=
 ## `h2mg`
 
-two Gaussian-like hubs with spread dependent on datasets' dimensionalities
-
-Each dataset consists of 2048 observations in 1, 2, ..., 128 dimensions.
+Two Gaussian-like hubs of equal sizes,
+with spread dependent on datasets' dimensionalities.
+Each dataset consists of 2,048 observations in 1, 2, ..., 128 dimensions.
 Each point is sampled from a sphere centred at its own cluster's centre,
-of radius that follows the Gaussian distribution with a predefined scale.
+of radius that follows the Gaussian distribution
+with a predefined scaling parameter.
 
+Generator: <https://github.com/gagolews/clustering-benchmarks/blob/master/.devel/generate_hKmg.py>
 
+Just like in the case of {ref}`sec:battery-g2mg`, we suggest
+these datasets should be studied separately from other batteries.
