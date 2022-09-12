@@ -1,0 +1,6 @@
+Source: M. Rezaei, P. Fränti, Set-matching methods for external cluster
+validity, IEEE Trans. on Knowledge and Data Engineering, 28(8), pp. 2173-2186, 2016.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+`labels0` come from the Authors. `0` denotes the noise class (if present).

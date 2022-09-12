@@ -1,0 +1,6 @@
+Source: A. Jain, M. Law, Data clustering: A user’s dilemma,
+Lecture Notes in Computer Science 3776, 2005, pp. 1-10.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+`labels0` come from the Authors. `0` denotes the noise class (if present).

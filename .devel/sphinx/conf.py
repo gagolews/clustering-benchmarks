@@ -1,7 +1,9 @@
 # Copyleft (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com>
 # Configuration file for the Sphinx documentation builder.
 
-import sphinx_rtd_theme
+import sys, os, sphinx_rtd_theme
+sys.path.append(os.getcwd())
+
 import clustbench
 
 pkg_name = "clustbench"
@@ -19,9 +21,9 @@ html_short_title = f"{pkg_title}"
 html_favicon = "_static/favicon.png"
 
 html_version_text = f'\
-    by <a style="color: inherit" href="https://www.gagolewski.com">Marek \
-    Gagolewski</a><br />\
-    v{pkg_version}'
+by <a style="color: inherit" href="https://www.gagolewski.com">Marek \
+Gagolewski</a><br />\
+v{pkg_version}'
 
 pygments_style = 'default'  #'trac' - 'default' is more readable for some
 project = f'{pkg_title}'
@@ -129,8 +131,6 @@ html_static_path = ["_static"]
 html_css_files = ["css/custom.css"]
 
 # BibTeX biblography + Marek's custom pybtex style
-import sys, os
-sys.path.append(os.getcwd())
 import alphamarek
 bibtex_default_style = "alphamarek"
 bibtex_bibfiles = ["bibliography.bib"]

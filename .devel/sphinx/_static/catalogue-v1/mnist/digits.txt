@@ -1,0 +1,13 @@
+THE MNIST DATABASE of handwritten digits
+-- train and test samples combined
+
+Based on datasets provided by NIST
+<https://www.nist.gov/srd/nist-special-database-19>
+
+Preprocessed/remixed by: Y. LeCun, C. Cortes, and C.J.C. Burges
+
+Originally available from: <http://yann.lecun.com/exdb/mnist/>
+
+See: <https://en.wikipedia.org/wiki/MNIST_database>
+
+`labels0` come from the authors.

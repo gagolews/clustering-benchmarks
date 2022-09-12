@@ -38,6 +38,7 @@ html: python news weave
 	rm -rf .devel/sphinx/_build/
 	cd .devel/sphinx && make html
 	.devel/sphinx/fix-html.sh .devel/sphinx/_build/html/weave/
+	rm -rf .devel/sphinx/_build/html/_sources
 	@echo "*** Browse at"\
 	    "file://`pwd`/.devel/sphinx/_build/html/index.html"
 

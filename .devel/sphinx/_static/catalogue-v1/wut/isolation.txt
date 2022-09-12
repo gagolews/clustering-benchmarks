@@ -1,0 +1,9 @@
+Set name: Isolation
+Author: Aleksander Truszczyński (Warsaw University of Technology)
+
+
+Copyleft 2019
+Licensed under the Creative Commons Attribution 4.0 International License.
+see https://creativecommons.org/licenses/by/4.0/
+
+`labels0` come from the Author himself.

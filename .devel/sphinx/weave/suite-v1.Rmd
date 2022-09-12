@@ -10,7 +10,7 @@ def summarise_battery(battery):
     x = pd.read_csv(
         "~/Projects/clustering-data-v1/.catalogue/%s.csv" % battery
     )
-    x = x.iloc[:, :-1]
+    x = x.iloc[:, 1:]  # skip battery
     x = x.rename(columns=dict(
         noise="noise points",
         k="*k*",
@@ -23,6 +23,7 @@ def summarise_battery(battery):
     j = 1
     for i in range(x.shape[0]):
         x.iloc[i, 0] = f"**{x.iloc[i, 0]}**"
+        #f"data-v1.html#{battery}/{x.iloc[i, 0]}"
         if i > 0 and x.iloc[i, 0] == x.iloc[lasti, 0]:
             x.iloc[i, 0] = ""
             x.iloc[i, 1] = ""
@@ -81,6 +82,9 @@ can be browsed in the {ref}`sec:data-v1` section.
 
 **Results** of different clustering algorithms can be investigated in the
 {ref}`sec:results-v1` section.
+
+See <https://genieclust.gagolewski.com/> and {cite}`aaa,cvi,genieclust`
+for example studies featuring different versions of this suite.
 ::::
 
 
