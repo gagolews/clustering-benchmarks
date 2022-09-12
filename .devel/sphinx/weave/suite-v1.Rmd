@@ -52,7 +52,7 @@ consists of **nine benchmark batteries**:
 
 Each battery consists of **several datasets of different origins**.
 When referring to particular datasets, we use the convention
-`battery/dataset`, e.g, `wut/x2`.
+"`battery/dataset`", e.g, "{ref}`sec:battery-wut``/x2`".
 Each dataset represents *n* points in $\mathbb{R}^d$
 and is accompanied by at least one reference partition of cardinality *k*
 (see below for a listing).
