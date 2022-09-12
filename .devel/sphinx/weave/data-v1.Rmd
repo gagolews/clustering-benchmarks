@@ -1,3 +1,7 @@
+```{r results="hide",echo=FALSE}
+VERSION <- readLines("~/Projects/clustering-data-v1/VERSION")
+```
+
 (sec:data-v1)=
-# Explore Datasets (v1.0.1)
+# Explore Datasets (v`r VERSION`)
 

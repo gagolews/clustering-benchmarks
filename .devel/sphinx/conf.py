@@ -125,9 +125,14 @@ html_theme_options = {
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_show_sourcelink = False
 
-html_static_path = ['_static']
-html_css_files = ['css/custom.css']
+html_static_path = ["_static"]
+html_css_files = ["css/custom.css"]
 
-
-bibtex_bibfiles = ['bibliography.bib']
-bibtex_default_style = 'alpha'
+import sys, os
+sys.path.append(os.getcwd())
+import alphamarek, pybtex.plugin
+pybtex.plugin.register_plugin(
+    "pybtex.style.formatting", "alphamarek", alphamarek.AlphaMarek
+)
+bibtex_default_style = "alphamarek"
+bibtex_bibfiles = ["bibliography.bib"]

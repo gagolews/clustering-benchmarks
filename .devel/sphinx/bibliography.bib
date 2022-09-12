@@ -16,6 +16,14 @@
     note = {submitted for publication}
 }
 
+@misc{clustering_data_v1,
+    author = {M. Gagolewski and others},
+    title = {A Benchmark Suite for Clustering Algorithms: Version 1.x.x},
+    year = {2022},
+    url = {https://github.com/gagolews/clustering-data-v1/releases/tag/v1.x.x},
+    doi = {10.5281/zenodo.??????? (TODO)}
+}
+
 @book{datawranglingpy,
     author = {M. Gagolewski},
     title = {Minimalist Data Wrangling with Python},
@@ -156,14 +164,6 @@
     pages = {226--231}
 }
 
-@misc{clustering_benchmarks_v1,
-    author = {M. Gagolewski and others},
-    title = {Benchmark Suite for Clustering Algorithms -- Version 1.0.1},
-    year = {2022},
-    url = {https://github.com/gagolews/clustering-data-v1/releases/tag/v1.0.1},
-    doi = {10.5281/zenodo.7066690}
-}
-
 @inproceedings{sklearn_api,
     author    = {L. Buitinck and others},
     title     = {{API} design for machine learning software: {E}xperiences from the scikit-learn project},
@@ -173,8 +173,8 @@
 }
 
 @article{sklearn,
-    title = {Scikit-learn: {M}achine Learning in {P}ython},
     author = {F. Pedregosa and others},
+    title = {Scikit-learn: {M}achine Learning in {P}ython},
     journal = {Journal of Machine Learning Research},
     volume = {12},
     number  = {85},
@@ -284,7 +284,7 @@
 }
 
 @article{Maulik2002:cvi_comp,
-    author={U. {Maulik} and S. {Bandyopadhyay}},
+    author={U. Maulik and S. Bandyopadhyay},
     journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
     title={Performance evaluation of some clustering algorithms and validity indices},
     year={2002},
@@ -316,7 +316,7 @@
 }
 
 @article{DaviesBouldin1979:index,
-   author = {David L. Davies and Donald W. Bouldin},
+   author = {D.L. Davies and D.W. Bouldin},
    year = {1979},
    title = {A cluster separation measure},
    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
@@ -347,7 +347,7 @@
 }
 
 @article{Rousseeuw1987:silhouettes,
-   author = {Peter J. Rousseeuw},
+   author = {P.J. Rousseeuw},
    title = {Silhouettes: {A} graphical aid to the interpretation and validation of cluster analysis},
    year = {1987},
    journal = {Journal of Computational and Applied Mathematics},
@@ -355,7 +355,6 @@
    pages = {53--65},
    doi = {10.1016/0377-0427(87)90125-7}
 }
-
 
 @article{BakerHubert1975:gamma,
     author = {F.B. Baker and L.J. Hubert},
@@ -379,7 +378,7 @@
 }
 
 @article{EdwardsSforza1965:divisive,
-    author = {A. W. F. Edwards and L. L. Cavalli-Sforza},
+    author = {A.W.F. Edwards and L.L. Cavalli-Sforza},
     title = {A method for cluster analysis},
     journal = {Biometrics},
     volume = {21},
@@ -390,7 +389,7 @@
 }
 
 @article{Ward1963:hier,
-    author = {Joe H. {Ward Jr.}},
+    author = {J.H. {Ward Jr.}},
     year = {1963},
     title = {Hierarchical grouping to optimize an objective function},
     journal = {Journal of the American Statistical Association},
@@ -421,7 +420,7 @@
 }
 
 @article{XU2020:external_synthetic,
-    author = {Qin Xu and Qiang Zhang and Jinpei Liu and Bin Luo},
+    author = {Q. Xu and Q. Zhang and J. Liu and B. Luo},
     doi = {10.1016/j.eswa.2020.113367},
     journal = {Expert Systems with Applications},
     pages = {113367},
@@ -431,6 +430,7 @@
 }
 
 @article{ArbelaitzEtAl2013:extensive_CVI,
+    author = {O. Arbelaitz and I. Gurrutxaga and J. Muguerza and J.M. Pérez and I. Perona},
     title = {An extensive comparative study of cluster validity indices},
     journal = {Pattern Recognition},
     volume = {46},
@@ -439,7 +439,6 @@
     year = {2013},
     issn = {0031-3203},
     doi = {https://doi.org/10.1016/j.patcog.2012.07.021},
-    author = {Olatz Arbelaitz and Ibai Gurrutxaga and Javier Muguerza and Jesús M. Pérez and Iñigo Perona},
 }
 
 @article{BezdekPal1998:gdunn,
@@ -455,7 +454,8 @@
 
 @incollection{LuxburgETAL2012:clustscienceart,
     title = {Clustering: Science or Art?},
-    author = {U. {von Luxburg} and R.C. Williamson and I. Guyon},
+    key = {Luxburg},
+    author = {U. von Luxburg and R.C. Williamson and I. Guyon},
     booktitle = {Proc. ICML Workshop on Unsupervised and Transfer Learning},
     pages = {65--79},
     year = {2012},
@@ -465,13 +465,13 @@
 }
 
 @article{Hennig2015:whataretrueclusters,
+    author = {C. Hennig},
     title = {What are the true clusters?},
     journal = {Pattern Recognition Letters},
     volume = {64},
     pages = {53--62},
     year = {2015},
     doi = {10.1016/j.patrec.2015.04.009},
-    author = {Christian Hennig}
 }
 
 @incollection{xiongli2014:clustvalmeasures,
@@ -546,9 +546,9 @@
 }
 
 @article{WarrensHoef2022,
+    author = {M.J. Warrens and H. {van der Hoef}},
     title = {Understanding the Adjusted {R}and Index and Other Partition
         Comparison Indices Based on Counting Object Pairs},
-    author = {M.J. Warrens and H. {van der Hoef}},
     journal = {Journal of Classification},
     year = {2022},
     doi = {10.1007/s00357-022-09413-z}
@@ -565,30 +565,30 @@
 }
 
 @online{fashion_mnist,
-    author       = {H. Xiao and K. Rasul and R. Vollgraf},
-    title        = {{Fashion-MNIST}: {A} Novel Image
+    author = {H. Xiao and K. Rasul and R. Vollgraf},
+    title = {{Fashion-MNIST}: {A} Novel Image
         Dataset for Benchmarking Machine Learning Algorithms},
-    year         = {2017},
+    year = {2017},
     publisher = {arXiv},
     doi = {10.48550/arXiv.1708.07747},
     url = {https://arxiv.org/pdf/1708.07747.pdf}
 }
 
 @article{SieranojaFranti2019:densitypeaks,
+    author = {S. Sieranoja and P. Fränti},
     title = {Fast and general density peaks clustering},
     journal = {Pattern Recognition Letters},
     volume = {128},
     pages = {551--558},
     year = {2019},
     doi = {10.1016/j.patrec.2019.10.019},
-    author = {S. Sieranoja and P. Fränti},
 }
 
 @article{ZhangETAL1997:birch,
+    author = {T. Zhang and R. Ramakrishnan and M. Livny},
     title = {{BIRCH}: {A} new data clustering algorithm
         and its applications},
     journal = {Data Mining and Knowledge Discovery},
-    author = {T. Zhang and R. Ramakrishnan and M. Livny},
     year = {1997},
     volume = {1},
     pages = {141--182},
@@ -645,11 +645,11 @@
 }
 
 @incollection{KarkkainenFranti2002:asets,
+    author = {I. Kärkkäinen and P. Fränti},
     booktitle = {Proc. 16th Intl. Conf. Pattern Recognition'02},
     pages = {240--243},
     publisher = {IEEE},
     volume = {2},
-    author = {I. Kärkkäinen and P. Fränti},
     title = {Dynamic local search algorithm for the clustering problem},
     year = {2002}
 }

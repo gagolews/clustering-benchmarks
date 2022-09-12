@@ -1,3 +1,14 @@
+```{r results="hide",echo=FALSE}
+VERSION <- readLines("~/Projects/clustering-data-v1/VERSION")
+```
+
 (sec:results-v1)=
-# Explore Clustering Results (v1.0.1)
+# Explore Clustering Results (v`r VERSION`)
+
+https://github.com/gagolews/clustering-results-v1/
+
+
+TODO: https://github.com/gagolews/clustering-results-v1 cleanup
+
+
 
