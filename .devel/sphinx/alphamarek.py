@@ -1,5 +1,9 @@
 # Copyleft (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com>
 
+# based on https://bitbucket.org/pybtex-devs/pybtex/src/HEAD/pybtex/style/formatting/unsrt.py
+
+################################################################################
+
 from pybtex.richtext import Symbol, Text
 from pybtex.style.formatting import BaseStyle, toplevel
 from pybtex.style.template import (
@@ -8,8 +12,22 @@ from pybtex.style.template import (
 )
 from pybtex.style.formatting.alpha import Style as AlphaStyle
 
-
 from pybtex.style.names import BaseNameStyle, name_part
+import pybtex.plugin
+
+################################################################################
+
+import re
+def dashify(text):
+    dash_re = re.compile(r'-+')
+    return Text(Symbol('ndash')).join(text.split(dash_re))
+
+pages = field('pages', apply_func=dashify)
+
+date = join ["(", field('year'), ")"]
+
+
+################################################################################
 
 class NameMarek(BaseNameStyle):
     def format(self, person, abbr=False):
@@ -23,24 +41,15 @@ class NameMarek(BaseNameStyle):
                 name_part(before=' ', abbr=abbr) [person.rich_first_names + person.rich_middle_names],
             ]
 
-import pybtex.plugin
+
+################################################################################
+
 pybtex.plugin.register_plugin(
     "pybtex.style.names", "namemarek", NameMarek
 )
 
 
-
-# based on https://bitbucket.org/pybtex-devs/pybtex/src/HEAD/pybtex/style/formatting/unsrt.py
-
-import re
-def dashify(text):
-    dash_re = re.compile(r'-+')
-    return Text(Symbol('ndash')).join(text.split(dash_re))
-
-pages = field('pages', apply_func=dashify)
-
-date = join ["(", field('year'), ")"]
-
+################################################################################
 
 class AlphaMarek(AlphaStyle):
 
@@ -230,3 +239,12 @@ class AlphaMarek(AlphaStyle):
             self.format_web_refs(e),
         ]
         return template
+
+
+################################################################################
+
+pybtex.plugin.register_plugin(
+    "pybtex.style.formatting", "alphamarek", AlphaMarek
+)
+
+################################################################################
