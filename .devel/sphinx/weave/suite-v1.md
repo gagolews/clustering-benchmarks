@@ -24,11 +24,12 @@ Browse files: https://github.com/gagolews/clustering-data-v1/tree/v1.0.1
 
 https://github.com/gagolews/clustering-data-v1/raw/v1.0.1/wut/x2.txt
 
-TODO:
+TODO: https://github.com/gagolews/clustering-results-v1 cleanup
 
-clustering-data-v1
 
-regenerate catalogue
+
+
+
 csvs with label summaries
 
 ```

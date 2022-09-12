@@ -16,6 +16,7 @@ author = "Marek Gagolewski"
 copyright = f"{copyright_year}"
 html_title = f"{pkg_title}"
 html_short_title = f"{pkg_title}"
+html_favicon = "_static/favicon.png"
 
 html_version_text = f'\
     by <a style="color: inherit" href="https://www.gagolewski.com">Marek \
