@@ -45,15 +45,19 @@ For reproducibility, the datasets and label vectors are **versioned**.
 
 Version `r VERSION` of the
 [*Benchmark Suite for Clustering Algorithms*](https://github.com/gagolews/clustering-data-v1)
-consists of **nine benchmark batteries**:
+consists of **nine benchmark batteries**.
+The five recommended ones:
 
-1. {ref}`sec:battery-sipu`,
-2. {ref}`sec:battery-fcps`,
-3. {ref}`sec:battery-graves`,
-4. {ref}`sec:battery-uci`,
-5. {ref}`sec:battery-wut`,
-6. {ref}`sec:battery-mnist`,
-7. {ref}`sec:battery-other`,
+1. {ref}`sec:battery-wut` 🌟,
+2. {ref}`sec:battery-sipu` 🌟,
+3. {ref}`sec:battery-fcps` 🌟,
+4. {ref}`sec:battery-graves` 🌟,
+5. {ref}`sec:battery-other` 🌟,
+
+and four additional ones:
+
+6. {ref}`sec:battery-uci`,
+7. {ref}`sec:battery-mnist`,
 8. {ref}`sec:battery-g2mg`,
 9. {ref}`sec:battery-h2mg`.
 
@@ -106,6 +110,32 @@ Some datasets are equipped with
 {ref}`additional reference labellings <sec:many-partitions>`
 that did not appear in the original setting.
 
+
+
+
+
+
+(sec:battery-wut)=
+## `wut`
+
+22 datasets in $\mathbb{R}^2$ or $\mathbb{R}^3$
+authored by the fantastic students of Marek's 2016/2017 courses on Data Analysis
+in R and [Python](https://datawranglingpy.gagolewski.com) at the
+[Faculty of Mathematics and Information Science](https://www.pw.edu.pl/engpw/Academics/Faculties/Faculty-of-Mathematics-and-Information-Science), Warsaw University of Technology:
+Anna Gierlak,
+Eliza Kaczorek,
+Mateusz Kobyłka,
+Przemysław Kosewski,
+Jędrzej Krauze,
+Michał Maciąg,
+Aleksander Truszczyński,
+and
+Adam Wawrzeńczyk.
+Thanks!
+
+```{python echo=FALSE,results="asis"}
+summarise_battery("wut")
+```
 
 
 
@@ -184,74 +214,6 @@ summarise_battery("graves")
 
 
 
-(sec:battery-uci)=
-## `uci`
-
-A selection of 8 high-dimensional datasets available at UCI
-(University of California, Irvine)
-[Machine Learning Repository](http://archive.ics.uci.edu/ml/)
-{cite}`uci`.
-Some of them were considered for benchmark purposes
-in, amongst others, {cite}`graves`.
-They are also listed in the {ref}`sec:battery-sipu` battery.
-However, their original purpose is for testing classification,
-not clustering algorithms.
-
-```{python echo=FALSE,results="asis"}
-summarise_battery("uci")
-```
-
-
-
-
-(sec:battery-wut)=
-## `wut`
-
-22 datasets in $\mathbb{R}^2$ or $\mathbb{R}^3$
-authored by the fantastic students of Marek's 2016/2017 courses on Data Analysis
-in R and [Python](https://datawranglingpy.gagolewski.com) at the
-[Faculty of Mathematics and Information Science](https://www.pw.edu.pl/engpw/Academics/Faculties/Faculty-of-Mathematics-and-Information-Science), Warsaw University of Technology:
-Anna Gierlak,
-Eliza Kaczorek,
-Mateusz Kobyłka,
-Przemysław Kosewski,
-Jędrzej Krauze,
-Michał Maciąg,
-Aleksander Truszczyński,
-and
-Adam Wawrzeńczyk.
-Thanks!
-
-```{python echo=FALSE,results="asis"}
-summarise_battery("wut")
-```
-
-
-
-
-(sec:battery-mnist)=
-## `mnist`
-
-This battery features two large, high-dimensional datasets:
-
-1. [MNIST](https://en.wikipedia.org/wiki/MNIST_database) –
-    a database of handwritten digits (a preprocessed remix of
-    [NIST](https://www.nist.gov/srd/nist-special-database-19) data
-    made by Y. LeCun, C. Cortes, and C.J.C. Burges),
-
-2. [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) –
-    a similarly-structured dataset of Zalando articles
-    compiled by H. Xiao, K. Rasul, and R. Vollgraf;
-    see {cite}`fashion_mnist`.
-
-Both datasets consist of 70,000 flattened 28x28 grayscale images
-(train and test samples combined).
-
-```{python echo=FALSE,results="asis"}
-summarise_battery("mnist")
-```
-
-
 
 
 (sec:battery-other)=
@@ -295,6 +257,49 @@ summarise_battery("other")
 
 
 
+(sec:battery-uci)=
+## `uci`
+
+A selection of 8 high-dimensional datasets available at UCI
+(University of California, Irvine)
+[Machine Learning Repository](http://archive.ics.uci.edu/ml/)
+{cite}`uci`.
+Some of them were considered for benchmark purposes
+in, amongst others, {cite}`graves`.
+They are also listed in the {ref}`sec:battery-sipu` battery.
+However, their original purpose is for testing classification,
+not clustering algorithms.
+
+```{python echo=FALSE,results="asis"}
+summarise_battery("uci")
+```
+
+
+
+
+(sec:battery-mnist)=
+## `mnist`
+
+This battery features two large, high-dimensional datasets:
+
+1. [MNIST](https://en.wikipedia.org/wiki/MNIST_database) –
+    a database of handwritten digits (a preprocessed remix of
+    [NIST](https://www.nist.gov/srd/nist-special-database-19) data
+    made by Y. LeCun, C. Cortes, and C.J.C. Burges),
+
+2. [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) –
+    a similarly-structured dataset of Zalando articles
+    compiled by H. Xiao, K. Rasul, and R. Vollgraf;
+    see {cite}`fashion_mnist`.
+
+Both datasets consist of 70,000 flattened 28x28 grayscale images
+(train and test samples combined).
+
+```{python echo=FALSE,results="asis"}
+summarise_battery("mnist")
+```
+
+
 
 (sec:battery-g2mg)=
 ## `g2mg`
@@ -306,7 +311,7 @@ two equisized Gaussian clusters in $d=1, 2, \dots, 128$ dimensions
 They can be considered a modified version of Gaussian `G2`-sets from
 <https://cs.joensuu.fi/sipu/datasets/>, but with variances
 dependent on datasets' dimensionalities, i.e., $s\sqrt{d/2}$
-for different $s$. This makes these new problems more difficult than
+for different *s*. This makes these new problems more difficult than
 their original counterparts.
 The 1-dimensional datasets as well as those of very low and very
 high variances should probably be discarded.
