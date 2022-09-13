@@ -119,8 +119,7 @@ two label vectors.
 The scatterplots depicting the reference and a few example partitions of the
 `wut/x2` {ref}`dataset <sec:suite-v1>`
 are displayed below. We also report the confusion matrices and the
-values of the validity measures discussed below.
-
+values of the validity measures discussed in the sequel.
 
 
 

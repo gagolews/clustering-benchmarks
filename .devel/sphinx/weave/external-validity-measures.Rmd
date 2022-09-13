@@ -167,16 +167,14 @@ y_random = np.random.choice(np.arange(k), len(y_true)) + 1  # sample from 1..k
 The scatterplots depicting the reference and a few example partitions of the
 `wut/x2` {ref}`dataset <sec:suite-v1>`
 are displayed below. We also report the confusion matrices and the
-values of the validity measures discussed below.
+values of the validity measures discussed in the sequel.
 
 
 
-```{python echo=FALSE}
-plt.figure(figsize=(plt.rcParams["figure.figsize"][0], )*2)
-np.random.seed(123)  # HIDDEN
-```
 
 ```{python partition-similarity-example-4,echo=FALSE,results="hide",fig.cap="The reference (ground truth) partition and a few predicted clusterings that we relate to it (wut/x2 dataset); confusion matrices and the values of a few external cluster validity measures are also reported"}
+plt.figure(figsize=(plt.rcParams["figure.figsize"][0], plt.rcParams["figure.figsize"][0]*1.33))
+np.random.seed(123)  # HIDDEN
 
 def all_measures(C):
     d = genieclust.compare_partitions.compare_partitions(C)
@@ -192,22 +190,25 @@ def all_measures(C):
         FM=d["fm"],
     )
 
-param_txt = dict(x=-30.5, y=19.5, ha="left", va="top", size=10, ma="right")
-param_mat = dict(x=-12, y=19, ha="center", va="top",
+param_txt = dict(x=-3.85, y=3.5, ha="left", va="top", size=10, ma="right")
+param_mat = dict(x=-1.25, y=3, ha="center", va="top",
         family="monospace", ma="left", size=7)
-
+xlim = (-4, 3.5)
+ylim = (-2.5, 4)
 plt.subplot(3, 2, 1)
 genieclust.plots.plot_scatter(X, labels=y_true-1, title="Reference", axis="equal")
-plt.xlim(-31, 19)
-plt.xticks([-10, 10], [])
-plt.yticks([0, 10])
+plt.xlim(*xlim)
+plt.ylim(*ylim)
+plt.xticks([-2, 0, 2], [])
+plt.yticks([-2, 0, 2])
 plt.legend(labels=["Cluster 1", "Cluster 2", "Cluster 3"])
 
 plt.subplot(3, 2, 3)
 genieclust.plots.plot_scatter(X, labels=y_genie-1, title="Genie (0.3)", axis="equal")
-plt.xlim(-31, 19)
-plt.xticks([-10, 10], [])
-plt.yticks([0, 10])
+plt.xlim(*xlim)
+plt.ylim(*ylim)
+plt.xticks([-2, 0, 2], [])
+plt.yticks([-2, 0, 2])
 C = genieclust.compare_partitions.confusion_matrix(y_true,y_genie)
 v = all_measures(C)
 plt.text(**param_txt, s="\n".join(
@@ -218,9 +219,10 @@ plt.text(**param_mat, s=str(C))
 plt.subplot(3, 2, 4)
 genieclust.plots.plot_scatter(X, labels=y_genie2-1, title="Genie (0.3) Relabelled",
 axis="equal")
-plt.xlim(-31, 19)
-plt.xticks([-10, 10], [])
-plt.yticks([0, 10], [])
+plt.xlim(*xlim)
+plt.ylim(*ylim)
+plt.xticks([-2, 0, 2], [])
+plt.yticks([-2, 0, 2], [])
 C = genieclust.compare_partitions.confusion_matrix(y_true,y_genie2)
 v = all_measures(C)
 plt.text(**param_txt, s="\n".join(
@@ -230,9 +232,10 @@ plt.text(**param_mat, s=str(C))
 
 plt.subplot(3, 2, 2)
 genieclust.plots.plot_scatter(X, labels=y_km-1, title="K-Means", axis="equal")
-plt.xlim(-31, 19)
-plt.xticks([-10, 10], [])
-plt.yticks([0, 10], [])
+plt.xlim(*xlim)
+plt.ylim(*ylim)
+plt.xticks([-2, 0, 2], [])
+plt.yticks([-2, 0, 2], [])
 C = genieclust.compare_partitions.confusion_matrix(y_true,y_km)
 v = all_measures(C)
 plt.text(**param_txt, s="\n".join(
@@ -243,9 +246,10 @@ plt.text(**param_mat, s=str(C))
 plt.subplot(3, 2, 5)
 genieclust.plots.plot_scatter(X, labels=y_single-1, title="Single Linkage",
 axis="equal")
-plt.xlim(-31, 19)
-plt.xticks([-10, 10])
-plt.yticks([0, 10])
+plt.xlim(*xlim)
+plt.ylim(*ylim)
+plt.xticks([-2, 0, 2])
+plt.yticks([-2, 0, 2])
 C = genieclust.compare_partitions.confusion_matrix(y_true,y_single)
 v = all_measures(C)
 plt.text(**param_txt, s="\n".join(
@@ -255,9 +259,10 @@ plt.text(**param_mat, s=str(C))
 
 plt.subplot(3, 2, 6)
 genieclust.plots.plot_scatter(X, labels=y_random-1, title="Random", axis="equal")
-plt.xlim(-31, 19)
-plt.xticks([-10, 10])
-plt.yticks([0, 10], [])
+plt.xlim(*xlim)
+plt.ylim(*ylim)
+plt.xticks([-2, 0, 2])
+plt.yticks([-2, 0, 2], [])
 C = genieclust.compare_partitions.confusion_matrix(y_true,y_random)
 v = all_measures(C)
 plt.text(**param_txt, s="\n".join(
