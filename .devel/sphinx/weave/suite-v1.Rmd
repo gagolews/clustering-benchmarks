@@ -37,6 +37,7 @@ def summarise_battery(battery):
     print(x.to_markdown(index=True))
 ```
 
+
 (sec:suite-v1)=
 # Benchmark Suite (v`r VERSION`)
 

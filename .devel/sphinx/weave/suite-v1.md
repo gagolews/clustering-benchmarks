@@ -6,14 +6,15 @@
 
 
 
+
 (sec:suite-v1)=
-# Benchmark Suite (v1.0.9991)
+# Benchmark Suite (v1.1.0)
 
 We have compiled **a large suite of benchmark datasets**.
 For reproducibility, the datasets and label vectors are **versioned**.
 
 
-Version 1.0.9991 of the
+Version 1.1.0 of the
 [*Benchmark Suite for Clustering Algorithms*](https://github.com/gagolews/clustering-data-v1)
 consists of **nine benchmark batteries**.
 The five recommended ones:
@@ -41,10 +42,10 @@ and is accompanied by at least one reference partition of cardinality *k*
 
 ::::{important}
 The versioned **snapshots of the suite** are available for download at:
-<https://github.com/gagolews/clustering-data-v1/releases/tag/v1.0.9991>.
+<https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0>.
 
 All files can be browsed at:
-<https://github.com/gagolews/clustering-data-v1/tree/v1.0.9991>.
+<https://github.com/gagolews/clustering-data-v1/tree/v1.1.0>.
 
 The **datasets** and the corresponding ground truth labels
 can be browsed in the {ref}`sec:data-v1` section.
