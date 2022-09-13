@@ -1,0 +1,13 @@
+Source: Ultsch A., Clustering with SOM: U*C,
+In Proc. Workshop on Self-Organizing Maps, Paris, France, 2005, 75-82.
+
+One of the datasets in the Fundamental Clustering Problems Suite (FCPS).
+
+The dataset was originally published elsewhere, but now can be accessed,
+e.g., from the R package FCPS <https://CRAN.R-project.org/package=FCPS>;
+see Thrun M.C., Ultsch A., Clustering benchmark datasets exploiting the
+fundamental clustering problems, Data in Brief 30:105501, 2020.
+DOI:10.1016/j.dib.2020.105501.
+
+`labels0` come from the Author. `0` denotes the noise class (if present).
+

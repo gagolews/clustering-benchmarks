@@ -1,0 +1,6 @@
+Source: H. Chang, D.Y. Yeung, Robust path-based spectral clustering,
+Pattern Recognition 41(1), 2008, pp. 191-203.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+`labels0` come from the Authors. `0` denotes the noise class (if present).

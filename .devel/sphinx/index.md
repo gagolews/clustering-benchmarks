@@ -22,8 +22,13 @@ To do so, we can run the algorithms on a variety of datasets
 and compare their outputs to the reference, ground truth groupings
 that are provided by experts.
 
+
 ::::{todo}
-show some example outputs - plot
+This page is under construction. Come back later.
+::::
+
+::::{todo}
+Show some example outputs - plot
 ::::
 
 However, it is not rare for research papers/graduate theses to consider
@@ -127,7 +132,7 @@ weave/contributing
 weave/clustbench-usage
 clustbench-documentation
 Source Code (GitHub) <https://github.com/gagolews/clustering-benchmarks>
-PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
+PyPI Entry (TODO) <https://pypi.org/project/clustering-benchmarks/>
 ::::
 
 
@@ -137,7 +142,7 @@ PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 
 Author's Homepage <https://www.gagolewski.com/>
 Data Wrangling in Python <https://datawranglingpy.gagolewski.com/>
-*genieclust* Package <https://genieclust.gagolewski.com/>
+genieclust Package <https://genieclust.gagolewski.com/>
 ::::
 
 

@@ -1,0 +1,4 @@
+Author: Przemysław Kosewski (Warsaw University of Technology)
+
+`labels0` come from the Author himself.
+`0` denotes the noise class (if present).

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+
+<html class="writer-html5" lang="en" >
+<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Documentation &mdash; Clustering Benchmarks</title>
+  
+
+  
+  
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/proof.css" type="text/css" />
+  <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/clustbench-documentation.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/proof.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Colouriser: Interactive Planar Data Editor" href="weave/colouriser.html" />
+    <link rel="prev" title="Using clustbench" href="weave/clustbench-usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html"> Clustering Benchmarks
+          
+
+          
+          </a>
+
+          <div class="version">
+          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.0
+          </div>
+
+<!--
+          
+            
+            
+              <div class="version">
+                by Marek Gagolewski
+              </div>
+            
+          
+-->
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search phrase..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/true-vs-predicted.html">True vs Predicted Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/noise-points.html">Noise Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/many-partitions.html">There Can Be Many Valid Partitions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/suite-v1.html">Benchmark Suite (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/data-v1.html">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/file-format.html">File Format Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">See Also</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/external-validity-measures.html">External Cluster Validity Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_bibliography.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Clustering Benchmarks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+
+        
+        
+        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
+        
+
+
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="weave/colouriser.html" class="btn btn-neutral float-right" title="Colouriser: Interactive Planar Data Editor" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="weave/clustbench-usage.html" class="btn btn-neutral float-left" title="Using clustbench" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h1>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.load_dataset" title="clustbench.load_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.load_dataset</span></code></a>(battery, dataset[, ...])</p></td>
+<td><p>Load a benchmark dataset</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.preprocess_data" title="clustbench.preprocess_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.preprocess_data</span></code></a>(data[, ...])</p></td>
+<td><p>Normalise a data matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.get_battery_names" title="clustbench.get_battery_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.get_battery_names</span></code></a>([path, ...])</p></td>
+<td><p>Get the names of benchmark batteries in a given directory</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.get_dataset_names" title="clustbench.get_dataset_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.get_dataset_names</span></code></a>(battery[, ...])</p></td>
+<td><p>Get the names of datasets in a given benchmark battery</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.load_results" title="clustbench.load_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.load_results</span></code></a>(method_group, ...[, ...])</p></td>
+<td><p>Load benchmark results</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.Colouriser" title="clustbench.Colouriser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.Colouriser</span></code></a>(data[, labels])</p></td>
+<td><p>Interactive planar data editor</p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-clustbench"></span><p>clustering-benchmarks Package</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="clustbench.Colouriser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">Colouriser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.Colouriser" title="Permalink to this definition"></a></dt>
+<dd><p>Interactive planar data editor</p>
+<p>See the dedicated section on the package homepage for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong></dt><dd><p>An <cite>n</cite>-by-2 real matrix giving the coordinates of <cite>n</cite> planar points.</p>
+</dd>
+<dt><strong>labels</strong></dt><dd><p>Either a vector of <cite>n</cite> corresponding integer labels or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.0.1&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wut_smile</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;smile&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clr</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">Colouriser</span><span class="p">(</span><span class="n">wut_smile</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">wut_smile</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clr</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clr</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># starts the interactive mode</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_data</span> <span class="o">=</span> <span class="n">clr</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_labels</span> <span class="o">=</span> <span class="n">clr</span><span class="o">.</span><span class="n">get_labels</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong></dt><dd><p>The data matrix.</p>
+</dd>
+<dt><strong>labels</strong></dt><dd><p>A vector of <cite>n</cite> integer labels;
+0 denotes the noise cluster</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="clustbench.Colouriser.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.Colouriser.get_data" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current data matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>data</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="clustbench.Colouriser.get_labels">
+<span class="sig-name descname"><span class="pre">get_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.Colouriser.get_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>labels</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="clustbench.Colouriser.normalise_labels">
+<span class="sig-name descname"><span class="pre">normalise_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.Colouriser.normalise_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Translate the current label vector
+(ignoring colour 0, which denotes the noise cluster)
+so that labels are assigned in decreasing order of occurrence.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="clustbench.Colouriser.print_help">
+<span class="sig-name descname"><span class="pre">print_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.Colouriser.print_help" title="Permalink to this definition"></a></dt>
+<dd><p>List the keyboard shortcuts available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="clustbench.Colouriser.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.Colouriser.show" title="Permalink to this definition"></a></dt>
+<dd><p>Start the interactive Colouriser.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.get_battery_names">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">get_battery_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.get_battery_names" title="Permalink to this definition"></a></dt>
+<dd><p>Get the names of benchmark batteries in a given directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong></dt><dd><p>Path to the directory containing the downloaded benchmark datasets
+suite. Defaults to the current working directory.</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>batteries</dt><dd><p>A list of strings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">)</span>  <span class="c1"># up to you</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_battery_names</span><span class="p">(</span><span class="n">data_path</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="n">data_path</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.get_dataset_names">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">get_dataset_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.get_dataset_names" title="Permalink to this definition"></a></dt>
+<dd><p>Get the names of datasets in a given benchmark battery</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>battery</strong></dt><dd><p>Name of the battery, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;wut&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>.
+Can be an empty string or <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> if all files are
+in a single directory as specified by <cite>path</cite>.</p>
+</dd>
+<dt><strong>path</strong></dt><dd><p>Path to the directory containing the downloaded benchmark datasets
+suite. Defaults to the current working directory.</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>datasets</dt><dd><p>A list of strings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">)</span>  <span class="c1"># up to you</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_battery_names</span><span class="p">(</span><span class="n">data_path</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="n">data_path</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.load_dataset">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.load_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Load a benchmark dataset</p>
+<p>Reads a dataset named <cite>battery/dataset.data.gz</cite>
+(relative to <cite>url</cite> or the directory <cite>path</cite>)
+as well as all the corresponding labels
+(<cite>battery/dataset.labels0.gz</cite>, <cite>battery/dataset.labels1.gz</cite>, …).</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>battery</strong></dt><dd><p>Name of the battery, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;wut&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>.</p>
+</dd>
+<dt><strong>dataset</strong></dt><dd><p>Dataset name, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;x2&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;iris&quot;</span></code>.</p>
+</dd>
+<dt><strong>path</strong></dt><dd><p>Mutually exclusive with <cite>url</cite>.
+Path to the directory containing the downloaded benchmark datasets
+suite. Defaults to the current working directory.</p>
+</dd>
+<dt><strong>url</strong></dt><dd><p>Mutually exclusive with <cite>path</cite>. For example,
+<code class="docutils literal notranslate"><span class="pre">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.0.1&quot;</span></code>
+to get access to &lt;<a class="reference external" href="https://github.com/gagolews/clustering-data-v1">https://github.com/gagolews/clustering-data-v1</a>&gt;,</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+<dt><strong>preprocess</strong></dt><dd><p>Whether to call <a class="reference internal" href="#clustbench.preprocess_data" title="clustbench.preprocess_data"><code class="xref any py py-func docutils literal notranslate"><span class="pre">preprocess_data</span></code></a> on the data matrix.</p>
+</dd>
+<dt><strong>random_state</strong></dt><dd><p>Seed of the random number generator; passed to <a class="reference internal" href="#clustbench.preprocess_data" title="clustbench.preprocess_data"><code class="xref any py py-func docutils literal notranslate"><span class="pre">preprocess_data</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt>benchmark</dt><dd><p>A named tuple with the following elements:</p>
+<dl class="simple">
+<dt>battery</dt><dd><p>Same as the <cite>battery</cite> argument.</p>
+</dd>
+<dt>dataset</dt><dd><p>Same as the <cite>dataset</cite> argument.</p>
+</dd>
+<dt>description</dt><dd><p>Contents of the description file.</p>
+</dd>
+<dt>data</dt><dd><p>Data matrix.</p>
+</dd>
+<dt>labels</dt><dd><p>A list consisting of the label vectors.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># load from a local library (a manually downloaded suite)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">)</span>  <span class="c1"># up to you</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wut_x2</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wut_x2</span><span class="o">.</span><span class="n">battery</span><span class="p">,</span> <span class="n">wut_x2</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wut_x2</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wut_x2</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">wut_x2</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># load from GitHub (slow...):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.1.0&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wut_smile</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;smile&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wut_smile</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">wut_smile</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.load_results">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">load_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.load_results" title="Permalink to this definition"></a></dt>
+<dd><p>Load benchmark results</p>
+<p>Reads the datasets named like <cite>method_group/battery/dataset.resultK.gz</cite>
+(relative to the directory <cite>path</cite>), where <cite>K</cite> is equal to
+<cite>n_clusters</cite>.
+<cite>method_group</cite> can be a wildcard like <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code> if a look up in multiple
+directory is required.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>method_group</strong></dt><dd><p>Name of the method group, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;Genie&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>.</p>
+</dd>
+<dt><strong>battery</strong></dt><dd><p>Name of the battery, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;wut&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>.</p>
+</dd>
+<dt><strong>dataset</strong></dt><dd><p>Dataset name, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;x2&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;iris&quot;</span></code>.</p>
+</dd>
+<dt><strong>n_clusters</strong></dt><dd><p><cite>K</cite> - number of clusters.</p>
+</dd>
+<dt><strong>path</strong></dt><dd><p>Path to the directory containing the downloaded benchmark datasets
+suite. Defaults to the current working directory.</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>results</dt><dd><p>A dictionary of label vectors.
+Keys correspond to method names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># load from a local library (a manually downloaded repository)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-results-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;original&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_results</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">results_path</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">keys</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.preprocess_data">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">preprocess_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.preprocess_data" title="Permalink to this definition"></a></dt>
+<dd><p>Normalise a data matrix</p>
+<p>Removes all columns of zero variance (constant). Centres the data
+around the centroid (so that each column mean is 0).
+Scales all columns proportionally (so that the total variance is 1;
+note that this is not the same as standardisation: standard
+deviations in each column might still be different).
+Adds a tiny amount of noise to minimise the risk of having
+duplicate points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong></dt><dd><p>Data matrix.</p>
+</dd>
+<dt><strong>noise_factor</strong></dt><dd><p>Standard deviation of the white noise added.</p>
+</dd>
+<dt><strong>random_state</strong></dt><dd><p>Seed of the random number generator; see <code class="docutils literal notranslate"><span class="pre">scipy.stats.norm.rvs</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>data</dt><dd><p>A modified data matrix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.1.0&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wut_smile</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;smile&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">,</span> <span class="n">preprocess</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>  <span class="c1"># assure reprodicibility</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">(</span><span class="n">wut_smile</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="weave/colouriser.html" class="btn btn-neutral float-right" title="Colouriser: Interactive Planar Data Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="weave/clustbench-usage.html" class="btn btn-neutral float-left" title="Using clustbench" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &#169; 2020–2022 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
+
+    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
+    theme.
+      <span class="lastupdated">
+        Last updated on 2022-09-13T17:44:11+1000.
+      </span>
+
+
+    This site will never display any ads: it is a non-profit project.
+    It does not collect any data.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

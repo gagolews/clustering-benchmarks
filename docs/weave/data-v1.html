@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+
+<html class="writer-html5" lang="en" >
+<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Explore Datasets (v1.0.9991) &mdash; Clustering Benchmarks</title>
+  
+
+  
+  
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/proof.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/data-v1.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/proof.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Explore Clustering Results (v1.1.0)" href="results-v1.html" />
+    <link rel="prev" title="Benchmark Suite (v1.0.9991)" href="suite-v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html"> Clustering Benchmarks
+          
+
+          
+          </a>
+
+          <div class="version">
+          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.0
+          </div>
+
+<!--
+          
+            
+            
+              <div class="version">
+                by Marek Gagolewski
+              </div>
+            
+          
+-->
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search phrase..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="true-vs-predicted.html">True vs Predicted Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise-points.html">Noise Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="many-partitions.html">There Can Be Many Valid Partitions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.0.9991)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">See Also</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external-validity-measures.html">External Cluster Validity Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../z_bibliography.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clustering Benchmarks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Explore Datasets (v1.0.9991)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+
+        
+        
+        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
+        
+
+
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="results-v1.html" class="btn btn-neutral float-right" title="Explore Clustering Results (v1.1.0)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="suite-v1.html" class="btn btn-neutral float-left" title="Benchmark Suite (v1.0.9991)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="explore-datasets-v1-0-9991">
+<span id="sec-data-v1"></span><h1>Explore Datasets (v1.0.9991)<a class="headerlink" href="#explore-datasets-v1-0-9991" title="Permalink to this heading"></a></h1>
+<p><em>Select battery/dataset from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.0.9991)</span></a>:</em></p>
+<form style="margin-bottom: 2em">
+
+<div style="text-align: center">
+<span id="select_prev" class="btn btn-neutral float-left" title="Previous dataset"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span></span>
+
+<select id="select_battery" name="select_battery" class="btn btn-neutral">
+</select>
+/
+<select id="select_dataset" name="select_dataset" class="btn btn-neutral">
+</select>
+
+<span id="select_next" class="btn btn-neutral float-right" title="Next dataset"><span class="fa fa-arrow-circle-right" aria-hidden="true"></span></span>
+</div>
+
+</form><p><em>Preview (only for 1–3 dimensional datasets):</em></p>
+<div id="dataset_showcase">
+
+</div><script type="text/javascript">
+
+var suite =
+{"wut": {"circles": ["labels0"], "cross": ["labels0"], "graph": ["labels0"], "isolation": ["labels0"], "labirynth": ["labels0"], "mk1": ["labels0"], "mk2": ["labels0"], "mk3": ["labels0"], "mk4": ["labels0"], "olympic": ["labels0"], "smile": ["labels0", "labels1"], "stripes": ["labels0"], "trajectories": ["labels0"], "trapped_lovers": ["labels0"], "twosplashes": ["labels0"], "windows": ["labels0"], "x1": ["labels0"], "x2": ["labels0"], "x3": ["labels0"], "z1": ["labels0"], "z2": ["labels0"], "z3": ["labels0"]}, "sipu": {"a1": ["labels0"], "a2": ["labels0"], "a3": ["labels0"], "aggregation": ["labels0"], "birch1": ["labels0"], "birch2": ["labels0"], "compound": ["labels0", "labels1", "labels2", "labels3", "labels4"], "d31": ["labels0"], "flame": ["labels0", "labels1"], "jain": ["labels0"], "pathbased": ["labels0", "labels1"], "r15": ["labels0", "labels1", "labels2"], "s1": ["labels0"], "s2": ["labels0"], "s3": ["labels0"], "s4": ["labels0"], "spiral": ["labels0"], "unbalance": ["labels0"], "worms_2": ["labels0"], "worms_64": ["labels0"]}, "fcps": {"atom": ["labels0"], "chainlink": ["labels0"], "engytime": ["labels0", "labels1"], "hepta": ["labels0"], "lsun": ["labels0"], "target": ["labels0", "labels1"], "tetra": ["labels0"], "twodiamonds": ["labels0"], "wingnut": ["labels0"]}, "graves": {"dense": ["labels0"], "fuzzyx": ["labels0", "labels1", "labels2", "labels3", "labels4", "labels5"], "line": ["labels0"], "parabolic": ["labels0", "labels1"], "ring": ["labels0"], "ring_noisy": ["labels0"], "ring_outliers": ["labels0", "labels1"], "zigzag": ["labels0", "labels1"], "zigzag_noisy": ["labels0", "labels1"], "zigzag_outliers": ["labels0", "labels1"]}, "other": {"chameleon_t4_8k": ["labels0"], "chameleon_t5_8k": ["labels0"], "chameleon_t7_10k": ["labels0"], "chameleon_t8_8k": ["labels0"], "hdbscan": ["labels0"], "iris": ["labels0"], "iris5": ["labels0"], "square": ["labels0"]}, "uci": {"ecoli": ["labels0"], "glass": ["labels0"], "ionosphere": ["labels0"], "sonar": ["labels0"], "statlog": ["labels0"], "wdbc": ["labels0"], "wine": ["labels0"], "yeast": ["labels0"]}, "mnist": {"digits": ["labels0"], "fashion": ["labels0"]}, "g2mg": {"g2mg_1_10": ["labels0", "labels1"], "g2mg_1_20": ["labels0", "labels1"], "g2mg_1_30": ["labels0", "labels1"], "g2mg_1_40": ["labels0", "labels1"], "g2mg_1_50": ["labels0", "labels1"], "g2mg_1_60": ["labels0", "labels1"], "g2mg_1_70": ["labels0", "labels1"], "g2mg_1_80": ["labels0", "labels1"], "g2mg_1_90": ["labels0", "labels1"], "g2mg_2_10": ["labels0", "labels1"], "g2mg_2_20": ["labels0", "labels1"], "g2mg_2_30": ["labels0", "labels1"], "g2mg_2_40": ["labels0", "labels1"], "g2mg_2_50": ["labels0", "labels1"], "g2mg_2_60": ["labels0", "labels1"], "g2mg_2_70": ["labels0", "labels1"], "g2mg_2_80": ["labels0", "labels1"], "g2mg_2_90": ["labels0", "labels1"], "g2mg_4_10": ["labels0", "labels1"], "g2mg_4_20": ["labels0", "labels1"], "g2mg_4_30": ["labels0", "labels1"], "g2mg_4_40": ["labels0", "labels1"], "g2mg_4_50": ["labels0", "labels1"], "g2mg_4_60": ["labels0", "labels1"], "g2mg_4_70": ["labels0", "labels1"], "g2mg_4_80": ["labels0", "labels1"], "g2mg_4_90": ["labels0", "labels1"], "g2mg_8_10": ["labels0", "labels1"], "g2mg_8_20": ["labels0", "labels1"], "g2mg_8_30": ["labels0", "labels1"], "g2mg_8_40": ["labels0", "labels1"], "g2mg_8_50": ["labels0", "labels1"], "g2mg_8_60": ["labels0", "labels1"], "g2mg_8_70": ["labels0", "labels1"], "g2mg_8_80": ["labels0", "labels1"], "g2mg_8_90": ["labels0", "labels1"], "g2mg_16_10": ["labels0", "labels1"], "g2mg_16_20": ["labels0", "labels1"], "g2mg_16_30": ["labels0", "labels1"], "g2mg_16_40": ["labels0", "labels1"], "g2mg_16_50": ["labels0", "labels1"], "g2mg_16_60": ["labels0", "labels1"], "g2mg_16_70": ["labels0", "labels1"], "g2mg_16_80": ["labels0", "labels1"], "g2mg_16_90": ["labels0", "labels1"], "g2mg_32_10": ["labels0", "labels1"], "g2mg_32_20": ["labels0", "labels1"], "g2mg_32_30": ["labels0", "labels1"], "g2mg_32_40": ["labels0", "labels1"], "g2mg_32_50": ["labels0", "labels1"], "g2mg_32_60": ["labels0", "labels1"], "g2mg_32_70": ["labels0", "labels1"], "g2mg_32_80": ["labels0", "labels1"], "g2mg_32_90": ["labels0", "labels1"], "g2mg_64_10": ["labels0", "labels1"], "g2mg_64_20": ["labels0", "labels1"], "g2mg_64_30": ["labels0", "labels1"], "g2mg_64_40": ["labels0", "labels1"], "g2mg_64_50": ["labels0", "labels1"], "g2mg_64_60": ["labels0", "labels1"], "g2mg_64_70": ["labels0", "labels1"], "g2mg_64_80": ["labels0", "labels1"], "g2mg_64_90": ["labels0", "labels1"], "g2mg_128_10": ["labels0", "labels1"], "g2mg_128_20": ["labels0", "labels1"], "g2mg_128_30": ["labels0", "labels1"], "g2mg_128_40": ["labels0", "labels1"], "g2mg_128_50": ["labels0", "labels1"], "g2mg_128_60": ["labels0", "labels1"], "g2mg_128_70": ["labels0", "labels1"], "g2mg_128_80": ["labels0", "labels1"], "g2mg_128_90": ["labels0", "labels1"]}, "h2mg": {"h2mg_1_10": ["labels0", "labels1"], "h2mg_1_20": ["labels0", "labels1"], "h2mg_1_30": ["labels0", "labels1"], "h2mg_1_40": ["labels0", "labels1"], "h2mg_1_50": ["labels0", "labels1"], "h2mg_1_60": ["labels0", "labels1"], "h2mg_1_70": ["labels0", "labels1"], "h2mg_1_80": ["labels0", "labels1"], "h2mg_1_90": ["labels0", "labels1"], "h2mg_2_10": ["labels0", "labels1"], "h2mg_2_20": ["labels0", "labels1"], "h2mg_2_30": ["labels0", "labels1"], "h2mg_2_40": ["labels0", "labels1"], "h2mg_2_50": ["labels0", "labels1"], "h2mg_2_60": ["labels0", "labels1"], "h2mg_2_70": ["labels0", "labels1"], "h2mg_2_80": ["labels0", "labels1"], "h2mg_2_90": ["labels0", "labels1"], "h2mg_4_10": ["labels0", "labels1"], "h2mg_4_20": ["labels0", "labels1"], "h2mg_4_30": ["labels0", "labels1"], "h2mg_4_40": ["labels0", "labels1"], "h2mg_4_50": ["labels0", "labels1"], "h2mg_4_60": ["labels0", "labels1"], "h2mg_4_70": ["labels0", "labels1"], "h2mg_4_80": ["labels0", "labels1"], "h2mg_4_90": ["labels0", "labels1"], "h2mg_8_10": ["labels0", "labels1"], "h2mg_8_20": ["labels0", "labels1"], "h2mg_8_30": ["labels0", "labels1"], "h2mg_8_40": ["labels0", "labels1"], "h2mg_8_50": ["labels0", "labels1"], "h2mg_8_60": ["labels0", "labels1"], "h2mg_8_70": ["labels0", "labels1"], "h2mg_8_80": ["labels0", "labels1"], "h2mg_8_90": ["labels0", "labels1"], "h2mg_16_10": ["labels0", "labels1"], "h2mg_16_20": ["labels0", "labels1"], "h2mg_16_30": ["labels0", "labels1"], "h2mg_16_40": ["labels0", "labels1"], "h2mg_16_50": ["labels0", "labels1"], "h2mg_16_60": ["labels0", "labels1"], "h2mg_16_70": ["labels0", "labels1"], "h2mg_16_80": ["labels0", "labels1"], "h2mg_16_90": ["labels0", "labels1"], "h2mg_32_10": ["labels0", "labels1"], "h2mg_32_20": ["labels0", "labels1"], "h2mg_32_30": ["labels0", "labels1"], "h2mg_32_40": ["labels0", "labels1"], "h2mg_32_50": ["labels0", "labels1"], "h2mg_32_60": ["labels0", "labels1"], "h2mg_32_70": ["labels0", "labels1"], "h2mg_32_80": ["labels0", "labels1"], "h2mg_32_90": ["labels0", "labels1"], "h2mg_64_10": ["labels0", "labels1"], "h2mg_64_20": ["labels0", "labels1"], "h2mg_64_30": ["labels0", "labels1"], "h2mg_64_40": ["labels0", "labels1"], "h2mg_64_50": ["labels0", "labels1"], "h2mg_64_60": ["labels0", "labels1"], "h2mg_64_70": ["labels0", "labels1"], "h2mg_64_80": ["labels0", "labels1"], "h2mg_64_90": ["labels0", "labels1"], "h2mg_128_10": ["labels0", "labels1"], "h2mg_128_20": ["labels0", "labels1"], "h2mg_128_30": ["labels0", "labels1"], "h2mg_128_40": ["labels0", "labels1"], "h2mg_128_50": ["labels0", "labels1"], "h2mg_128_60": ["labels0", "labels1"], "h2mg_128_70": ["labels0", "labels1"], "h2mg_128_80": ["labels0", "labels1"], "h2mg_128_90": ["labels0", "labels1"]}}
+;
+
+
+
+function addToSelect(select_id, elems, selected=null) {
+    let select = document.getElementById(select_id);
+    while (select.lastChild) select.removeChild(select.lastChild);
+    for (let battery in elems) {
+        let opt = document.createElement("option");
+        opt.value = opt.innerHTML = battery;
+        if (selected) {
+            if (battery == selected) opt.selected = true;
+        }
+        else {
+            selected = battery;
+        }
+        select.appendChild(opt);
+    }
+    return selected;
+}
+
+
+
+let battery = location.hash.substring(1, location.hash.lastIndexOf("/"));
+if (!(battery && (battery in suite))) battery = null;
+battery = addToSelect("select_battery", suite, battery);
+
+let dataset = location.hash.substring(location.hash.lastIndexOf("/")+1);
+if (!(dataset && (dataset in suite[battery]))) dataset = null;
+dataset = addToSelect("select_dataset", suite[battery], dataset);
+
+location.hash = battery + "/" + dataset;
+
+
+function selectNextDataset() {
+    let select = document.getElementById('select_dataset');
+    select.selectedIndex += 1;
+
+    if (select.selectedIndex < 0) {
+        let select2 = document.getElementById('select_battery');
+        select2.selectedIndex += 1;
+        if (select2.selectedIndex < 0)
+            select2.selectedIndex = 0;
+
+        let battery = select2.value;
+        addToSelect("select_dataset", suite[battery]);
+
+        select.selectedIndex = 0;
+    }
+
+    datasetChanged();
+}
+
+
+function selectPrevDataset() {
+    let select = document.getElementById('select_dataset');
+    select.selectedIndex -= 1;
+
+    if (select.selectedIndex < 0) {
+        let select2 = document.getElementById('select_battery');
+        select2.selectedIndex -= 1;
+        if (select2.selectedIndex < 0)
+            select2.selectedIndex = select2.children.length-1;
+
+        let battery = select2.value;
+        addToSelect("select_dataset", suite[battery]);
+
+        select.selectedIndex = select.children.length-1;
+    }
+
+    datasetChanged();
+}
+
+
+
+document.getElementById("select_prev").onclick = selectPrevDataset;
+document.getElementById("select_next").onclick = selectNextDataset;
+
+
+
+function datasetChanged() {
+    let battery = document.getElementById("select_battery").value;
+    let dataset = document.getElementById("select_dataset").value;
+    location.hash = battery + "/" + dataset;
+}
+
+
+function batteryChanged() {
+    let battery = document.getElementById("select_battery").value;
+    addToSelect("select_dataset", suite[battery]);
+    datasetChanged();
+}
+
+document.getElementById("select_dataset").onchange = datasetChanged;
+document.getElementById("select_battery").onchange = batteryChanged;
+
+
+
+
+
+function locationHashChanged()
+{
+//     els = document.getElementsByClassName("clustbench_browsable");
+//     for (let i=0; i<els.length; i++)
+//         els[i].style.display = "none";
+//
+//     var x = location.hash.substring(1);
+//     if (x == "") return;
+//     el = document.getElementById(x);
+//     if (!el) return;
+//     el.style.display = "block";
+
+    var battery = location.hash.substring(1, location.hash.lastIndexOf("/"));
+    var dataset = location.hash.substring(location.hash.lastIndexOf("/")+1);
+
+    if (!((battery in suite) && (dataset in suite[battery]))) return;
+
+    var labels = suite[battery][dataset];
+    let showcase = document.getElementById("dataset_showcase");
+    while (showcase.lastChild) showcase.removeChild(showcase.lastChild);
+
+    let head = document.createElement("h2");
+    head.innerHTML = battery + "/" + dataset;
+    showcase.appendChild(head);
+
+    for (let l in labels) {
+//         let head = document.createElement("h3");
+//         head.innerHTML = labels[l];
+//         showcase.appendChild(head);
+
+        let figure = document.createElement("figure");
+        figure.class = "align-default"
+
+        let img = document.createElement("img");
+        img.title = img.alt = labels[l];
+        img.src = "../_static/catalogue-v1/" + battery + "/" +
+            dataset + "." + labels[l] + ".png";
+
+        figure.appendChild(img);
+        showcase.appendChild(figure);
+    }
+
+
+    head = document.createElement("h3");
+    head.innerHTML = "Description";
+    showcase.appendChild(head);
+
+    let pre = document.createElement("pre");
+    pre.id = "dataset_description";
+    pre.text = "Description";
+    showcase.appendChild(pre);
+
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        document.getElementById("dataset_description").textContent = this.responseText;
+    };
+    xhr.open("GET", "../_static/catalogue-v1/" + battery + "/" +
+            dataset + ".txt");
+    xhr.send();
+}
+
+
+
+
+window.onhashchange = locationHashChanged;
+locationHashChanged();
+</script></section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="results-v1.html" class="btn btn-neutral float-right" title="Explore Clustering Results (v1.1.0)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="suite-v1.html" class="btn btn-neutral float-left" title="Benchmark Suite (v1.0.9991)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &#169; 2020–2022 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
+
+    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
+    theme.
+      <span class="lastupdated">
+        Last updated on 2022-09-13T17:44:11+1000.
+      </span>
+
+
+    This site will never display any ads: it is a non-profit project.
+    It does not collect any data.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+Glass Identification
+
+More information: https://archive.ics.uci.edu/ml/datasets/glass+identification
+
+Please cite as:
+Dua, D. and Graff, C. (2019). UCI Machine Learning Repository
+[http://archive.ics.uci.edu/ml].
+Irvine, CA: University of California, School of Information and Computer Science.
+
+`labels0` come from the author(s).

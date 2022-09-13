@@ -1,0 +1,10 @@
+Source: P. Fränti, O. Virmajoki,
+Iterative shrinking method for clustering problems,
+Pattern Recognition, 39(5), 2006, pp. 761-765.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+Synthetic 2D data with n=5000 vectors and K=15 Gaussian clusters with different
+degree of cluster overlapping.
+
+`labels0` come from the Authors. `0` denotes the noise class (if present).

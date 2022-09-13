@@ -1,0 +1,6 @@
+Source: Zhang et al., BIRCH: A new data clustering algorithm and its applications,
+Data Mining and Knowledge Discovery, 1 (2), 141-182, 1997.
+
+Web: https://cs.joensuu.fi/sipu/datasets/
+
+`labels0` come from the Authors. `0` denotes the noise class (if present).

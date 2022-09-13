@@ -75,7 +75,7 @@ def load_dataset(
     Returns
     -------
 
-    dataset
+    benchmark
         A named tuple with the following elements:
 
         battery

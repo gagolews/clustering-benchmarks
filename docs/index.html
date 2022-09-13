@@ -2,13 +2,20 @@
 
 
 <html class="writer-html5" lang="en" >
+<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
+
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>A Framework for Benchmarking Clustering Algorithms &mdash; clustering-benchmarks</title>
+  <title>A Framework for Benchmarking Clustering Algorithms &mdash; Clustering Benchmarks</title>
+  
+
+  
+  
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
   
 
   
@@ -16,11 +23,14 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/proof.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
   
 
   
@@ -41,13 +51,14 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/proof.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example" href="weave/example.html" /> 
+    <link rel="next" title="True vs Predicted Clusters" href="weave/true-vs-predicted.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -61,25 +72,31 @@
           
 
           
-            <a href="#" class="icon icon-home"> clustering-benchmarks
+            <a href="#"> Clustering Benchmarks
           
 
           
           </a>
 
+          <div class="version">
+          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.0
+          </div>
+
+<!--
           
             
             
               <div class="version">
-                1.1.0
+                by Marek Gagolewski
               </div>
             
           
+-->
 
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search phrase..." />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -96,25 +113,40 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">genieclust</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">About</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/true-vs-predicted.html">True vs Predicted Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/noise-points.html">Noise Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/many-partitions.html">There Can Be Many Valid Partitions</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">TODO</span></p>
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="weave/example.html">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/suite-v1.html">Benchmark Suite (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/data-v1.html">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/file-format.html">File Format Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">See Also</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks/issues">Bug Tracker and Feature Suggestions</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/external-validity-measures.html">External Cluster Validity Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="z_bibliography.html">References</a></li>
 </ul>
@@ -132,7 +164,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">clustering-benchmarks</a>
+          <a href="#">Clustering Benchmarks</a>
         
       </nav>
 
@@ -141,15 +173,56 @@
         
         <div class="rst-content style-external-links">
         
-          <div role="navigation" aria-label="Page navigation">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
       <li>A Framework for Benchmarking Clustering Algorithms</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+
+        
+        
+        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
+        
+
+
+        
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="weave/example.html" class="btn btn-neutral float-right" title="Example" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="weave/true-vs-predicted.html" class="btn btn-neutral float-right" title="True vs Predicted Clusters" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
   </div>
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -168,38 +241,154 @@
     :alt: Genie
     :width: 128px
 -->
-<p>It is not rare for clustering papers/graduate theses to consider only a small
-number of datasets, say 5–10 UCI-sourced ones,
-which obviously is too few to make any evaluations rigorous enough.
-Other authors propose their own datasets, but forget to test their methods
-against other benchmarks batteries, risking their evaluations be biased.</p>
-<p>Authors who share their data (thanks!) might not necessarily make
-the use of their suites particularly smooth (different file formats,
-different ways to access, etc., even across a single repository).
-On the other hand, other machine learning domains
-(but also: <a class="reference external" href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">optimisation</a>)
-have had some standardised, well agreed-upon approaches for testing
-the quality of the algorithms for quite a long time.</p>
-<p>In this project we aim to <strong>aggregate, polish and standardise the existing
-clustering benchmark suites</strong> referred to across the machine learning
-and data mining literature. Moreover, we introduce <strong>new datasets</strong>
-of different dimensionalities, sizes and cluster types.</p>
-<div class="toctree-wrapper compound">
+<p>There is no, nor will there ever be, single best clustering algorithm.
+Still, we would like to be able to separate the wheat from the chaff:
+to pinpoint those which are well-performing on certain task types
+and filter out the systematically disappointing ones.
+To do so, we can run the algorithms on a variety of datasets
+and compare their outputs to the reference, ground truth groupings
+that are provided by experts.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>This page is under construction. Come back later.</p>
 </div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Show some example outputs - plot</p>
+</div>
+<p>However, it is not rare for research papers/graduate theses to consider
+only a small number of datasets. Usually, the same 5–10 datasets from
+the UCI database are considered.
+This is obviously too few to make any evaluation rigorous enough.</p>
+<p>Other authors propose their own datasets, but forget to test their methods
+against other benchmark batteries. This might lead to biased conclusions.</p>
+<p>Some researchers who share their data (thanks!) might not necessarily
+make the use of their batteries particularly smooth
+(different file formats, different ways to access, etc.,
+even across a single repository).
+On the other hand, other machine learning domains
+(e.g., classification and regression problems included in the said UCI
+<span id="id3">[<a class="reference internal" href="z_bibliography.html#id52" title="Dua D., Graff C. (2022).  UCI Machine Learning Repository. \url http://archive.ics.uci.edu/ml.">DG22</a>]</span>; but also: <a class="reference external" href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">optimisation</a>)
+developed some standardised, well agreed-upon approaches for testing
+the quality of the algorithms long time ago.</p>
+<p>Thus:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This project aims to:</p>
+<ul class="simple">
+<li><p><strong>aggregate, polish, and standardise the existing clustering
+benchmark batteries</strong> referred to across the machine learning
+and data mining literature,</p></li>
+<li><p>introduce <strong>new datasets</strong> of different dimensionalities,
+sizes, and cluster types,</p></li>
+<li><p>propose a <strong>consistent methodology</strong> for evaluating clustering
+algorithms.</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is the proposed methodology at a glance:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="weave/suite-v1.html#sec-suite-v1"><span class="std std-ref">Datasets</span></a> of different origin,
+difficulty, dimensionality, and cluster structure (including clusters
+of imbalanced sizes and different shapes) are included.</p></li>
+<li><p>A clustering algorithm under scrutiny run so as to split the datasets into
+different number of clusters (e.g., to find all 2-, 3-, 4-… -clusterings).</p></li>
+<li><p>Each dataset is equipped with at least one ground truth partition
+provided by experts. Clustering is an unsupervised data mining problem, so
+<a class="reference internal" href="weave/many-partitions.html#sec-many-partitions"><span class="std std-ref">there can be many equally valid partitions</span></a>.</p></li>
+<li><p><a class="reference internal" href="weave/external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">External cluster validity scores</span></a>
+are used to relate the outputs to all the possible reference sets.</p></li>
+<li><p><a class="reference internal" href="weave/noise-points.html#sec-noise-points"><span class="std std-ref">Noise points</span></a> can be included in the dataset
+to make the clustering harder. The way they are classified
+is ignored when computing the final similarity score.</p></li>
+<li><p>The best result is reported (has or has not the algorithm
+reproduced at least one of the ground-truth partitions well?)</p></li>
+</ul>
+<p>Details follow in the sections below.</p>
+</div>
+<p><strong>Author/Editor/Maintainer</strong>:
+<a class="reference external" href="https://www.gagolewski.com">Marek Gagolewski</a></p>
+<p><strong>How to Cite</strong>:
+Gagolewski M., <em>A Framework for Benchmarking Clustering Algorithms</em>, 2022,
+<a class="reference external" href="https://clustering-benchmarks.gagolewski.com">https://clustering-benchmarks.gagolewski.com</a>, submitted for publication.</p>
+<p>Data are provided solely for research purposes, unless stated otherwise.
+Please cite the literature references mentioned in the description files
+corresponding to each dataset if you use them in your publications.</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">TODO</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="weave/example.html">Example</a></li>
+<p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/true-vs-predicted.html">True vs Predicted Clusters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/true-vs-predicted.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/true-vs-predicted.html#reference-labels">Reference Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/true-vs-predicted.html#predicted-labels">Predicted Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/true-vs-predicted.html#permuting-cluster-ids">Permuting Cluster IDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/true-vs-predicted.html#confusion-matrix">Confusion Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/true-vs-predicted.html#external-cluster-validity-measures">External Cluster Validity Measures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weave/noise-points.html">Noise Points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/noise-points.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/noise-points.html#discovering-clusters">Discovering Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/noise-points.html#evaluating-similarity">Evaluating Similarity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weave/many-partitions.html">There Can Be Many Valid Partitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/many-partitions.html#alternative-labellings">Alternative Labellings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/many-partitions.html#predicted-vs-best-matching-reference-labelling">Predicted vs Best-Matching Reference Labelling</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/suite-v1.html">Benchmark Suite (v1.0.9991)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#data-sources">Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#wut"><code class="docutils literal notranslate"><span class="pre">wut</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#sipu"><code class="docutils literal notranslate"><span class="pre">sipu</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#fcps"><code class="docutils literal notranslate"><span class="pre">fcps</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#graves"><code class="docutils literal notranslate"><span class="pre">graves</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#other"><code class="docutils literal notranslate"><span class="pre">other</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#uci"><code class="docutils literal notranslate"><span class="pre">uci</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#mnist"><code class="docutils literal notranslate"><span class="pre">mnist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#g2mg"><code class="docutils literal notranslate"><span class="pre">g2mg</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#h2mg"><code class="docutils literal notranslate"><span class="pre">h2mg</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weave/data-v1.html">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/results-v1.html#algorithms">Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weave/file-format.html">File Format Specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/file-format.html#benchmark-datasets">Benchmark Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/file-format.html#clustering-results">Clustering Results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Accessing from Python, R, MATLAB, etc.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weave/how-to-access.html#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/how-to-access.html#r">R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weave/how-to-access.html#matlab">MATLAB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weave/contributing.html">Contributing</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">See Also</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks/issues">Bug Tracker and Feature Suggestions</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
 </ul>
@@ -207,6 +396,9 @@ of different dimensionalities, sizes and cluster types.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/external-validity-measures.html">External Cluster Validity Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="z_bibliography.html">References</a></li>
 </ul>
@@ -217,22 +409,30 @@ of different dimensionalities, sizes and cluster types.</p>
            </div>
            
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="weave/example.html" class="btn btn-neutral float-right" title="Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="weave/true-vs-predicted.html" class="btn btn-neutral float-right" title="True vs Predicted Clusters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020–2022, Marek Gagolewski.
-      <span class="lastupdated">Last updated on 2022-08-15T15:16:13+1000.
-      </span></p>
-  </div>
+    <p>
+        Copyright &#169; 2020–2022 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
+    theme.
+      <span class="lastupdated">
+        Last updated on 2022-09-13T17:44:11+1000.
+      </span>
+
+
+    This site will never display any ads: it is a non-profit project.
+    It does not collect any data.
+
+    </p>
+  </div> 
 
 </footer>
         </div>
@@ -247,12 +447,7 @@ of different dimensionalities, sizes and cluster types.</p>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

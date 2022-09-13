@@ -1,7 +1,12 @@
 (sec:clustbench-usage)=
 # Using *clustbench*
 
-::::{epigraph}
+::::{todo}
+This page is under construction. Come back later.
+::::
+
+
+::::{note}
 *To learn more about Python,
 check out Marek's recent open-access (free!) textbook*
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
@@ -10,7 +15,7 @@ check out Marek's recent open-access (free!) textbook*
 
 TO DO...
 
-install..
+TO DO: how to install..
 
 ```{python}
 import clustbench
@@ -53,7 +58,21 @@ print(b.data.shape, len(b.labels), [max(l) for l in b.labels])
 
 ```{python using-clustbench-example1,results="hide",fig.cap="An example benchmark dataset and the corresponding ground truth labels."}
 import genieclust
-genieclust.plots.plot_scatter(b.data, labels=b.labels[0], axis="equal")
+genieclust.plots.plot_scatter(
+    b.data, labels=b.labels[0], axis="equal", title=f"{b.battery}/{b.dataset}"
+)
 plt.show()
 ```
 
+
+
+results:
+
+```{python}
+results_path = os.path.join("~", "Projects", "clustering-results-v1", "original")
+res = clustbench.load_results(
+    "fastcluster_*", b.battery, b.dataset,
+    n_clusters=max(b.labels[0]), path=results_path
+)
+print(list(res.keys()))
+```

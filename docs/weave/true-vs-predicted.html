@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+
+<html class="writer-html5" lang="en" >
+<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>True vs Predicted Clusters &mdash; Clustering Benchmarks</title>
+  
+
+  
+  
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/proof.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/true-vs-predicted.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/proof.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Noise Points" href="noise-points.html" />
+    <link rel="prev" title="A Framework for Benchmarking Clustering Algorithms" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html"> Clustering Benchmarks
+          
+
+          
+          </a>
+
+          <div class="version">
+          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.0
+          </div>
+
+<!--
+          
+            
+            
+              <div class="version">
+                by Marek Gagolewski
+              </div>
+            
+          
+-->
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search phrase..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">True vs Predicted Clusters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-labels">Reference Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#predicted-labels">Predicted Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#permuting-cluster-ids">Permuting Cluster IDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confusion-matrix">Confusion Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#external-cluster-validity-measures">External Cluster Validity Measures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="noise-points.html">Noise Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="many-partitions.html">There Can Be Many Valid Partitions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">See Also</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external-validity-measures.html">External Cluster Validity Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../z_bibliography.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clustering Benchmarks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>True vs Predicted Clusters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+
+        
+        
+        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
+        
+
+
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="noise-points.html" class="btn btn-neutral float-right" title="Noise Points" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="A Framework for Benchmarking Clustering Algorithms" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="true-vs-predicted-clusters">
+<span id="sec-true-vs-predicted"></span><h1>True vs Predicted Clusters<a class="headerlink" href="#true-vs-predicted-clusters" title="Permalink to this heading"></a></h1>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading"></a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X=\{\mathbf{x}_1, \dots, \mathbf{x}_n\}\)</span> be the <strong>input dataset</strong>
+that consists of <span class="math notranslate nohighlight">\(n\)</span> objects.</p>
+<p>As an illustration, in this section we consider the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">wut/x2</span></a>
+dataset, which consists of 120 points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.0.1&quot;</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">data</span>
+<span class="n">X</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># preview</span>
+<span class="c1">## array([[-0.16911746, -0.25135197],</span>
+<span class="c1">##        [-0.17667309, -0.48302249],</span>
+<span class="c1">##        [-0.1423283 , -0.36194485],</span>
+<span class="c1">##        [-0.10637601, -0.70068834],</span>
+<span class="c1">##        [-0.49353012, -0.23587515]])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code below should be sufficiently self-explanatory even to the readers
+who do not know Python. To learn more about this environment
+check out Marek’s recent open-access (free!) textbook
+<a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">Gag22c</a>]</span>.
+Also note that in a <a class="reference internal" href="how-to-access.html#sec-how-to-access"><span class="std std-ref">further section</span></a>,
+we explain how to use our benchmark framework from within R and Matlab.</p>
+</div>
+</section>
+<section id="reference-labels">
+<h2>Reference Labels<a class="headerlink" href="#reference-labels" title="Permalink to this heading"></a></h2>
+<p>Each dataset like the one above is equipped with a
+<strong>reference<a class="footnote-reference brackets" href="#footmanyreference" id="id2">1</a> partition</strong> assigned by experts, representing
+a desired grouping of the points into <span class="math notranslate nohighlight">\(k \ge 2\)</span> clusters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">y_true</span> <span class="o">:=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,</span>
+<span class="c1">##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1,</span>
+<span class="c1">##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,</span>
+<span class="c1">##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,</span>
+<span class="c1">##        1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,</span>
+<span class="c1">##        3, 3, 3, 3, 3, 3, 3, 3, 3, 3])</span>
+</pre></div>
+</div>
+<p>More precisely, what we have here is a
+<span class="math notranslate nohighlight">\(k\)</span>-partition<a class="footnote-reference brackets" href="#footpart" id="id3">2</a> <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of <span class="math notranslate nohighlight">\(X\)</span>
+encoded using a <strong>label vector</strong> <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, where
+<span class="math notranslate nohighlight">\(y_i\in\{1,\dots,k\}\)</span> gives the subset/cluster number (ID) of the <span class="math notranslate nohighlight">\(i\)</span>-th object.</p>
+<p>The number of subsets <span class="math notranslate nohighlight">\(k\)</span> is thus an inherent part of the
+reference set:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">k</span> <span class="o">:=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_true</span><span class="p">))</span>
+<span class="c1">## 3</span>
+</pre></div>
+</div>
+</section>
+<section id="predicted-labels">
+<h2>Predicted Labels<a class="headerlink" href="#predicted-labels" title="Permalink to this heading"></a></h2>
+<p>Let us take any <strong>clustering algorithm whose usefulness
+we would like to assess</strong>. As an example, we will consider the outputs
+generated by <a class="reference external" href="https://genieclust.gagolewski.com"><em>Genie</em></a>.
+We need to apply it on <span class="math notranslate nohighlight">\(X\)</span> to <strong>discover a new <span class="math notranslate nohighlight">\(k\)</span>-partition</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genieclust</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">genieclust</span><span class="o">.</span><span class="n">Genie</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>  <span class="c1"># using default parameters</span>
+<span class="p">(</span><span class="n">y_pred</span> <span class="o">:=</span> <span class="n">g</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># +1 makes cluster IDs in 1..k, not 0..(k-1)</span>
+<span class="c1">## array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,</span>
+<span class="c1">##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1,</span>
+<span class="c1">##        2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 1, 2, 3, 2, 2, 2, 2, 2, 1,</span>
+<span class="c1">##        2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2,</span>
+<span class="c1">##        2, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,</span>
+<span class="c1">##        3, 3, 3, 3, 3, 3, 3, 3, 3, 3])</span>
+</pre></div>
+</div>
+<p>We thus obtained a vector of <strong>predicted labels</strong> <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>
+encoding a new grouping, <span class="math notranslate nohighlight">\(\{\hat{X}_1,\dots,\hat{X}_k\}\)</span>.</p>
+<p>The figure below depicts the two partitions side by side.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_true</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;y_true&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_pred</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id8">
+<span id="fig-partition-similarity-example-2"></span><img alt="../_images/partition-similarity-example-2-1.png" src="../_images/partition-similarity-example-2-1.png" />
+<figcaption>
+<p><span class="caption-number">Figure 1:  </span><span class="caption-text">Two example partitions that we would like to compare. Intuitively, clustering can be considered as a method to assign colours to all the input points.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ideally, we would like to work with algorithms that yield partitions
+matching the reference ones on as wide a set of problems
+as possible.</p>
+</div>
+<p>We therefore need to <em>relate</em> the predicted labels to the reference ones.
+Note that the automated discovery of <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>
+never relies on the information included in <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.
+In other words, clustering is an unsupervised<a class="footnote-reference brackets" href="#footsemisupervised" id="id4">3</a>
+learning process.</p>
+</section>
+<section id="permuting-cluster-ids">
+<h2>Permuting Cluster IDs<a class="headerlink" href="#permuting-cluster-ids" title="Permalink to this heading"></a></h2>
+<p>A partition is a <em>set</em> of point groups, and sets are, by definition, unordered.
+Therefore, the <strong>actual cluster IDs do not really matter</strong>.</p>
+<p>Looking at the above figure, we see that
+the red (ID=2), black (ID=1), and green (ID=3) discovered clusters
+can be paired with, respectively,
+the black (ID=1), red (ID=2), and green (ID=3) reference ones.</p>
+<p>We can easily recode<a class="footnote-reference brackets" href="#footmanualrelabel" id="id5">4</a> <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>
+so that the cluster IDs nicely correspond to each other:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">o</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># relabelling: 1→2, 2→1, 3→3</span>
+<span class="p">(</span><span class="n">y_pred</span> <span class="o">:=</span> <span class="n">o</span><span class="p">[</span><span class="n">y_pred</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Python uses 0-based indexing, hence the -1</span>
+<span class="c1">## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,</span>
+<span class="c1">##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2,</span>
+<span class="c1">##        1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 2, 1, 3, 1, 1, 1, 1, 1, 2,</span>
+<span class="c1">##        1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1,</span>
+<span class="c1">##        1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,</span>
+<span class="c1">##        3, 3, 3, 3, 3, 3, 3, 3, 3, 3])</span>
+</pre></div>
+</div>
+<p>See below for an updated figure.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_true</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;y_true&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_pred</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id9">
+<span id="fig-partition-similarity-example-2b"></span><img alt="../_images/partition-similarity-example-2b-3.png" src="../_images/partition-similarity-example-2b-3.png" />
+<figcaption>
+<p><span class="caption-number">Figure 2:  </span><span class="caption-text">The two partitions after the cluster ID (colour) matching.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="confusion-matrix">
+<h2>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading"></a></h2>
+<p>We can determine the confusion matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> for the two label vectors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">genieclust</span><span class="o">.</span><span class="n">compare_partitions</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="c1">## array([[37, 12,  1],</span>
+<span class="c1">##        [ 0, 40,  0],</span>
+<span class="c1">##        [ 0,  0, 30]])</span>
+</pre></div>
+</div>
+<p>Here, <span class="math notranslate nohighlight">\(c_{i, j}\)</span> denotes the number of points in the <span class="math notranslate nohighlight">\(i\)</span>-th reference cluster
+that the algorithm assigned to the <span class="math notranslate nohighlight">\(j\)</span>-th cluster.</p>
+<p>Overall, <em>Genie</em> returned a clustering quite similar to the reference one.
+107 (<span class="math notranslate nohighlight">\(c_{1,1}+c_{2, 2}+c_{3,3}=37+40+30\)</span>) out of the 120 input points
+can be deemed correctly grouped. In particular, each of the the red and green
+reference points (the 2nd and the 3rd row) has been discovered.</p>
+<p>However, the algorithm has miscategorised (at least, as far as the current
+set of expert labels is concerned) 1 green and 12 red points:
+they should have been coloured black.</p>
+</section>
+<section id="external-cluster-validity-measures">
+<h2>External Cluster Validity Measures<a class="headerlink" href="#external-cluster-validity-measures" title="Permalink to this heading"></a></h2>
+<p>A confusion matrix summarises all the information that we need
+in order to judge the similarity between the two partitions. However,
+if we wish to compare the quality of different algorithms,
+we would rather have the information summarised in the form of a single number.</p>
+<p>The <strong>adjusted asymmetric accuracy</strong> <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>, AAA,
+is an <em>external cluster validity measures</em>
+(see the <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">Appendix</span></a> for more details)
+that quantifies the degree of agreement between the reference <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and
+the predicted <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>.
+It is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{AAA}(\mathbf{C})
+=
+\frac{
+\max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, 1}+\dots+c_{i, k}} - \frac{1}{k}
+}{
+1 - \frac{1}{k}
+},
+\]</div>
+<p>or, equivalently, by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{AAA}(\mathbf{C})
+=
+1-
+\min_\sigma
+\left(
+\frac{1}{k}
+\sum_{i=1}^k \frac{c_{i, 1}+\dots+c_{i, k}-c_{i, \sigma(i)}}{ \frac{k-1}{k} (c_{i, 1}+\dots+c_{i, k}) }
+\right),
+\]</div>
+<p>which can be thought of as a measure of the average proportion of
+correctly identified points in each cluster (“above” the random assignment).
+Note that the matching between the cluster labels is performed
+automatically by finding the best permutation <span class="math notranslate nohighlight">\(\sigma\)</span>
+of the set <span class="math notranslate nohighlight">\(\{1,\dots,k\}\)</span>.</p>
+<p>Overall, the more similar the partitions, the greater the similarity score
+(1 if they are identical). AAA is adjusted for chance and cluster size
+inequality. In particular, its expected value is equal to 0 if the partitions were
+picked at random or all the points are put into a single large cluster.
+In our case:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">genieclust</span><span class="o">.</span><span class="n">compare_partitions</span><span class="o">.</span><span class="n">adjusted_asymmetric_accuracy</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="c1">## 0.8700000000000001</span>
+</pre></div>
+</div>
+<p>indicates a decent degree of similarity between the reference
+and the discovered partitions.</p>
+<p>Following <span id="id7">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>, we recommend the use of AAA as an external cluster
+validity measure. For the sake of completeness, other popular
+partition similarity scores are discussed
+in the <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">Appendix</span></a>.
+In particular, this is where we argue why the classic (classification)
+accuracy rate should not be used in our context (this is a common mistake!).</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footmanyreference"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">Later</span></a> we will note
+that there may be many possible ways to split a dataset into groups.</p>
+</dd>
+<dt class="label" id="footpart"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>We say that <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> is a <span class="math notranslate nohighlight">\(k\)</span>-partition of <span class="math notranslate nohighlight">\(X\)</span>,
+whenever <span class="math notranslate nohighlight">\(\bigcup_{i=1}^k X_i=X\)</span>, each <span class="math notranslate nohighlight">\(X_i\)</span> is nonempty,
+and the subsets are pairwise disjoint, i.e., <span class="math notranslate nohighlight">\(X_i\cap X_j=\emptyset\)</span>
+for <span class="math notranslate nohighlight">\(i\neq j\)</span>.</p>
+</dd>
+<dt class="label" id="footsemisupervised"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>Tasks such as semi-supervised clustering,
+where the right assignment of <em>some</em> of the input points is known in
+advance, are not of our interest here. However, the current framework can
+trivially be adjusted to fit such scenarios.</p>
+</dd>
+<dt class="label" id="footmanualrelabel"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
+<dd><p>In a
+<a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">later section</span></a> we discuss a way
+to automatically discover an optimal relabelling based on the solution
+to the maximal assignment problem.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="noise-points.html" class="btn btn-neutral float-right" title="Noise Points" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="A Framework for Benchmarking Clustering Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &#169; 2020–2022 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
+
+    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
+    theme.
+      <span class="lastupdated">
+        Last updated on 2022-09-13T17:44:11+1000.
+      </span>
+
+
+    This site will never display any ads: it is a non-profit project.
+    It does not collect any data.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+
+<html class="writer-html5" lang="en" >
+<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>There Can Be Many Valid Partitions &mdash; Clustering Benchmarks</title>
+  
+
+  
+  
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/proof.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/many-partitions.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/proof.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Benchmark Suite (v1.0.9991)" href="suite-v1.html" />
+    <link rel="prev" title="Noise Points" href="noise-points.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html"> Clustering Benchmarks
+          
+
+          
+          </a>
+
+          <div class="version">
+          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.0
+          </div>
+
+<!--
+          
+            
+            
+              <div class="version">
+                by Marek Gagolewski
+              </div>
+            
+          
+-->
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search phrase..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="true-vs-predicted.html">True vs Predicted Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise-points.html">Noise Points</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">There Can Be Many Valid Partitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#alternative-labellings">Alternative Labellings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#predicted-vs-best-matching-reference-labelling">Predicted vs Best-Matching Reference Labelling</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">See Also</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external-validity-measures.html">External Cluster Validity Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../z_bibliography.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clustering Benchmarks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>There Can Be Many Valid Partitions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+
+        
+        
+        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
+        
+
+
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="suite-v1.html" class="btn btn-neutral float-right" title="Benchmark Suite (v1.0.9991)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="noise-points.html" class="btn btn-neutral float-left" title="Noise Points" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="there-can-be-many-valid-partitions">
+<span id="sec-many-partitions"></span><h1>There Can Be Many Valid Partitions<a class="headerlink" href="#there-can-be-many-valid-partitions" title="Permalink to this heading"></a></h1>
+<p>We believe that it is in the very spirit of unsupervised learning
+that for some datasets, <strong>there might be multiple equally
+valid/plausible/useful ways to partition them</strong>
+(see also <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id23" title="Dasgupta S., Ng V. (2009).  Single data, multiple clusterings. In: Proc. NIPS Workshop Clustering: Science or Art? Towards Principled Approaches. URL: https://clusteringtheory.org.">DN09</a>, <a class="reference internal" href="../z_bibliography.html#id49" title="von Luxburg U., Williamson R.C., Guyon I. (2012).  Clustering: science or art? In: Guyon I., et al., editors, Proc. ICML Workshop on Unsupervised and Transfer Learning, volume 27 of Proc. Machine Learning Research, pp. 65–79.">vLWG12</a>]</span> for discussion).</p>
+<section id="alternative-labellings">
+<h2>Alternative Labellings<a class="headerlink" href="#alternative-labellings" title="Permalink to this heading"></a></h2>
+<p>This is why many benchmark sets in our suite come
+with alternative labellings.
+For instance, consider the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">graves/zigzag_noisy</span></a>
+dataset <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id28" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">clustbench</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.0.1&quot;</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;graves&quot;</span><span class="p">,</span> <span class="s2">&quot;zigzag_noisy&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is equipped with two different reference partitions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
+<span class="c1">## 2</span>
+</pre></div>
+</div>
+<p>They are depicted below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genieclust</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">)):</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
+        <span class="n">benchmark</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_true</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;labels</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id3">
+<span id="fig-many-partitions"></span><img alt="../_images/many-partitions-1.png" src="../_images/many-partitions-1.png" />
+<figcaption>
+<p><span class="caption-number">Figure 5:  </span><span class="caption-text">There can be many equally valid partitions.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="predicted-vs-best-matching-reference-labelling">
+<h2>Predicted vs Best-Matching Reference Labelling<a class="headerlink" href="#predicted-vs-best-matching-reference-labelling" title="Permalink to this heading"></a></h2>
+<p>An algorithm should be rewarded for finding a partition
+that matches at least one of the reference ones.
+This might require running the method multiple times
+to find partitions of different cardinalities.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The outputs generated by a single algorithm
+should be evaluated against all the available reference labellings
+and the <em>maximal</em> similarity score should be reported.</p>
+</div>
+<p>An example featuring the outputs generated by
+<a class="reference external" href="https://genieclust.gagolewski.com"><em>Genie</em></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">genieclust</span><span class="o">.</span><span class="n">Genie</span><span class="p">()</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">)):</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+
+    <span class="c1"># find a k-clustering:</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># +1 to make cluster IDs in 1..k</span>
+
+    <span class="c1"># external cluster validity measure (skip noise points):</span>
+    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span> <span class="o">:=</span>
+        <span class="n">genieclust</span><span class="o">.</span><span class="n">compare_partitions</span><span class="o">.</span><span class="n">adjusted_asymmetric_accuracy</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="p">[</span><span class="n">y_true</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">y_pred</span><span class="p">[</span><span class="n">y_true</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">))</span>
+
+    <span class="c1"># scatterplot:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
+        <span class="n">benchmark</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_pred</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Genie; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> (labels</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: AAA=</span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id4">
+<span id="fig-many-partitions-genie"></span><img alt="../_images/many-partitions-genie-3.png" src="../_images/many-partitions-genie-3.png" />
+<figcaption>
+<p><span class="caption-number">Figure 6:  </span><span class="caption-text">Results generated by Genie.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The best score is thus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="c1">## 1.0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Experts (like you) are encouraged to <a class="reference internal" href="contributing.html#sec-contributing"><span class="std std-ref">contribute</span></a>
+new reference labellings.
+See also the <em><a class="reference internal" href="colouriser.html#sec-colouriser"><span class="std std-ref">Colouriser</span></a></em> class
+for a way to generate label vectors interactively (for planar datasets).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="suite-v1.html" class="btn btn-neutral float-right" title="Benchmark Suite (v1.0.9991)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="noise-points.html" class="btn btn-neutral float-left" title="Noise Points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &#169; 2020–2022 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
+
+    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
+    theme.
+      <span class="lastupdated">
+        Last updated on 2022-09-13T17:44:11+1000.
+      </span>
+
+
+    This site will never display any ads: it is a non-profit project.
+    It does not collect any data.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

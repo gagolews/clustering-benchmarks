@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<html class="writer-html5" lang="en" >
+<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>External Cluster Validity Measures &mdash; Clustering Benchmarks</title>
+  
+
+  
+  
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/proof.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/external-validity-measures.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/proof.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Side Note: Internal (In)Validity Measures" href="internal-validity-measures.html" />
+    <link rel="prev" title="Colouriser: Interactive Planar Data Editor" href="colouriser.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html"> Clustering Benchmarks
+          
+
+          
+          </a>
+
+          <div class="version">
+          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.0
+          </div>
+
+<!--
+          
+            
+            
+              <div class="version">
+                by Marek Gagolewski
+              </div>
+            
+          
+-->
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search phrase..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="true-vs-predicted.html">True vs Predicted Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise-points.html">Noise Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="many-partitions.html">There Can Be Many Valid Partitions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.0.9991)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">See Also</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.gagolewski.com/">Author's Homepage</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datawranglingpy.gagolewski.com/">Data Wrangling in Python</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://genieclust.gagolewski.com/">genieclust Package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">External Cluster Validity Measures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#confusion-matrix">Confusion Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#illustration">Illustration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-not-simple-accuracy">Why Not Simple Accuracy?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-matching-measures">Set-Matching Measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pivoted-and-normalised-accuracy">Pivoted and Normalised Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjusted-asymmetric-accuracy">Adjusted Asymmetric Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pair-sets-index">Pair Sets Index</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#counting-concordant-and-discordant-point-pairs">Counting Concordant and Discordant Point Pairs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rand-score">Rand Score</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fowlkes-mallows-score">Fowlkes–Mallows Score</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjusted-rand-score">Adjusted Rand Score</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#information-theoretic-measures">Information-Theoretic Measures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../z_bibliography.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clustering Benchmarks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>External Cluster Validity Measures</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+
+        
+        
+        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
+        
+
+
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="internal-validity-measures.html" class="btn btn-neutral float-right" title="Side Note: Internal (In)Validity Measures" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="colouriser.html" class="btn btn-neutral float-left" title="Colouriser: Interactive Planar Data Editor" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="external-cluster-validity-measures">
+<span id="sec-external-validity-measures"></span><h1>External Cluster Validity Measures<a class="headerlink" href="#external-cluster-validity-measures" title="Permalink to this heading"></a></h1>
+<p>In this section we review the external cluster validity scores that are implemented
+in the <a class="reference external" href="https://genieclust.gagolewski.com/"><em>genieclust</em></a> package for Python
+and R <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. DOI: 10.1016/j.softx.2021.100722.">Gag21</a>]</span> and discussed in detail in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>
+(this section contains excerpts therefrom).</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> be a <a class="reference internal" href="true-vs-predicted.html#sec-true-vs-predicted"><span class="std std-ref">label</span></a>
+vector representing <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">one</span></a> of the reference
+<span class="math notranslate nohighlight">\(k\)</span>-partitions <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of a benchmark dataset<a class="footnote-reference brackets" href="#footnoise" id="id3">1</a> <span class="math notranslate nohighlight">\(X\)</span>,
+where <span class="math notranslate nohighlight">\(y_i\in\{1,\dots,k\}\)</span> gives the true cluster number (ID) of the <span class="math notranslate nohighlight">\(i\)</span>-th object.</p>
+<p>Furthermore, let <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> be a label vector
+encoding another partition, <span class="math notranslate nohighlight">\(\{\hat{X}_1,\dots,\hat{X}_k\}\)</span>,
+which we would like to <em>relate</em> to the reference one, <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.
+In our context, we assume that <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> has been determined by some
+clustering algorithm.</p>
+<p><strong>External cluster validity measures</strong> are functions
+of the form <span class="math notranslate nohighlight">\(I(\mathbf{y}, \hat{\mathbf{y}})\)</span> such that
+the more <em>similar</em> the partitions, the higher the score.
+They are normalised so that identical partitions give the highest similarity
+score which is equal to 1.
+Some are adjusted for chance, yielding approximately 0 for random
+partitions.</p>
+<p>Oftentimes, <strong>partition similarity scores</strong> (e.g.,
+the adjusted Rand index or the normalised mutual information score)
+are used as <span class="math notranslate nohighlight">\(I\)</span>s. They are <strong>symmetric</strong> in the sense that
+<span class="math notranslate nohighlight">\(I(\mathbf{y}, \hat{\mathbf{y}})= I(\hat{\mathbf{y}}, \mathbf{y})\)</span>.
+However, as argued in <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>, <strong>in our context we do not need this
+property</strong> because the reference label vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is considered
+fixed. The adjusted asymmetric accuracy is an example of such a non-symmetric
+measure.</p>
+<section id="confusion-matrix">
+<h2>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading"></a></h2>
+<p>Also, let <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> be the <em>confusion</em> (matching) matrix corresponding
+to <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>,
+where <span class="math notranslate nohighlight">\(c_{i,j}=\#\{ u: y_u=i\text{ and }\hat{y}_u=j \}\)</span> denotes
+the number of points in the true cluster <span class="math notranslate nohighlight">\(X_i\)</span> and the predicted cluster
+<span class="math notranslate nohighlight">\(\hat{X}_j\)</span>, <span class="math notranslate nohighlight">\(i,j,\in\{1,\dots,k\}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{|c||cccc|}
+\hline
+\mathbf{c}_{1,\cdot}   &amp; c_{1,1}   &amp; c_{1,2}  &amp; \cdots &amp; c_{1,k} \\
+\mathbf{c}_{2,\cdot}   &amp; c_{2,1}   &amp; c_{2,2}  &amp; \cdots &amp; c_{2,k} \\
+\mathbf{c}_{3,\cdot}   &amp; c_{3,1}   &amp; c_{3,2}  &amp; \cdots &amp; c_{3,k} \\
+\vdots                 &amp;  \vdots   &amp; \vdots   &amp; \ddots &amp; \vdots  \\
+\mathbf{c}_{k,\cdot}   &amp; c_{k,1}   &amp; c_{k,2}  &amp; \cdots &amp; c_{k,k} \\
+\hline\hline
+n &amp; \mathbf{c}_{\cdot,1} &amp; \mathbf{c}_{\cdot,2} &amp; \cdots &amp; \mathbf{c}_{\cdot,k} \\
+\hline
+\end{array}
+\end{split}\]</div>
+<p>It of course holds <span class="math notranslate nohighlight">\(\sum_{i=1}^k \sum_{j=1}^k c_{i,j} = n\)</span>.
+Moreover, let
+<span class="math notranslate nohighlight">\(\mathbf{c}_{i,\cdot} = \sum_{j=1}^k c_{i,j} = \#\{ u: y_u=i \}\)</span>
+denote the number of elements in the reference cluster <span class="math notranslate nohighlight">\(X_i\)</span>
+and
+<span class="math notranslate nohighlight">\(\mathbf{c}_{\cdot,j} = \sum_{i=1}^k c_{i,j} = \#\{ u: \hat{y}_u=j \}\)</span>
+be the number of objects in the predicted cluster <span class="math notranslate nohighlight">\(\hat{X}_j\)</span>.</p>
+<p>All the measures reviewed here are expressed solely by means of operations
+on confusion matrices. Therefore, we will be using the notation
+<span class="math notranslate nohighlight">\(I(\mathbf{y}, \hat{\mathbf{y}})\)</span> and <span class="math notranslate nohighlight">\(I(\mathbf{C})\)</span>
+interchangeably, implicitly assuming that this is
+clear from the context that <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> (and <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(n\)</span>)
+are obtained by studying the corresponding pairs of elements in the
+two label vectors.</p>
+</section>
+<section id="illustration">
+<h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this heading"></a></h2>
+<p>The scatterplots depicting the reference and a few example partitions of the
+<code class="docutils literal notranslate"><span class="pre">wut/x2</span></code> <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">dataset</span></a>
+are displayed below. We also report the confusion matrices and the
+values of the validity measures discussed below.</p>
+<figure class="align-default" id="id22">
+<span id="fig-partition-similarity-example-4"></span><img alt="../_images/partition-similarity-example-4-1.png" src="../_images/partition-similarity-example-4-1.png" />
+<figcaption>
+<p><span class="caption-number">Figure 8:  </span><span class="caption-text">The reference (ground truth) partition and a few predicted clusterings that we relate to it (wut/x2 dataset); confusion matrices and the values of a few external cluster validity measures are also reported</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Actually, both Genie and the k-means method output some quite reasonable
+partitions (as we mentioned in <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">an earlier section</span></a>,
+there might be many equally valid groupings), but we only want to relate
+them to a given reference set here.</p>
+</section>
+<section id="why-not-simple-accuracy">
+<h2>Why Not Simple Accuracy?<a class="headerlink" href="#why-not-simple-accuracy" title="Permalink to this heading"></a></h2>
+<p>A common mistake is to compute the standard accuracy
+as known from the evaluation of classification models:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{A}_\text{do not use it}^\mathrm{:(}(\mathbf{C}) =
+\sum_{i=1}^k  \frac{c_{i, i}}{n},
+\]</div>
+<p>which is the proportion of <em>correctly</em> <em>classified</em> points.
+This measure is of no use in clustering,
+because clusters are defined up to a permutation of the sets’ IDs.</p>
+<p>In other words, predicted cluster #1 being identical
+to the reference cluster #3 should be treated as a perfect match.</p>
+</section>
+<section id="set-matching-measures">
+<h2>Set-Matching Measures<a class="headerlink" href="#set-matching-measures" title="Permalink to this heading"></a></h2>
+<p>In our context, the predicted clusters need to be matched with the true ones
+somehow. To do so, we can seek a permutation <span class="math notranslate nohighlight">\(\sigma\)</span> of the
+set <span class="math notranslate nohighlight">\(\{1,2,\dots,k\}\)</span> which is a solution to (see, e.g., <span id="id5">[<a class="reference internal" href="../z_bibliography.html#id15" title="Crouse D.F. (2016).  On implementing 2D rectangular assignment algorithms. IEEE Transactions on Aerospace and Electronic Systems, 52(4):1679–1696. DOI: 10.1109/TAES.2016.140952.">Cro16</a>]</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\text{maximise}\ \sum_{i=1}^k c_{i,\sigma(i)} \qquad \text{w.r.t. }\sigma.
+\]</div>
+<p>This guarantees that one column is paired with one and only one row
+in the confusion matrix.</p>
+<section id="pivoted-and-normalised-accuracy">
+<h3>Pivoted and Normalised Accuracy<a class="headerlink" href="#pivoted-and-normalised-accuracy" title="Permalink to this heading"></a></h3>
+<p>Optimal pairing leads to what we call here the pivoted accuracy
+(classification rate <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id54" title="Steinley D. (2004).  Properties of the Hubert–Arabie adjusted Rand index. Psychological Methods, 9(3):386–396. DOI: 10.1037/1082-989X.9.3.386.">Ste04</a>]</span> or classification accuracy
+<span id="id7">[<a class="reference internal" href="../z_bibliography.html#id53" title="Meilă M., Heckerman D. (2001).  An experimental comparison of model-based clustering methods. Machine Learning, 42:9–29. DOI: 10.1023/A:1007648401407.">MH01</a>]</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{PA}(\mathbf{C}) =
+\max_\sigma \frac{1}{n} \sum_{i=1}^k  c_{i, \sigma(i)}.
+\]</div>
+<p>This relies on the best matching of the labels in <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>
+to the labels in  <span class="math notranslate nohighlight">\(\mathbf{\hat{y}}\)</span> so as to maximise the standard accuracy.</p>
+<p>Unfortunately, PA is not adjusted for chance.
+The smallest possible value it can take is <span class="math notranslate nohighlight">\(1/k\)</span>.
+We can thus consider the <em>normalised accuracy</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{NA}(\mathbf{C}) =
+\max_\sigma
+\frac{
+ \frac{1}{n} \sum_{i=1}^k  c_{i, \sigma(i)} - \frac{1}{k}
+}{
+1-\frac{1}{k}
+}.
+\]</div>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.normalized_accuracy</span></code></em></p>
+<p>Still, if there are clusters of highly imbalanced sizes,
+then its value is biased towards the quality of the match
+in the largest point group.</p>
+</section>
+<section id="adjusted-asymmetric-accuracy">
+<h3>Adjusted Asymmetric Accuracy<a class="headerlink" href="#adjusted-asymmetric-accuracy" title="Permalink to this heading"></a></h3>
+<p>In <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>, the adjusted for both cluster sizes
+and chance version of PA was proposed.
+Namely, the <em>adjusted asymmetric accuracy</em> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{AAA}(\mathbf{C})
+=
+\frac{
+\max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, \cdot}} - \frac{1}{k}
+}{
+1 - \frac{1}{k}
+}=
+1-
+\min_\sigma
+\left(
+\frac{1}{k}
+\sum_{i=1}^k \frac{c_{i, \cdot}-c_{i, \sigma(i)}}{ \frac{k-1}{k} c_{i, \cdot} }
+\right).
+\]</div>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.adjusted_asymmetric_accuracy</span></code></em></p>
+<p>The measure is quite easily interpretable:
+it is the overall percentage of correctly classified points in each cluster
+(one minus average classification error).
+It also fulfils many desirable properties.</p>
+<p>Adjusted asymmetric accuracy is the only measure reviewed here
+that is not symmetric, i.e., it gives some special treatment
+to the reference partition.
+As argued in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>, this is a perfectly fine behaviour
+in our context, where we validate the predicted partitions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The optimal relabelling (permutation <span class="math notranslate nohighlight">\(\sigma\)</span>) can be determined by
+normalising each row of the confusion matrix so that the elements
+therein sum to 1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="c1"># an example confusion matrix</span>
+    <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="p">(</span><span class="n">C_norm</span> <span class="o">:=</span> <span class="n">C</span> <span class="o">/</span> <span class="n">C</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1">## array([[0.24, 0.74, 0.02],</span>
+<span class="c1">##        [1.  , 0.  , 0.  ],</span>
+<span class="c1">##        [0.  , 0.  , 1.  ]])</span>
+</pre></div>
+</div>
+<p>and then by calling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">o</span> <span class="o">:=</span> <span class="n">genieclust</span><span class="o">.</span><span class="n">compare_partitions</span><span class="o">.</span><span class="n">normalizing_permutation</span><span class="p">(</span><span class="n">C_norm</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">## array([2, 1, 3])</span>
+</pre></div>
+</div>
+<p>Note that indexing in Python is 0-based, hence the <code class="docutils literal notranslate"><span class="pre">+1</span></code> part.
+Here is a version of the confusion matrix with the columns
+reordered accordingly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[:,</span> <span class="n">o</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1">## array([[37, 12,  1],</span>
+<span class="c1">##        [ 0, 40,  0],</span>
+<span class="c1">##        [ 0,  0, 30]])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="pair-sets-index">
+<h3>Pair Sets Index<a class="headerlink" href="#pair-sets-index" title="Permalink to this heading"></a></h3>
+<p>If the symmetry property is required, the pair sets index
+<span id="id10">[<a class="reference internal" href="../z_bibliography.html#id16" title="Rezaei M., Fränti P. (2016).  Set matching measures for external cluster validity. IEEE Transactions on Knowledge and Data Engineering, 28(8):2173–2186. DOI: 10.1109/TKDE.2016.2551240.">RF16</a>]</span> can be used as a partition similarity score.
+In the case of partitions of the same cardinalities, it reduces to:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{PS}(\mathbf{C}) =
+\max\left\{0,
+\max_\sigma \frac{
+    \frac{1}{k}
+     \sum_{i=1}^k
+    \frac{
+        c_{i, \sigma(i)}
+    }{
+        \max\{ c_{i,\cdot},  c_{\cdot, \sigma(i)} \}
+    }
+    -
+    E
+}{
+    1
+    -
+    E
+}
+\right\},
+\]</div>
+<p>where the correction-for-chance term,
+assuming that <span class="math notranslate nohighlight">\(c_{(i),\cdot}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th largest
+row sum and that <span class="math notranslate nohighlight">\(c_{\cdot, (i)}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th largest column sum,
+was derived under the assumption of the hypergeometric distribution
+(see <span id="id11">[<a class="reference internal" href="../z_bibliography.html#id12" title="Hubert L., Arabie P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">HA85</a>]</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+E= \frac{1}{k}  \sum_{i=1}^{k} \frac{
+    c_{(i),\cdot}\, c_{\cdot, (i)}
+}{
+    n\, \max\{ c_{(i),\cdot},  c_{\cdot, (i)} \}
+}.
+\]</div>
+<p>Furthermore, we can consider a simplified variant of the pair sets index, PS,
+also proposed in <span id="id12">[<a class="reference internal" href="../z_bibliography.html#id16" title="Rezaei M., Fränti P. (2016).  Set matching measures for external cluster validity. IEEE Transactions on Knowledge and Data Engineering, 28(8):2173–2186. DOI: 10.1109/TKDE.2016.2551240.">RF16</a>]</span>. Under the assumption that the expected score is
+<span class="math notranslate nohighlight">\(E = 1/k\)</span>, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{SPS}(\mathbf{C}) =
+\max\left\{0,
+   \max_\sigma \frac{
+         \frac{1}{k} \sum_{i=1}^k
+        \frac{
+            c_{i, \sigma(i)}
+        }{
+            \max\{ c_{i,\cdot},  c_{\cdot, \sigma(i)} \}
+        }
+        -
+        \frac{1}{k}
+    }{
+    1
+    -
+    \frac{1}{k}
+    }
+\right\}.
+\]</div>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.pair_sets_index</span></code></em></p>
+</section>
+</section>
+<section id="counting-concordant-and-discordant-point-pairs">
+<h2>Counting Concordant and Discordant Point Pairs<a class="headerlink" href="#counting-concordant-and-discordant-point-pairs" title="Permalink to this heading"></a></h2>
+<p>Another class of indices is based on counting point pairs
+that are concordant:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{YY} = \#\left\{ i&lt;j : y_i = y_j\text{ and }\hat{y}_i = \hat{y}_j\right\} = \sum_{i=1}^k \sum_{j=1}^k {c_{i,j} \choose 2}\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{NN} = \#\left\{ i&lt;j : y_i \neq y_j\text{ and }\hat{y}_i \neq \hat{y}_j\right\} = {n \choose 2} - \mathrm{YY} - \mathrm{NY} - \mathrm{YN}\)</span>,</p></li>
+</ul>
+<p>and those that are concordant:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{NY} = \#\left\{ i&lt;j : y_i \neq y_j\text{ but }\hat{y}_i \neq \hat{y}_j\right\} = \sum_{i=1}^k {c_{i,\cdot} \choose 2} - \mathrm{YY}\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{YN} = \#\left\{ i&lt;j : y_i = y_j\text{ but }\hat{y}_i \neq \hat{y}_j\right\} = \sum_{i=1}^k {c_{\cdot,j} \choose 2} - \mathrm{YY}\)</span>;</p></li>
+</ul>
+<p>see <span id="id13">[<a class="reference internal" href="../z_bibliography.html#id12" title="Hubert L., Arabie P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">HA85</a>]</span> for discussion.</p>
+<section id="rand-score">
+<h3>Rand Score<a class="headerlink" href="#rand-score" title="Permalink to this heading"></a></h3>
+<p>The Rand index <span id="id14">[<a class="reference internal" href="../z_bibliography.html#id57" title="Rand W.M. (1971).  Objective criteria for the evaluation of clustering methods. Journal of the American Statistical Association, 66(336):846–850. DOI: 10.2307/2284239.">Ran71</a>]</span> is simply defined as the classification accuracy:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{R}(\mathbf{C})
+=
+\frac{\mathrm{YY}+\mathrm{NN}}{{n \choose 2}}
+=
+\frac{
+2T - (P+Q) + {n \choose 2}
+}{
+{n \choose 2}
+},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T=\sum_{i=1}^k \sum_{j=1}^k {c_{i,j} \choose 2}\)</span>,
+<span class="math notranslate nohighlight">\(P=\sum_{i=1}^k {c_{i, \cdot} \choose 2}\)</span>,
+<span class="math notranslate nohighlight">\(Q=\sum_{i=1}^k {c_{\cdot, j} \choose 2}\)</span>,
+and <span class="math notranslate nohighlight">\(c_{i,j}=\#\{ u: y_u=i\text{ and }\hat{y}_u=j \}\)</span>.</p>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.rand_score</span></code></em></p>
+</section>
+<section id="fowlkes-mallows-score">
+<h3>Fowlkes–Mallows Score<a class="headerlink" href="#fowlkes-mallows-score" title="Permalink to this heading"></a></h3>
+<p>The Fowlkes–Mallows index <span id="id15">[<a class="reference internal" href="../z_bibliography.html#id56" title="Fowlkes E.B., Mallows C.L. (1983).  A method for comparing two hierarchical clusterings. Journal of the American Statistical Association, 78(383):553–569.">FM83</a>]</span> is defined as
+the geometric mean between precision and recall.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{FM}(\mathbf{C})
+=
+\frac{
+\mathrm{YY}
+}{
+\sqrt{(\mathrm{YY}+\mathrm{YN})(\mathrm{YY}+\mathrm{NY})}
+}
+=
+\frac{
+T
+}{
+\sqrt{P Q}
+}.
+\]</div>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.fm_score</span></code></em></p>
+<p>Unfortunately, the lowest possible values of both indices, equal to <span class="math notranslate nohighlight">\(0\)</span>,
+can only be attained for the smallest <span class="math notranslate nohighlight">\(n\)</span>s.
+What is more, for large <span class="math notranslate nohighlight">\(n\)</span> and partitions generated totally at random,
+their expected values and lower bounds are <span class="math notranslate nohighlight">\(1-2(k-1)/k^2\)</span> and <span class="math notranslate nohighlight">\(1/k\)</span>,
+respectively.</p>
+</section>
+<section id="adjusted-rand-score">
+<h3>Adjusted Rand Score<a class="headerlink" href="#adjusted-rand-score" title="Permalink to this heading"></a></h3>
+<p>To remedy the latter problem, an adjusted-for-chance version
+of the Rand index was proposed in <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id12" title="Hubert L., Arabie P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">HA85</a>]</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{AR}(\mathbf{C}) =
+\frac{R-E}{M-E}=
+\frac{{n \choose 2}T - PQ}{ {n \choose 2} (P+Q)/2 - PQ},
+\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(R\)</span> is the Rand index,
+<span class="math notranslate nohighlight">\(M=1\)</span> is the maximal possible index value, and
+<span class="math notranslate nohighlight">\(E\)</span> is the expected Rand index under the assumption that
+cluster memberships were assigned randomly.</p>
+<p>In <span id="id17">[<a class="reference internal" href="../z_bibliography.html#id12" title="Hubert L., Arabie P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">HA85</a>]</span>, the hypergeometric model for randomness
+was assumed, i.e., where the partitions are picked at random
+given the current <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span>, namely:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}\left( \sum_{i=1}^k \sum_{j=1}^k {c_{i,j} \choose 2} \right)
+=
+\frac{
+    \left( \sum_{i=1}^k {c_{i,\cdot} \choose 2} \right)
+    \left( \sum_{j=1}^k {c_{\cdot,j} \choose 2} \right)
+}{
+{n \choose 2}
+}.
+\]</div>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.adjusted_rand_score</span></code></em></p>
+<p>A similar adjustment can be applied onto the FM index. However,
+it then tends to be very similar to AR.</p>
+<p>Let us also note that these scores use <span class="math notranslate nohighlight">\(1/{n \choose 2}\)</span> as the unit of
+information, which might cause problems with their interpretability.
+The adjusted asymmetric accuracy and the pair sets index
+works on the <span class="math notranslate nohighlight">\(1/n\)</span> scale.</p>
+</section>
+</section>
+<section id="information-theoretic-measures">
+<h2>Information-Theoretic Measures<a class="headerlink" href="#information-theoretic-measures" title="Permalink to this heading"></a></h2>
+<p>The normalised mutual information <span id="id18">[<a class="reference internal" href="../z_bibliography.html#id17" title="Vinh N.X., Epps J., Bailey J. (2010).  Information theoretic measures for clusterings comparison: Variants, properties, normalization and correction for chance. Journal of Machine Learning Research, 11(95):2837–2854. URL: http://jmlr.org/papers/v11/vinh10a.html.">VEB10a</a>]</span>
+(denoted with <span class="math notranslate nohighlight">\(\mathrm{NMI}_\mathrm{sum}\)</span> in <span id="id19">[<a class="reference internal" href="../z_bibliography.html#id59" title="Vinh N.X., Epps J., Bailey J. (2010).  Information theoretic measures for clusterings comparison: Variants, properties, normalization and correction for chance. Journal of Machine Learning Research, 11:2837–2854.">VEB10b</a>]</span>)
+is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{NMI}(\mathbf{C}) =
+\frac{
+\sum_{i=1}^k \sum_{j=1}^k \frac{c_{i,j}}{n}\, \log \frac{n c_{i,j}}{c_{i,\cdot} c_{\cdot,j}}
+}{
+0.5\left(\sum_{i=1}^k \frac{c_{i,\cdot}}{n} \log \frac{c_{i,\cdot}}{n}
++
+\sum_{j=1}^k \frac{c_{\cdot,j}}{n} \log \frac{c_{\cdot,j}}{n}\right)
+}.
+\]</div>
+<p>Particular values of the score are rather difficult to interpret.</p>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.normalized_mi_score</span></code></em></p>
+<p>In <span id="id20">[<a class="reference internal" href="../z_bibliography.html#id59" title="Vinh N.X., Epps J., Bailey J. (2010).  Information theoretic measures for clusterings comparison: Variants, properties, normalization and correction for chance. Journal of Machine Learning Research, 11:2837–2854.">VEB10b</a>]</span>, also different adjusted versions of the above are
+considered. However, in <span id="id21">[<a class="reference internal" href="../z_bibliography.html#id16" title="Rezaei M., Fränti P. (2016).  Set matching measures for external cluster validity. IEEE Transactions on Knowledge and Data Engineering, 28(8):2173–2186. DOI: 10.1109/TKDE.2016.2551240.">RF16</a>]</span>, it is noted
+that, amongst others, <span class="math notranslate nohighlight">\(\mathrm{AMI}_\mathrm{sum}\)</span> is strongly correlated with
+<span class="math notranslate nohighlight">\(\mathrm{AMI}_\mathrm{sum}\)</span>.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footnoise"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p>We assume that any potential
+<a class="reference internal" href="noise-points.html#sec-noise-points"><span class="std std-ref">noise points</span></a> in <span class="math notranslate nohighlight">\(X\)</span> have been removed
+before the data analysis.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="internal-validity-measures.html" class="btn btn-neutral float-right" title="Side Note: Internal (In)Validity Measures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="colouriser.html" class="btn btn-neutral float-left" title="Colouriser: Interactive Planar Data Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &#169; 2020–2022 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
+
+    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
+    theme.
+      <span class="lastupdated">
+        Last updated on 2022-09-13T17:44:11+1000.
+      </span>
+
+
+    This site will never display any ads: it is a non-profit project.
+    It does not collect any data.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
