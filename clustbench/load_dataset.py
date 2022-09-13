@@ -45,8 +45,6 @@ def load_dataset(
 
     battery
         Name of the battery, e.g., ``"wut"`` or ``"other"``.
-        Can be an empty string or ``"."`` if all files are
-        in a single directory as specified by `path`.
 
     dataset
         Dataset name, e.g., ``"x2"`` or ``"iris"``.
@@ -54,7 +52,7 @@ def load_dataset(
     path
         Mutually exclusive with `url`.
         Path to the directory containing the downloaded benchmark datasets
-        suite.
+        suite. Defaults to the current working directory.
 
     url
         Mutually exclusive with `path`. For example,
@@ -80,39 +78,47 @@ def load_dataset(
     dataset
         A named tuple with the following elements:
 
+        battery
+            Same as the `battery` argument.
+
+        dataset
+            Same as the `dataset` argument.
+
+        description
+            Contents of the description file.
+
         data
             Data matrix.
 
         labels
             A list consisting of the label vectors.
 
-        name
-            A string of the form `battery/name`.
-
-
     Examples
     --------
 
     >>> import os.path
     >>> import clustbench
-    >>> # load from a local library (e.g., a manually downloaded battery)
+    >>> # load from a local library (a manually downloaded suite)
     >>> data_path = os.path.join("~", "Projects", "clustering-data-v1")  # up to you
     >>> wut_x2 = clustbench.load_dataset("wut", "x2", path=data_path)
-    >>> print(wut_x2.data, wut_x2.labels, wut_x2.name)
-    >>> # load from GitHub:
-    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
+    >>> print(wut_x2.battery, wut_x2.dataset)
+    >>> print(wut_x2.description)
+    >>> print(wut_x2.data, wut_x2.labels)
+    >>> # load from GitHub (slow...):
+    >>> data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"
     >>> wut_smile = clustbench.load_dataset("wut", "smile", url=data_url)
-    >>> print(wut_smile.data, wut_smile.labels, wut_smile.name)
+    >>> print(wut_smile.data, wut_smile.labels)
     """
     if url is not None and path is not None:
         raise ValueError("`url` and `path` are mutually exclusive.")
 
-    if path is not None:
+    if url is not None:
+        base_name = url + "/" + battery + "/" + dataset
+    else:
+        if path is None: path = "."
         base_name = os.path.join(path, battery, dataset)
         if expanduser: base_name = os.path.expanduser(base_name)
         if expandvars: base_name = os.path.expandvars(base_name)
-    else:
-        base_name = url + "/" + battery + "/" + dataset
 
     data_file = base_name + ".data.gz"
     data = np.loadtxt(data_file, ndmin=2)
@@ -122,6 +128,7 @@ def load_dataset(
 
     if preprocess:
         data = preprocess_data(data, random_state=random_state)
+
 
     labels = []
     i = 0
@@ -139,5 +146,17 @@ def load_dataset(
             # but not for remote URLs
             break
 
-    RetClass = namedtuple("ClusteringBenchmark", ["data", "labels", "name"])
-    return RetClass(data=data, labels=labels, name=battery+"/"+dataset)
+    with np.DataSource().open(base_name + ".txt", "r") as readme_file:
+        description = readme_file.read()
+
+    RetClass = namedtuple(
+        "ClusteringBenchmark",
+        ["battery", "dataset", "description", "data", "labels"]
+    )
+    return RetClass(
+        battery=battery,
+        dataset=dataset,
+        description=description,
+        data=data,
+        labels=labels,
+    )

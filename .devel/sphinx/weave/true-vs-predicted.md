@@ -17,7 +17,6 @@ dataset, which consists of 120 points in $\mathbb{R}^2$.
 
 
 ```python
-import numpy as np
 import clustbench
 data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
 benchmark = clustbench.load_dataset("wut", "x2", url=data_url)
@@ -83,7 +82,7 @@ reference set:
 
 
 ```python
-(k := np.max(y_true))
+(k := max(y_true))
 ## 3
 ```
 
@@ -170,6 +169,7 @@ so that the cluster IDs nicely correspond to each other:
 
 
 ```python
+import numpy as np
 o = np.array([2, 1, 3])  # relabelling: 1→2, 2→1, 3→3
 (y_pred := o[y_pred-1])  # Python uses 0-based indexing, hence the -1
 ## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,

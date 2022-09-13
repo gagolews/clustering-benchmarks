@@ -10,4 +10,50 @@ check out Marek's recent open-access (free!) textbook*
 
 TO DO...
 
+install..
+
+```{python}
+import clustbench
+```
+
+
+
+```{python}
+# load from a local library (download the suite manually)
+import os.path
+data_path = os.path.join("~", "Projects", "clustering-data-v1")
+```
+
+```{python}
+print(clustbench.get_battery_names(path=data_path))
+```
+
+
+```{python}
+battery = "wut"
+print(clustbench.get_dataset_names(battery, path=data_path))
+```
+
+
+
+```{python}
+dataset = "x2"
+b = clustbench.load_dataset(battery, dataset, path=data_path)
+print(b.battery, b.dataset, sep="/")
+```
+
+```{python}
+print(b.description)
+```
+
+```{python}
+print(b.data.shape, len(b.labels), [max(l) for l in b.labels])
+```
+
+
+```{python using-clustbench-example1,results="hide",fig.cap="An example benchmark dataset and the corresponding ground truth labels."}
+import genieclust
+genieclust.plots.plot_scatter(b.data, labels=b.labels[0], axis="equal")
+plt.show()
+```
 

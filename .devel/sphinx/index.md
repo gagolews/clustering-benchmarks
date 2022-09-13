@@ -137,7 +137,7 @@ PyPI Entry <https://pypi.org/project/clustering-benchmarks/>
 
 Author's Homepage <https://www.gagolewski.com/>
 Data Wrangling in Python <https://datawranglingpy.gagolewski.com/>
-genieclust Package <https://genieclust.gagolewski.com/>
+*genieclust* Package <https://genieclust.gagolewski.com/>
 ::::
 
 

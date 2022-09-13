@@ -43,6 +43,7 @@ setuptools.setup(
     maintainer="Marek Gagolewski",
     license="GNU Affero General Public License v3",
     install_requires=[
+        "natsort",
         "numpy",
         "scipy",
         "matplotlib",

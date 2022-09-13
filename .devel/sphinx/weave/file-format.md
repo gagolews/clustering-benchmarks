@@ -25,10 +25,10 @@ with any possible extensions being all backward compatible.
 For each `battery/dataset` (e.g., `wut/labirynth`),
 we have the following corresponding files:
 
-* `dataset.txt` – gives the dataset description, comments,
+* `battery/dataset.txt` – gives the dataset description, comments,
     copyright information, license, how to cite, etc.
 
-* `dataset.data.gz` – defines an *n*-by-*d* data matrix
+* `battery/dataset.data.gz` – defines an *n*-by-*d* data matrix
     representing a dataset with *n* points in $\mathbb{R}^d$:
 
     * a gzipped text file storing data in tabular format
@@ -40,7 +40,9 @@ we have the following corresponding files:
     * values might be in either decimal or scientific notation
         (e.g., 1.0, 1.23e-8).
 
-* `dataset.labels0.gz`, `dataset.labels1.gz`, `dataset.labels2.gz`, ... –
+*  `battery/dataset.labels0.gz`,
+   `battery/dataset.labels1.gz`,
+   `battery/dataset.labels2.gz`, ... –
     ground truth partitions (as
     {ref}`there can be many <sec:many-partitions>` equally valid
     ways to cluster a dataset)
@@ -59,7 +61,11 @@ we have the following corresponding files:
         the dataset's creator (if one was provided).
 
 
+Additionally, `battery/README.txt` gives some general information
+about the benchmark battery.
 
+Battery and dataset names must only consist of ASCII lowercase letters,
+digits, and underscores.
 
 
 ## Clustering Results

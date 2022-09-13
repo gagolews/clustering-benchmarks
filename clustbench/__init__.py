@@ -20,6 +20,7 @@ clustering-benchmarks Package
 #                                                                              #
 # ############################################################################ #
 
+from .get_names import get_dataset_names, get_battery_names
 from .load_dataset import load_dataset
 from .preprocess_data import preprocess_data
 from .colouriser import Colouriser
