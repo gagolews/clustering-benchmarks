@@ -16,40 +16,46 @@ A Framework for Benchmarking Clustering Algorithms
 
 There is no, nor will there ever be, single best clustering algorithm.
 Still, we would like to be able to separate the wheat from the chaff:
-to pinpoint those which are well-performing on certain task types
-and filter out the systematically disappointing ones.
-To do so, we can run the algorithms on a variety of datasets
-and compare their outputs to the reference, ground truth groupings
-that are provided by experts.
+to **pinpoint grouping methods that are well-performing on certain task
+types as well as filter out the systematically disappointing ones**.
 
 
 ::::{todo}
-This page is under construction. Come back later.
+This page is under construction. Please come back later.
 ::::
 
+
+A common approach is to run the algorithms on a variety of
+benchmark datasets and compare their outputs to the reference,
+ground truth groupings that are provided by experts.
+
+
+<!--
 ::::{todo}
-Show some example outputs - plot
+TODO: Show some example outputs - plot
 ::::
+-->
 
 However, it is not rare for research papers/graduate theses to consider
-only a small number of datasets. Usually, the same 5–10 datasets from
-the UCI database are considered.
-This is obviously too few to make any evaluation rigorous enough.
+only a small number of datasets. We regularly come across the same 5–10
+test problems from the UCI database. This is obviously too few to
+make any evaluation rigorous enough.
 
-Other authors propose their own datasets, but forget to test their methods
+Other authors propose their own datasets, but do not test their methods
 against other benchmark batteries. This might lead to biased conclusions.
 
-Some researchers who share their data (thanks!) might not necessarily
-make the use of their batteries particularly smooth
+Some researchers who share their data (thanks!) might not make
+the interaction with their batteries particularly smooth
 (different file formats, different ways to access, etc.,
 even across a single repository).
-On the other hand, other machine learning domains
-(e.g., classification and regression problems included in the said UCI
-{cite}`uci`; but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization))
-developed some standardised, well agreed-upon approaches for testing
-the quality of the algorithms long time ago.
 
-Thus:
+On the other hand, in other machine learning domains
+(e.g., classification and regression problems included in the said UCI
+{cite}`uci`; but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization)), some well-agreed-upon approaches
+for testing the quality of the algorithms have been developed a
+long time ago.
+
+This is why:
 
 ::::{important}
 This project aims to:
@@ -67,23 +73,26 @@ This project aims to:
 ::::{note}
 Here is the proposed methodology at a glance:
 
-* {ref}`Datasets <sec:suite-v1>` of different origin,
+*   {ref}`Datasets <sec:suite-v1>` of different origins,
     difficulty, dimensionality, and cluster structure (including clusters
-    of imbalanced sizes and different shapes) are included.
-* A clustering algorithm under scrutiny run so as to split the datasets into
-    different number of clusters (e.g., to find all 2-, 3-, 4-... -clusterings).
-* Each dataset is equipped with at least one ground truth partition
-    provided by experts. Clustering is an unsupervised data mining problem, so
-    {ref}`there can be many equally valid partitions <sec:many-partitions>`.
-* {ref}`External cluster validity scores <sec:external-validity-measures>`
-    are used to relate the outputs to all the possible reference sets.
-* {ref}`Noise points <sec:noise-points>` can be included in the dataset
-    to make the clustering harder. The way they are classified
+    of imbalanced sizes and different shapes) are provided.
+*   Each clustering algorithm under scrutiny should be run so as
+    to split the datasets into a desired number of subsets
+    (e.g., to find all 2-, 3-, 4-... -clusterings).
+*   Each dataset is equipped with at least one ground truth partition
+    provided by experts. Clustering is an unsupervised data mining
+    problem, so there can be
+    {ref}`many equally valid partitions <sec:many-partitions>`.
+*   {ref}`External cluster validity scores <sec:external-validity-measures>`
+    are computed to quantify the similarity of the outputs to all the
+    possible reference sets.
+*   {ref}`Noise points <sec:noise-points>` can be included in the dataset
+    to make the clustering harder. However, the way they are classified
     is ignored when computing the final similarity score.
-* The best result is reported (has or has not the algorithm
+*   The best score is reported (has or has not the algorithm
     reproduced at least one of the ground-truth partitions well?)
 
-Details follow in the sections below.
+See the subsequent sections for more details.
 ::::
 
 
@@ -96,10 +105,9 @@ Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022,
 <https://clustering-benchmarks.gagolewski.com>, submitted for publication.
 
 Data are provided solely for research purposes, unless stated otherwise.
-Please cite the literature references mentioned in the description files
-corresponding to each dataset if you use them in your publications.
-
-
+If you use them in your publications, please cite the literature
+references mentioned in the description files corresponding
+to each dataset.
 
 
 ::::{toctree}
