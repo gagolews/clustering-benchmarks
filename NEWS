@@ -3,7 +3,7 @@
 
 ##  1.1.0 (2022-09-XX) *under development*
 
--   The project's homepage has been created. It is available at
+-   The project's homepage was created. It is available at
     <https://clustering-benchmarks.gagolewski.com>.
 
 -   Python package `clustering-benchmarks` released on PyPI.

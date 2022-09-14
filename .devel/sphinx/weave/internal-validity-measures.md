@@ -12,16 +12,19 @@ Internal cluster *validity* measures (see, e.g.,
 {cite}`Milligan1985:psycho,Maulik2002:cvi_comp,Halkidi2001:cluster_validity,
 ArbelaitzEtAl2013:extensive_CVI,XU2020:external_synthetic`)
 might aid in selecting the number of clusters a dataset should
-be partitioned to. They do not require the presence of expert labels:
-their aim is quantify different aspects of the obtained partitions,
-e.g., the average degree of cluster compactness or point separability.
+be partitioned to. They do not require the presence of expert labels.
+Instead, their aim is to quantify different aspects of the obtained
+partitions, e.g., the average degree of cluster compactness or point
+separability.
 
-However, they are sometimes also used to compare the outputs of different
-clustering algorithms on the same dataset and judging which one is more correct.
-In {cite}`cvi` (see
-[preprint](https://github.com/gagolews/bibliography/raw/master/preprints/2021cvi.pdf))
-we have pointed out that **many measures promote some rather random groupings while
-other ones are more suitable for... detecting outliers**.
+Sometimes internal measures are also used to compare
+the outputs of different clustering algorithms on the same dataset and
+determine which one is more correct.
+
+However, in {cite}`cvi` (also see the {ref}`sec:results-v1` section),
+we have pointed out that **many measures promote some rather random
+groupings whilst other ones seem more suitable for...
+detecting outliers**.
 
 We should therefore not deem a high value of, say,
 the Silhouette or Davies–Bouldin index *better* than a lower one,
@@ -35,10 +38,10 @@ a partition is meaningful or not**.
 ## Notation
 
 For the sake of completeness, let us recall the definitions
-of some of the more popular indices. Their implementation is included
-in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
-and R {cite}`genieclust`.
-Note that this section contains excerpts from our paper {cite}`cvi`.
+of some popular indices. Their implementation is included
+in the [*genieclust*](https://genieclust.gagolewski.com/)
+package for Python and R {cite}`genieclust`.
+Note that this section contains excerpts from {cite}`cvi`.
 
 
 Let $\mathbf{X}\in\mathbb{R}^{n\times d}$ denote the input dataset
@@ -82,7 +85,7 @@ $$
 Note the minus sign that accounts for the fact that we would rather
 have the index maximised.
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.negated_ball_hall_index`*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.negated_ball_hall_index`*.
 
 
 
@@ -112,7 +115,7 @@ Hence, this index is precisely the objective function in the $k$-means method
 {cite}`lloyd` and the algorithms by Ward, Edwards, and Cavalli–Sforza;
 see {cite}`Ward1963:hier,EdwardsSforza1965:divisive,CalinskiHarabasz1974:index`.
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.calinski_harabasz_index`*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.calinski_harabasz_index`*.
 
 
 
@@ -141,7 +144,7 @@ On a side note, in {cite}`DaviesBouldin1979:index`, other choices of $s_i$
 and $m_{i,j}$ are also suggested. We have recalled only the most popular setting
 here (used, e.g., in {cite}`ArbelaitzEtAl2013:extensive_CVI`).
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.negated_davies_bouldin_index`*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.negated_davies_bouldin_index`*.
 
 
 
@@ -156,7 +159,7 @@ Denote the average dissimilarity between the $i$-th point and all other
 points in its own cluster with:
 
 $$
-a_i = \frac{1}{|X_{y_i}|-1} \sum_{\mathbf{x}_u\in X_{y_i}} \| \mathbf{x}_i-\mathbf{x}_u \|
+a_i = \frac{1}{|X_{y_i}|-1} \sum_{\mathbf{x}_u\in X_{y_i}} \| \mathbf{x}_i-\mathbf{x}_u \|,
 $$
 
 and the average dissimilarity between the $i$-th point and all other
@@ -177,7 +180,7 @@ $$
 
 with convention $\pm\infty/\infty=0$.
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.silhouette_index`*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.silhouette_index`*.
 
 
 ### SilhouetteW
@@ -199,7 +202,7 @@ Note that *SilhouetteW*, just like *BallHall*, employs
 weighting by cluster cardinalities.
 
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.silhouette_w_index`*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.silhouette_w_index`*.
 
 
 ## Generalised Dunn Indices
@@ -224,7 +227,7 @@ $$
 The numerator measures the between-cluster separation whilst the
 denominator quantifies the cluster compactness.
 
-Function $d$ can be assumed one of:
+The function $d$ can be assumed one of:
 
 -   $d_1(X_i, X_j)=\mathrm{Min}\left(
     \left\{ \|\mathbf{x}_{u}-\mathbf{x}_{v}\|: \mathbf{x}_{u}\in X_i, \mathbf{x}_{v}\in X_j\right\}
@@ -276,5 +279,5 @@ as *GDunn_dX_DY*. In particular, *GDunn_d1_D1* gives the original Dunn
 {cite}`Dunn1974:index` index.
 
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.generalised_dunn_index`*
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.cluster_validity.generalised_dunn_index`*.
 

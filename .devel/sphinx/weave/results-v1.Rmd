@@ -3,11 +3,11 @@ VERSION <- readLines("~/Projects/clustering-data-v1/VERSION")
 ```
 
 (sec:results-v1)=
-# Explore Clustering Results (v`r VERSION`)
+# Explore Clustering Results (v`r VERSION`) 🚧
 
 
 ::::{todo}
-This page is under construction. Come back later.
+This page is under construction. Please come back later.
 ::::
 
 

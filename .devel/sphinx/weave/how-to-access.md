@@ -3,7 +3,7 @@
 
 
 (sec:how-to-access)=
-# Accessing from Python, R, MATLAB, etc.
+# Access from Python, R, MATLAB, etc.
 
 
 ## Python
@@ -15,9 +15,9 @@ that is available for download from
 see {ref}`sec:clustbench-usage` for more details.
 
 However, as described in the {ref}`sec:file-format` section,
-all data files are neat and tidy, therefore we can also
-easily access them using some more low-level functions.
-For example:
+all data files are neat and tidy. Therefore, we can access them
+easily using some more low-level functions from *numpy*
+or *pandas*. For example:
 
 
 
@@ -100,8 +100,10 @@ labels = readmatrix(char(gunzip(base_name + ".labels0.gz", t)), FileType="text")
 
 Note that there is also a MATLAB
 [interface](https://au.mathworks.com/products/matlab/matlab-and-python.html)
-for Python. This way, algorithms that  have only been implemented in the former
-can be called from within the latter.
+for Python. This way, algorithms that  have only been implemented in the
+former can be called from within the latter.
+
+Unfortunately, MATLAB is not free software.
 
 
 

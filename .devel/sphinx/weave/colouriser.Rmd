@@ -19,7 +19,7 @@ and the [Console App](https://github.com/gagolews/clustering-benchmarks/blob/-/c
 <figcaption>
 <p>
 <span class="caption-number"><a href="../_static/img/colouriser-demo-noaudio.mp4">Video</a>:</span>
-<span class="caption-text">A demo of the Colouriser app (there is no audio).</span>
+<span class="caption-text">A demo of the Colouriser app (there is no audio, but consider playing some <a href="https://yewtu.be/watch?v=xy_fxxj1mMY">background music</a>).</span>
 </p>
 </figcaption>
 </figure>

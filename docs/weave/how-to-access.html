@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Accessing from Python, R, MATLAB, etc. &mdash; Clustering Benchmarks</title>
+  <title>Access from Python, R, MATLAB, etc. &mdash; Clustering Benchmarks</title>
   
 
   
@@ -125,9 +125,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Accessing from Python, R, MATLAB, etc.</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Access from Python, R, MATLAB, etc.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#r">R</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#matlab">MATLAB</a></li>
@@ -137,8 +137,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -205,7 +205,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Accessing from Python, R, MATLAB, etc.</li>
+      <li>Access from Python, R, MATLAB, etc.</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -236,19 +236,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="accessing-from-python-r-matlab-etc">
-<span id="sec-how-to-access"></span><h1>Accessing from Python, R, MATLAB, etc.<a class="headerlink" href="#accessing-from-python-r-matlab-etc" title="Permalink to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="access-from-python-r-matlab-etc">
+<span id="sec-how-to-access"></span><h1>Access from Python, R, MATLAB, etc.<a class="headerlink" href="#access-from-python-r-matlab-etc" title="Permalink to this heading"></a></h1>
 <section id="python">
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h2>
 <p>To facilitate the comparison of clustering algorithms in the
 Python environment, we have developed a dedicated package
 that is available for download from
 <a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI</a>;
-see <a class="reference internal" href="clustbench-usage.html#sec-clustbench-usage"><span class="std std-ref">Using clustbench</span></a> for more details.</p>
+see <a class="reference internal" href="clustbench-usage.html#sec-clustbench-usage"><span class="std std-ref">Using clustbench 🚧</span></a> for more details.</p>
 <p>However, as described in the <a class="reference internal" href="file-format.html#sec-file-format"><span class="std std-ref">File Format Specification</span></a> section,
-all data files are neat and tidy, therefore we can also
-easily access them using some more low-level functions.
-For example:</p>
+all data files are neat and tidy. Therefore, we can access them
+easily using some more low-level functions from <em>numpy</em>
+or <em>pandas</em>. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os.path</span>
 <span class="c1"># to do: change to your local path</span>
@@ -312,8 +312,9 @@ manually.</p>
 </div>
 <p>Note that there is also a MATLAB
 <a class="reference external" href="https://au.mathworks.com/products/matlab/matlab-and-python.html">interface</a>
-for Python. This way, algorithms that  have only been implemented in the former
-can be called from within the latter.</p>
+for Python. This way, algorithms that  have only been implemented in the
+former can be called from within the latter.</p>
+<p>Unfortunately, MATLAB is not free software.</p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>Contributions are welcome: Describe how to load
@@ -343,7 +344,7 @@ in GNU Octave, Scilab, Julia, Mathematica, …</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-13T18:44:54+1000.
+        Last updated on 2022-09-14T20:08:20+1000.
       </span>
 
 

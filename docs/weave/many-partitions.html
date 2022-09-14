@@ -129,15 +129,15 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -238,15 +238,14 @@
   <section class="tex2jax_ignore mathjax_ignore" id="there-can-be-many-valid-partitions">
 <span id="sec-many-partitions"></span><h1>There Can Be Many Valid Partitions<a class="headerlink" href="#there-can-be-many-valid-partitions" title="Permalink to this heading"></a></h1>
 <p>We believe that it is in the very spirit of unsupervised learning
-that for some datasets, <strong>there might be multiple equally
-valid/plausible/useful ways to partition them</strong>
-(see also <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id23" title="Dasgupta S., Ng V. (2009).  Single data, multiple clusterings. In: Proc. NIPS Workshop Clustering: Science or Art? Towards Principled Approaches. URL: https://clusteringtheory.org.">DN09</a>, <a class="reference internal" href="../z_bibliography.html#id49" title="von Luxburg U., Williamson R.C., Guyon I. (2012).  Clustering: science or art? In: Guyon I., et al., editors, Proc. ICML Workshop on Unsupervised and Transfer Learning, volume 27 of Proc. Machine Learning Research, pp. 65–79.">vLWG12</a>]</span> for discussion).</p>
+that in many cases, <strong>there might be many equally
+valid/plausible/useful ways to partition a given dataset</strong>
+(see also <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id24" title="Dasgupta S., Ng V. (2009).  Single data, multiple clusterings. In: Proc. NIPS Workshop Clustering: Science or Art? Towards Principled Approaches. URL: https://clusteringtheory.org.">DN09</a>, <a class="reference internal" href="../z_bibliography.html#id50" title="von Luxburg U., Williamson R.C., Guyon I. (2012).  Clustering: science or art? In: Guyon I., et al., editors, Proc. ICML Workshop on Unsupervised and Transfer Learning, volume 27 of Proc. Machine Learning Research, pp. 65–79.">vLWG12</a>]</span> for discussion).</p>
 <section id="alternative-labellings">
 <h2>Alternative Labellings<a class="headerlink" href="#alternative-labellings" title="Permalink to this heading"></a></h2>
-<p>This is why many benchmark sets in our suite come
-with alternative labellings.
+<p>This is why some benchmark sets come with alternative labellings.
 For instance, consider the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">graves/zigzag_noisy</span></a>
-dataset <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id28" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>:</p>
+dataset <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id29" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">clustbench</span>
 <span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.0.1&quot;</span>
@@ -284,7 +283,8 @@ dataset <span id="id2">[<a class="reference internal" href="../z_bibliography.ht
 <p>An algorithm should be rewarded for finding a partition
 that matches at least one of the reference ones.
 This might require running the method multiple times
-to find partitions of different cardinalities.</p>
+to find partitions of different cardinalities
+(unless it is a hierarchical one).</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The outputs generated by a single algorithm
@@ -361,7 +361,7 @@ for a way to generate label vectors interactively (for planar datasets).</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-13T18:44:54+1000.
+        Last updated on 2022-09-14T20:08:20+1000.
       </span>
 
 

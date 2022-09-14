@@ -124,15 +124,15 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="weave/suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="weave/data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="weave/file-format.html">File Format Specification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="weave/contributing.html">Contributing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -243,35 +243,36 @@
 -->
 <p>There is no, nor will there ever be, single best clustering algorithm.
 Still, we would like to be able to separate the wheat from the chaff:
-to pinpoint those which are well-performing on certain task types
-and filter out the systematically disappointing ones.
-To do so, we can run the algorithms on a variety of datasets
-and compare their outputs to the reference, ground truth groupings
-that are provided by experts.</p>
+to <strong>pinpoint grouping methods that are well-performing on certain task
+types as well as filter out the systematically disappointing ones</strong>.</p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
-<p>This page is under construction. Come back later.</p>
+<p>This page is under construction. Please come back later.</p>
 </div>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>Show some example outputs - plot</p>
-</div>
+<p>A common approach is to run the algorithms on a variety of
+benchmark datasets and compare their outputs to the reference,
+ground truth groupings that are provided by experts.</p>
+<!--
+::::{todo}
+TODO: Show some example outputs - plot
+::::
+-->
 <p>However, it is not rare for research papers/graduate theses to consider
-only a small number of datasets. Usually, the same 5–10 datasets from
-the UCI database are considered.
-This is obviously too few to make any evaluation rigorous enough.</p>
-<p>Other authors propose their own datasets, but forget to test their methods
+only a small number of datasets. We regularly come across the same 5–10
+test problems from the UCI database. This is obviously too few to
+make any evaluation rigorous enough.</p>
+<p>Other authors propose their own datasets, but do not test their methods
 against other benchmark batteries. This might lead to biased conclusions.</p>
-<p>Some researchers who share their data (thanks!) might not necessarily
-make the use of their batteries particularly smooth
+<p>Some researchers who share their data (thanks!) might not make
+the interaction with their batteries particularly smooth
 (different file formats, different ways to access, etc.,
-even across a single repository).
-On the other hand, other machine learning domains
+even across a single repository).</p>
+<p>On the other hand, in other machine learning domains
 (e.g., classification and regression problems included in the said UCI
-<span id="id3">[<a class="reference internal" href="z_bibliography.html#id52" title="Dua D., Graff C. (2022).  UCI Machine Learning Repository. \url http://archive.ics.uci.edu/ml.">DG22</a>]</span>; but also: <a class="reference external" href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">optimisation</a>)
-developed some standardised, well agreed-upon approaches for testing
-the quality of the algorithms long time ago.</p>
-<p>Thus:</p>
+<span id="id2">[<a class="reference internal" href="z_bibliography.html#id53" title="Dua D., Graff C. (2022).  UCI Machine Learning Repository. \url http://archive.ics.uci.edu/ml.">DG22</a>]</span>; but also: <a class="reference external" href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">optimisation</a>), some well-agreed-upon approaches
+for testing the quality of the algorithms have been developed a
+long time ago.</p>
+<p>This is why:</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This project aims to:</p>
@@ -289,23 +290,26 @@ algorithms.</p></li>
 <p class="admonition-title">Note</p>
 <p>Here is the proposed methodology at a glance:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="weave/suite-v1.html#sec-suite-v1"><span class="std std-ref">Datasets</span></a> of different origin,
+<li><p><a class="reference internal" href="weave/suite-v1.html#sec-suite-v1"><span class="std std-ref">Datasets</span></a> of different origins,
 difficulty, dimensionality, and cluster structure (including clusters
-of imbalanced sizes and different shapes) are included.</p></li>
-<li><p>A clustering algorithm under scrutiny run so as to split the datasets into
-different number of clusters (e.g., to find all 2-, 3-, 4-… -clusterings).</p></li>
+of imbalanced sizes and different shapes) are provided.</p></li>
+<li><p>Each clustering algorithm under scrutiny should be run so as
+to split the datasets into a desired number of subsets
+(e.g., to find all 2-, 3-, 4-… -clusterings).</p></li>
 <li><p>Each dataset is equipped with at least one ground truth partition
-provided by experts. Clustering is an unsupervised data mining problem, so
-<a class="reference internal" href="weave/many-partitions.html#sec-many-partitions"><span class="std std-ref">there can be many equally valid partitions</span></a>.</p></li>
+provided by experts. Clustering is an unsupervised data mining
+problem, so there can be
+<a class="reference internal" href="weave/many-partitions.html#sec-many-partitions"><span class="std std-ref">many equally valid partitions</span></a>.</p></li>
 <li><p><a class="reference internal" href="weave/external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">External cluster validity scores</span></a>
-are used to relate the outputs to all the possible reference sets.</p></li>
+are computed to quantify the similarity of the outputs to all the
+possible reference sets.</p></li>
 <li><p><a class="reference internal" href="weave/noise-points.html#sec-noise-points"><span class="std std-ref">Noise points</span></a> can be included in the dataset
-to make the clustering harder. The way they are classified
+to make the clustering harder. However, the way they are classified
 is ignored when computing the final similarity score.</p></li>
-<li><p>The best result is reported (has or has not the algorithm
+<li><p>The best score is reported (has or has not the algorithm
 reproduced at least one of the ground-truth partitions well?)</p></li>
 </ul>
-<p>Details follow in the sections below.</p>
+<p>See the subsequent sections for more details.</p>
 </div>
 <p><strong>Author/Editor/Maintainer</strong>:
 <a class="reference external" href="https://www.gagolewski.com">Marek Gagolewski</a></p>
@@ -313,8 +317,9 @@ reproduced at least one of the ground-truth partitions well?)</p></li>
 Gagolewski M., <em>A Framework for Benchmarking Clustering Algorithms</em>, 2022,
 <a class="reference external" href="https://clustering-benchmarks.gagolewski.com">https://clustering-benchmarks.gagolewski.com</a>, submitted for publication.</p>
 <p>Data are provided solely for research purposes, unless stated otherwise.
-Please cite the literature references mentioned in the description files
-corresponding to each dataset if you use them in your publications.</p>
+If you use them in your publications, please cite the literature
+references mentioned in the description files corresponding
+to each dataset.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
 <ul class="current">
@@ -345,7 +350,6 @@ corresponding to each dataset if you use them in your publications.</p>
 <p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="weave/suite-v1.html">Benchmark Suite (v1.1.0)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#data-sources">Data Sources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#wut"><code class="docutils literal notranslate"><span class="pre">wut</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#sipu"><code class="docutils literal notranslate"><span class="pre">sipu</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="weave/suite-v1.html#fcps"><code class="docutils literal notranslate"><span class="pre">fcps</span></code></a></li>
@@ -358,7 +362,7 @@ corresponding to each dataset if you use them in your publications.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="weave/data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="weave/results-v1.html#algorithms">Algorithms</a></li>
 </ul>
 </li>
@@ -367,7 +371,7 @@ corresponding to each dataset if you use them in your publications.</p>
 <li class="toctree-l2"><a class="reference internal" href="weave/file-format.html#clustering-results">Clustering Results</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Accessing from Python, R, MATLAB, etc.</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="weave/how-to-access.html">Access from Python, R, MATLAB, etc.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="weave/how-to-access.html#python">Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="weave/how-to-access.html#r">R</a></li>
 <li class="toctree-l2"><a class="reference internal" href="weave/how-to-access.html#matlab">MATLAB</a></li>
@@ -379,8 +383,8 @@ corresponding to each dataset if you use them in your publications.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -424,7 +428,7 @@ corresponding to each dataset if you use them in your publications.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-13T18:44:54+1000.
+        Last updated on 2022-09-14T20:08:20+1000.
       </span>
 
 

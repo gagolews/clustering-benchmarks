@@ -53,7 +53,7 @@ can be browsed in the {ref}`sec:data-v1` section.
 **Results** of different clustering algorithms can be investigated in the
 {ref}`sec:results-v1` section.
 
-See <https://genieclust.gagolewski.com/> and {cite}`aaa,cvi,genieclust`
+See <https://genieclust.gagolewski.com/> and {cite}`aaa,cvi`
 for example studies featuring different versions of this suite.
 ::::
 
@@ -66,20 +66,19 @@ As mentioned in the {ref}`sec:file-format` section,
 each dataset is accompanied by a text file specifying more details thereon
 (e.g., the literature references that we are asked to cite).
 
-Moreover, as courtesy, **please cite** the current project
+
+As a courtesy, **please cite** the current project
 {cite}`clustering_benchmarks` as well as mention {cite}`clustering_data_v1`
 which gives the exact version and URL of the dataset suite. Thank you.
 
 
-
-## Data Sources
-
 There is some inherent overlap between the original databases.
 We have tried to resolve any conflicts in the *best* possible manner.
-
 Some datasets are equipped with
 {ref}`additional reference labellings <sec:many-partitions>`
 that did not appear in the original setting.
+
+
 
 
 
@@ -136,7 +135,7 @@ Thanks!
 (sec:battery-sipu)=
 ## `sipu`
 
-An excellent battery of 20 diverse datasets created or compiled
+An excellent battery of 20 diverse datasets created/compiled/maintained
 by P. Fränti and his colleagues and research students
 from the University of Eastern Finland.
 Available for download from <https://cs.joensuu.fi/sipu/datasets/>;
@@ -292,7 +291,8 @@ Datasets from multiple sources:
     famous Iris {cite}`Fisher1936:iris` dataset
     and its imbalanced version considered in {cite}`genieins`;
 
-* `square` – a dataset of unknown/unconfirmed origin (TODO: help needed).
+* `square` – a dataset of unknown/unconfirmed origin
+    (🚧 help needed 🚧).
 
 |    | dataset              |   *n* |   *d* | reference labels   |   *k* |   noise points |
 |---:|:---------------------|------:|------:|:-------------------|------:|---------------:|
@@ -553,7 +553,7 @@ with a predefined scaling parameter.
 Generator: <https://github.com/gagolews/clustering-data-v1/blob/master/.devel/generate_hKmg.py>
 
 Just like in the case of {ref}`sec:battery-g2mg`, we suggest
-these datasets should be studied separately from other batteries.
+that these datasets should be studied separately from other batteries.
 
 |    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |
 |:---|:----------------|:------|:------|:-------------------|------:|---------------:|

@@ -8,14 +8,15 @@
 
 Some datasets feature **noise points**
 to make the clustering problem more difficult
-(e.g., outliers or irrelevant points in-between actual clusters).
-They are specially marked in the ground-truth vectors (cluster ID=0).
+(e.g., outliers or irrelevant points in between the actual clusters).
+They are specially marked in the ground-truth vectors:
+we assign them cluster IDs of 0.
 
 
 ## Example
 
-For example, consider the {ref}`other/hdbscan <sec:suite-v1>` dataset
-{cite}`hdbscanpkg`, which consists of 2309 points in $\mathbb{R}^2$.
+Let us consider the {ref}`other/hdbscan <sec:suite-v1>` dataset
+{cite}`hdbscanpkg`, which consists of 2,309 points in $\mathbb{R}^2$.
 
 
 
@@ -30,8 +31,7 @@ X = benchmark.data
 y_true = benchmark.labels[0]
 ```
 
-Here is a summary of the number of points in each cluster
-in the reference partition $\mathbf{y}$:
+Here is a summary of the number of points in each reference cluster:
 
 
 
@@ -47,9 +47,8 @@ pd.Series(y_true).value_counts()
 ## dtype: int64
 ```
 
-There are six clusters (1–6)
-and a special point group with ID of 0 that marks
-some points as noise.
+There are six clusters (1–6) and a special point group with ID=0
+that marks some points as noise.
 
 
 
@@ -61,7 +60,7 @@ plt.show()
 
 (fig:partition-similarity-noise-data)=
 ```{figure} noise-points-figures/partition-similarity-noise-data-1.*
-An example dataset featuring noise points (light gray whatchamacallits).
+An example dataset featuring noise points (light grey whatchamacallits).
 ```
 
 ## Discovering Clusters
@@ -84,9 +83,9 @@ g = genieclust.Genie(n_clusters=k)  # using default parameters
 y_pred = g.fit_predict(X) + 1  # +1 makes cluster IDs in 1..k, not 0..(k-1)
 ```
 
-Below we plot the reference the predicted ($\hat{\mathbf{y}}$) partition.
-Additionally, we draw a version of $\hat{\mathbf{y}}$ whose
-noise point markers are propagated from  ($\mathbf{y}$)
+Below we plot the predicted partition.
+Additionally, we draw its version where the
+noise point markers are propagated from the ground truth vector
 (as a kind of data postprocessing).
 
 
@@ -131,18 +130,17 @@ algorithms are not equipped with noise point detectors[^footnoisedetect]
 and they should not be penalised for this.
 
 Genie discovered four clusters very well (3, 4, 5, 6),
-but failed on the first two (it created a "combined" cluster instead
-and considered some noise points as a separate point group).
+but failed on the first two (it created a "combined" cluster instead,
+and considered some noise points as a separate set).
 
 
 ::::{important}
-Once a clustering is obtained,
-when computing external cluster validity measures,
+When computing external cluster validity measures,
 we should omit the noise points whatsoever.
 ::::
 
 
-We can thus compute the adjusted asymmetric accuracy,
+Let us compute the adjusted asymmetric accuracy,
 ignoring the first row in the confusion matrix:
 
 

@@ -23,6 +23,6 @@ Researchers: Please test your new algorithms against all the datasets
 listed here and submit the raw results they generate.
 
 Reviewers: Please ask the authors to verify their
-proposals against this or any other large benchmark battery.
+proposals against this {ref}`benchmark suite <sec:suite-v1>`.
 
 

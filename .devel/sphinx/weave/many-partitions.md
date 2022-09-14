@@ -6,15 +6,14 @@
 # There Can Be Many Valid Partitions
 
 We believe that it is in the very spirit of unsupervised learning
-that for some datasets, **there might be multiple equally
-valid/plausible/useful ways to partition them**
+that in many cases, **there might be many equally
+valid/plausible/useful ways to partition a given dataset**
 (see also {cite}`sdmc,LuxburgETAL2012:clustscienceart` for discussion).
 
 
 ## Alternative Labellings
 
-This is why many benchmark sets in our suite come
-with alternative labellings.
+This is why some benchmark sets come with alternative labellings.
 For instance, consider the {ref}`graves/zigzag_noisy <sec:suite-v1>`
 dataset {cite}`graves`:
 
@@ -67,7 +66,8 @@ There can be many equally valid partitions.
 An algorithm should be rewarded for finding a partition
 that matches at least one of the reference ones.
 This might require running the method multiple times
-to find partitions of different cardinalities.
+to find partitions of different cardinalities
+(unless it is a hierarchical one).
 
 
 ::::{important}

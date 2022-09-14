@@ -126,7 +126,6 @@
 <p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark Suite (v1.1.0)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#data-sources">Data Sources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wut"><code class="docutils literal notranslate"><span class="pre">wut</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sipu"><code class="docutils literal notranslate"><span class="pre">sipu</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fcps"><code class="docutils literal notranslate"><span class="pre">fcps</span></code></a></li>
@@ -139,15 +138,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -282,8 +281,8 @@ and is accompanied by at least one reference partition of cardinality <em>k</em>
 <p>The <strong>datasets</strong> and the corresponding ground truth labels
 can be browsed in the <a class="reference internal" href="data-v1.html#sec-data-v1"><span class="std std-ref">Explore Datasets (v1.1.0)</span></a> section.</p>
 <p><strong>Results</strong> of different clustering algorithms can be investigated in the
-<a class="reference internal" href="results-v1.html#sec-results-v1"><span class="std std-ref">Explore Clustering Results (v1.1.0)</span></a> section.</p>
-<p>See <a class="reference external" href="https://genieclust.gagolewski.com/">https://genieclust.gagolewski.com/</a> and <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. DOI: 10.1016/j.softx.2021.100722.">Gag21</a>, <a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>, <a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski M., Bartoszuk M., Cena A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">GBC21</a>]</span>
+<a class="reference internal" href="results-v1.html#sec-results-v1"><span class="std std-ref">Explore Clustering Results (v1.1.0) 🚧</span></a> section.</p>
+<p>See <a class="reference external" href="https://genieclust.gagolewski.com/">https://genieclust.gagolewski.com/</a> and <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>, <a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski M., Bartoszuk M., Cena A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">GBC21</a>]</span>
 for example studies featuring different versions of this suite.</p>
 </div>
 <p>The datasets are provided <strong>solely for research purposes</strong>,
@@ -291,17 +290,14 @@ unless stated otherwise.
 As mentioned in the <a class="reference internal" href="file-format.html#sec-file-format"><span class="std std-ref">File Format Specification</span></a> section,
 each dataset is accompanied by a text file specifying more details thereon
 (e.g., the literature references that we are asked to cite).</p>
-<p>Moreover, as courtesy, <strong>please cite</strong> the current project
+<p>As a courtesy, <strong>please cite</strong> the current project
 <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id5" title="Gagolewski M. (2022).  A framework for benchmarking clustering algorithms. submitted for publication. URL: https://clustering-benchmarks.gagolewski.com.">Gag22a</a>]</span> as well as mention <span id="id3">[<a class="reference internal" href="../z_bibliography.html#id6" title="Gagolewski M., et al. (2022).  A benchmark suite for clustering algorithms: version 1.x.x. URL: https://github.com/gagolews/clustering-data-v1/releases/tag/v1.x.x, DOI: 10.5281/zenodo.??????? (TODO).">G+22</a>]</span>
 which gives the exact version and URL of the dataset suite. Thank you.</p>
-<section id="data-sources">
-<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this heading"></a></h2>
 <p>There is some inherent overlap between the original databases.
-We have tried to resolve any conflicts in the <em>best</em> possible manner.</p>
-<p>Some datasets are equipped with
+We have tried to resolve any conflicts in the <em>best</em> possible manner.
+Some datasets are equipped with
 <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">additional reference labellings</span></a>
 that did not appear in the original setting.</p>
-</section>
 <section id="wut">
 <span id="sec-battery-wut"></span><h2><code class="docutils literal notranslate"><span class="pre">wut</span></code><a class="headerlink" href="#wut" title="Permalink to this heading"></a></h2>
 <p>22 datasets in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> or <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>
@@ -519,11 +515,11 @@ Thanks!</p>
 </section>
 <section id="sipu">
 <span id="sec-battery-sipu"></span><h2><code class="docutils literal notranslate"><span class="pre">sipu</span></code><a class="headerlink" href="#sipu" title="Permalink to this heading"></a></h2>
-<p>An excellent battery of 20 diverse datasets created or compiled
+<p>An excellent battery of 20 diverse datasets created/compiled/maintained
 by P. Fränti and his colleagues and research students
 from the University of Eastern Finland.
 Available for download from <a class="reference external" href="https://cs.joensuu.fi/sipu/datasets/">https://cs.joensuu.fi/sipu/datasets/</a>;
-see <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id24" title="Fränti P., Sieranoja S. (2018).  K-means properties on six clustering benchmark datasets. Applied Intelligence, 48(12):4743–4759. DOI: 10.1007/s10489-018-1238-7.">FS18</a>]</span> for discussion:</p>
+see <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id25" title="Fränti P., Sieranoja S. (2018).  K-means properties on six clustering benchmark datasets. Applied Intelligence, 48(12):4743–4759. DOI: 10.1007/s10489-018-1238-7.">FS18</a>]</span> for discussion:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">a1</span></code>, <code class="docutils literal notranslate"><span class="pre">a2</span></code>, <code class="docutils literal notranslate"><span class="pre">a3</span></code>       <span id="id5">[<a class="reference internal" href="../z_bibliography.html#id68" title="Kärkkäinen I., Fränti P. (2002).  Dynamic local search algorithm for the clustering problem. In: Proc. 16th Intl. Conf. Pattern Recognition'02, volume 2, pp. 240–243. IEEE.">KF02</a>]</span>,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">aggregation</span></code>          <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id69" title="Gionis A., Mannila H., Tsaparas P. (2007).  Clustering aggregation. ACM Transactions on Knowledge Discovery from Data, 1(1):4.">GMT07</a>]</span>,</p></li>
@@ -784,7 +780,7 @@ We excluded the <code class="docutils literal notranslate"><span class="pre">DIM
 <section id="fcps">
 <span id="sec-battery-fcps"></span><h2><code class="docutils literal notranslate"><span class="pre">fcps</span></code><a class="headerlink" href="#fcps" title="Permalink to this heading"></a></h2>
 <p>9 datasets from the <em>Fundamental Clustering Problem Suite</em>
-proposed by A. Ultsch <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id26" title="Ultsch A. (2005).  Clustering with SOM: U*C. In: Workshop on Self-Organizing Maps, pp. 75–82.">Ult05</a>]</span> from the Marburg University,
+proposed by A. Ultsch <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id27" title="Ultsch A. (2005).  Clustering with SOM: U*C. In: Workshop on Self-Organizing Maps, pp. 75–82.">Ult05</a>]</span> from the Marburg University,
 Germany.</p>
 <p>Each dataset consists of 212–4096 observations in 2–3 dimensions.
 The <code class="docutils literal notranslate"><span class="pre">GolfBall</span></code> dataset is not included as it has no cluster structure.
@@ -793,7 +789,7 @@ as they are given as distance matrices.</p>
 <p>Data were originally available from elsewhere, but now
 can be accessed, e.g., via the R package
 <a class="reference external" href="https://CRAN.R-project.org/package=FCPS"><em>FCPS</em></a>;
-see also <span id="id17">[<a class="reference internal" href="../z_bibliography.html#id27" title="Thrun M.C., Ultsch A. (2020).  Clustering benchmark datasets exploiting the fundamental clustering problems. Data in Brief, 30:105501. DOI: 10.1016/j.dib.2020.105501.">TU20</a>]</span>.</p>
+see also <span id="id17">[<a class="reference internal" href="../z_bibliography.html#id28" title="Thrun M.C., Ultsch A. (2020).  Clustering benchmark datasets exploiting the fundamental clustering problems. Data in Brief, 30:105501. DOI: 10.1016/j.dib.2020.105501.">TU20</a>]</span>.</p>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-left head"><p></p></th>
@@ -900,7 +896,7 @@ see also <span id="id17">[<a class="reference internal" href="../z_bibliography.
 <section id="graves">
 <span id="sec-battery-graves"></span><h2><code class="docutils literal notranslate"><span class="pre">graves</span></code><a class="headerlink" href="#graves" title="Permalink to this heading"></a></h2>
 <p>10 <em>synthetic data sets</em> discussed by D. Graves and W. Pedrycz
-in <span id="id18">[<a class="reference internal" href="../z_bibliography.html#id28" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>.</p>
+in <span id="id18">[<a class="reference internal" href="../z_bibliography.html#id29" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>.</p>
 <p>Each dataset consists of 200–1050 observations in 2 dimensions.
 Originally, they come with no reference labels.</p>
 <table class="colwidths-auto docutils align-default">
@@ -1084,9 +1080,9 @@ Originally, they come with no reference labels.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">chameleon_t4_8k</span></code>, <code class="docutils literal notranslate"><span class="pre">chameleon_t5_8k</span></code>, <code class="docutils literal notranslate"><span class="pre">chameleon_t7_10k</span></code>,
 <code class="docutils literal notranslate"><span class="pre">chameleon_t8_8k</span></code> – datasets supposedly related to the
-CHAMELEON algorithm by G. Karypis et al. <span id="id19">[<a class="reference internal" href="../z_bibliography.html#id30" title="Karypis G., Han E.H., Kumar V. (1999).  CHAMELEON: Hierarchical clustering using dynamic modeling. Computer, 32(8):68–75. DOI: 10.1109/2.781637.">KHK99</a>]</span>.</p>
+CHAMELEON algorithm by G. Karypis et al. <span id="id19">[<a class="reference internal" href="../z_bibliography.html#id31" title="Karypis G., Han E.H., Kumar V. (1999).  CHAMELEON: Hierarchical clustering using dynamic modeling. Computer, 32(8):68–75. DOI: 10.1109/2.781637.">KHK99</a>]</span>.</p>
 <p>Source: <a class="reference external" href="http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download">http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download</a></p>
-<p>In fact, in <span id="id20">[<a class="reference internal" href="../z_bibliography.html#id30" title="Karypis G., Han E.H., Kumar V. (1999).  CHAMELEON: Hierarchical clustering using dynamic modeling. Computer, 32(8):68–75. DOI: 10.1109/2.781637.">KHK99</a>]</span> only two of the above
+<p>In fact, in <span id="id20">[<a class="reference internal" href="../z_bibliography.html#id31" title="Karypis G., Han E.H., Kumar V. (1999).  CHAMELEON: Hierarchical clustering using dynamic modeling. Computer, 32(8):68–75. DOI: 10.1109/2.781637.">KHK99</a>]</span> only two of the above
 (and some other ones) datasets are studied:
 <code class="docutils literal notranslate"><span class="pre">chameleon_t7_10k</span></code> is referred to as <code class="docutils literal notranslate"><span class="pre">DS3</span></code>,
 whilst <code class="docutils literal notranslate"><span class="pre">chameleon_t8_8k</span></code> is nicknamed <code class="docutils literal notranslate"><span class="pre">DS4</span></code>.
@@ -1095,11 +1091,12 @@ of <code class="docutils literal notranslate"><span class="pre">fcps/twodiamonds
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hdbscan</span></code> – a dataset used for demonstrating the outputs of the
 <a class="reference external" href="https://github.com/scikit-learn-contrib/hdbscan"><em>hdbscan</em></a>
-package for Python <span id="id21">[<a class="reference internal" href="../z_bibliography.html#id31" title="McInnes L., Healy J., Astels S. (2017).  hdbscan: Hierarchical density based clustering. The Journal of Open Source Software, 2(11):205. DOI: 10.21105/joss.00205.">MHA17</a>]</span>;</p></li>
+package for Python <span id="id21">[<a class="reference internal" href="../z_bibliography.html#id32" title="McInnes L., Healy J., Astels S. (2017).  hdbscan: Hierarchical density based clustering. The Journal of Open Source Software, 2(11):205. DOI: 10.21105/joss.00205.">MHA17</a>]</span>;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">iris</span></code>, <code class="docutils literal notranslate"><span class="pre">iris5</span></code> - “the” (see <span id="id22">[<a class="reference internal" href="../z_bibliography.html#id72" title="Bezdek J.C., Keller J.M., Krishnapuram R., Kuncheva L.I., Pal N.R. (1999).  Will the real iris data please stand up? IEEE Transactions on Fuzzy Systems, 7(3):368–369. DOI: 10.1109/91.771092.">BKK+99</a>]</span> for discussion)
 famous Iris <span id="id23">[<a class="reference internal" href="../z_bibliography.html#id63" title="Fisher R.A. (1936).  The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7:179–188.">Fis36</a>]</span> dataset
 and its imbalanced version considered in <span id="id24">[<a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski M., Bartoszuk M., Cena A. (2016).  Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm. Information Sciences, 363:8–23. DOI: 10.1016/j.ins.2016.05.003.">GBC16</a>]</span>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">square</span></code> – a dataset of unknown/unconfirmed origin (TODO: help needed).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">square</span></code> – a dataset of unknown/unconfirmed origin
+(🚧 help needed 🚧).</p></li>
 </ul>
 <table class="colwidths-auto docutils align-default">
 <thead>
@@ -1185,9 +1182,9 @@ and its imbalanced version considered in <span id="id24">[<a class="reference in
 <p>A selection of 8 high-dimensional datasets available at the UCI
 (University of California, Irvine)
 <a class="reference external" href="http://archive.ics.uci.edu/ml/">Machine Learning Repository</a>
-<span id="id25">[<a class="reference internal" href="../z_bibliography.html#id52" title="Dua D., Graff C. (2022).  UCI Machine Learning Repository. \url http://archive.ics.uci.edu/ml.">DG22</a>]</span>.
+<span id="id25">[<a class="reference internal" href="../z_bibliography.html#id53" title="Dua D., Graff C. (2022).  UCI Machine Learning Repository. \url http://archive.ics.uci.edu/ml.">DG22</a>]</span>.
 Some of them were considered for benchmark purposes
-in, amongst others, <span id="id26">[<a class="reference internal" href="../z_bibliography.html#id28" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>.
+in, amongst others, <span id="id26">[<a class="reference internal" href="../z_bibliography.html#id29" title="Graves D., Pedrycz W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">GP10</a>]</span>.
 They are also listed in the <a class="reference internal" href="#sec-battery-sipu"><span class="std std-ref">sipu</span></a> battery.
 However, their original purpose is for testing classification,
 not clustering algorithms.</p>
@@ -2517,7 +2514,7 @@ of radius that follows the Gaussian distribution
 with a predefined scaling parameter.</p>
 <p>Generator: <a class="reference external" href="https://github.com/gagolews/clustering-data-v1/blob/master/.devel/generate_hKmg.py">https://github.com/gagolews/clustering-data-v1/blob/master/.devel/generate_hKmg.py</a></p>
 <p>Just like in the case of <a class="reference internal" href="#sec-battery-g2mg"><span class="std std-ref">g2mg</span></a>, we suggest
-these datasets should be studied separately from other batteries.</p>
+that these datasets should be studied separately from other batteries.</p>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-left head"><p></p></th>
@@ -3707,7 +3704,7 @@ these datasets should be studied separately from other batteries.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-13T18:44:54+1000.
+        Last updated on 2022-09-14T20:08:20+1000.
       </span>
 
 

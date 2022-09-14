@@ -60,8 +60,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Accessing from Python, R, MATLAB, etc." href="how-to-access.html" />
-    <link rel="prev" title="Explore Clustering Results (v1.1.0)" href="results-v1.html" /> 
+    <link rel="next" title="Access from Python, R, MATLAB, etc." href="how-to-access.html" />
+    <link rel="prev" title="Explore Clustering Results (v1.1.0) 🚧" href="results-v1.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -127,19 +127,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">File Format Specification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#benchmark-datasets">Benchmark Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#clustering-results">Clustering Results</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -225,10 +225,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="how-to-access.html" class="btn btn-neutral float-right" title="Accessing from Python, R, MATLAB, etc." accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="how-to-access.html" class="btn btn-neutral float-right" title="Access from Python, R, MATLAB, etc." accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="results-v1.html" class="btn btn-neutral float-left" title="Explore Clustering Results (v1.1.0)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="results-v1.html" class="btn btn-neutral float-left" title="Explore Clustering Results (v1.1.0) 🚧" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -239,17 +239,10 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="file-format-specification">
 <span id="sec-file-format"></span><h1>File Format Specification<a class="headerlink" href="#file-format-specification" title="Permalink to this heading"></a></h1>
-<p>The files in our benchmark dataset suite
-(<a class="reference external" href="https://github.com/gagolews/clustering-data-v1">https://github.com/gagolews/clustering-data-v1</a>)
-and the corresponding clustering results repository
-(<a class="reference external" href="https://github.com/gagolews/clustering-results-v1">https://github.com/gagolews/clustering-results-v1</a>)
-follow the following convention.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Future versions of benchmark batteries
-will adhere to these guidelines as well,
-with any possible extensions being all backward compatible.</p>
-</div>
+<p>The files in our <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">benchmark dataset suite</span></a>
+and the corresponding clustering
+<a class="reference internal" href="results-v1.html#sec-results-v1"><span class="std std-ref">results repository</span></a>
+adhere to the following guidelines.</p>
 <section id="benchmark-datasets">
 <h2>Benchmark Datasets<a class="headerlink" href="#benchmark-datasets" title="Permalink to this heading"></a></h2>
 <p>For each <code class="docutils literal notranslate"><span class="pre">battery/dataset</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">wut/labirynth</span></code>),
@@ -262,7 +255,7 @@ representing a dataset with <em>n</em> points in <span class="math notranslate n
 <ul class="simple">
 <li><p>a gzipped text file storing data in tabular format
 (many environments can decompress <code class="docutils literal notranslate"><span class="pre">.gz</span></code> inputs on the fly;
-see <a class="reference internal" href="how-to-access.html#sec-how-to-access"><span class="std std-ref">Accessing from Python, R, MATLAB, etc.</span></a>);</p></li>
+see <a class="reference internal" href="how-to-access.html#sec-how-to-access"><span class="std std-ref">Access from Python, R, MATLAB, etc.</span></a>);</p></li>
 <li><p>columns are whitespace-delimited;</p></li>
 <li><p>there are exactly <em>n</em> file lines
 (no column names, no headers, no comments);</p></li>
@@ -280,9 +273,9 @@ identified by consecutive  integers starting at 0.</p>
 <p>Each file stores a separate label vector:</p>
 <ul class="simple">
 <li><p>a gzipped text file with exactly <em>n</em> integers, one per line;</p></li>
-<li><p>the <em>i</em>-th label (line) corresponds to the <em>i</em>-th data point</p></li>
+<li><p>the <em>i</em>-th label (line) corresponds to the <em>i</em>-th data point;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> denotes the <a class="reference internal" href="noise-points.html#sec-noise-points"><span class="std std-ref">noise class</span></a> (if present),
-the first meaningful cluster is denoted with <code class="docutils literal notranslate"><span class="pre">1</span></code>;</p></li>
+and the first meaningful cluster is denoted with <code class="docutils literal notranslate"><span class="pre">1</span></code>;</p></li>
 <li><p>class labels are consecutive integers:
 <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">K</span></code>, where <code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">max(labels)</span></code> is the total
 number of clusters (noise not included in the counting);</p></li>
@@ -299,12 +292,12 @@ about the benchmark battery.</p>
 <p>As far as the storing of clustering results is concerned,
 the files are named like <code class="docutils literal notranslate"><span class="pre">method_group/battery/dataset.resultK.gz</span></code>,
 where <code class="docutils literal notranslate"><span class="pre">K</span></code> is the number of identified clusters, e.g.,
-<code class="docutils literal notranslate"><span class="pre">Genie/wut/labirynth.result4.gz</span></code> gives the partitions
+<code class="docutils literal notranslate"><span class="pre">Genie/wut/labirynth.result4.gz</span></code> gives the 4-partitions
 generated by the <a class="reference external" href="https://genieclust.gagolewski.com"><em>Genie</em></a>
 algorithm with different parameters.</p>
 <p>In each case, the file <code class="docutils literal notranslate"><span class="pre">method_group/README.txt</span></code> provides an overview
 of the methods used.</p>
-<p>Each result file is a gzipped CSV where columns are label vectors
+<p>Each results file is a gzipped CSV where columns are label vectors
 with elements in <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">K</span></code>.</p>
 <p>Each column therein represents the output of a different run
 of some clustering method(s) (e.g., different algorithms
@@ -333,8 +326,8 @@ The first row of the CSV file gives the method (column) names.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="how-to-access.html" class="btn btn-neutral float-right" title="Accessing from Python, R, MATLAB, etc." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="results-v1.html" class="btn btn-neutral float-left" title="Explore Clustering Results (v1.1.0)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="how-to-access.html" class="btn btn-neutral float-right" title="Access from Python, R, MATLAB, etc." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="results-v1.html" class="btn btn-neutral float-left" title="Explore Clustering Results (v1.1.0) 🚧" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
@@ -347,7 +340,7 @@ The first row of the CSV file gives the method (column) names.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-13T18:44:54+1000.
+        Last updated on 2022-09-14T20:08:20+1000.
       </span>
 
 

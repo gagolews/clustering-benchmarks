@@ -3,14 +3,15 @@
 
 
 (sec:clustbench-usage)=
-# Using *clustbench*
+# Using *clustbench* 🚧
 
 ::::{todo}
-This page is under construction. Come back later.
+This page (as well as the mentioned Python package)
+is under construction. Please come back later.
 ::::
 
 
-::::{epigraph}
+::::{note}
 *To learn more about Python,
 check out Marek's recent open-access (free!) textbook*
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)

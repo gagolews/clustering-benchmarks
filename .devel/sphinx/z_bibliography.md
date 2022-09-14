@@ -5,9 +5,9 @@
 When using this framework in research publications, please
 cite {cite}`clustering_benchmarks` as specified below. Thank you.
 
-Also please cite the benchmark suite project {cite}`clustering_data_v1`
-as well as the literature references mentioned in the description files
-corresponding to each dataset if you analyse them in your publications.
+Additionally, please mention the benchmark suite project
+{cite}`clustering_data_v1` as well as the literature references
+listed in the description files corresponding to each dataset studied.
 
 
 

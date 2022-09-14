@@ -1,9 +1,10 @@
-Documentation
-=============
+Documentation 🚧
+================
 
 .. todo::
 
-    This page is under construction. Come back later.
+    This page (as well as the mentioned Python package)
+    is under construction. Please come back later.
 
 
 .. autosummary::

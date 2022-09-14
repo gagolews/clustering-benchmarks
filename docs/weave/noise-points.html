@@ -132,15 +132,15 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Explore Clustering Results (v1.1.0) 🚧</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Accessing from Python, R, MATLAB, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustbench-usage.html">Using <em>clustbench</em> 🚧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation 🚧</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI Entry (TODO)</a></li>
 </ul>
@@ -242,12 +242,13 @@
 <span id="sec-noise-points"></span><h1>Noise Points<a class="headerlink" href="#noise-points" title="Permalink to this heading"></a></h1>
 <p>Some datasets feature <strong>noise points</strong>
 to make the clustering problem more difficult
-(e.g., outliers or irrelevant points in-between actual clusters).
-They are specially marked in the ground-truth vectors (cluster ID=0).</p>
+(e.g., outliers or irrelevant points in between the actual clusters).
+They are specially marked in the ground-truth vectors:
+we assign them cluster IDs of 0.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
-<p>For example, consider the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">other/hdbscan</span></a> dataset
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id31" title="McInnes L., Healy J., Astels S. (2017).  hdbscan: Hierarchical density based clustering. The Journal of Open Source Software, 2(11):205. DOI: 10.21105/joss.00205.">MHA17</a>]</span>, which consists of 2309 points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<p>Let us consider the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">other/hdbscan</span></a> dataset
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id32" title="McInnes L., Healy J., Astels S. (2017).  hdbscan: Hierarchical density based clustering. The Journal of Open Source Software, 2(11):205. DOI: 10.21105/joss.00205.">MHA17</a>]</span>, which consists of 2,309 points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">clustbench</span>
@@ -258,8 +259,7 @@ They are specially marked in the ground-truth vectors (cluster ID=0).</p>
 <span class="n">y_true</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Here is a summary of the number of points in each cluster
-in the reference partition <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>:</p>
+<p>Here is a summary of the number of points in each reference cluster:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="c1">## 0    510</span>
 <span class="c1">## 1    410</span>
@@ -271,9 +271,8 @@ in the reference partition <span class="math notranslate nohighlight">\(\mathbf{
 <span class="c1">## dtype: int64</span>
 </pre></div>
 </div>
-<p>There are six clusters (1–6)
-and a special point group with ID of 0 that marks
-some points as noise.</p>
+<p>There are six clusters (1–6) and a special point group with ID=0
+that marks some points as noise.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genieclust</span>
 <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_true</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;y_true&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -282,7 +281,7 @@ some points as noise.</p>
 <figure class="align-default" id="id3">
 <span id="fig-partition-similarity-noise-data"></span><img alt="../_images/partition-similarity-noise-data-1.png" src="../_images/partition-similarity-noise-data-1.png" />
 <figcaption>
-<p><span class="caption-number">Figure 3:  </span><span class="caption-text">An example dataset featuring noise points (light gray whatchamacallits).</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 3:  </span><span class="caption-text">An example dataset featuring noise points (light grey whatchamacallits).</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -301,9 +300,9 @@ After all, it is an unsupervised learning task.</p>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># +1 makes cluster IDs in 1..k, not 0..(k-1)</span>
 </pre></div>
 </div>
-<p>Below we plot the reference the predicted (<span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>) partition.
-Additionally, we draw a version of <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> whose
-noise point markers are propagated from  (<span class="math notranslate nohighlight">\(\mathbf{y}\)</span>)
+<p>Below we plot the predicted partition.
+Additionally, we draw its version where the
+noise point markers are propagated from the ground truth vector
 (as a kind of data postprocessing).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">y_pred</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
@@ -339,15 +338,14 @@ care how the algorithm classifies such points. After all, most classical
 algorithms are not equipped with noise point detectors<a class="footnote-reference brackets" href="#footnoisedetect" id="id2">1</a>
 and they should not be penalised for this.</p>
 <p>Genie discovered four clusters very well (3, 4, 5, 6),
-but failed on the first two (it created a “combined” cluster instead
-and considered some noise points as a separate point group).</p>
+but failed on the first two (it created a “combined” cluster instead,
+and considered some noise points as a separate set).</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Once a clustering is obtained,
-when computing external cluster validity measures,
+<p>When computing external cluster validity measures,
 we should omit the noise points whatsoever.</p>
 </div>
-<p>We can thus compute the adjusted asymmetric accuracy,
+<p>Let us compute the adjusted asymmetric accuracy,
 ignoring the first row in the confusion matrix:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">genieclust</span><span class="o">.</span><span class="n">compare_partitions</span><span class="o">.</span><span class="n">adjusted_asymmetric_accuracy</span><span class="p">(</span>
     <span class="n">y_true</span><span class="p">[</span><span class="n">y_true</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span>
@@ -391,7 +389,7 @@ but we are not interested in this problem in the current context.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-13T18:44:54+1000.
+        Last updated on 2022-09-14T20:08:20+1000.
       </span>
 
 
