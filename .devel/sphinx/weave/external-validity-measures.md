@@ -134,7 +134,7 @@ Still, here we only want to relate them to the *current* reference set.
 
 
 
-## Why Not Simple Accuracy?
+## Why Not the Simple Accuracy?
 
 A common mistake is to compute the standard accuracy
 as known from the evaluation of classification models:

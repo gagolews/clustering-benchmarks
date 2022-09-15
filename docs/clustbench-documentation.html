@@ -58,7 +58,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Colouriser: Interactive Planar Data Editor" href="weave/colouriser.html" />
+    <link rel="next" title="Colouriser: Planar Data Editor" href="weave/colouriser.html" />
     <link rel="prev" title="Using clustbench 🚧" href="weave/clustbench-usage.html" /> 
 </head>
 
@@ -145,7 +145,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="weave/colouriser.html">Colouriser: Interactive Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weave/colouriser.html">Colouriser: Planar Data Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="weave/external-validity-measures.html">External Cluster Validity Measures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="weave/internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
@@ -219,7 +219,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="weave/colouriser.html" class="btn btn-neutral float-right" title="Colouriser: Interactive Planar Data Editor" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="weave/colouriser.html" class="btn btn-neutral float-right" title="Colouriser: Planar Data Editor" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
         <a href="weave/clustbench-usage.html" class="btn btn-neutral float-left" title="Using clustbench 🚧" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
@@ -246,6 +246,12 @@ is under construction. Please come back later.</p>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.load_dataset" title="clustbench.load_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.load_dataset</span></code></a>(battery, dataset[, ...])</p></td>
 <td><p>Load a benchmark dataset</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.save_data" title="clustbench.save_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.save_data</span></code></a>(filename, data[, fmt, ...])</p></td>
+<td><p>Write a data matrix for inclusion in the clustering benchmark suite</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.save_labels" title="clustbench.save_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.save_labels</span></code></a>(filename, labels[, ...])</p></td>
+<td><p>Write a label vector for inclusion in the clustering benchmark suite</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#clustbench.preprocess_data" title="clustbench.preprocess_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.preprocess_data</span></code></a>(data[, ...])</p></td>
 <td><p>Normalise a data matrix</p></td>
@@ -578,6 +584,48 @@ duplicate points.</p>
 </div>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.save_data">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%g'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.save_data" title="Permalink to this definition"></a></dt>
+<dd><p>Write a data matrix for inclusion in the clustering benchmark suite</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">string or file handle</span></dt><dd><p>For example, <cite>path_to_suite/battery/dataset.data.gz</cite>.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">2D array_like</span></dt><dd><p>A matrix-like object</p>
+</dd>
+<dt><strong>fmt</strong></dt><dd><p>See <cite>numpy.savetxt</cite>.</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.save_labels">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">save_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.save_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Write a label vector for inclusion in the clustering benchmark suite</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">string or file handle</span></dt><dd><p>For example, <cite>path_to_suite/battery/dataset.labels0.gz</cite>.</p>
+</dd>
+<dt><strong>labels</strong><span class="classifier">1D array_like</span></dt><dd><p>A label vector.</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -586,7 +634,7 @@ duplicate points.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="weave/colouriser.html" class="btn btn-neutral float-right" title="Colouriser: Interactive Planar Data Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="weave/colouriser.html" class="btn btn-neutral float-right" title="Colouriser: Planar Data Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="weave/clustbench-usage.html" class="btn btn-neutral float-left" title="Using clustbench 🚧" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -600,7 +648,7 @@ duplicate points.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-14T20:08:20+1000.
+        Last updated on 2022-09-15T14:21:48+1000.
       </span>
 
 

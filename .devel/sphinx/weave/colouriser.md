@@ -3,7 +3,7 @@
 
 
 (sec:colouriser)=
-# Colouriser: Interactive Planar Data Editor
+# Colouriser: Planar Data Editor
 
 The *{any}`clustbench.Colouriser <clustbench.Colouriser>`* class
 can help us with creating or modifying label vectors and data points

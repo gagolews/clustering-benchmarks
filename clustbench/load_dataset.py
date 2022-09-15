@@ -160,3 +160,76 @@ def load_dataset(
         data=data,
         labels=labels,
     )
+
+
+def save_data(filename, data, fmt="%g", expanduser=True, expandvars=True):
+    """
+    Write a data matrix for inclusion in the clustering benchmark suite
+
+
+    Parameters
+    ----------
+
+    filename : string or file handle
+        For example, `path_to_suite/battery/dataset.data.gz`.
+
+    data : 2D array_like
+        A matrix-like object
+
+    fmt
+        See `numpy.savetxt`.
+
+    expanduser
+        Whether to call ``os.path.expanduser`` on the file path.
+
+    expandvars
+        Whether to call ``os.path.expandvars`` on the file path.
+
+    """
+    data = np.array(data)
+    if data.ndim != 2:
+        raise ValueError("Not a matrix.")
+
+    if expanduser: filename = os.path.expanduser(filename)
+    if expandvars: filename = os.path.expandvars(filename)
+
+    np.savetxt(filename, data, fmt=fmt)
+
+
+def save_labels(filename, labels, expanduser=True, expandvars=True):
+    """
+    Write a label vector for inclusion in the clustering benchmark suite
+
+    Parameters
+    ----------
+
+    filename : string or file handle
+        For example, `path_to_suite/battery/dataset.labels0.gz`.
+
+    labels : 1D array_like
+        A label vector.
+
+    expanduser
+        Whether to call ``os.path.expanduser`` on the file path.
+
+    expandvars
+        Whether to call ``os.path.expandvars`` on the file path.
+
+    """
+    labels = np.array(labels)
+    if labels.ndim != 1:
+        raise ValueError("Not a vector.")
+
+    if not (0 <= labels.min() <= 1):
+        raise ValueError("Minimal label neither 0 nor 1.")
+
+    if not labels.max() >= 1:
+        raise ValueError("At least 1 cluster is necessary.")
+
+    if not np.all(np.bincount(labels)[1:] > 0):
+        raise ValueError("Denormalised label vector: Cluster IDs should be consecutive integers.")
+
+    if expanduser: filename = os.path.expanduser(filename)
+    if expandvars: filename = os.path.expandvars(filename)
+
+    np.savetxt(filename, labels, fmt="%d")

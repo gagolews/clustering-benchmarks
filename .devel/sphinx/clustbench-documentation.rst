@@ -10,6 +10,8 @@ Documentation 🚧
 .. autosummary::
 
     clustbench.load_dataset
+    clustbench.save_data
+    clustbench.save_labels
     clustbench.preprocess_data
     clustbench.get_battery_names
     clustbench.get_dataset_names
@@ -17,4 +19,4 @@ Documentation 🚧
     clustbench.Colouriser
 
 .. automodule:: clustbench
-    :members: load_dataset, preprocess_data, get_battery_names, get_dataset_names, load_results, Colouriser
+    :members: load_dataset, save_data, save_labels, preprocess_data, get_battery_names, get_dataset_names, load_results, Colouriser
