@@ -78,7 +78,7 @@ After all, it is an unsupervised learning task.
 
 
 ```python
-k = np.max(y_true)  # number of clusters to detect
+k = np.max(y_true)  # the number of clusters to detect
 g = genieclust.Genie(n_clusters=k)  # using default parameters
 y_pred = g.fit_predict(X) + 1  # +1 makes cluster IDs in 1..k, not 0..(k-1)
 ```
@@ -153,8 +153,19 @@ genieclust.compare_partitions.adjusted_asymmetric_accuracy(
 ## 0.7828220858895705
 ```
 
+or, equivalently:
+
+
+
+```python
+clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
+## 0.7828220858895705
+```
+
 The score is somewhere between 4/6 (four clusters discovered correctly)
 and 5/6 (one cluster definitely missed).
+
+
 
 
 

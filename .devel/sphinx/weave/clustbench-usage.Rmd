@@ -53,18 +53,19 @@ print(b.description)
 ```
 
 ```{python}
-print(b.data.shape, len(b.labels), [max(l) for l in b.labels])
+print(b.data.shape, len(b.labels), b.n_clusters)
 ```
 
 
 ```{python using-clustbench-example1,results="hide",fig.cap="An example benchmark dataset and the corresponding ground truth labels."}
 import genieclust
-genieclust.plots.plot_scatter(
-    b.data, labels=b.labels[0], axis="equal", title=f"{b.battery}/{b.dataset}"
-)
+for i in range(len(b.labels)):
+    plt.subplot(1, len(b.labels), i+1)
+    genieclust.plots.plot_scatter(
+        b.data, labels=b.labels[i]-1, axis="equal", title=f"labels{i}"
+    )
 plt.show()
 ```
-
 
 
 results:
@@ -72,8 +73,20 @@ results:
 ```{python}
 results_path = os.path.join("~", "Projects", "clustering-results-v1", "original")
 res = clustbench.load_results(
-    "fastcluster_*", b.battery, b.dataset,
-    n_clusters=max(b.labels[0]), path=results_path
+    "Genie", b.battery, b.dataset, b.n_clusters, path=results_path
 )
 print(list(res.keys()))
+```
+
+```{python}
+{method: clustbench.get_score(b.labels, res[method]) for method in res.keys()}
+```
+
+
+
+```{python}
+import sklearn.cluster
+m = sklearn.cluster.KMeans()
+res_km = clustbench.fit_predict_many(m, b.data, b.n_clusters)
+clustbench.get_score(b.labels, res_km)
 ```

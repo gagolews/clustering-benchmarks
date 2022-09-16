@@ -43,7 +43,7 @@ Where applicable, we considered a wide range of control parameters.
 
 New results will be added in the future (note that we can only consider
 methods that allow for setting the precise number of generated clusters).
-Any contributions are {ref}`welcome <sec:contributing>`.
+Quality contributions are {ref}`welcome <sec:contributing>`.
 
 
 ## Feature Engineering
@@ -52,7 +52,7 @@ The algorithms operated on the *original* data spaces,
 i.e., subject to only some mild preprocessing:
 
 * columns of zero variance have been removed;
-* tiny amount of white noise has been added to each datum to make sure the
+* a tiny amount of white noise has been added to each datum to make sure the
     distance matrices consist of unique elements (this guarantees that the
     results of hierarchical clustering algorithms are unambiguous);
 * all data were translated and scaled proportionally
@@ -60,11 +60,11 @@ i.e., subject to only some mild preprocessing:
     of *all* entries is 1 (this is not standardisation).
 
 Note, however, that spectral clustering and Gaussian mixtures
-can be considered as one that modifies the input data space.
+can be considered as ones that modifies the input data space.
 
 Overall, comparisons between distance-based methods that apply automated
 feature engineering/selection and those that only operate on raw inputs
-is not exactly fair.
+are not exactly fair.
 In such settings, the classical methods should be run on the transformed
 data spaces as well.
 

@@ -56,7 +56,7 @@ Or, more formally, a *k*-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$.
 
 
 ```python
-(y_true := benchmark.labels[0])
+(y_true := benchmark.labels[0])  # the first label vector
 ## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
 ##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1,
 ##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -83,7 +83,7 @@ reference set:
 
 
 ```python
-(k := max(y_true))
+(k := max(y_true))  # or benchmark.n_clusters[0]
 ## 3
 ```
 
@@ -203,9 +203,8 @@ The two partitions after the cluster ID (colour) matching.
 
 [^footmanualrelabel]: In a
     {ref}`later section <sec:external-validity-measures>`,
-    we discuss a way
-    to automatically discover an optimal relabelling based on the solution
-    to the maximal assignment problem.
+    we discuss a way to automatically discover an optimal relabelling
+    based on the solution to the maximal assignment problem.
 
 
 
@@ -293,6 +292,15 @@ large cluster. In our case:
 
 ```python
 genieclust.compare_partitions.adjusted_asymmetric_accuracy(y_true, y_pred)
+## 0.8700000000000001
+```
+
+or, equivalently:
+
+
+
+```python
+clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
 ## 0.8700000000000001
 ```
 

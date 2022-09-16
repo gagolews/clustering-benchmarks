@@ -20,13 +20,48 @@ clustering-benchmarks Package
 #                                                                              #
 # ############################################################################ #
 
-from .get_names import get_dataset_names, get_battery_names
-from .load_dataset import load_dataset, save_data, save_labels
-from .load_results import load_results, save_results
-from .load_results import transpose_results, labels_list_to_dict
-from .preprocess_data import preprocess_data
-from .colouriser import Colouriser
-from .fit_predict import fit_predict_many
-from .score import get_score
 
-__version__ = "1.1.0"  # see also ../setup.py; e.g., '0.9.6.9001'
+import numpy as np
+import pandas as pd
+
+
+def fit_predict_many(model, data, n_clusters):
+    """
+    Determine many clusterings of the same dataset.
+
+    Ideally, for hierarchical methods, it would be best
+    if ``model`` was be implemented smartly enough
+    that for the same ``X`` and different ``n_clusters``
+    it does not recompute the whole hierarchy from scratch.
+
+
+    Parameters
+    ----------
+
+    model
+        An object equipped with ``fit_predict``
+        and ``set_param`` methods (e.g., a `scikit-learn`-like class)
+
+    data : array-like
+        Data matrix.
+
+    n_clusters : int or list of ints
+        Number of clusters.
+
+
+    Returns
+    -------
+
+    results
+        A dictionary of label vectors,
+        where ``results[K]`` gives the discovered ``K``-partition.
+    """
+    n_clusters = np.unique(np.r_[n_clusters])
+
+    results = dict()
+    for k in n_clusters:
+        k = int(k)
+        model.set_params(n_clusters=k)
+        results[k] = model.fit_predict(data) + 1
+
+    return results

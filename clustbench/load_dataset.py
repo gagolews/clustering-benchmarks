@@ -87,11 +87,15 @@ def load_dataset(
         description
             Contents of the description file.
 
-        data
+        data : ndarray
             Data matrix.
 
-        labels
+        labels : list
             A list consisting of the label vectors.
+
+        n_clusters : ndarray
+            The corresponding cluster counts:
+            ``n_clusters[i]`` is equal to ``max(n_clusters[i])``.
 
     Examples
     --------
@@ -146,12 +150,14 @@ def load_dataset(
             # but not for remote URLs
             break
 
+    n_clusters = np.array([np.max(ll) for ll in labels])
+
     with np.DataSource().open(base_name + ".txt", "r") as readme_file:
         description = readme_file.read()
 
     RetClass = namedtuple(
         "ClusteringBenchmark",
-        ["battery", "dataset", "description", "data", "labels"]
+        ["battery", "dataset", "description", "data", "labels", "n_clusters"]
     )
     return RetClass(
         battery=battery,
@@ -159,6 +165,7 @@ def load_dataset(
         description=description,
         data=data,
         labels=labels,
+        n_clusters=n_clusters,
     )
 
 

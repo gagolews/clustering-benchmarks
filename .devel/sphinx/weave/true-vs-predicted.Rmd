@@ -43,7 +43,7 @@ Or, more formally, a *k*-partition[^footpart] $\{X_1,\dots,X_k\}$ of $X$.
 
 
 ```{python}
-(y_true := benchmark.labels[0])
+(y_true := benchmark.labels[0])  # the first label vector
 ```
 
 
@@ -62,7 +62,7 @@ The number of subsets, *k*, is thus an inherent part of the
 reference set:
 
 ```{python}
-(k := max(y_true))
+(k := max(y_true))  # or benchmark.n_clusters[0]
 ```
 
 <!--
@@ -160,9 +160,8 @@ plt.show()
 
 [^footmanualrelabel]: In a
     {ref}`later section <sec:external-validity-measures>`,
-    we discuss a way
-    to automatically discover an optimal relabelling based on the solution
-    to the maximal assignment problem.
+    we discuss a way to automatically discover an optimal relabelling
+    based on the solution to the maximal assignment problem.
 
 
 
@@ -243,6 +242,12 @@ large cluster. In our case:
 
 ```{python}
 genieclust.compare_partitions.adjusted_asymmetric_accuracy(y_true, y_pred)
+```
+
+or, equivalently:
+
+```{python}
+clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
 ```
 
 indicates a decent degree of similarity between the reference

@@ -41,7 +41,7 @@ Where applicable, we considered a wide range of control parameters.
 
 New results will be added in the future (note that we can only consider
 methods that allow for setting the precise number of generated clusters).
-Any contributions are {ref}`welcome <sec:contributing>`.
+Quality contributions are {ref}`welcome <sec:contributing>`.
 
 
 ## Feature Engineering
