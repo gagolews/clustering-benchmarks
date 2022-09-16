@@ -265,7 +265,22 @@ is under construction. Please come back later.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.load_results" title="clustbench.load_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.load_results</span></code></a>(method_group, ...[, ...])</p></td>
 <td><p>Load benchmark results</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.Colouriser" title="clustbench.Colouriser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.Colouriser</span></code></a>(data[, labels])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.save_results" title="clustbench.save_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.save_results</span></code></a>(filename, results[, ...])</p></td>
+<td><p>Write clustering results of many algorithms</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.transpose_results" title="clustbench.transpose_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.transpose_results</span></code></a>(results)</p></td>
+<td><p>&quot;Transpose&quot; a results dictionary</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.labels_list_to_dict" title="clustbench.labels_list_to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.labels_list_to_dict</span></code></a>(labels)</p></td>
+<td><p>Convert a list of labels to a dictionary indexed by <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.fit_predict_many" title="clustbench.fit_predict_many"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.fit_predict_many</span></code></a>(model, data, ...)</p></td>
+<td><p>Determine many clusterings of the same dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#clustbench.get_score" title="clustbench.get_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.get_score</span></code></a>(labels, results[, ...])</p></td>
+<td><p>Computes a similarity score between the reference and the predicted partitions</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#clustbench.Colouriser" title="clustbench.Colouriser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clustbench.Colouriser</span></code></a>(data[, labels])</p></td>
 <td><p>Interactive planar data editor</p></td>
 </tr>
 </tbody>
@@ -357,6 +372,36 @@ so that labels are assigned in decreasing order of occurrence.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="clustbench.fit_predict_many">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">fit_predict_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.fit_predict_many" title="Permalink to this definition"></a></dt>
+<dd><p>Determine many clusterings of the same dataset.</p>
+<p>Ideally, for hierarchical methods, it would be best
+if <code class="docutils literal notranslate"><span class="pre">model</span></code> was be implemented smartly enough
+that for the same <code class="docutils literal notranslate"><span class="pre">X</span></code> and different <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>
+it does not recompute the whole hierarchy from scratch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong></dt><dd><p>An object equipped with <code class="docutils literal notranslate"><span class="pre">fit_predict</span></code>
+and <code class="docutils literal notranslate"><span class="pre">set_param</span></code> methods (e.g., a <cite>scikit-learn</cite>-like class)</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">array-like</span></dt><dd><p>Data matrix.</p>
+</dd>
+<dt><strong>n_clusters</strong><span class="classifier">int or list of ints</span></dt><dd><p>Number of clusters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>results</dt><dd><p>A dictionary of label vectors,
+where <code class="docutils literal notranslate"><span class="pre">results[K]</span></code> gives the discovered <code class="docutils literal notranslate"><span class="pre">K</span></code>-partition.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="clustbench.get_battery_names">
 <span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">get_battery_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.get_battery_names" title="Permalink to this definition"></a></dt>
 <dd><p>Get the names of benchmark batteries in a given directory</p>
@@ -427,6 +472,68 @@ suite. Defaults to the current working directory.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="clustbench.get_score">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">get_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric=&lt;built-in</span> <span class="pre">function</span> <span class="pre">adjusted_asymmetric_accuracy&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_max=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_if_missing=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.get_score" title="Permalink to this definition"></a></dt>
+<dd><p>Computes a similarity score between the reference and the predicted partitions</p>
+<p>Takes into account that there can be more than one ground truth partition
+and ignores the noise points (as explained in the Methodology section
+of the clustering benchmark framework’s website).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">labels</span></code> is a single label vector, it will be wrapped inside
+a list. If <code class="docutils literal notranslate"><span class="pre">results</span></code> is not a dictionary,
+<cite>labels_list_to_dict</cite> will be called first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>labels</strong></dt><dd><p>A vector-like object or a list thereof.</p>
+</dd>
+<dt><strong>results</strong></dt><dd><p>A dictionary of clustering results, where
+<code class="docutils literal notranslate"><span class="pre">results[K]</span></code> gives a K-partition.</p>
+</dd>
+<dt><strong>metric</strong><span class="classifier">function</span></dt><dd><p>An external cluster validity measure.
+It will be called like <code class="docutils literal notranslate"><span class="pre">metric(y_true,</span> <span class="pre">y_pred)</span></code>.</p>
+</dd>
+<dt><strong>compute_max</strong><span class="classifier">bool</span></dt><dd><p>Whether to apply <code class="docutils literal notranslate"><span class="pre">max</span></code> on the particular similarity scores.</p>
+</dd>
+<dt><strong>warn_if_missing</strong><span class="classifier">bool</span></dt><dd><p>Warn if some <code class="docutils literal notranslate"><span class="pre">results[K]</span></code> is required, but missing.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>score</strong><span class="classifier">float or array thereof</span></dt><dd><p>The computed similarity scores. Ultimately,
+it is a vector of
+<code class="docutils literal notranslate"><span class="pre">metric(y_true[y_true&gt;0],</span> <span class="pre">results[max(y_true)][y_true&gt;0])</span></code>
+over all <code class="docutils literal notranslate"><span class="pre">y_true</span></code> in <code class="docutils literal notranslate"><span class="pre">labels</span></code>
+or the maximum thereof if <code class="docutils literal notranslate"><span class="pre">compute_max</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.labels_list_to_dict">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">labels_list_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.labels_list_to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a list of labels to a dictionary indexed by <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">labels</span></code> is a single label vector, it will be wrapped inside
+a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>labels</strong></dt><dd><p>A vector-like object or a list thereof.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ret</strong><span class="classifier">dict</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">ret[max(ll)]</span> <span class="pre">=</span> <span class="pre">ll</span></code> for each <code class="docutils literal notranslate"><span class="pre">ll</span></code> in <code class="docutils literal notranslate"><span class="pre">labels</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="clustbench.load_dataset">
 <span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.load_dataset" title="Permalink to this definition"></a></dt>
 <dd><p>Load a benchmark dataset</p>
@@ -469,9 +576,12 @@ to get access to &lt;<a class="reference external" href="https://github.com/gago
 </dd>
 <dt>description</dt><dd><p>Contents of the description file.</p>
 </dd>
-<dt>data</dt><dd><p>Data matrix.</p>
+<dt>data<span class="classifier">ndarray</span></dt><dd><p>Data matrix.</p>
 </dd>
-<dt>labels</dt><dd><p>A list consisting of the label vectors.</p>
+<dt>labels<span class="classifier">list</span></dt><dd><p>A list consisting of the label vectors.</p>
+</dd>
+<dt>n_clusters<span class="classifier">ndarray</span></dt><dd><p>The corresponding cluster counts:
+<code class="docutils literal notranslate"><span class="pre">n_clusters[i]</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">max(n_clusters[i])</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -500,10 +610,9 @@ to get access to &lt;<a class="reference external" href="https://github.com/gago
 <span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">load_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.load_results" title="Permalink to this definition"></a></dt>
 <dd><p>Load benchmark results</p>
 <p>Reads the datasets named like <cite>method_group/battery/dataset.resultK.gz</cite>
-(relative to the directory <cite>path</cite>), where <cite>K</cite> is equal to
-<cite>n_clusters</cite>.
-<cite>method_group</cite> can be a wildcard like <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code> if a look up in multiple
-directory is required.</p>
+(relative to the directory <cite>path</cite>), for each <cite>K</cite> in
+<code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>. <cite>method_group</cite> can be a wildcard like <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>
+if a look up in multiple directories is required.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -513,7 +622,7 @@ directory is required.</p>
 </dd>
 <dt><strong>dataset</strong></dt><dd><p>Dataset name, e.g., <code class="docutils literal notranslate"><span class="pre">&quot;x2&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;iris&quot;</span></code>.</p>
 </dd>
-<dt><strong>n_clusters</strong></dt><dd><p><cite>K</cite> - number of clusters.</p>
+<dt><strong>n_clusters</strong><span class="classifier">int or list of ints</span></dt><dd><p>Number of clusters.</p>
 </dd>
 <dt><strong>path</strong></dt><dd><p>Path to the directory containing the downloaded benchmark datasets
 suite. Defaults to the current working directory.</p>
@@ -526,8 +635,8 @@ suite. Defaults to the current working directory.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>results</dt><dd><p>A dictionary of label vectors.
-Keys correspond to method names.</p>
+<dt>results</dt><dd><p>A dictionary of dictionaries of label vectors
+that can be accessed like <code class="docutils literal notranslate"><span class="pre">results[method_name][n_clusters]</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -626,6 +735,51 @@ duplicate points.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.save_results">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanduser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expandvars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.save_results" title="Permalink to this definition"></a></dt>
+<dd><p>Write clustering results of many algorithms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">string or file handle</span></dt><dd><p>For example, <cite>method_group/battery/dataset.resultK.gz</cite>.</p>
+</dd>
+<dt><strong>results</strong><span class="classifier">dict</span></dt><dd><p>A dictionary where each <code class="docutils literal notranslate"><span class="pre">results[method_name]</span></code>
+is a label vector.</p>
+</dd>
+<dt><strong>expanduser</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expanduser</span></code> on the file path.</p>
+</dd>
+<dt><strong>expandvars</strong></dt><dd><p>Whether to call <code class="docutils literal notranslate"><span class="pre">os.path.expandvars</span></code> on the file path.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clustbench.transpose_results">
+<span class="sig-prename descclassname"><span class="pre">clustbench.</span></span><span class="sig-name descname"><span class="pre">transpose_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustbench.transpose_results" title="Permalink to this definition"></a></dt>
+<dd><p>“Transpose” a results dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>results</strong><span class="classifier">dict</span></dt><dd><p>A dictionary of dictionaries or lists
+of objects.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ret</strong><span class="classifier">dict</span></dt><dd><p>A dictionary such that <code class="docutils literal notranslate"><span class="pre">ret[b][a]</span></code>
+is taken from <code class="docutils literal notranslate"><span class="pre">results[a][b]</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">results[a]</span></code> is not a dictionary,
+<cite>labels_list_to_dict</cite> will be called first.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -648,7 +802,7 @@ duplicate points.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-16T13:19:14+1000.
+        Last updated on 2022-09-16T21:09:00+1000.
       </span>
 
 

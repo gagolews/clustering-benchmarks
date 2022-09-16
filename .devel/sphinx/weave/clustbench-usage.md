@@ -47,9 +47,11 @@ print(b.description)
 print(b.data.shape, len(b.labels), b.n_clusters)
 ## (120, 2) 2 [3 4]
 import genieclust
-genieclust.plots.plot_scatter(
-    b.data, labels=b.labels[0]-1, axis="equal", title=f"{b.battery}/{b.dataset}"
-)
+for i in range(len(b.labels)):
+    plt.subplot(1, len(b.labels), i+1)
+    genieclust.plots.plot_scatter(
+        b.data, labels=b.labels[i]-1, axis="equal", title=f"labels{i}"
+    )
 plt.show()
 ```
 
@@ -66,8 +68,28 @@ results:
 ```python
 results_path = os.path.join("~", "Projects", "clustering-results-v1", "original")
 res = clustbench.load_results(
-    "fastcluster_*", b.battery, b.dataset, b.n_clusters[0], path=results_path
+    "Genie", b.battery, b.dataset, b.n_clusters, path=results_path
 )
 print(list(res.keys()))
-## ['fastcluster_average', 'fastcluster_centroid', 'fastcluster_complete', 'fastcluster_median', 'fastcluster_ward', 'fastcluster_weighted']
+## ['Genie_G0.1', 'Genie_G0.3', 'Genie_G0.5', 'Genie_G0.7', 'Genie_G1.0']
+{method: clustbench.get_score(b.labels, res[method]) for method in res.keys()}
+## {'Genie_G0.1': 0.8700000000000001, 'Genie_G0.3': 0.8700000000000001, 'Genie_G0.5': 0.5909090909090908, 'Genie_G0.7': 0.3400000000000001, 'Genie_G1.0': 0.010000000000000009}
+## 
+## ValueError: Number of rows in the confusion matrix must be equal to the number of columns.
+## Exception ignored in: 'genieclust.compare_partitions.adjusted_asymmetric_accuracy'
+## Traceback (most recent call last):
+##   File "/home/gagolews/.local/lib/python3.10/site-packages/clustbench/score.py", line 101, in get_score
+##     scores.append(metric(y_true[y_true>0], y_pred[y_true>0]))
+## ValueError: Number of rows in the confusion matrix must be equal to the number of columns.
+## ValueError: Number of rows in the confusion matrix must be equal to the number of columns.
+## Exception ignored in: 'genieclust.compare_partitions.adjusted_asymmetric_accuracy'
+## Traceback (most recent call last):
+##   File "/home/gagolews/.local/lib/python3.10/site-packages/clustbench/score.py", line 101, in get_score
+##     scores.append(metric(y_true[y_true>0], y_pred[y_true>0]))
+## ValueError: Number of rows in the confusion matrix must be equal to the number of columns.
+import sklearn.cluster
+m = sklearn.cluster.KMeans()
+res_km = clustbench.fit_predict_many(m, b.data, b.n_clusters)
+clustbench.get_score(b.labels, res_km)
+## 0.9848484848484849
 ```

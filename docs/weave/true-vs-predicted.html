@@ -274,7 +274,7 @@ we explain how to use our benchmark framework from within R and MATLAB.</p>
 <p>Each dataset like the one above is equipped with a
 <strong>reference<a class="footnote-reference brackets" href="#footmanyreference" id="id2">2</a> partition</strong> assigned by experts, which represents a desired grouping of the points into <span class="math notranslate nohighlight">\(k \ge 2\)</span> clusters.
 Or, more formally, a <em>k</em>-partition<a class="footnote-reference brackets" href="#footpart" id="id3">3</a> <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">y_true</span> <span class="o">:=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">y_true</span> <span class="o">:=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># the first label vector</span>
 <span class="c1">## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,</span>
 <span class="c1">##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1,</span>
 <span class="c1">##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,</span>
@@ -288,7 +288,7 @@ Or, more formally, a <em>k</em>-partition<a class="footnote-reference brackets" 
 (ID) of the <em>i</em>-th object.</p>
 <p>The number of subsets, <em>k</em>, is thus an inherent part of the
 reference set:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">k</span> <span class="o">:=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_true</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">k</span> <span class="o">:=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_true</span><span class="p">))</span>  <span class="c1"># or benchmark.n_clusters[0]</span>
 <span class="c1">## 3</span>
 </pre></div>
 </div>
@@ -443,6 +443,11 @@ large cluster. In our case:</p>
 <span class="c1">## 0.8700000000000001</span>
 </pre></div>
 </div>
+<p>or, equivalently:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  <span class="c1"># the AAA metric is used by default</span>
+<span class="c1">## 0.8700000000000001</span>
+</pre></div>
+</div>
 <p>indicates a decent degree of similarity between the reference
 and the discovered partitions.</p>
 <p>Following <span id="id7">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">Gag22b</a>]</span>, we recommend the use of AAA as an external cluster
@@ -478,9 +483,8 @@ trivially be adjusted to fit such scenarios.</p>
 <dt class="label" id="footmanualrelabel"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p>In a
 <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">later section</span></a>,
-we discuss a way
-to automatically discover an optimal relabelling based on the solution
-to the maximal assignment problem.</p>
+we discuss a way to automatically discover an optimal relabelling
+based on the solution to the maximal assignment problem.</p>
 </dd>
 </dl>
 </section>
@@ -506,7 +510,7 @@ to the maximal assignment problem.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-16T13:19:14+1000.
+        Last updated on 2022-09-16T21:09:00+1000.
       </span>
 
 
