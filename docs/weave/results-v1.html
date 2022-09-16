@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Explore Clustering Results (v1.1.0) 🚧 &mdash; Clustering Benchmarks</title>
+  <title>Clustering Results Repository (v1.1.0) &mdash; Clustering Benchmarks</title>
   
 
   
@@ -125,8 +125,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Explore Clustering Results (v1.1.0) 🚧</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#algorithms">Algorithms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Clustering Results Repository (v1.1.0)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#methods">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-engineering">Feature Engineering</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
@@ -203,7 +204,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Explore Clustering Results (v1.1.0) 🚧</li>
+      <li>Clustering Results Repository (v1.1.0)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,16 +235,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="explore-clustering-results-v1-1-0">
-<span id="sec-results-v1"></span><h1>Explore Clustering Results (v1.1.0) 🚧<a class="headerlink" href="#explore-clustering-results-v1-1-0" title="Permalink to this heading"></a></h1>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>This page is under construction. Please come back later.</p>
-</div>
-<p>https://github.com/gagolews/clustering-results-v1/</p>
-<p>TODO: https://github.com/gagolews/clustering-results-v1 cleanup</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="clustering-results-repository-v1-1-0">
+<span id="sec-results-v1"></span><h1>Clustering Results Repository (v1.1.0)<a class="headerlink" href="#clustering-results-repository-v1-1-0" title="Permalink to this heading"></a></h1>
+<p>We have also prepared a repository of
+<a class="reference external" href="https://github.com/gagolews/clustering-results-v1/">clustering results</a>
+for problems from our <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a>.</p>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
+<p>Currently, the outputs of the following methods are included.
+Where applicable, we considered a wide range of control parameters.</p>
+<ul class="simple">
+<li><p>k-means, Gaussian mixtures, spectral, and Birch available in
+<a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html"><code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a>
+0.23.1 (Python) <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id22" title="Buitinck L., et al. (2013).  API design for machine learning software: Experiences from the scikit-learn project. In: ECML PKDD Workshop: Languages for Data Mining and Machine Learning, pp. 108–122.">B+13</a>, <a class="reference internal" href="../z_bibliography.html#id23" title="Pedregosa F., et al. (2011).  Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12(85):2825–2830. URL: http://jmlr.org/papers/v12/pedregosa11a.html.">P+11</a>]</span>;</p></li>
+<li><p>hierarchical agglomerative methods with the average, centroid, complete,
+median, Ward, and weighted/McQuitty linkages implemented
+in <a class="reference external" href="http://www.danifold.net/fastcluster.html"><code class="docutils literal notranslate"><span class="pre">fastcluster</span></code></a> 1.1.26
+(Python/R) <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id13" title="Müllner D. (2013).  fastcluster: Fast hierarchical, agglomerative clustering routines for R and Python. Journal of Statistical Software, 53(9):1–18. DOI: 10.18637/jss.v053.i09.">Mul13</a>]</span></p></li>
+<li><p><a class="reference external" href="https://genieclust.gagolewski.com"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a> 1.0.0 (Python/R)
+<span id="id3">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. DOI: 10.1016/j.softx.2021.100722.">Gag21</a>, <a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski M., Bartoszuk M., Cena A. (2016).  Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm. Information Sciences, 363:8–23. DOI: 10.1016/j.ins.2016.05.003.">GBC16</a>]</span>
+(note that <em>Genie</em> with <em>g=1.0</em> is equivalent to the single linkage algorithm);</p></li>
+<li><p><a class="reference external" href="https://github.com/amueller/information-theoretic-mst"><code class="docutils literal notranslate"><span class="pre">ITM</span></code></a>
+git commit 178fd43 (Python) <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id74" title="Müller A.C., Nowozin S., Lampert C.H. (2012).  Information theoretic clustering using minimum spanning trees. In: Proc. German Conference on Pattern Recognition. URL: https://github.com/amueller/information-theoretic-mst.">MNL12</a>]</span> –
+an “information-theoretic” algorithm based on
+minimum spanning trees;</p></li>
+<li><p><a class="reference external" href="https://github.com/gagolews/optim_cvi"><code class="docutils literal notranslate"><span class="pre">optim_cvi</span></code></a> —
+local maxima (great effort was made to maximise the probability of their
+being high-quality ones) of many
+<a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">internal cluster validity measures</span></a>,
+including the Caliński–Harabasz, Dunn, or Silhouette index;
+see <span id="id5">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski M., Bartoszuk M., Cena A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">GBC21</a>]</span>.</p></li>
+</ul>
+<p>New results will be added in the future (note that we can only consider
+methods that allow for setting the precise number of generated clusters).
+Any contributions are <a class="reference internal" href="contributing.html#sec-contributing"><span class="std std-ref">welcome</span></a>.</p>
+</section>
+<section id="feature-engineering">
+<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this heading"></a></h2>
 <p>The algorithms operated on the <em>original</em> data spaces,
-i.e., subject to only some minor preprocessing:</p>
+i.e., subject to only some mild preprocessing:</p>
 <ul class="simple">
 <li><p>columns of zero variance have been removed;</p></li>
 <li><p>tiny amount of white noise has been added to each datum to make sure the
@@ -253,81 +283,13 @@ results of hierarchical clustering algorithms are unambiguous);</p></li>
 to assure that each column is of mean 0 and that the total variance
 of <em>all</em> entries is 1 (this is not standardisation).</p></li>
 </ul>
-<p>Note, however, that spectral clustering (results included herein)
+<p>Note, however, that spectral clustering and Gaussian mixtures
 can be considered as one that modifies the input data space.</p>
-<p>Currently, <a class="reference external" href="https://genieclust.gagolewski.com">genieclust</a> (Genie)
-outperforms (on average) all other algorithms.
-You are free to use the results included herein when testing
-your own clustering methods.
-As a courtesy, please cite the benchmark battery and
-some of the papers included in its
-<a class="reference external" href="https://github.com/gagolews/clustering_benchmarks_v1/blob/master/README.md#bibliography">Bibliography</a> section
-as well as the papers introducing the algorithms you are comparing yourself to.</p>
-<section id="algorithms">
-<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading"></a></h2>
-<p>The outputs of the following algorithms are included
-(across a wide range of control parameters; note that we have only considered
-the methods which allow for setting the precise number of generated clusters):</p>
-<ul>
-<li><p><a class="reference external" href="https://genieclust.gagolewski.com"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a>
-1.0.0 (Python; R version available too)
-with different <code class="docutils literal notranslate"><span class="pre">gini_threshold</span></code> parameter values</p>
-<p>single linkage (Genie_1.0)</p>
-<ul class="simple">
-<li><p>M. Gagolewski. genieclust: Fast and robust hierarchical
-clustering. <em>SoftwareX</em>, 15:100722, 2021. <a class="reference external" href="https://dx.doi.org/10.1016/j.softx.2021.100722">doi:10.1016/j.softx.2021.100722</a>.</p></li>
-<li><p>M. Gagolewski, M. Bartoszuk, and A. Cena. Genie: A new, fast,
-and outlier-resistant hierarchical clustering algorithm.
-<em>Information Sciences</em>, 363:8–23, 2016. <a class="reference external" href="https://dx.doi.org/10.1016/j.ins.2016.05.003">doi:10.1016/j.ins.2016.05.003</a>.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://github.com/amueller/information-theoretic-mst"><code class="docutils literal notranslate"><span class="pre">ITM</span></code></a>
-git commit 178fd43 (Python)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  The outputs of the ITM (&quot;information-theoretic&quot;) algorithm based on
-</pre></div>
-</div>
-</li>
-</ul>
-<p>minimum spanning trees.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* A.C. Müller, S. Nowozin, and C.H. Lampert.
-*Information theoretic clustering using minimum spanning trees*.
-In *Proc. German Conference on Pattern Recognition*. 2012.
-URL: https://github.com/amueller/information-theoretic-mst.
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html"><code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a>
-0.23.1 (Python) — k-means, spectral, Gaussian mixtures, Birch</p>
-<ul>
-<li><p>F. Pedregosa and others. Scikit-learn: Machine learning in Python.
-<em>Journal of Machine Learning Research</em>, 12(85):2825–2830, 2011.
-URL: http://jmlr.org/papers/v12/pedregosa11a.html.</p></li>
-<li><p>L. Buitinck and others. <em>API design for machine learning software:
-Experiences from the scikit-learn project</em>. In <em>ECML PKDD Workshop:
-Languages for Data Mining and Machine Learning</em>, 108–122. 2013.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="http://www.danifold.net/fastcluster.html"><code class="docutils literal notranslate"><span class="pre">fastcluster</span></code></a> 1.1.26
-(Python; R version available too) — average, centroid, complete,
-median, Ward, weighted/McQuitty linkage</p>
-<ul>
-<li><p>D. Müllner. fastcluster: Fast hierarchical, agglomerative clustering
-routines for R and Python. <em>Journal of Statistical Software</em>,
-53(9):1–18, 2013. <a class="reference external" href="https://dx.doi.org/10.18637/jss.v053.i09">doi:10.18637/jss.v053.i09</a>.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://github.com/gagolews/optim_cvi"><code class="docutils literal notranslate"><span class="pre">optim_cvi</span></code></a> —
-local maxima (great effort was made to maximise the probability of their
-being high-quality ones) of many internal cluster validity measures,
-including the Caliński–Harabasz, Dunn, or Silhouette index.</p>
-<ul>
-<li><p>M. Gagolewski, M. Bartoszuk, A. Cena,
-Are cluster validity measures (in)valid?,
-<em>Information Sciences</em>, 581:620–636, 2021.
-<a class="reference external" href="https://dx.doi.org/10.1016/j.ins.2021.10.004">doi:10.1016/j.ins.2021.10.004</a>.</p></li>
-</ul>
-</li>
-</ul>
+<p>Overall, comparisons between distance-based methods that apply automated
+feature engineering/selection and those that only operate on raw inputs
+is not exactly fair.
+In such settings, the classical methods should be run on the transformed
+data spaces as well.</p>
 </section>
 </section>
 
@@ -351,7 +313,7 @@ Are cluster validity measures (in)valid?,
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-15T14:21:48+1000.
+        Last updated on 2022-09-16T13:19:14+1000.
       </span>
 
 
