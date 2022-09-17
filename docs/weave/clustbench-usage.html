@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Using clustbench 🚧 &mdash; Clustering Benchmarks</title>
+  <title>Using clustbench &mdash; Clustering Benchmarks</title>
   
 
   
@@ -132,8 +132,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using <em>clustbench</em> 🚧</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#to-do">… to do …</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using <em>clustbench</em></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fetching-benchmark-data">Fetching Benchmark Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetching-precomputed-results">Fetching Precomputed Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computing-external-cluster-validity-measures">Computing External Cluster Validity Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applying-clustering-methods-manually">Applying Clustering Methods Manually</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
@@ -203,7 +206,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Using <em>clustbench</em> 🚧</li>
+      <li>Using <em>clustbench</em></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -235,11 +238,11 @@
            <div itemprop="articleBody">
             
   <section class="tex2jax_ignore mathjax_ignore" id="using-clustbench">
-<span id="sec-clustbench-usage"></span><h1>Using <em>clustbench</em> 🚧<a class="headerlink" href="#using-clustbench" title="Permalink to this heading"></a></h1>
-<p>The Python version of the <em>clustering-benchmarks</em> package
+<span id="sec-clustbench-usage"></span><h1>Using <em>clustbench</em><a class="headerlink" href="#using-clustbench" title="Permalink to this heading"></a></h1>
+<p>The Python version of the <em>clustering-benchmarks</em> package for Python
 can be installed from <a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI</a>,
 e.g., via a call to:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3 install clustering-benchmarks
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">clustering</span><span class="o">-</span><span class="n">benchmarks</span>
 </pre></div>
 </div>
 <p>from the command line. Alternatively, please use your favourite Python
@@ -248,7 +251,7 @@ package manager.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clustbench</span>
 </pre></div>
 </div>
-<p>Below we discuss its basic features.</p>
+<p>Below we discuss its basic features/usage.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><em>To learn more about Python,
@@ -256,34 +259,58 @@ check out Marek’s recent open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
 <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">Gag22c</a>]</span>.</p>
 </div>
-<section id="to-do">
-<h2>… to do …<a class="headerlink" href="#to-do" title="Permalink to this heading"></a></h2>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>This page (as well as the mentioned Python package)
-is under construction. Please come back later.</p>
-</div>
+<section id="fetching-benchmark-data">
+<h2>Fetching Benchmark Data<a class="headerlink" href="#fetching-benchmark-data" title="Permalink to this heading"></a></h2>
+<p>The datasets from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a> can be easily interacted with.
+It is best to <a class="reference external" href="https://github.com/gagolews/clustering-data-v1">download</a>
+the whole repository onto our disk first.
+Let us assume they are available in the following directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load from a local library (download the suite manually)</span>
 <span class="kn">import</span> <span class="nn">os.path</span>
 <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_battery_names</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Here is the list of the currently available benchmark batteries:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_battery_names</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
 <span class="c1">## [&#39;fcps&#39;, &#39;g2mg&#39;, &#39;graves&#39;, &#39;h2mg&#39;, &#39;mnist&#39;, &#39;other&#39;, &#39;sipu&#39;, &#39;uci&#39;, &#39;wut&#39;]</span>
-<span class="n">battery</span> <span class="o">=</span> <span class="s2">&quot;wut&quot;</span>
+</pre></div>
+</div>
+<p>We can ask for the names of the dataset in an example battery:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">battery</span> <span class="o">=</span> <span class="s2">&quot;wut&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">(</span><span class="n">battery</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
 <span class="c1">## [&#39;circles&#39;, &#39;cross&#39;, &#39;graph&#39;, &#39;isolation&#39;, &#39;labirynth&#39;, &#39;mk1&#39;, &#39;mk2&#39;, &#39;mk3&#39;, &#39;mk4&#39;, &#39;olympic&#39;, &#39;smile&#39;, &#39;stripes&#39;, &#39;trajectories&#39;, &#39;trapped_lovers&#39;, &#39;twosplashes&#39;, &#39;windows&#39;, &#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;z1&#39;, &#39;z2&#39;, &#39;z3&#39;]</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;x2&quot;</span>
+</pre></div>
+</div>
+<p>For instance, let us load the <code class="docutils literal notranslate"><span class="pre">wut/x2</span></code> dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;x2&quot;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">battery</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">battery</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
-<span class="c1">## wut/x2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above call returned a named tuple.
+For instance, the README file can be accessed via the <code class="docutils literal notranslate"><span class="pre">description</span></code>
+field:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
 <span class="c1">## Author: Eliza Kaczorek (Warsaw University of Technology)</span>
 <span class="c1">## </span>
 <span class="c1">## `labels0` come from the Author herself.</span>
 <span class="c1">## `labels1` were generated by Marek Gagolewski.</span>
 <span class="c1">## `0` denotes the noise class (if present).</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What is more, <code class="docutils literal notranslate"><span class="pre">data</span></code> is the data matrix, <code class="docutils literal notranslate"><span class="pre">labels</span></code> gives the list
+of all ground truth partitions (encoded as label vectors)
+and <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> gives the corresponding numbers of subsets.
+In case of any doubt, we can always consult the official documentation
+of the <a class="reference internal" href="../clustbench-documentation.html#clustbench.load_dataset" title="clustbench.load_dataset"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.load_dataset</span></code></a> function.</p>
+<p>For instance, here is the shape (<em>n</em> and <em>d</em>) of the data matrix,
+the number of reference partitions, and their cardinalities <em>k</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
 <span class="c1">## (120, 2) 2 [3 4]</span>
-<span class="kn">import</span> <span class="nn">genieclust</span>
+</pre></div>
+</div>
+<p>The figure below illustrates the benchmark dataset at hand.</p>
+<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.plots.plot_scatter</span></code></em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genieclust</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">)):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
@@ -292,23 +319,38 @@ is under construction. Please come back later.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id3">
+<figure class="align-default" id="id2">
 <span id="fig-using-clustbench-example1"></span><img alt="../_images/using-clustbench-example1-1.png" src="../_images/using-clustbench-example1-1.png" />
 <figcaption>
-<p><span class="caption-number">Figure 7:  </span><span class="caption-text">An example benchmark dataset and the corresponding ground truth labels.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 7:  </span><span class="caption-text">An example benchmark dataset and the corresponding ground truth labels.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>results:</p>
+</section>
+<section id="fetching-precomputed-results">
+<h2>Fetching Precomputed Results<a class="headerlink" href="#fetching-precomputed-results" title="Permalink to this heading"></a></h2>
+<p>Assuming we have <a class="reference external" href="https://github.com/gagolews/clustering-results-v1">downloaded</a>
+the precomputed clustering results we would like to compare ourselves with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-results-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;original&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The clustering results for an example method can be queried by calling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method_group</span> <span class="o">=</span> <span class="s2">&quot;Genie&quot;</span>  <span class="c1"># or &quot;*&quot; for everything</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_results</span><span class="p">(</span>
-    <span class="s2">&quot;Genie&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">battery</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">results_path</span>
+    <span class="n">method_group</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">battery</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">results_path</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 <span class="c1">## [&#39;Genie_G0.1&#39;, &#39;Genie_G0.3&#39;, &#39;Genie_G0.5&#39;, &#39;Genie_G0.7&#39;, &#39;Genie_G1.0&#39;]</span>
 </pre></div>
 </div>
-<p>..</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+<p>We thus have got access to data on the <a class="reference external" href="https://genieclust.gagolewski.com"><em>Genie</em></a>
+algorithm with different <code class="docutils literal notranslate"><span class="pre">gini_threshold</span></code> parameter settings.</p>
+</section>
+<section id="computing-external-cluster-validity-measures">
+<h2>Computing External Cluster Validity Measures<a class="headerlink" href="#computing-external-cluster-validity-measures" title="Permalink to this heading"></a></h2>
+<p>Different
+<a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">external cluster validity measures</span></a>
+can be computed by calling <a class="reference internal" href="../clustbench-documentation.html#clustbench.get_score" title="clustbench.get_score"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.get_score</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>  <span class="c1"># for aesthetics</span>
     <span class="n">method</span><span class="p">:</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">])</span>
     <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="p">})</span>
@@ -320,7 +362,8 @@ is under construction. Please come back later.</p>
 <span class="c1">## dtype: float64</span>
 </pre></div>
 </div>
-<p>..</p>
+<p>By default, adjusted asymmetric accuracy is applied.</p>
+<p>Let us depict the results for the <code class="docutils literal notranslate"><span class="pre">&quot;Genie_G0.3&quot;</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;Genie_G0.3&quot;</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -330,13 +373,19 @@ is under construction. Please come back later.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id4">
+<figure class="align-default" id="id3">
 <span id="fig-using-clustbench-example2"></span><img alt="../_images/using-clustbench-example2-3.png" src="../_images/using-clustbench-example2-3.png" />
 <figcaption>
-<p><span class="caption-number">Figure 8:  </span><span class="caption-text">Results generated by Genie.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 8:  </span><span class="caption-text">Results generated by Genie.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>..</p>
+</section>
+<section id="applying-clustering-methods-manually">
+<h2>Applying Clustering Methods Manually<a class="headerlink" href="#applying-clustering-methods-manually" title="Permalink to this heading"></a></h2>
+<p>Of course, the purpose of this benchmark is also to test new methods.
+We can use <a class="reference internal" href="../clustbench-documentation.html#clustbench.fit_predict_many" title="clustbench.fit_predict_many"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.fit_predict_many</span></code></a> to generate
+all the partitions required to compare ourselves against the reference labels.</p>
+<p>Let us test the k-means algorithm, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.cluster</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">()</span>
 <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">fit_predict_many</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
@@ -344,7 +393,8 @@ is under construction. Please come back later.</p>
 <span class="c1">## 0.9848484848484849</span>
 </pre></div>
 </div>
-<p>.</p>
+<p>We see that k-means (which specialises in detecting symmetric Gaussian-like blobs)
+performs better than <em>Genie</em> on this particular dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;KMeans&quot;</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -354,12 +404,15 @@ is under construction. Please come back later.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id5">
+<figure class="align-default" id="id4">
 <span id="fig-using-clustbench-example3"></span><img alt="../_images/using-clustbench-example3-5.png" src="../_images/using-clustbench-example3-5.png" />
 <figcaption>
-<p><span class="caption-number">Figure 9:  </span><span class="caption-text">Results generated by K-Means.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 9:  </span><span class="caption-text">Results generated by K-Means.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<p>More functions are listed in the documentation (see the next section).
+Also please see <a class="reference internal" href="colouriser.html#sec-colouriser"><span class="std std-ref">Colouriser: Planar Data Editor</span></a> for an interactive standalone application
+that can be used for preparing our own two-dimensional datasets.</p>
 </section>
 </section>
 
@@ -383,7 +436,7 @@ is under construction. Please come back later.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-17T17:40:15+1000.
+        Last updated on 2022-09-17T21:16:11+1000.
       </span>
 
 
