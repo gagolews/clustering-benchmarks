@@ -1,0 +1,6 @@
+numpy
+scipy
+cython
+matplotlib
+scikit-learn
+genieclust

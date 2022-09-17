@@ -18,4 +18,5 @@ see <https://genieclust.gagolewski.com>.
 
 
 **How to Cite**:
-Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022, <https://clustering-benchmarks.gagolewski.com>, submitted for publication.
+Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022,
+<https://clustering-benchmarks.gagolewski.com>, submitted for publication.

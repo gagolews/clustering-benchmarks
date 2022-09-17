@@ -11,6 +11,23 @@ is under construction. Please come back later.
 ::::
 
 
+
+
+🚧 The Python version of the *clustering-benchmarks* package
+can be installed from [PyPI](https://pypi.org/project/clustering-benchmarks/),
+e.g., via a call to `pip3 install clustering-benchmarks` from the command line.
+
+Once installed, we can import it by calling:
+
+
+
+```python
+import clustbench
+```
+
+Below we discuss its basic features.
+
+
 ::::{note}
 *To learn more about Python,
 check out Marek's recent open-access (free!) textbook*
@@ -18,14 +35,13 @@ check out Marek's recent open-access (free!) textbook*
 {cite}`datawranglingpy`.
 ::::
 
-TO DO...
 
-TO DO: how to install..
+## ... to do ...
+
 
 
 
 ```python
-import clustbench
 # load from a local library (download the suite manually)
 import os.path
 data_path = os.path.join("~", "Projects", "clustering-data-v1")
