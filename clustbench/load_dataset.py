@@ -56,7 +56,7 @@ def load_dataset(
 
     url
         Mutually exclusive with `path`. For example,
-        ``"https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"``
+        ``"https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"``
         to get access to <https://github.com/gagolews/clustering-data-v1>,
 
     expanduser

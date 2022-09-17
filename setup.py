@@ -25,16 +25,25 @@ import os.path
 import glob
 import os
 import sys
+import re
 
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+
+with open("clustbench/__init__.py", "r") as fh:
+    __version__ = re.search("(?m)^\\s*__version__\\s*=\\s*[\"']([0-9.]+)[\"']", fh.read())
+    if __version__ is None:
+        raise ValueError("the package version could not be read")
+    __version__ = __version__.group(1)
+
+
 setuptools.setup(
     name="clustering-benchmarks",
     packages=["clustbench"],
     #packages=setuptools.find_packages(),
-    version="1.1.0",  # see also clustbench/__init__.py; e.g., 1.0.0.9001
+    version=__version__,
     description="A Framework for Benchmarking Clustering Algorithms",
     long_description=long_description,
     long_description_content_type="text/markdown",

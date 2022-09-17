@@ -12,3 +12,4 @@ mixture component was used to generate the corresponding points.
 `labels1` gives reference labels based on the distance to
 the true cluster centre (i.e., arg max_ p_i(x)).
 There is no noise class.
+

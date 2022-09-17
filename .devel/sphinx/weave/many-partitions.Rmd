@@ -16,7 +16,7 @@ dataset {cite}`graves`:
 ```{python}
 import numpy as np
 import clustbench
-data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"
 benchmark = clustbench.load_dataset("graves", "zigzag_noisy", url=data_url)
 ```
 
@@ -79,7 +79,9 @@ for i, k in enumerate(results):
 plt.show()
 ```
 
-The similarity scores for the consecutive reference label vectors are:
+
+The similarity scores with respect to the consecutive reference label vectors
+are equal to:
 
 ```{python}
 clustbench.get_score(benchmark.labels, results, compute_max=False)
@@ -88,7 +90,7 @@ clustbench.get_score(benchmark.labels, results, compute_max=False)
 And hence the maximal score is:
 
 ```{python}
-clustbench.get_score(benchmark.labels, results)
+clustbench.get_score(benchmark.labels, results)  # max(the above)
 ```
 
 

@@ -11,13 +11,16 @@ def summarise_battery(battery):
         "~/Projects/clustering-data-v1/.catalogue/%s.csv" % battery
     )
     x = x.iloc[:, 1:]  # skip battery
+    x["g"] = np.round(x["g"], 2)
     x = x.rename(columns=dict(
         noise="noise points",
         k="*k*",
         n="*n*",
         d="*d*",
+        g="*g*",
         labels="reference labels",
     ))
+
 
     idx = [""]*x.shape[0]
     j = 1
@@ -68,7 +71,10 @@ When referring to particular datasets, we use the convention
 "`battery/dataset`", e.g, "{ref}`sec:battery-wut``/x2`".
 Each dataset represents *n* points in $\mathbb{R}^d$
 and is accompanied by at least one reference partition of cardinality *k*
-(see below for a listing).
+(a listing follows).
+The distribution of cluster sizes is summarised below by means of the Gini
+index *g*, where $g=0$ means that all clusters consist of the same number
+of points.
 
 
 ::::{important}

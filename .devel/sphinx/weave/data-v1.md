@@ -9,7 +9,8 @@
 
 
 
-
+A non-interactive dataset catalogue is available
+[here](https://github.com/gagolews/clustering-data-v1/tree/master/.catalogue).
 
 *Select battery/dataset from the {ref}`sec:suite-v1`:*
 

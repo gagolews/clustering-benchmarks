@@ -11,3 +11,4 @@ Originally available from: <http://yann.lecun.com/exdb/mnist/>
 See: <https://en.wikipedia.org/wiki/MNIST_database>
 
 `labels0` come from the authors.
+

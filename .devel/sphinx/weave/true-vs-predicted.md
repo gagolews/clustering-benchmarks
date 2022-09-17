@@ -18,7 +18,7 @@ the {ref}`wut/x2 <sec:suite-v1>` dataset, which features 120 points in $\mathbb{
 
 ```python
 import clustbench
-data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.0.1"
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"
 benchmark = clustbench.load_dataset("wut", "x2", url=data_url)
 X = benchmark.data
 X[:5, :]  # preview
@@ -306,7 +306,6 @@ clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
 
 indicates a decent degree of similarity between the reference
 and the discovered partitions.
-
 
 Following {cite}`aaa`, we recommend the use of AAA as an external cluster
 validity measure. For the sake of completeness, other popular

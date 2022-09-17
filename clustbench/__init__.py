@@ -20,6 +20,10 @@ clustering-benchmarks Package
 #                                                                              #
 # ############################################################################ #
 
+# version string, e.g., "1.0.0.9001" or "1.1.1"
+__version__ = "1.1.0"
+
+
 from .get_names import get_dataset_names, get_battery_names
 from .load_dataset import load_dataset, save_data, save_labels
 from .load_results import load_results, save_results
@@ -29,4 +33,3 @@ from .colouriser import Colouriser
 from .fit_predict import fit_predict_many
 from .score import get_score
 
-__version__ = "1.1.0"  # see also ../setup.py; e.g., '0.9.6.9001'

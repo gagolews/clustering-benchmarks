@@ -9,8 +9,9 @@
 -   Python package `clustering-benchmarks` released on PyPI.
 
 -   The code and the data repositories were separated; see
-    <https://github.com/gagolews/clustering-benchmarks> and
-    <https://github.com/gagolews/clustering-data-v1>.
+    <https://github.com/gagolews/clustering-benchmarks>,
+    <https://github.com/gagolews/clustering-data-v1>, and
+    <https://github.com/gagolews/clustering-results-v1>.
 
 
 ##  1.0.0 (2020-05-08)

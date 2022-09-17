@@ -9,6 +9,11 @@ We have also prepared a repository of
 [clustering results](https://github.com/gagolews/clustering-results-v1/)
 for problems from our {ref}`sec:suite-v1`.
 
+A non-interactive results catalogue is available
+[here](https://github.com/gagolews/clustering-results-v1/tree/master/.catalogue/original).
+
+
+
 ## Methods
 
 Currently, the outputs of the following methods are included.
