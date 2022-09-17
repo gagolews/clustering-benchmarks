@@ -26,8 +26,6 @@ import numpy as np
 import pandas as pd
 import os
 import glob
-import re
-import sys
 from natsort import natsorted
 
 
@@ -86,7 +84,7 @@ def load_results(
     >>> # load from a local library (a manually downloaded repository)
     >>> results_path = os.path.join("~", "Projects", "clustering-results-v1", "original")
     >>> res = clustbench.load_results("*", "wut", "x2", 3, path=results_path)
-    >>> print(res.keys)
+    >>> print(res.keys())
     """
     if path is None: path = "."
     if expanduser: path = os.path.expanduser(path)
@@ -110,7 +108,6 @@ def load_results(
                     raise ValueError("max(labels) does not match n_clusters")
 
     return results
-
 
 
 def labels_list_to_dict(labels):
@@ -206,6 +203,16 @@ def save_results(filename, results, expanduser=True, expandvars=True):
     expandvars
         Whether to call ``os.path.expandvars`` on the file path.
 
+    Examples
+    --------
+
+    >>> import os.path
+    >>> import clustbench
+    >>> # load from a local library (a manually downloaded repository)
+    >>> results_path = os.path.join("~", "Projects", "clustering-results-v1", "original")
+    >>> res = clustbench.load_results("*", "wut", "x2", 3, path=results_path)
+    >>> print(res.keys())
+    >>> clustbench.save_results("x1.result3.gz", clustbench.transpose_results(res)[3])
     """
     if type(results) is not dict:
         raise ValueError("`results` is not a dict")
@@ -224,7 +231,6 @@ def save_results(filename, results, expanduser=True, expandvars=True):
 
     if not np.all(res.apply(np.bincount).iloc[1:, :] > 0):
         raise ValueError("Denormalised label vector: Cluster IDs should be consecutive integers.")
-
 
     if expanduser: filename = os.path.expanduser(filename)
     if expandvars: filename = os.path.expandvars(filename)

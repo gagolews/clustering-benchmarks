@@ -16,3 +16,4 @@ A rather small dataset, where one point group is clearly well-separated.
 
 Datapoints are encoded with 1 decimal digits precision, hence
 the pairwise point distance matrix might have non-unique entries.
+

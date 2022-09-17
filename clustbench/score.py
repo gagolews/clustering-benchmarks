@@ -96,9 +96,7 @@ def get_score(
         if np.min(y_pred) < 1 or np.max(y_pred) > k:
             raise ValueError("`results[k]` is not between 1 and k=%d." % k)
 
-        #print(y_true)
-        #print(y_pred)
-        scores.append(metric(y_true[y_true>0], y_pred[y_true>0]))
+        scores.append(metric(y_true[y_true > 0], y_pred[y_true > 0]))
 
     if compute_max and len(scores) > 0:
         return np.nanmax(scores)

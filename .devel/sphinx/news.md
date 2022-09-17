@@ -1,6 +1,5 @@
 # Changelog
 
-
 ##  1.1.0 (2022-09-XX) *under development*
 
 -   The project's homepage was created. It is available at

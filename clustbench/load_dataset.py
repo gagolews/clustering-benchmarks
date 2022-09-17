@@ -133,17 +133,16 @@ def load_dataset(
     if preprocess:
         data = preprocess_data(data, random_state=random_state)
 
-
     labels = []
     i = 0
     while True:
         try:
             f = base_name + ".labels%d.gz" % i
-            l = np.loadtxt(f, dtype="int")
-            if l.ndim != 1 or l.shape[0] != data.shape[0]:
+            ll = np.loadtxt(f, dtype="int")
+            if ll.ndim != 1 or ll.shape[0] != data.shape[0]:
                 raise ValueError("Incorrect number of labels in '%s'." % f)
 
-            labels.append(l)
+            labels.append(ll)
             i += 1
         except FileNotFoundError:
             # this could be done better with glob.glob for local files,

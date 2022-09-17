@@ -133,7 +133,7 @@ class Colouriser:
             self._current_colour = int(event.key, 16)
         except: pass
 
-        if event.key in ["+", "=", "-"]: # set radius
+        if event.key in ["+", "=", "-"]:  # set radius
             # why bother with the SHIFT key? → = is +
             if event.key in ["=", "+"]: self._r *= 1.25
             if event.key == "-":        self._r /= 1.25
@@ -144,10 +144,10 @@ class Colouriser:
             self.data, self._undo_data = self._undo_data, self.data
             self._tree = scipy.spatial.KDTree(self.data)
         elif event.key == "m":
-            self._current_mode = (self._current_mode+1) % len (Colouriser._modes)
+            self._current_mode = (self._current_mode+1) % len(Colouriser._modes)
 
-        #elif event.key == "t":             # toggle the MSTs view
-            #self._show_msts = not self._show_msts
+        # elif event.key == "t":             # toggle the MSTs view
+            # self._show_msts = not self._show_msts
 
         self._redraw()
 
@@ -192,27 +192,27 @@ class Colouriser:
 
         self._ax.clear()
 
-        #if self._show_msts:
-            #pass
+        # if self._show_msts:
+        #     pass
 
         # scatter plots:
         for i in np.unique(self.labels):
             self._ax.scatter(
-                self.data[self.labels==i, 0],
-                self.data[self.labels==i, 1],
+                self.data[self.labels == i, 0],
+                self.data[self.labels == i, 1],
                 c=self._col[(i-1) % len(self._col)],
                 marker=self._mrk[(i-1) % len(self._mrk)],
-                alpha=0.5 if i>0 else 1.0)
+                alpha=0.5 if i > 0 else 1.0)
 
         if self._xlim is None:
             self._xlim = self._ax.get_xlim()
         else:
-            self._ax.set_xlim(self._xlim )
+            self._ax.set_xlim(self._xlim)
 
         if self._ylim is None:
             self._ylim = self._ax.get_ylim()
         else:
-            self._ax.set_ylim(self._ylim )
+            self._ax.set_ylim(self._ylim)
 
         self._fig.suptitle(
             "Mode {m}: %s; Radius {+,-}: %5g; Colour {0-9,a-e}: %d\n"
@@ -221,12 +221,15 @@ class Colouriser:
                 self._r,
                 self._current_colour,
                 np.bincount(self.labels.tolist())
-        ))
+            )
+        )
 
         if self._xy is not None:
             # draw the "cursor"
-            self._ax.add_artist(plt.Circle(self._xy, self._r,
-                color=self._col[(self._current_colour-1)], alpha=0.4))
+            self._ax.add_artist(plt.Circle(
+                self._xy, self._r,
+                color=self._col[(self._current_colour-1)], alpha=0.4
+            ))
         self._fig.canvas.draw()
 
 
@@ -240,7 +243,7 @@ class Colouriser:
         self._undo_started = False
 
         # order labels>0 w.r.t. decreasing counts; merge=stable sort
-        srt = -np.bincount(self.labels[self.labels>0])[1:]  # decreasing
+        srt = -np.bincount(self.labels[self.labels > 0])[1:]  # decreasing
         srt = np.argsort(srt, kind="mergesort")  # the ordering permutation
         srt = np.argsort(srt, kind="mergesort")  # the inverse permutation
         for i in range(self.data.shape[0]):
@@ -257,8 +260,8 @@ class Colouriser:
         self._xy = None  # last mouse position; in plot coords
 
         self._r = max(
-            (self.data[:,0].max()-self.data[:,0].min()) * 0.1,
-            (self.data[:,1].max()-self.data[:,1].min()) * 0.1
+            (self.data[:, 0].max()-self.data[:, 0].min()) * 0.1,
+            (self.data[:, 1].max()-self.data[:, 1].min()) * 0.1
         )
 
         self._current_mode = 0

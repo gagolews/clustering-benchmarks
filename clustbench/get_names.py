@@ -22,11 +22,8 @@ clustering-benchmarks Package
 
 
 import os.path
-import numpy as np
 import os
 import glob
-import re
-import sys
 from natsort import natsorted
 
 

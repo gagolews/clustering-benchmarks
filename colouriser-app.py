@@ -28,7 +28,8 @@ See <https://clustering-benchmarks.gagolewski.com> for more details.
 #                                                                              #
 # ############################################################################ #
 
-import sys, os.path
+import sys
+import os.path
 import numpy as np
 import clustbench
 
@@ -76,4 +77,3 @@ Be careful: input files will be overwritten!
 
     np.savetxt(labels_file, clr.get_labels(), fmt="%d")
     print("File %s saved." % labels_file)
-

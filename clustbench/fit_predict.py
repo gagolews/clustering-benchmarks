@@ -22,7 +22,6 @@ clustering-benchmarks Package
 
 
 import numpy as np
-import pandas as pd
 
 
 def fit_predict_many(model, data, n_clusters):

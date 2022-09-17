@@ -7,3 +7,4 @@ Synthetic 2D data with varying number of vectors and clusters.
 There are 150 vectors per cluster.
 
 `labels0` come from the Authors. `0` denotes the noise class (if present).
+

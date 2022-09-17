@@ -32,4 +32,3 @@ from .preprocess_data import preprocess_data
 from .colouriser import Colouriser
 from .fit_predict import fit_predict_many
 from .score import get_score
-

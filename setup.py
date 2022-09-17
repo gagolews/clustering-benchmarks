@@ -21,10 +21,6 @@ clustering-benchmarks Package
 
 
 import setuptools
-import os.path
-import glob
-import os
-import sys
 import re
 
 
@@ -42,7 +38,7 @@ with open("clustbench/__init__.py", "r") as fh:
 setuptools.setup(
     name="clustering-benchmarks",
     packages=["clustbench"],
-    #packages=setuptools.find_packages(),
+    # packages=setuptools.find_packages(),
     version=__version__,
     description="A Framework for Benchmarking Clustering Algorithms",
     long_description=long_description,

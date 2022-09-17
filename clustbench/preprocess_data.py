@@ -21,7 +21,6 @@ clustering-benchmarks Package
 # ############################################################################ #
 
 
-import numpy as np
 import scipy.stats
 
 
@@ -84,6 +83,6 @@ def preprocess_data(data, noise_factor=1e-6, random_state=None):
         random_state=random_state
     )
 
-    #data = data.astype(np.float32, order="C", copy=False) # work with float32
+    # data = data.astype(np.float32, order="C", copy=False) # work with float32
 
     return data

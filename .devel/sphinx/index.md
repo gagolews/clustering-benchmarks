@@ -7,27 +7,21 @@ A Framework for Benchmarking Clustering Algorithms
 ::::
 -->
 
-<!--
-.. image:: _static/img/genie_toy_example.png
-    :class: img-right-align-always
-    :alt: Genie
-    :width: 128px
--->
+::::{image} _static/img/x2-banner.png
+:class: img-right-align-always
+:alt: wut_x2_labels0
+:width: 128px
+::::
 
 There is no, nor will there ever be, single best clustering algorithm.
 Still, we would like to be able to separate the wheat from the chaff:
 to **pinpoint grouping methods that are well-performing on certain task
 types as well as filter out the systematically disappointing ones**.
 
-
-::::{todo}
-This page is under construction. Please come back later.
-::::
-
-
 A common approach is to run the algorithms on a variety of
 benchmark datasets and compare their outputs to the reference,
 ground truth groupings that are provided by experts.
+
 
 
 <!--
