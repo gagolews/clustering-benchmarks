@@ -134,7 +134,7 @@ weave/contributing
 weave/clustbench-usage
 clustbench-documentation
 Source Code (GitHub) <https://github.com/gagolews/clustering-benchmarks>
-PyPI Entry (TODO) <https://pypi.org/project/clustering-benchmarks/>
+PyPI Entry <https://pypi.org/project/clustering-benchmarks>
 ::::
 
 
