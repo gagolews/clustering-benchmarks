@@ -298,7 +298,7 @@ field:</p>
 </pre></div>
 </div>
 <p>What is more, <code class="docutils literal notranslate"><span class="pre">data</span></code> is the data matrix, <code class="docutils literal notranslate"><span class="pre">labels</span></code> gives the list
-of all ground truth partitions (encoded as label vectors)
+of all ground truth partitions (encoded as label vectors),
 and <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> gives the corresponding numbers of subsets.
 In case of any doubt, we can always consult the official documentation
 of the <a class="reference internal" href="../clustbench-documentation.html#clustbench.load_dataset" title="clustbench.load_dataset"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.load_dataset</span></code></a> function.</p>
@@ -308,8 +308,9 @@ the number of reference partitions, and their cardinalities <em>k</em>.</p>
 <span class="c1">## (120, 2) 2 [3 4]</span>
 </pre></div>
 </div>
-<p>The figure below illustrates the benchmark dataset at hand.</p>
-<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.plots.plot_scatter</span></code></em>.</p>
+<p>The following figure (generated via a call to
+<a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.plots.plot_scatter</span></code>)
+illustrates the benchmark dataset at hand.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genieclust</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">)):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -362,7 +363,11 @@ can be computed by calling <a class="reference internal" href="../clustbench-doc
 <span class="c1">## dtype: float64</span>
 </pre></div>
 </div>
-<p>By default, adjusted asymmetric accuracy is applied.</p>
+<p>By default, adjusted asymmetric accuracy is applied.
+As explained in the tutorial, we compare the predicted clusterings against
+<a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">all</span></a> the reference partitions
+(<a class="reference internal" href="noise-points.html#sec-noise-points"><span class="std std-ref">ignoring noise points</span></a>)
+and report the maximal score.</p>
 <p>Let us depict the results for the <code class="docutils literal notranslate"><span class="pre">&quot;Genie_G0.3&quot;</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;Genie_G0.3&quot;</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
@@ -382,10 +387,10 @@ can be computed by calling <a class="reference internal" href="../clustbench-doc
 </section>
 <section id="applying-clustering-methods-manually">
 <h2>Applying Clustering Methods Manually<a class="headerlink" href="#applying-clustering-methods-manually" title="Permalink to this heading"></a></h2>
-<p>Of course, the purpose of this benchmark is also to test new methods.
+<p>Naturally, the aim of this benchmark framework is also to test new methods.
 We can use <a class="reference internal" href="../clustbench-documentation.html#clustbench.fit_predict_many" title="clustbench.fit_predict_many"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.fit_predict_many</span></code></a> to generate
 all the partitions required to compare ourselves against the reference labels.</p>
-<p>Let us test the k-means algorithm, for example:</p>
+<p>For instance, let us investigate the behaviour of the k-means algorithm:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.cluster</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">()</span>
 <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">fit_predict_many</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
@@ -410,8 +415,8 @@ performs better than <em>Genie</em> on this particular dataset.</p>
 <p><span class="caption-number">Figure 9:  </span><span class="caption-text">Results generated by K-Means.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>More functions are listed in the documentation (see the next section).
-Also please see <a class="reference internal" href="colouriser.html#sec-colouriser"><span class="std std-ref">Colouriser: Planar Data Editor</span></a> for an interactive standalone application
+<p>For more functions, please refer to the package’s documentation (in the next section).
+Moreover, <a class="reference internal" href="colouriser.html#sec-colouriser"><span class="std std-ref">Colouriser: Planar Data Editor</span></a> describes a standalone application
 that can be used for preparing our own two-dimensional datasets.</p>
 </section>
 </section>
@@ -436,7 +441,7 @@ that can be used for preparing our own two-dimensional datasets.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2022-09-17T21:16:11+1000.
+        Last updated on 2022-09-18T17:13:31+1000.
       </span>
 
 
