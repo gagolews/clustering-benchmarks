@@ -19,8 +19,8 @@ to **pinpoint grouping methods that are well-performing on certain task
 types as well as filter out the systematically disappointing ones**.
 
 A common approach is to run the algorithms on a variety of
-benchmark datasets and compare their outputs to the reference,
-ground truth groupings that are provided by experts.
+benchmark datasets and **compare their outputs to the reference,
+ground truth groupings that are provided by experts**.
 
 
 
@@ -30,24 +30,31 @@ TODO: Show some example outputs - plot
 ::::
 -->
 
-However, it is not rare for research papers/graduate theses to consider
-only a small number of datasets. We regularly come across the same 5–10
+However, it is not rare for research papers/graduate theses to **consider
+only a small number of datasets**. We regularly come across the same 5–10
 test problems from the UCI database. This is obviously too few to
 make any evaluation rigorous enough.
 
 Other authors propose their own datasets, but do not test their methods
-against other benchmark batteries. This might lead to biased conclusions.
+against other benchmark suites. This might lead to biased conclusions.
 
 Some researchers who share their data (thanks!) might not make
 the interaction with their batteries particularly smooth
-(different file formats, different ways to access, etc.,
+(**different file formats**, different ways to access, etc.,
 even across a single repository).
 
-On the other hand, in other machine learning domains
+Exiting repositories do not reflect the idea that **there might be many equally
+valid/plausible/useful partitions of the same dataset**
+(see also {cite}`sdmc,LuxburgETAL2012:clustscienceart` for discussion).
+
+On the other hand,
+some well-agreed-upon approaches for testing the quality of the algorithms
+in other machine learning domains
 (e.g., classification and regression problems included in the said UCI
-{cite}`uci`; but also: [optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization)), some well-agreed-upon approaches
-for testing the quality of the algorithms have been developed a
-long time ago.
+{cite}`uci`; but also:
+[optimisation](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
+{cite}`optimisation-benchmarks1,optimisation-benchmarks2`)
+have been developed a long time ago.
 
 This is why:
 
