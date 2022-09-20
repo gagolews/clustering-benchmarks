@@ -43,9 +43,9 @@ the interaction with their batteries particularly smooth
 (**different file formats**, different ways to access, etc.,
 even across a single repository).
 
-Exiting repositories do not reflect the idea that **there might be many equally
-valid/plausible/useful partitions of the same dataset**
-(see also {cite}`sdmc,LuxburgETAL2012:clustscienceart` for discussion).
+Existing repositories do not reflect the idea that **there might be many equally
+valid/plausible/useful partitions of the same dataset**;
+see {cite}`sdmc,LuxburgETAL2012:clustscienceart` for discussion.
 
 On the other hand,
 some well-agreed-upon approaches for testing the quality of the algorithms

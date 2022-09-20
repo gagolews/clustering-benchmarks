@@ -67,7 +67,7 @@ and four additional ones:
 9. {ref}`sec:battery-h2mg`.
 
 Each battery consists of **several datasets of different origins**.
-When referring to particular datasets, we use the convention
+When referring to a particular benchmark problem, we use the convention
 "`battery/dataset`", e.g, "{ref}`sec:battery-wut``/x2`".
 Each dataset represents *n* points in $\mathbb{R}^d$
 and is accompanied by at least one reference partition of cardinality *k*
