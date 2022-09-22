@@ -13,10 +13,8 @@ This project aims to:
 
 See <https://clustering-benchmarks.gagolewski.com/> for a detailed description.
 
-For an example study based on this benchmark suite,
-see <https://genieclust.gagolewski.com>.
-
-
-**How to Cite**:
-Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022,
-<https://clustering-benchmarks.gagolewski.com>, submitted for publication.
+**How to cite**:
+Gagolewski M., *A framework for benchmarking clustering algorithms*,
+2022, <https://clustering-benchmarks.gagolewski.com>,
+DOI: [10.48550/arXiv.2209.09493](https://doi.org/10.48550/arXiv.2209.09493),
+under review (preprint).

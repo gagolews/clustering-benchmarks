@@ -6,7 +6,7 @@
 # There Can Be Many Valid Partitions
 
 We believe that it is in the very spirit of unsupervised learning
-that in many cases, **there might be many equally
+that, in many cases, **there might be many equally
 valid/plausible/useful ways to partition a given dataset**
 (see also {cite}`sdmc,LuxburgETAL2012:clustscienceart` for discussion).
 
@@ -63,7 +63,7 @@ There can be many equally valid partitions.
 ## Predicted vs Best-Matching Reference Labelling
 
 An algorithm should be rewarded for finding a partition
-that matches at least one of the reference ones.
+that matches *any* of the reference ones well.
 This might require running the method multiple times
 to find partitions of different cardinalities
 (unless it is a hierarchical one).

@@ -61,18 +61,18 @@ This is why:
 ::::{important}
 This project aims to:
 
+* propose a **consistent methodology** for evaluating clustering
+    algorithms,
 * **aggregate, polish, and standardise the existing clustering
     benchmark batteries** referred to across the machine learning
     and data mining literature,
 * introduce **new datasets** of different dimensionalities,
-    sizes, and cluster types,
-* propose a **consistent methodology** for evaluating clustering
-    algorithms.
+    sizes, and cluster types.
 ::::
 
 
 ::::{note}
-Here is the proposed methodology at a glance:
+The proposed approach at a glance:
 
 *   {ref}`Datasets <sec:suite-v1>` of different origins,
     difficulty, dimensionality, and cluster structure (including clusters
@@ -102,8 +102,10 @@ See the subsequent sections for more details.
 [Marek Gagolewski](https://www.gagolewski.com)
 
 **How to Cite**:
-Gagolewski M., *A Framework for Benchmarking Clustering Algorithms*, 2022,
-<https://clustering-benchmarks.gagolewski.com>, submitted for publication.
+Gagolewski M., *A framework for benchmarking clustering algorithms*,
+2022, <https://clustering-benchmarks.gagolewski.com>,
+DOI: [10.48550/arXiv.2209.09493](https://doi.org/10.48550/arXiv.2209.09493),
+under review (preprint).
 
 Data are provided solely for research purposes, unless stated otherwise.
 If you use them in your publications, please cite the literature
