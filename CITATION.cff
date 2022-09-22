@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this package as follows."
+authors:
+  - family-names: Gagolewski
+    given-names: Marek
+    orcid: "https://orcid.org/0000-0003-0637-6028"
+repository-code: "https://github.com/gagolews/clustering-benchmarks"
+title: "A framework for benchmarking clustering algorithms"
+doi: 10.48550/arXiv.2209.09493
+preferred-citation:
+    type: article
+    year: 2022
+    url: "https://clustering-benchmarks.gagolewski.com/"
+    doi: 10.48550/arXiv.2209.09493
+    title: "A framework for benchmarking clustering algorithms"
+    authors:
+    -   family-names: Gagolewski
+        given-names: Marek
+        orcid: "https://orcid.org/0000-0003-0637-6028"
