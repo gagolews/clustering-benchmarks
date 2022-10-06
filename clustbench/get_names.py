@@ -41,7 +41,7 @@ def get_dataset_names(battery, path=None, expanduser=True, expandvars=True):
         in a single directory as specified by `path`.
 
     path
-        Path to the directory containing the downloaded benchmark datasets
+        Path to the directory containing the downloaded benchmark dataset
         suite. Defaults to the current working directory.
 
     expanduser
@@ -75,11 +75,14 @@ def get_dataset_names(battery, path=None, expanduser=True, expandvars=True):
     if not os.path.isdir(os.path.join(path, battery)):
         raise ValueError("battery does not exist")
 
+    # (#3): root_dir in glob.glob is Python >= 3.10
+    # was: glob.glob("*.data.gz", root_dir=os.path.join(path, battery)
     datasets = natsorted([
-        f[:-8]
-        for f in glob.glob("*.data.gz", root_dir=os.path.join(path, battery))
-        if not f.startswith(".")
+        os.path.basename(f)[:-len(".data.gz")]
+        for f in glob.glob(os.path.join(path, battery, "*.data.gz"))
     ])
+
+    datasets = [dataset for dataset in datasets if not dataset.startswith(".")]
 
     return datasets
 
@@ -93,7 +96,7 @@ def get_battery_names(path=None, expanduser=True, expandvars=True):
     ----------
 
     path
-        Path to the directory containing the downloaded benchmark datasets
+        Path to the directory containing the downloaded benchmark dataset
         suite. Defaults to the current working directory.
 
     expanduser
@@ -124,10 +127,14 @@ def get_battery_names(path=None, expanduser=True, expandvars=True):
     if expanduser: path = os.path.expanduser(path)
     if expandvars: path = os.path.expandvars(path)
 
+
+    # (#3): root_dir in glob.glob is Python >= 3.10
+    # was: glob.glob(os.path.join("*", "README.txt"), root_dir=path)
     batteries = natsorted([
-        os.path.dirname(f)
-        for f in glob.glob(os.path.join("*", "README.txt"), root_dir=path)
-        if not f.startswith(".")
+        os.path.basename(os.path.dirname(f))
+        for f in glob.glob(os.path.join(path, "*", "README.txt"))
     ])
+
+    batteries = [battery for battery in batteries if not battery.startswith(".")]
 
     return batteries

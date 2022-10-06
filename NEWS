@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 (2022-10-06)
+
+-   [BUGFIX] #3: `root_dir` in `glob.glob` is only available Python >= 3.10.
+
+
 ##  1.1.0 (2022-09-17)
 
 -   The project's homepage was created. It is available at
