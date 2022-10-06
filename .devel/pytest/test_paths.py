@@ -8,15 +8,16 @@ import glob
 
 def test_paths():
     path = "~/Projects/clustering-data-v1/"
-    assert "wut" in clustbench.get_battery_names(path)
-    assert "x1" in clustbench.get_dataset_names("wut", path)
+    if os.path.exists(path):
+        assert "wut" in clustbench.get_battery_names(path)
+        assert "x1" in clustbench.get_dataset_names("wut", path)
 
-    os.chdir(os.path.expanduser(path))
-    assert "wut" in clustbench.get_battery_names()
-    assert "x1" in clustbench.get_dataset_names("wut")
+        os.chdir(os.path.expanduser(path))
+        assert "wut" in clustbench.get_battery_names()
+        assert "x1" in clustbench.get_dataset_names("wut")
 
-    assert "wut" in clustbench.get_battery_names("../clustering-data-v1/")
-    assert "x1" in clustbench.get_dataset_names("wut", "../clustering-data-v1/")
+        assert "wut" in clustbench.get_battery_names("../clustering-data-v1/")
+        assert "x1" in clustbench.get_dataset_names("wut", "../clustering-data-v1/")
 
 
 if __name__ == "__main__":
