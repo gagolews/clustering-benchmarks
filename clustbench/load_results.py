@@ -49,7 +49,7 @@ def load_results(
         Name of the method group, e.g., ``"Genie"``, ``"."``, or ``"*"``.
 
     battery
-        Name of the battery, e.g., ``"wut"`` or ``"other"``.
+        Name of the battery (dataset collection), e.g., ``"wut"`` or ``"other"``.
 
     dataset
         Dataset name, e.g., ``"x2"`` or ``"iris"``.
@@ -202,6 +202,7 @@ def save_results(filename, results, expanduser=True, expandvars=True):
 
     expandvars
         Whether to call ``os.path.expandvars`` on the file path.
+
 
     Examples
     --------

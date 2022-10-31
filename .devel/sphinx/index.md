@@ -64,7 +64,7 @@ This project aims to:
 * propose a **consistent methodology** for evaluating clustering
     algorithms,
 * **aggregate, polish, and standardise the existing clustering
-    benchmark batteries** referred to across the machine learning
+    benchmark batteries** (collections) referred to across the machine learning
     and data mining literature,
 * introduce **new datasets** of different dimensionalities,
     sizes, and cluster types.

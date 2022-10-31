@@ -44,7 +44,7 @@ def load_dataset(
     ----------
 
     battery
-        Name of the battery, e.g., ``"wut"`` or ``"other"``.
+        Name of the battery (dataset collection), e.g., ``"wut"`` or ``"other"``.
 
     dataset
         Dataset name, e.g., ``"x2"`` or ``"iris"``.

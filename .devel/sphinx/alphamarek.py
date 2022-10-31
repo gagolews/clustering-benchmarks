@@ -15,6 +15,9 @@ from pybtex.style.formatting.alpha import Style as AlphaStyle
 from pybtex.style.names import BaseNameStyle, name_part
 import pybtex.plugin
 
+#import pybtex.style.labels.number
+#pybtex.style.labels.number.LabelStyle
+
 ################################################################################
 
 import re
@@ -54,6 +57,7 @@ pybtex.plugin.register_plugin(
 class AlphaMarek(AlphaStyle):
 
     default_name_style = "namemarek"
+    default_label_style = "number"
 
     def format_names(self, role, as_sentence=True):
         formatted_names = names(role, sep=', ', sep2 = ', ', last_sep=', ')

@@ -36,7 +36,7 @@ def get_dataset_names(battery, path=None, expanduser=True, expandvars=True):
     ----------
 
     battery
-        Name of the battery, e.g., ``"wut"`` or ``"other"``.
+        Name of the battery (dataset collection), e.g., ``"wut"`` or ``"other"``.
         Can be an empty string or ``"."`` if all files are
         in a single directory as specified by `path`.
 
