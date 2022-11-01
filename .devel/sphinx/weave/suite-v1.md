@@ -16,7 +16,7 @@ For reproducibility, the datasets and label vectors are **versioned**.
 
 Version 1.1.0 of the
 [*Benchmark Suite for Clustering Algorithms*](https://github.com/gagolews/clustering-data-v1)
-consists of **nine benchmark batteries**.
+consists of **nine benchmark batteries** (dataset collections).
 The five recommended ones:
 
 1. {ref}`sec:battery-wut` 🌟,

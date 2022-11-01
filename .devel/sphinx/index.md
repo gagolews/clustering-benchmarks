@@ -33,7 +33,8 @@ TODO: Show some example outputs - plot
 However, it is not rare for research papers/graduate theses to **consider
 only a small number of datasets**. We regularly come across the same 5–10
 test problems from the UCI database. This is obviously too few to
-make any evaluation rigorous enough.
+make any evaluation rigorous enough and may lead to
+overfitting {cite}`overoptimistic,ullmanframework,whitepaperclust`.
 
 Other authors propose their own datasets, but do not test their methods
 against other benchmark suites. This might lead to biased conclusions.
