@@ -103,10 +103,10 @@ See the subsequent sections for more details.
 [Marek Gagolewski](https://www.gagolewski.com)
 
 **How to Cite**:
-Gagolewski M., *A framework for benchmarking clustering algorithms*,
-2022, <https://clustering-benchmarks.gagolewski.com>,
+Gagolewski M., A framework for benchmarking clustering algorithms,
+*SoftwareX*, 2022, <https://clustering-benchmarks.gagolewski.com>,
 DOI: [10.48550/arXiv.2209.09493](https://doi.org/10.48550/arXiv.2209.09493),
-under review (preprint).
+in press.
 
 Data are provided solely for research purposes, unless stated otherwise.
 If you use them in your publications, please cite the literature
