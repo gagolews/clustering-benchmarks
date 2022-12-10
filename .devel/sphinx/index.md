@@ -104,9 +104,8 @@ See the subsequent sections for more details.
 
 **How to Cite**:
 Gagolewski M., A framework for benchmarking clustering algorithms,
-*SoftwareX*, 2022, <https://clustering-benchmarks.gagolewski.com>,
-DOI: [10.48550/arXiv.2209.09493](https://doi.org/10.48550/arXiv.2209.09493),
-in press.
+*SoftwareX* **20**, 2022, 101270, <https://clustering-benchmarks.gagolewski.com>,
+DOI: [10.1016/j.softx.2022.101270](https://doi.org/10.1016/j.softx.2022.101270).
 
 Data are provided solely for research purposes, unless stated otherwise.
 If you use them in your publications, please cite the literature

@@ -6,13 +6,16 @@ authors:
     orcid: "https://orcid.org/0000-0003-0637-6028"
 repository-code: "https://github.com/gagolews/clustering-benchmarks"
 title: "A framework for benchmarking clustering algorithms"
-doi: 10.48550/arXiv.2209.09493
+doi: 10.1016/j.softx.2022.101270
 preferred-citation:
     type: article
     year: 2022
     url: "https://clustering-benchmarks.gagolewski.com/"
-    doi: 10.48550/arXiv.2209.09493
+    doi: 10.1016/j.softx.2022.101270
     title: "A framework for benchmarking clustering algorithms"
+    journal: "SoftwareX"
+    volume: 20
+    issue: 101270
     authors:
     -   family-names: Gagolewski
         given-names: Marek

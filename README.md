@@ -14,7 +14,6 @@ This project aims to:
 See <https://clustering-benchmarks.gagolewski.com/> for a detailed description.
 
 **How to cite**:
-Gagolewski M., *A framework for benchmarking clustering algorithms*,
-2022, <https://clustering-benchmarks.gagolewski.com>,
-DOI: [10.48550/arXiv.2209.09493](https://doi.org/10.48550/arXiv.2209.09493),
-under review (preprint).
+Gagolewski M., A framework for benchmarking clustering algorithms,
+*SoftwareX* **20**, 2022, 101270, <https://clustering-benchmarks.gagolewski.com>,
+DOI: [10.1016/j.softx.2022.101270](https://doi.org/10.1016/j.softx.2022.101270).
