@@ -37,6 +37,15 @@ are implemented in the [*genieclust*](https://genieclust.gagolewski.com)
 package.
 
 
+::::{note}
+*To learn more about Python,
+check out Marek's recent open-access (free!) textbook*
+[Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
+{cite}`datawranglingpy`.
+::::
+
+
+
 ## R
 
 Following the {ref}`sec:file-format`,
@@ -64,6 +73,15 @@ are implemented in the R version of the
 Algorithms implemented in R
 can be called from within Python
 using, for example, the [*rpy2*](https://pypi.org/project/rpy2/) package.
+
+
+::::{note}
+*To learn more about R,
+check out Marek's recent open-access (free!) textbook*
+[Deep R Programming](https://deepr.gagolewski.com/)
+{cite}`deepr`.
+::::
+
 
 
 
