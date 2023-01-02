@@ -1,4 +1,4 @@
-# Copyleft (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com>
+# Copyleft (C) 2020-2023, Marek Gagolewski <https://www.gagolewski.com>
 # Configuration file for the Sphinx documentation builder.
 
 import sys, os, sphinx_rtd_theme
@@ -9,7 +9,7 @@ import clustbench
 pkg_name = "clustbench"
 pkg_title = "Clustering Benchmarks"
 pkg_version = clustbench.__version__
-copyright_year = '2020–2022'
+copyright_year = '2020–2023'
 html_baseurl = "https://clustering-benchmarks.gagolewski.com/"
 github_url = "https://github.com/gagolews/clustering-benchmarks/"
 github_star_repo = "gagolews/clustering-benchmarks"  # or None to disable
