@@ -93,8 +93,8 @@ that did not appear in the original setting.
 
 22 datasets in $\mathbb{R}^2$ or $\mathbb{R}^3$
 authored by the fantastic students of Marek's 2016/2017 courses on Data Analysis
-in [R](https://deepr.gagolewski.com)
-and [Python](https://datawranglingpy.gagolewski.com)
+in [R](https://deepr.gagolewski.com/)
+and [Python](https://datawranglingpy.gagolewski.com/)
 at the
 [Faculty of Mathematics and Information Science](https://www.pw.edu.pl/engpw/Academics/Faculties/Faculty-of-Mathematics-and-Information-Science), Warsaw University of Technology:
 Anna Gierlak,

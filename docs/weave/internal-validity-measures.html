@@ -6,7 +6,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -30,8 +30,6 @@
 
   
   
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
-  
 
   
   
@@ -46,11 +44,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/proof.js"></script>
         <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -252,7 +249,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="side-note-internal-in-validity-measures">
 <span id="sec-internal-validity-measures"></span><h1>Side Note: Internal <em>(In)Validity</em> Measures<a class="headerlink" href="#side-note-internal-in-validity-measures" title="Permalink to this heading"></a></h1>
 <p>Internal cluster <em>validity</em> measures (see, e.g.,
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id50" title="Arbelaitz O., Gurrutxaga I., Muguerza J., Pérez J.M., Perona I. (2013).  An extensive comparative study of cluster validity indices. Pattern Recognition, 46(1):243–256. DOI: https://doi.org/10.1016/j.patcog.2012.07.021.">1</a>, <a class="reference internal" href="../z_bibliography.html#id37" title="Halkidi M., Batistakis Y., Vazirgiannis M. (2001).  On clustering validation techniques. Journal of Intelligent Information Systems, pages 107–145. DOI: 10.1023/A:1012801612483.">30</a>, <a class="reference internal" href="../z_bibliography.html#id36" title="Maulik U., Bandyopadhyay S. (2002).  Performance evaluation of some clustering algorithms and validity indices. IEEE Transactions on Pattern Analysis and Machine Intelligence, 24(12):1650-1654. DOI: 10.1109/TPAMI.2002.1114856.">38</a>, <a class="reference internal" href="../z_bibliography.html#id35" title="Milligan G.W., Cooper M.C. (1985).  An examination of procedures for determining the number of clusters in a data set. Psychometrika, 50(2):159–179.">41</a>, <a class="reference internal" href="../z_bibliography.html#id49" title="Xu Q., Zhang Q., Liu J., Luo B. (2020).  Efficient synthetical clustering validity indexes for hierarchical clustering. Expert Systems with Applications, 151:113367. DOI: 10.1016/j.eswa.2020.113367.">60</a>]</span>)
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id50" title="Arbelaitz, O., Gurrutxaga, I., Muguerza, J., Pérez, J.M., and Perona, I. (2013).  An extensive comparative study of cluster validity indices. Pattern Recognition, 46(1):243–256. DOI: https://doi.org/10.1016/j.patcog.2012.07.021.">1</a>, <a class="reference internal" href="../z_bibliography.html#id37" title="Halkidi, M., Batistakis, Y., and Vazirgiannis, M. (2001).  On clustering validation techniques. Journal of Intelligent Information Systems, pages 107–145. DOI: 10.1023/A:1012801612483.">30</a>, <a class="reference internal" href="../z_bibliography.html#id36" title="Maulik, U. and Bandyopadhyay, S. (2002).  Performance evaluation of some clustering algorithms and validity indices. IEEE Transactions on Pattern Analysis and Machine Intelligence, 24(12):1650-1654. DOI: 10.1109/TPAMI.2002.1114856.">38</a>, <a class="reference internal" href="../z_bibliography.html#id35" title="Milligan, G.W. and Cooper, M.C. (1985).  An examination of procedures for determining the number of clusters in a data set. Psychometrika, 50(2):159–179.">41</a>, <a class="reference internal" href="../z_bibliography.html#id49" title="Xu, Q., Zhang, Q., Liu, J., and Luo, B. (2020).  Efficient synthetical clustering validity indexes for hierarchical clustering. Expert Systems with Applications, 151:113367. DOI: 10.1016/j.eswa.2020.113367.">60</a>]</span>)
 might aid in selecting the number of clusters a dataset should
 be partitioned to. They do not require the presence of expert labels.
 Instead, their aim is to quantify different aspects of the obtained
@@ -261,7 +258,7 @@ separability.</p>
 <p>Sometimes internal measures are also used to compare
 the outputs of different clustering algorithms on the same dataset and
 determine which one is more correct.</p>
-<p>However, in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski M., Bartoszuk M., Cena A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span> (also see the <a class="reference internal" href="results-v1.html#sec-results-v1"><span class="std std-ref">Clustering Results Repository (v1.1.0)</span></a> section),
+<p>However, in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski, M., Bartoszuk, M., and Cena, A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span> (also see the <a class="reference internal" href="results-v1.html#sec-results-v1"><span class="std std-ref">Clustering Results Repository (v1.1.0)</span></a> section),
 we have pointed out that <strong>many measures promote some rather random
 groupings whilst other ones seem more suitable for…
 detecting outliers</strong>.</p>
@@ -275,8 +272,8 @@ a partition is meaningful or not</strong>.</p>
 <p>For the sake of completeness, let us recall the definitions
 of some popular indices. Their implementation is included
 in the <a class="reference external" href="https://genieclust.gagolewski.com/"><em>genieclust</em></a>
-package for Python and R <span id="id3">[<a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. DOI: 10.1016/j.softx.2021.100722.">20</a>]</span>.
-Note that this section contains excerpts from <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski M., Bartoszuk M., Cena A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span>.</p>
+package for Python and R <span id="id3">[<a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski, M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. DOI: 10.1016/j.softx.2021.100722.">20</a>]</span>.
+Note that this section contains excerpts from <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski, M., Bartoszuk, M., and Cena, A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{X}\in\mathbb{R}^{n\times d}\)</span> denote the input dataset
 comprised of <span class="math notranslate nohighlight">\(n\)</span> points in a <span class="math notranslate nohighlight">\(d\)</span>-dimensional Euclidean space, with
 <span class="math notranslate nohighlight">\(\mathbf{x}_i = (x_{i,1},\dots,x_{i,d})\)</span> giving the coordinates of
@@ -298,7 +295,7 @@ other pivots, such as their corresponding <em>cluster centroids</em>,
 <h2>Indices Based on Cluster Centroids<a class="headerlink" href="#indices-based-on-cluster-centroids" title="Permalink to this heading"></a></h2>
 <section id="ballhall">
 <h3>Ball–Hall<a class="headerlink" href="#ballhall" title="Permalink to this heading"></a></h3>
-<p>The Ball–Hall index <span id="id5">[<a class="reference internal" href="../z_bibliography.html#id41" title="Ball G.H., Hall D.J. (1965).  ISODATA: A novel method of data analysis and pattern classification. Technical Report AD699616, Stanford Research Institute.">2</a>]</span> is the within-cluster
+<p>The Ball–Hall index <span id="id5">[<a class="reference internal" href="../z_bibliography.html#id41" title="Ball, G.H. and Hall, D.J. (1965).  ISODATA: A novel method of data analysis and pattern classification. Technical Report AD699616, Stanford Research Institute.">2</a>]</span> is the within-cluster
 sum of squares weighted by the cluster cardinality:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{BallHall}(\mathbf{y}) = -\sum_{i=1}^n \frac{1}{|X_{y_i}|}
@@ -310,7 +307,7 @@ have the index maximised.</p>
 </section>
 <section id="calinskiharabasz">
 <h3>Caliński–Harabasz<a class="headerlink" href="#calinskiharabasz" title="Permalink to this heading"></a></h3>
-<p>The Caliński–Harabasz index (Eq. (3) in <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id38" title="Caliński T., Harabasz J. (1974).  A dendrite method for cluster analysis. Communications in Statistics, 3(1):1–27. DOI: 10.1080/03610927408827101.">7</a>]</span>;
+<p>The Caliński–Harabasz index (Eq. (3) in <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id38" title="Caliński, T. and Harabasz, J. (1974).  A dendrite method for cluster analysis. Communications in Statistics, 3(1):1–27. DOI: 10.1080/03610927408827101.">7</a>]</span>;
 “variance ratio criterion”) is given by:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -328,13 +325,13 @@ i.e., a vector such that
 <p>It may be shown that the task of minimising the (unweighted) within-cluster
 sum of squares is equivalent to maximising the Caliński–Harabasz index.
 Hence, this index is precisely the objective function in the <span class="math notranslate nohighlight">\(k\)</span>-means method
-<span id="id7">[<a class="reference internal" href="../z_bibliography.html#id48" title="Lloyd S.P. (1957).  Least squares quantization in PCM. IEEE Transactions on Information Theory, 28:128–137. Originally a 1957 Bell Telephone Laboratories Research Report; republished in 1982. DOI: 10.1109/TIT.1982.1056489.">37</a>]</span> and the algorithms by Ward, Edwards, and Cavalli–Sforza;
-see <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id38" title="Caliński T., Harabasz J. (1974).  A dendrite method for cluster analysis. Communications in Statistics, 3(1):1–27. DOI: 10.1080/03610927408827101.">7</a>, <a class="reference internal" href="../z_bibliography.html#id45" title="Edwards A.W.F., Cavalli-Sforza L.L. (1965).  A method for cluster analysis. Biometrics, 21(2):362–375. DOI: 10.2307/2528096.">14</a>, <a class="reference internal" href="../z_bibliography.html#id46" title="Ward Jr. J.H. (1963).  Hierarchical grouping to optimize an objective function. Journal of the American Statistical Association, 58(301):236–244. DOI: 10.1080/01621459.1963.10500845.">57</a>]</span>.</p>
+<span id="id7">[<a class="reference internal" href="../z_bibliography.html#id48" title="Lloyd, S.P. (1957).  Least squares quantization in PCM. IEEE Transactions on Information Theory, 28:128–137. Originally a 1957 Bell Telephone Laboratories Research Report; republished in 1982. DOI: 10.1109/TIT.1982.1056489.">37</a>]</span> and the algorithms by Ward, Edwards, and Cavalli–Sforza;
+see <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id38" title="Caliński, T. and Harabasz, J. (1974).  A dendrite method for cluster analysis. Communications in Statistics, 3(1):1–27. DOI: 10.1080/03610927408827101.">7</a>, <a class="reference internal" href="../z_bibliography.html#id45" title="Edwards, A.W.F. and Cavalli-Sforza, L.L. (1965).  A method for cluster analysis. Biometrics, 21(2):362–375. DOI: 10.2307/2528096.">14</a>, <a class="reference internal" href="../z_bibliography.html#id46" title="Ward Jr., J.H. (1963).  Hierarchical grouping to optimize an objective function. Journal of the American Statistical Association, 58(301):236–244. DOI: 10.1080/01621459.1963.10500845.">57</a>]</span>.</p>
 <p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.cluster_validity.calinski_harabasz_index</span></code></em>.</p>
 </section>
 <section id="daviesbouldin">
 <h3>Davies–Bouldin<a class="headerlink" href="#daviesbouldin" title="Permalink to this heading"></a></h3>
-<p>The Davies-Bouldin (Def. 5 in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id39" title="Davies D.L., Bouldin D.W. (1979).  A cluster separation measure. IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI–1(2):224–227. DOI: 10.1109/TPAMI.1979.4766909.">11</a>]</span>)
+<p>The Davies-Bouldin (Def. 5 in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id39" title="Davies, D.L. and Bouldin, D.W. (1979).  A cluster separation measure. IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI–1(2):224–227. DOI: 10.1109/TPAMI.1979.4766909.">11</a>]</span>)
 is given as the average similarity between each cluster and its most
 similar counterpart (note the minus sign again):</p>
 <div class="math notranslate nohighlight">
@@ -351,9 +348,9 @@ similar counterpart (note the minus sign again):</p>
 <span class="math notranslate nohighlight">\(s_i=\frac{1}{|X_i|}\sum_{\mathbf{x}_u\in X_i} \|\mathbf{x}_u-\boldsymbol\mu_i\|\)</span>
 and otherwise we set <span class="math notranslate nohighlight">\(s_i=\infty\)</span>. Furthermore, <span class="math notranslate nohighlight">\(m_{i,j}\)</span> is the
 intra-cluster distance, <span class="math notranslate nohighlight">\(m_{i,j}=\|\boldsymbol\mu_i-\boldsymbol\mu_j\|\)</span>.</p>
-<p>On a side note, in <span id="id10">[<a class="reference internal" href="../z_bibliography.html#id39" title="Davies D.L., Bouldin D.W. (1979).  A cluster separation measure. IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI–1(2):224–227. DOI: 10.1109/TPAMI.1979.4766909.">11</a>]</span>, other choices of <span class="math notranslate nohighlight">\(s_i\)</span>
+<p>On a side note, in <span id="id10">[<a class="reference internal" href="../z_bibliography.html#id39" title="Davies, D.L. and Bouldin, D.W. (1979).  A cluster separation measure. IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI–1(2):224–227. DOI: 10.1109/TPAMI.1979.4766909.">11</a>]</span>, other choices of <span class="math notranslate nohighlight">\(s_i\)</span>
 and <span class="math notranslate nohighlight">\(m_{i,j}\)</span> are also suggested. We have recalled only the most popular setting
-here (used, e.g., in <span id="id11">[<a class="reference internal" href="../z_bibliography.html#id50" title="Arbelaitz O., Gurrutxaga I., Muguerza J., Pérez J.M., Perona I. (2013).  An extensive comparative study of cluster validity indices. Pattern Recognition, 46(1):243–256. DOI: https://doi.org/10.1016/j.patcog.2012.07.021.">1</a>]</span>).</p>
+here (used, e.g., in <span id="id11">[<a class="reference internal" href="../z_bibliography.html#id50" title="Arbelaitz, O., Gurrutxaga, I., Muguerza, J., Pérez, J.M., and Perona, I. (2013).  An extensive comparative study of cluster validity indices. Pattern Recognition, 46(1):243–256. DOI: https://doi.org/10.1016/j.patcog.2012.07.021.">1</a>]</span>).</p>
 <p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.cluster_validity.negated_davies_bouldin_index</span></code></em>.</p>
 </section>
 </section>
@@ -361,7 +358,7 @@ here (used, e.g., in <span id="id11">[<a class="reference internal" href="../z_b
 <h2>Silhouettes<a class="headerlink" href="#silhouettes" title="Permalink to this heading"></a></h2>
 <section id="silhouette">
 <h3>Silhouette<a class="headerlink" href="#silhouette" title="Permalink to this heading"></a></h3>
-<p>In Sec. 2 of <span id="id12">[<a class="reference internal" href="../z_bibliography.html#id42" title="Rousseeuw P.J. (1987).  Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. Journal of Computational and Applied Mathematics, 20:53–65. DOI: 10.1016/0377-0427(87)90125-7.">47</a>]</span>, Rousseeuw proposes the notion of
+<p>In Sec. 2 of <span id="id12">[<a class="reference internal" href="../z_bibliography.html#id42" title="Rousseeuw, P.J. (1987).  Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. Journal of Computational and Applied Mathematics, 20:53–65. DOI: 10.1016/0377-0427(87)90125-7.">47</a>]</span>, Rousseeuw proposes the notion of
 a silhouette as a graphical aid in cluster analysis.</p>
 <p>Denote the average dissimilarity between the <span class="math notranslate nohighlight">\(i\)</span>-th point and all other
 points in its own cluster with:</p>
@@ -388,7 +385,7 @@ silhouette score:</p>
 </section>
 <section id="silhouettew">
 <h3>SilhouetteW<a class="headerlink" href="#silhouettew" title="Permalink to this heading"></a></h3>
-<p>The paper <span id="id13">[<a class="reference internal" href="../z_bibliography.html#id42" title="Rousseeuw P.J. (1987).  Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. Journal of Computational and Applied Mathematics, 20:53–65. DOI: 10.1016/0377-0427(87)90125-7.">47</a>]</span> also defines
+<p>The paper <span id="id13">[<a class="reference internal" href="../z_bibliography.html#id42" title="Rousseeuw, P.J. (1987).  Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. Journal of Computational and Applied Mathematics, 20:53–65. DOI: 10.1016/0377-0427(87)90125-7.">47</a>]</span> also defines
 what we call here the <em>SilhouetteW</em> index,
 being the mean of the cluster average silhouette widths:</p>
 <div class="math notranslate nohighlight">
@@ -406,12 +403,12 @@ weighting by cluster cardinalities.</p>
 </section>
 <section id="generalised-dunn-indices">
 <h2>Generalised Dunn Indices<a class="headerlink" href="#generalised-dunn-indices" title="Permalink to this heading"></a></h2>
-<p>In <span id="id14">[<a class="reference internal" href="../z_bibliography.html#id40" title="Dunn J.C. (1974).  A fuzzy relative of the ISODATA process and its use in detecting compact well-separated clusters. Journal of Cybernetics, 3(3):32–57. DOI: 10.1080/01969727308546046.">13</a>]</span> (see Eq. (3) therein),
+<p>In <span id="id14">[<a class="reference internal" href="../z_bibliography.html#id40" title="Dunn, J.C. (1974).  A fuzzy relative of the ISODATA process and its use in detecting compact well-separated clusters. Journal of Cybernetics, 3(3):32–57. DOI: 10.1080/01969727308546046.">13</a>]</span> (see Eq. (3) therein),
 Dunn proposed an index defined as the
 ratio between the smallest between-cluster distance and the largest
 cluster diameter.</p>
 <p>This index has been generalised by Bezdek and Pal in
-<span id="id15">[<a class="reference internal" href="../z_bibliography.html#id51" title="Bezdek J.C., Pal N.R. (1998).  Some new indexes of cluster validity. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 28(3):301–315. DOI: 10.1109/3477.678624.">4</a>]</span> as:</p>
+<span id="id15">[<a class="reference internal" href="../z_bibliography.html#id51" title="Bezdek, J.C. and Pal, N.R. (1998).  Some new indexes of cluster validity. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 28(3):301–315. DOI: 10.1109/3477.678624.">4</a>]</span> as:</p>
 <div class="math notranslate nohighlight">
 \[
 \mathrm{GDunn}(\mathbf{y})=
@@ -448,7 +445,7 @@ denominator quantifies the cluster compactness.</p>
 |X_i|+|X_j|
 }\)</span>.</p></li>
 </ul>
-<p>Bezdek and Pal in <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id40" title="Dunn J.C. (1974).  A fuzzy relative of the ISODATA process and its use in detecting compact well-separated clusters. Journal of Cybernetics, 3(3):32–57. DOI: 10.1080/01969727308546046.">13</a>]</span> also considered a function
+<p>Bezdek and Pal in <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id40" title="Dunn, J.C. (1974).  A fuzzy relative of the ISODATA process and its use in detecting compact well-separated clusters. Journal of Cybernetics, 3(3):32–57. DOI: 10.1080/01969727308546046.">13</a>]</span> also considered a function
 based on the Hausdorff metric, but it is overall quite slow to compute.</p>
 <p>On the other hand, <span class="math notranslate nohighlight">\(D\)</span> can be, for example:</p>
 <ul class="simple">
@@ -465,7 +462,7 @@ based on the Hausdorff metric, but it is overall quite slow to compute.</p>
 <p>There are thus 15 different combinations of the possible numerators and
 denominators, hence 15 different indices, which we may denote
 as <em>GDunn_dX_DY</em>. In particular, <em>GDunn_d1_D1</em> gives the original Dunn
-<span id="id17">[<a class="reference internal" href="../z_bibliography.html#id40" title="Dunn J.C. (1974).  A fuzzy relative of the ISODATA process and its use in detecting compact well-separated clusters. Journal of Cybernetics, 3(3):32–57. DOI: 10.1080/01969727308546046.">13</a>]</span> index.</p>
+<span id="id17">[<a class="reference internal" href="../z_bibliography.html#id40" title="Dunn, J.C. (1974).  A fuzzy relative of the ISODATA process and its use in detecting compact well-separated clusters. Journal of Cybernetics, 3(3):32–57. DOI: 10.1080/01969727308546046.">13</a>]</span> index.</p>
 <p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.cluster_validity.generalised_dunn_index</span></code></em>.</p>
 </section>
 </section>
@@ -490,7 +487,7 @@ as <em>GDunn_dX_DY</em>. In particular, <em>GDunn_d1_D1</em> gives the original 
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2023-01-02T13:34:40+1100.
+        Last updated on 2023-07-02T15:44:39+1000.
       </span>
 
 

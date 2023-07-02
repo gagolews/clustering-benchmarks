@@ -13,5 +13,10 @@ listed in the description files corresponding to each dataset studied.
 
 ## Bibliography
 
+::::{only} html
+<div>
+::::
+
+
 ::::{bibliography} bibliography.bib
 ::::

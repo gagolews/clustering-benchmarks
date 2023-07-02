@@ -6,7 +6,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -30,8 +30,6 @@
 
   
   
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
-  
 
   
   
@@ -46,11 +44,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/proof.js"></script>
         <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -249,7 +246,7 @@ we assign them cluster IDs of 0.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>Let us consider the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">other/hdbscan</span></a> dataset
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id34" title="McInnes L., Healy J., Astels S. (2017).  hdbscan: Hierarchical density based clustering. The Journal of Open Source Software, 2(11):205. DOI: 10.21105/joss.00205.">39</a>]</span>, which consists of 2,309 points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id34" title="McInnes, L., Healy, J., and Astels, S. (2017).  hdbscan: Hierarchical density based clustering. The Journal of Open Source Software, 2(11):205. DOI: 10.21105/joss.00205.">39</a>]</span>, which consists of 2,309 points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">clustbench</span>
@@ -336,7 +333,7 @@ noise point markers are propagated from the ground truth vector
 </div>
 <p>The first row denotes the “noise cluster”: we do not actually
 care how the algorithm classifies such points. After all, most classical
-algorithms are not equipped with noise point detectors<a class="footnote-reference brackets" href="#footnoisedetect" id="id2">1</a>
+algorithms are not equipped with noise point detectors<a class="footnote-reference brackets" href="#footnoisedetect" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 and they should not be penalised for this.</p>
 <p>Genie discovered four clusters very well (3, 4, 5, 6),
 but failed on the first two (it created a “combined” cluster instead,
@@ -363,15 +360,16 @@ ignoring the first row in the confusion matrix:</p>
 <p>The score is somewhere between 4/6 (four clusters discovered correctly)
 and 5/6 (one cluster definitely missed).</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="footnoisedetect"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>Some algorithms have built-in noise point detectors
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footnoisedetect" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Some algorithms have built-in noise point detectors
 (e.g., <a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/">HDBSCAN*</a>
 and <a class="reference external" href="https://genieclust.gagolewski.com">Genie</a>).
 These can also be evaluated using some of the datasets from our battery,
 but we are not interested in this problem in the current context.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -395,7 +393,7 @@ but we are not interested in this problem in the current context.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2023-01-02T13:34:40+1100.
+        Last updated on 2023-07-02T15:44:39+1000.
       </span>
 
 

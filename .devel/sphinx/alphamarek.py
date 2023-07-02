@@ -1,4 +1,4 @@
-# Copyleft (C) 2020-2023, Marek Gagolewski <https://www.gagolewski.com>
+# Copyleft (C) 2020-2023, Marek Gagolewski <https://www.gagolewski.com/>
 
 # based on https://bitbucket.org/pybtex-devs/pybtex/src/HEAD/pybtex/style/formatting/unsrt.py
 
@@ -35,13 +35,13 @@ date = join ["(", field('year'), ")"]
 class NameMarek(BaseNameStyle):
     def format(self, person, abbr=False):
         if person.last_names[0] == "others":
-            return "et al."
+            return "others"
         else:
             return join [
                 name_part(tie=True) [person.rich_prelast_names],
                 name_part [person.rich_last_names],
                 name_part(before=' ') [person.rich_lineage_names],
-                name_part(before=' ', abbr=abbr) [person.rich_first_names + person.rich_middle_names],
+                name_part(before=', ', abbr=abbr) [person.rich_first_names + person.rich_middle_names],
             ]
 
 
@@ -60,7 +60,8 @@ class AlphaMarek(AlphaStyle):
     default_label_style = "number"
 
     def format_names(self, role, as_sentence=True):
-        formatted_names = names(role, sep=', ', sep2 = ', ', last_sep=', ')
+        formatted_names = names(
+            role, sep=', ', sep2 = ' and ', last_sep=', and ')
         if as_sentence:
             return sentence [formatted_names]
         else:
@@ -181,7 +182,7 @@ class AlphaMarek(AlphaStyle):
         template = toplevel [
             optional[ sentence [self.format_names('author')] ],
             join [ date, ". " ],
-            optional[ self.format_title(e, 'title') ],
+            optional[ self.format_btitle(e, 'title') ],
             sentence[
                 optional[ field('howpublished') ]
             ],

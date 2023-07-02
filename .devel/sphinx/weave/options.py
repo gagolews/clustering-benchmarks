@@ -15,7 +15,7 @@ np.set_printoptions(linewidth=74)
 pd.set_option("display.width", 74)
 
 
-plt.style.use("seaborn")  # overall plot style
+plt.style.use("seaborn-v0_8-whitegrid")  # overall plot style
 
 _colours = [  # the "R4" palette
     "#000000", "#DF536B", "#61D04F", "#2297E6",

@@ -76,8 +76,7 @@ using, for example, the [*rpy2*](https://pypi.org/project/rpy2/) package.
 
 
 ::::{note}
-*To learn more about R,
-check out Marek's recent open-access (free!) textbook*
+*To learn more about R, check out Marek's open-access (free!) textbook*
 [Deep R Programming](https://deepr.gagolewski.com/)
 {cite}`deepr`.
 ::::

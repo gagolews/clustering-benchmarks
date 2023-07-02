@@ -6,7 +6,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -30,8 +30,6 @@
 
   
   
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
-  
 
   
   
@@ -46,11 +44,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/proof.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -277,7 +274,7 @@ package.</p>
 <p><em>To learn more about Python,
 check out Marek’s recent open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski, M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
 </div>
 </section>
 <section id="r">
@@ -285,9 +282,9 @@ check out Marek’s recent open-access (free!) textbook</em>
 <p>Following the <a class="reference internal" href="file-format.html#sec-file-format"><span class="std std-ref">File Format Specification</span></a>,
 the datasets can be accessed easily using built-in R functions:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># to do: change to your local path</span>
-<span class="n">base_name</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;Projects&quot;</span><span class="p">,</span> <span class="s">&quot;clustering-data-v1&quot;</span><span class="p">,</span> <span class="s">&quot;wut&quot;</span><span class="p">,</span> <span class="s">&quot;smile&quot;</span><span class="p">)</span>
-<span class="n">data</span>    <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="nf">read.table</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span> <span class="s">&quot;.data.gz&quot;</span><span class="p">)))</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># preview</span>
+<span class="n">base_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Projects&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clustering-data-v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wut&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;smile&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="w">    </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.matrix</span><span class="p">(</span><span class="nf">read.table</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">)))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">  </span><span class="c1"># preview</span>
 <span class="c1">##           V1     V2</span>
 <span class="c1">## [1,] -1.5458 2.4711</span>
 <span class="c1">## [2,] -5.0017 1.0666</span>
@@ -295,8 +292,8 @@ the datasets can be accessed easily using built-in R functions:</p>
 <span class="c1">## [4,] -4.3843 1.1767</span>
 <span class="c1">## [5,] -3.9503 6.9417</span>
 <span class="c1">## [6,] -4.2316 7.1567</span>
-<span class="n">labels</span>  <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span> <span class="s">&quot;.labels0.gz&quot;</span><span class="p">),</span> <span class="nf">integer</span><span class="p">())</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>  <span class="c1"># preview</span>
+<span class="n">labels</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">scan</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">),</span><span class="w"> </span><span class="nf">integer</span><span class="p">())</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="w">  </span><span class="c1"># preview</span>
 <span class="c1">## [1] 2 2 2 2 2 2</span>
 </pre></div>
 </div>
@@ -308,10 +305,9 @@ can be called from within Python
 using, for example, the <a class="reference external" href="https://pypi.org/project/rpy2/"><em>rpy2</em></a> package.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><em>To learn more about R,
-check out Marek’s recent open-access (free!) textbook</em>
+<p><em>To learn more about R, check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://deepr.gagolewski.com/">Deep R Programming</a>
-<span id="id2">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski M. (2023).  Deep R Programming. Zenodo, Melbourne. ISBN 978-0-6455719-2-9 (reserved). early draft. URL: https://deepr.gagolewski.com/, DOI: 10.5281/zenodo.7490464.">24</a>]</span>.</p>
+<span id="id2">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2023).  Deep R Programming. Zenodo, Melbourne. ISBN 978-0-6455719-2-9. URL: https://deepr.gagolewski.com/, DOI: 10.5281/zenodo.7490464.">24</a>]</span>.</p>
 </div>
 </section>
 <section id="matlab">
@@ -319,10 +315,10 @@ check out Marek’s recent open-access (free!) textbook</em>
 <p>Unfortunately, MATLAB does not seem to be able to un<em>gzip</em> files
 on the fly, but these can be decompressed to a temporary folder
 manually.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">base_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;~/Projects/clustering-data-v1/wut/smile&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">tempdir</span><span class="p">();</span><span class="w"></span>
-<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">&quot;text&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">labels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">&quot;text&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">base_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;~/Projects/clustering-data-v1/wut/smile&quot;</span><span class="p">;</span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">tempdir</span><span class="p">();</span>
+<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">&quot;text&quot;</span><span class="p">);</span>
+<span class="n">labels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">&quot;text&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Note that there is also a MATLAB
@@ -359,7 +355,7 @@ in GNU Octave, Scilab, Julia, Mathematica, …</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2023-01-02T13:34:40+1100.
+        Last updated on 2023-07-02T15:44:39+1000.
       </span>
 
 

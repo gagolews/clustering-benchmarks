@@ -6,7 +6,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -30,8 +30,6 @@
 
   
   
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
-  
 
   
   
@@ -46,11 +44,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/proof.js"></script>
         <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -265,7 +262,7 @@ the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class=
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Python code we give here should be self-explanatory even to
-the readers who do not know this language (yet<a class="footnote-reference brackets" href="#footbook" id="id1">1</a>).
+the readers who do not know this language (yet<a class="footnote-reference brackets" href="#footbook" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>).
 Also note that in a <a class="reference internal" href="how-to-access.html#sec-how-to-access"><span class="std std-ref">further section</span></a>,
 we explain how to use our benchmark framework from within R and MATLAB.</p>
 </div>
@@ -273,9 +270,9 @@ we explain how to use our benchmark framework from within R and MATLAB.</p>
 <section id="reference-labels">
 <h2>Reference Labels<a class="headerlink" href="#reference-labels" title="Permalink to this heading"></a></h2>
 <p>Each dataset like the one above is equipped with a
-<strong>reference<a class="footnote-reference brackets" href="#footmanyreference" id="id2">2</a> partition</strong> assigned by experts, which
+<strong>reference<a class="footnote-reference brackets" href="#footmanyreference" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> partition</strong> assigned by experts, which
 represents a grouping of the points into <span class="math notranslate nohighlight">\(k \ge 2\)</span> clusters.
-Or, more formally, a <em>k</em>-partition<a class="footnote-reference brackets" href="#footpart" id="id3">3</a> <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+Or, more formally, a <em>k</em>-partition<a class="footnote-reference brackets" href="#footpart" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">y_true</span> <span class="o">:=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># the first label vector</span>
 <span class="c1">## array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,</span>
 <span class="c1">##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1,</span>
@@ -338,7 +335,7 @@ a set of problems as possible.</p>
 <p>We, therefore, need to <em>relate</em> the predicted labels to the reference ones.
 Note that the automated discovery of <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>
 never relies on the information included in <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.
-In other words, clustering is an unsupervised<a class="footnote-reference brackets" href="#footsemisupervised" id="id4">4</a>
+In other words, clustering is an unsupervised<a class="footnote-reference brackets" href="#footsemisupervised" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>
 learning process.</p>
 </section>
 <section id="permuting-cluster-ids">
@@ -349,7 +346,7 @@ Therefore, the <strong>actual cluster IDs do not really matter</strong>.</p>
 the red (ID=2), black (ID=1), and green (ID=3) discovered clusters
 can be paired with, respectively,
 the black (ID=1), red (ID=2), and green (ID=3) reference ones.</p>
-<p>We can easily recode<a class="footnote-reference brackets" href="#footmanualrelabel" id="id5">5</a> <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>
+<p>We can easily recode<a class="footnote-reference brackets" href="#footmanualrelabel" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>
 so that the cluster IDs nicely correspond to each other:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">o</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># relabelling: 1→2, 2→1, 3→3</span>
@@ -403,7 +400,7 @@ They should have been coloured black.</p>
 to judge the similarity between the two partitions. However,
 if we wish to compare the quality of different algorithms,
 we would rather have it summarised in the form of a single number.</p>
-<p>The <strong>adjusted asymmetric accuracy</strong> <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">22</a>]</span>
+<p>The <strong>adjusted asymmetric accuracy</strong> <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">22</a>]</span>
 is an <em>external cluster validity measure</em>
 (see the <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">Appendix</span></a> for more details)
 that quantifies the degree of agreement between the reference <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and
@@ -452,43 +449,48 @@ large cluster. In our case:</p>
 </div>
 <p>indicates a decent degree of similarity between the reference
 and the discovered partitions.</p>
-<p>Following <span id="id7">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">22</a>]</span>, we recommend the use of AAA as an external cluster
+<p>Following <span id="id7">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2022).  Adjusted asymmetric accuracy: A well-behaving external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">22</a>]</span>, we recommend the use of AAA as an external cluster
 validity measure. For the sake of completeness, other popular
 partition similarity scores are discussed
 in the <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">Appendix</span></a>.
 In particular, this is where we argue why the classic (classification)
 accuracy rate should not be used in our context (this is a common mistake!).</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="footbook"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>To learn more about this environment, check out
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footbook" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>To learn more about this environment, check out
 Marek’s recent open-access (free!) textbook
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id8">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
-</dd>
-<dt class="label" id="footmanyreference"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">Later</span></a> we will note
+<span id="id8">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski, M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+</aside>
+<aside class="footnote brackets" id="footmanyreference" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">Later</span></a> we will note
 that there may be many possible ways to split a dataset into groups.</p>
-</dd>
-<dt class="label" id="footpart"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>We say that <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> is a <span class="math notranslate nohighlight">\(k\)</span>-partition of <span class="math notranslate nohighlight">\(X\)</span>,
+</aside>
+<aside class="footnote brackets" id="footpart" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>We say that <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> is a <span class="math notranslate nohighlight">\(k\)</span>-partition of <span class="math notranslate nohighlight">\(X\)</span>,
 whenever <span class="math notranslate nohighlight">\(\bigcup_{i=1}^k X_i=X\)</span>, each <span class="math notranslate nohighlight">\(X_i\)</span> is nonempty,
 and the subsets are pairwise disjoint, i.e., <span class="math notranslate nohighlight">\(X_i\cap X_j=\emptyset\)</span>
 for <span class="math notranslate nohighlight">\(i\neq j\)</span>.</p>
-</dd>
-<dt class="label" id="footsemisupervised"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>Tasks such as semi-supervised clustering,
+</aside>
+<aside class="footnote brackets" id="footsemisupervised" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Tasks such as semi-supervised clustering,
 where the right assignment of <em>some</em> of the input points is known in
 advance, are not of our interest here. However, the current framework can
 trivially be adjusted to fit such scenarios.</p>
-</dd>
-<dt class="label" id="footmanualrelabel"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>In a
+</aside>
+<aside class="footnote brackets" id="footmanualrelabel" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>In a
 <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">later section</span></a>,
 we discuss a way to automatically discover an optimal relabelling
 based on the solution to the maximal assignment problem.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -512,7 +514,7 @@ based on the solution to the maximal assignment problem.</p>
     and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
     theme.
       <span class="lastupdated">
-        Last updated on 2023-01-02T13:34:40+1100.
+        Last updated on 2023-07-02T15:44:39+1000.
       </span>
 
 
