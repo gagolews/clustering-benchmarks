@@ -53,6 +53,7 @@ setuptools.setup(
         "scipy",
         "matplotlib",
         "pandas",
+        "cython",
         "genieclust",
       ],
     download_url="https://github.com/gagolews/clustering-benchmarks",
