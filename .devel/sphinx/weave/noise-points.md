@@ -146,7 +146,7 @@ ignoring the first row in the confusion matrix:
 
 
 ```python
-genieclust.compare_partitions.adjusted_asymmetric_accuracy(
+genieclust.compare_partitions.normalized_clustering_accuracy(
     y_true[y_true>0],
     y_pred[y_true>0]
 )
@@ -158,7 +158,7 @@ or, equivalently:
 
 
 ```python
-clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
+clustbench.get_score(y_true, y_pred)  # the NCA metric is used by default
 ## 0.7828220858895705
 ```
 

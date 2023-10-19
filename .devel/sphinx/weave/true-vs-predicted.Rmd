@@ -197,15 +197,18 @@ if we wish to compare the quality of different algorithms,
 we would rather have it summarised in the form of a single number.
 
 
-The **adjusted asymmetric accuracy** {cite}`aaa`
+The **normalised clustering accuracy** {cite}`nca`
 is an *external cluster validity measure*
 (see the {ref}`Appendix <sec:external-validity-measures>` for more details)
 that quantifies the degree of agreement between the reference $\mathbf{y}$ and
 the predicted $\hat{\mathbf{y}}$.
 It is given by:
 
+
+<!-- TODO: update formula -->
+
 $$
-\mathrm{AAA}(\mathbf{C})
+\mathrm{NCA}(\mathbf{C})
 =
 \frac{
 \max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, 1}+\dots+c_{i, k}} - \frac{1}{k}
@@ -217,11 +220,12 @@ $$
 Note that the matching between the cluster labels is performed
 automatically by finding the best permutation $\sigma$
 of the set $\{1,\dots,k\}$.
-
 Equivalently:
 
+<!-- TODO: update formula -->
+
 $$
-\mathrm{AAA}(\mathbf{C})
+\mathrm{NCA}(\mathbf{C})
 =
 1-
 \min_\sigma
@@ -236,25 +240,24 @@ correctly identified points in each cluster ("above" the random assignment).
 
 
 Overall, the more similar the partitions, the greater the similarity score
-(1 if they are identical). AAA is adjusted for chance and cluster size
-inequality. In particular, its expected value is equal to 0 if the
-partitions were picked at random or all the points were put into a single
+(1 if they are identical). NCA is normalised: it is equal to 0 if the
+cluster memberships are evenly spread or all the points were put into a single
 large cluster. In our case:
 
 ```{python}
-genieclust.compare_partitions.adjusted_asymmetric_accuracy(y_true, y_pred)
+genieclust.compare_partitions.normalised_clustering_accuracy(y_true, y_pred)
 ```
 
 or, equivalently:
 
 ```{python}
-clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
+clustbench.get_score(y_true, y_pred)  # the NCA metric is used by default
 ```
 
 indicates a decent degree of similarity between the reference
 and the discovered partitions.
 
-Following {cite}`aaa`, we recommend the use of AAA as an external cluster
+Following {cite}`nca`, we recommend the use of NCA as an external cluster
 validity measure. For the sake of completeness, other popular
 partition similarity scores are discussed
 in the {ref}`Appendix <sec:external-validity-measures>`.

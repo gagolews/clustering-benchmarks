@@ -9,7 +9,7 @@ def test_score():
     k = 5
     y1 = np.random.randint(1, k, n)
     y2 = np.random.randint(1, k, n)
-    assert genieclust.compare_partitions.adjusted_asymmetric_accuracy(y1, y2) == clustbench.get_score(y1, y2)
+    assert genieclust.compare_partitions.normalized_clustering_accuracy(y1, y2) == clustbench.get_score(y1, y2)
 
 
 if __name__ == "__main__":

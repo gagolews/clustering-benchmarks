@@ -99,11 +99,11 @@ we should omit the noise points whatsoever.
 ::::
 
 
-Let us compute the adjusted asymmetric accuracy,
+Let us compute the normalised clustering accuracy,
 ignoring the first row in the confusion matrix:
 
 ```{python}
-genieclust.compare_partitions.adjusted_asymmetric_accuracy(
+genieclust.compare_partitions.normalized_clustering_accuracy(
     y_true[y_true>0],
     y_pred[y_true>0]
 )
@@ -112,7 +112,7 @@ genieclust.compare_partitions.adjusted_asymmetric_accuracy(
 or, equivalently:
 
 ```{python}
-clustbench.get_score(y_true, y_pred)  # the AAA metric is used by default
+clustbench.get_score(y_true, y_pred)  # the NCA metric is used by default
 ```
 
 The score is somewhere between 4/6 (four clusters discovered correctly)

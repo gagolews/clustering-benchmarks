@@ -2,9 +2,9 @@
 # External Cluster Validity Measures
 
 In this section, we review the external cluster validity scores
-that are implemented in the [*genieclust*](https://genieclust.gagolewski.com/) package for Python
-and R {cite}`genieclust` and discussed in detail in {cite}`aaa`
-(this section contains excerpts therefrom).
+that are implemented in the [*genieclust*](https://genieclust.gagolewski.com/)
+package for Python and R {cite}`genieclust` and discussed in detail
+in {cite}`nca`.
 
 
 
@@ -30,10 +30,10 @@ Oftentimes, **partition similarity scores** (e.g.,
 the adjusted Rand index or the normalised mutual information score)
 are used as $I$s. They are **symmetric** in the sense that
 $I(\mathbf{y}, \hat{\mathbf{y}})= I(\hat{\mathbf{y}}, \mathbf{y})$.
-However, as argued in {cite}`aaa`, **in our context we do not need this
+However, as argued in {cite}`nca`, **in our context we do not need this
 property** because the reference label vector $\mathbf{y}$ is considered
-fixed. The adjusted asymmetric accuracy is an example of such
-a non-symmetric measure.
+fixed. The normalised clustering accuracy is an example of a
+non-symmetric measure.
 
 [^footnoise]: We assume that any potential
     {ref}`noise points <sec:noise-points>` in $X$ have been removed
@@ -181,7 +181,7 @@ np.random.seed(123)  # HIDDEN
 def all_measures(C):
     d = genieclust.compare_partitions.compare_partitions(C)
     return dict(
-        AAA=d["aaa"],
+        NCA=d["nca"],
         PS=d["psi"],
         SPS=d["spsi"],
         NA=d["nacc"],
@@ -355,14 +355,15 @@ in the largest point group.
 
 
 
-### Adjusted Asymmetric Accuracy
+### Normalised Clustering Accuracy
 
-In {cite}`aaa`, the adjusted for both cluster sizes
-and chance version of PA was proposed.
-Namely, the *adjusted asymmetric accuracy* is defined as:
+In {cite}`nca`, the normalised for cluster sizes version of PA was proposed.
+Namely, the *normalised clustering accuracy* is defined as:
+
+<!-- TODO: update formula -->
 
 $$
-\mathrm{AAA}(\mathbf{C})
+\mathrm{NCA}(\mathbf{C})
 =
 \frac{
 \max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, \cdot}} - \frac{1}{k}
@@ -378,7 +379,7 @@ $$
 $$
 
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.adjusted_asymmetric_accuracy`*.
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalised_clustering_accuracy`*.
 
 The measure is quite easily interpretable:
 it is the overall percentage of correctly classified points in each cluster
@@ -386,10 +387,10 @@ it is the overall percentage of correctly classified points in each cluster
 It also fulfils many desirable properties.
 
 
-Adjusted asymmetric accuracy is the only measure reviewed here
+Normalised clustering accuracy is the only measure reviewed here
 that is not symmetric, i.e., it gives some special treatment
 to the reference partition.
-As argued in {cite}`aaa`, this is a perfectly fine behaviour
+As argued in {cite}`nca`, this is perfectly fine behaviour
 in our context, where we validate the predicted partitions.
 
 
@@ -604,7 +605,7 @@ it then tends to be very similar to AR.
 
 Let us also note that these scores use $1/{n \choose 2}$ as the unit of
 information, which might cause problems with their interpretability.
-The adjusted asymmetric accuracy and the pair sets index
+The normalised clustering accuracy and the pair sets index
 work on the $1/n$ scale.
 
 

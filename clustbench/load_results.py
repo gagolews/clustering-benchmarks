@@ -185,7 +185,7 @@ def transpose_results(results):
 
 def save_results(filename, results, expanduser=True, expandvars=True):
     """
-    Write clustering results of many algorithms
+    Write results of many clustering algorithms
 
     Parameters
     ----------

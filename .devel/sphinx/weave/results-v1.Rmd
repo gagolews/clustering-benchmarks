@@ -42,11 +42,15 @@ Where applicable, we considered a wide range of control parameters.
     being high-quality ones) of many
     {ref}`internal cluster validity measures <sec:external-validity-measures>`,
     including the Caliński–Harabasz, Dunn, or Silhouette index;
-    see {cite}`cvi`.
+    see {cite}`cvi`;
+
+* `optim_cvi_mst_divisive` – maximising internal cluster validity measures
+    over Euclidean minimum spanning trees using a divisive strategy;
+    see {cite}`cvimst`.
 
 New results will be added in the future (note that we can only consider
 methods that allow for setting the precise number of generated clusters).
-Quality contributions are {ref}`welcome <sec:contributing>`.
+New quality contributions are {ref}`welcome <sec:contributing>`.
 
 
 ## Feature Engineering

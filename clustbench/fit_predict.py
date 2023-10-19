@@ -29,7 +29,7 @@ def fit_predict_many(model, data, n_clusters):
     Determine many clusterings of the same dataset.
 
     Ideally, for hierarchical methods, it would be best
-    if ``model`` was be implemented smartly enough
+    if ``model`` was implemented smartly enough
     that for the same ``X`` and different ``n_clusters``
     it does not recompute the whole hierarchy from scratch.
 

@@ -24,3 +24,6 @@ RMD_MD_OUTPUTS=$(patsubst %.Rmd,%.md,$(FILES_RMD))
 all : rmd
 
 rmd : $(RMD_MD_OUTPUTS)
+
+clean:
+	rm -f $(RMD_MD_OUTPUTS)

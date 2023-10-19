@@ -140,7 +140,7 @@ pd.Series({  # for aesthetics
 })
 ```
 
-By default, adjusted asymmetric accuracy is applied.
+By default, normalised clustering accuracy is applied.
 As explained in the tutorial, we compare the predicted clusterings against
 {ref}`all <sec:many-partitions>` the reference partitions
 ({ref}`ignoring noise points <sec:noise-points>`)

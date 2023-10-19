@@ -30,7 +30,7 @@ from .load_results import labels_list_to_dict
 def get_score(
     labels,
     results,
-    metric=genieclust.compare_partitions.adjusted_asymmetric_accuracy,
+    metric=genieclust.compare_partitions.normalized_clustering_accuracy,
     compute_max=True,
     warn_if_missing=True
 ):
