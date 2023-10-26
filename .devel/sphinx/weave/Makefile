@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2022, Marek Gagolewski <https://www.gagolewski.com>
+# Copyright (c) 2015-2023, Marek Gagolewski <https://www.gagolewski.com>
 
 FILES_RMD = \
 	clustbench-usage.Rmd \

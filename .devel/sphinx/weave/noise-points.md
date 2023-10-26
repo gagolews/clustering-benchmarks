@@ -6,9 +6,9 @@
 # Noise Points
 
 
-Some datasets feature **noise points**
-to make the clustering problem more difficult
-(e.g., outliers or irrelevant points in between the actual clusters).
+To make the clustering task more challenging,
+some benchmark datasets feature **noise points**
+(e.g., outliers or irrelevant points in-between the actual clusters).
 They are specially marked in the ground-truth vectors:
 we assign them cluster IDs of 0.
 
@@ -44,7 +44,7 @@ pd.Series(y_true).value_counts()
 ## 4    306
 ## 5    207
 ## 6    184
-## dtype: int64
+## Name: count, dtype: int64
 ```
 
 There are six clusters (1–6) and a special point group with ID=0
@@ -69,8 +69,7 @@ Suppose we want to evaluate how [Genie](https://genieclust.gagolewski.com)
 handles such a noisy dataset.
 
 ::::{important}
-The algorithm must
-not be informed about the exact location of such problematic points.
+The algorithm must not be informed about the exact location of the noise points.
 After all, it is an unsupervised learning task.
 ::::
 
@@ -124,23 +123,22 @@ genieclust.compare_partitions.confusion_matrix(y_true, y_pred)
 ##        [  0,   0, 184,   0,   0,   0]])
 ```
 
-The first row denotes the "noise cluster": we do not actually
-care how the algorithm classifies such points. After all, most classical
-algorithms are not equipped with noise point detectors[^footnoisedetect]
-and they should not be penalised for this.
+The first row denotes the "noise cluster".
 
-Genie discovered four clusters very well (3, 4, 5, 6),
-but failed on the first two (it created a "combined" cluster instead,
+Genie recreated four of the reference clusters very well (3, 4, 5, 6),
+but failed on the first two (it discovered a "combined" cluster instead,
 and considered some noise points as a separate set).
 
 
 ::::{important}
 When computing external cluster validity measures,
-we should omit the noise points whatsoever.
+we should omit the noise points from the reference set whatsoever.
+After all, most classical algorithms are not equipped with noise point
+detectors[^footnoisedetect] and they should not be penalised for this.
 ::::
 
 
-Let us compute the adjusted asymmetric accuracy,
+Let us compute the normalised clustering accuracy,
 ignoring the first row in the confusion matrix:
 
 

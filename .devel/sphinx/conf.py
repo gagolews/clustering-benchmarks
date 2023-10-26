@@ -1,7 +1,7 @@
 # Copyleft (C) 2020-2023, Marek Gagolewski <https://www.gagolewski.com>
 # Configuration file for the Sphinx documentation builder.
 
-import sys, os, sphinx_rtd_theme
+import sys, os
 sys.path.append(os.getcwd())
 
 import clustbench
@@ -37,12 +37,11 @@ highlight_language = "python"
 html_last_updated_fmt = today_fmt
 
 extensions = [
-    'sphinx_rtd_theme',
     'myst_parser',
     'sphinx.ext.mathjax',
     'sphinxcontrib.bibtex',
-    'sphinxcontrib.proof',  # proof:exercise, proof:example
-    #'sphinx_multitoc_numbering', # so that chapter numbers do not reset across parts [book only]
+    #'sphinxcontrib.proof',  # proof:exercise, proof:example
+    #'sphinx_multitoc_numbering',  # so that chapter numbers do not reset across parts [book only]
 
     # [Python package API docs only]
     'matplotlib.sphinxext.plot_directive',
@@ -59,23 +58,10 @@ myst_enable_extensions = [
     "colon_fence",
     "dollarmath",
     "deflist",
+    "strikethrough",  # HTML only
 ]
 
-proof_theorem_types = {
-    "exercise": "Exercise",
-    "algorithm": "Algorithm",
-    "conjecture": "Conjecture",
-    "corollary": "Corollary",
-    "definition": "Definition",
-    "example": "Example",
-    "lemma": "Lemma",
-    "observation": "Observation",
-    "proof": "Proof",
-    "property": "Property",
-    "theorem": "Theorem",
-}
-proof_html_nonumbers = ["proof"]
-proof_latex_parent = "section"
+suppress_warnings = ["myst.strikethrough"]
 
 templates_path = ['_templates']
 
@@ -112,23 +98,44 @@ autosummary_imported_members = True
 autosummary_generate = True
 
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'furo'
+
+html_show_sourcelink = True
+
+html_static_path = ['_static']
+html_css_files = ['css/custom.css']
+
+html_scaled_image_link = False
 
 html_theme_options = {
-    'prev_next_buttons_location': 'both',
-    'sticky_navigation': True,
-    'display_version': True,
-    'style_external_links': True,
-    'vcs_pageview_mode': github_star_repo,  # Marek (layout.html)
-    'analytics_id': analytics_id,           # Marek (layout.html)
-    'display_version': html_version_text    # Marek (layout.html)
+
+    # https://pradyunsg.me/furo/customisation/
+    'sidebar_hide_name': False,
+    'navigation_with_keys': False,
+    'top_of_page_button': "edit",
+    "source_edit_link": f"{github_url}/issues/",
+    #'footer_icons': ...,
+    #'announcement': ...,
+
+
+    # https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+    # https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
+
+    "light_css_variables": {
+        "admonition-font-size": "95%",
+        "admonition-title-font-size": "95%",
+        "color-brand-primary": "red",
+        "color-brand-content": "#CC3333",
+    },
+
+    "dark_css_variables": {
+        "admonition-font-size": "95%",
+        "admonition-title-font-size": "95%",
+        "color-brand-primary": "#ff2b53",
+        "color-brand-content": "#dd3333",
+    },
 }
 
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_show_sourcelink = False
-
-html_static_path = ["_static"]
-html_css_files = ["css/custom.css"]
 
 # BibTeX biblography + Marek's custom pybtex style
 import alphamarek

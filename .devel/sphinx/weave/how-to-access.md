@@ -5,7 +5,6 @@
 (sec:how-to-access)=
 # Access from Python, R, MATLAB, etc.
 
-
 ## Python
 
 To facilitate the comparison of clustering algorithms in the
@@ -16,8 +15,7 @@ see {ref}`sec:clustbench-usage` for more details.
 
 However, as described in the {ref}`sec:file-format` section,
 all data files are neat and tidy. Therefore, we can access them
-easily using some more low-level functions from *numpy*
-or *pandas*. For example:
+easily using some more low-level functions from *numpy*. For example:
 
 
 
@@ -41,15 +39,15 @@ labels[:6]  # preview
 ```
 
 
-External cluster validity measures
-discussed in the {ref}`Appendix <sec:external-validity-measures>`
+Note that cluster validity measures discussed in the
+{ref}`Appendix <sec:external-validity-measures>`
 are implemented in the [*genieclust*](https://genieclust.gagolewski.com)
 package.
 
 
 ::::{note}
 *To learn more about Python,
-check out Marek's recent open-access (free!) textbook*
+check out Marek's open-access (free!) textbook*
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
 {cite}`datawranglingpy`.
 ::::
@@ -59,7 +57,7 @@ check out Marek's recent open-access (free!) textbook*
 ## R
 
 Following the {ref}`sec:file-format`,
-the datasets can be accessed easily using built-in R functions:
+the datasets can be accessed using the built-in R functions:
 
 
 
@@ -82,7 +80,7 @@ head(labels)  # preview
 
 
 
-The {ref}`external cluster validity measures <sec:external-validity-measures>`
+{ref}`Cluster validity measures <sec:external-validity-measures>`
 are implemented in the R version of the
 [*genieclust*](https://genieclust.gagolewski.com) package.
 
@@ -127,5 +125,5 @@ Unfortunately, MATLAB is not free software.
 ::::{todo}
 Contributions are welcome: Describe how to load
 the datasets and benchmark results
-in GNU Octave, Scilab, Julia, Mathematica, ...
+in GNU Octave, Scilab, Julia, Mathematica, ... (🚧 help needed 🚧)
 ::::

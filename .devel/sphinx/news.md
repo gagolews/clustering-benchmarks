@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 (2023-10-19)
+
+-   [BUGFIX] `adjusted_asymetric_accuracy` is now called
+    `normalized_clustering_accuracy` in `genieclust`.
+
+
 ## 1.1.1 (2022-10-06)
 
 -   [BUGFIX] #3: `root_dir` in `glob.glob` is only available Python >= 3.10.

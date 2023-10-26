@@ -22,6 +22,10 @@ def summarise_battery(battery):
     ))
 
 
+    x.iloc[:, 0] = x.iloc[:, 0].astype(str)
+    x.iloc[:, 1] = x.iloc[:, 1].astype(str)
+    x.iloc[:, 2] = x.iloc[:, 2].astype(str)
+
     idx = [""]*x.shape[0]
     j = 1
     for i in range(x.shape[0]):
@@ -107,7 +111,7 @@ each dataset is accompanied by a text file specifying more details thereon
 (e.g., the literature references that we are asked to cite).
 
 
-As a courtesy, **please cite** the current project
+As a courtesy, **please cite** also the current project
 {cite}`clustering_benchmarks` as well as mention {cite}`clustering_data_v1`
 which gives the exact version and URL of the dataset suite. Thank you.
 
@@ -129,7 +133,7 @@ that did not appear in the original setting.
 ## `wut`
 
 22 datasets in $\mathbb{R}^2$ or $\mathbb{R}^3$
-authored by the fantastic students of Marek's 2016/2017 courses on Data Analysis
+authored by the wonderful students of Marek's 2016/2017 courses on Data Analysis
 in [R](https://deepr.gagolewski.com/)
 and [Python](https://datawranglingpy.gagolewski.com/)
 at the
@@ -217,8 +221,8 @@ summarise_battery("fcps")
 10 *synthetic data sets* discussed by D. Graves and W. Pedrycz
 in {cite}`graves`.
 
-Each dataset consists of 200–1050 observations in 2 dimensions.
-Originally, they come with no reference labels.
+The dataset consist of 200–1050 observations in 2 dimensions.
+They came with no reference labels, so we had to create them ourselves.
 
 ```{python echo=FALSE,results="asis"}
 summarise_battery("graves")
@@ -272,15 +276,16 @@ summarise_battery("other")
 (sec:battery-uci)=
 ## `uci`
 
-A selection of 8 high-dimensional datasets available at the UCI
+A selection of 8 high-dimensional datasets available through the UCI
 (University of California, Irvine)
-[Machine Learning Repository](http://archive.ics.uci.edu/ml/)
-{cite}`uci`.
+[Machine Learning Repository](http://archive.ics.uci.edu/ml/) {cite}`uci`.
 Some of them were considered for benchmark purposes
 in, amongst others, {cite}`graves`.
 They are also listed in the {ref}`sec:battery-sipu` battery.
 However, their original purpose is for testing classification,
-not clustering algorithms.
+not clustering algorithms. Most clustering algorithms find them
+problematic; due to their being high-dimensional, it is difficult
+to verify the sensibleness of the reference labels.
 
 ```{python echo=FALSE,results="asis"}
 summarise_battery("uci")
@@ -304,7 +309,7 @@ This battery features two large, high-dimensional datasets:
     compiled by H. Xiao, K. Rasul, and R. Vollgraf;
     see {cite}`fashion_mnist`.
 
-Both datasets consist of 70,000 flattened 28x28 grayscale images
+Both datasets consist of 70,000 flattened 28x28 greyscale images
 (train and test samples combined).
 
 ```{python echo=FALSE,results="asis"}
@@ -320,7 +325,7 @@ Each dataset consists of 2,048 observations from
 two equisized Gaussian clusters in $d=1, 2, \dots, 128$ dimensions
 (the components are sampled independently from a normal distribution).
 
-They can be considered a modified version of Gaussian `G2`-sets from
+They can be considered a modified version of the Gaussian `G2`-sets from
 <https://cs.joensuu.fi/sipu/datasets/>, but with variances
 dependent on datasets' dimensionalities, i.e., $s\sqrt{d/2}$
 for different *s*. This makes these new problems more difficult than
@@ -336,7 +341,7 @@ see, e.g., the Gaussian Annulus Theorem mentioned in {cite}`foundds`.
 
 Generator: <https://github.com/gagolews/clustering-data-v1/blob/master/.devel/generate_gKmg.py>
 
-We suggest that these datasets should be studied separately
+We recommend that these datasets be studied separately
 from other batteries, because they are too plentiful.
 Also, *parametric* algorithms that *specialise* in detecting
 Gaussian blobs (*k*-means, expectation-maximisation (EM)
@@ -362,8 +367,8 @@ with a predefined scaling parameter.
 
 Generator: <https://github.com/gagolews/clustering-data-v1/blob/master/.devel/generate_hKmg.py>
 
-Just like in the case of {ref}`sec:battery-g2mg`, we suggest
-that these datasets should be studied separately from other batteries.
+Just like in the case of {ref}`sec:battery-g2mg`, we recommend
+that these datasets be studied separately from other batteries.
 
 ```{python echo=FALSE,results="asis"}
 summarise_battery("h2mg")

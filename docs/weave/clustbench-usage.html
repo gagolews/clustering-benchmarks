@@ -1,117 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Documentation" href="../clustbench-documentation.html" /><link rel="prev" title="Contributing" href="contributing.html" />
+        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/clustbench-usage.html" />
 
-
-<html class="writer-html5" lang="en" >
-<!-- Copyright (C) 2020-2022, Marek Gagolewski <https://www.gagolewski.com> -->
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Using clustbench &mdash; Clustering Benchmarks</title>
-  
-
-  
-  
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/proof.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-    <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/clustbench-usage.html" />
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+    <link rel="shortcut icon" href="../_static/favicon.png"/><!-- Generated with Sphinx 7.2.5 and Furo 2023.08.19 -->
+        <title>Using clustbench - Clustering Benchmarks</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b4e99bb3" />
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/proof.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --admonition-font-size: 95%;
+  --admonition-title-font-size: 95%;
+  --color-brand-primary: red;
+  --color-brand-content: #CC3333;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --admonition-font-size: 95%;
+  --admonition-title-font-size: 95%;
+  --color-brand-primary: #ff2b53;
+  --color-brand-content: #dd3333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --admonition-font-size: 95%;
+  --admonition-title-font-size: 95%;
+  --color-brand-primary: #ff2b53;
+  --color-brand-content: #dd3333;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
     
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Documentation" href="../clustbench-documentation.html" />
-    <link rel="prev" title="Contributing" href="contributing.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
 
-          
-            <a href="../index.html"> Clustering Benchmarks
-          
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
 
-          
-          </a>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
-          <div class="version">
-          by <a style="color: inherit" href="https://www.gagolewski.com">Marek Gagolewski</a><br />v1.1.1
-          </div>
 
-<!--
-          
-            
-            
-              <div class="version">
-                by Marek Gagolewski
-              </div>
-            
-          
--->
 
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search phrase..." />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Clustering Benchmarks</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto colour theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky">
+
+<span class="sidebar-brand-text">
+<a class="sidebar-brand" href="../index.html">Clustering Benchmarks</a>
+</span>
+<div class="sidebar-brand">
+1.1.2
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
+<form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Methodology</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="true-vs-predicted.html">True vs Predicted Clusters</a></li>
@@ -129,13 +191,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using <em>clustbench</em></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#fetching-benchmark-data">Fetching Benchmark Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fetching-precomputed-results">Fetching Precomputed Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#computing-external-cluster-validity-measures">Computing External Cluster Validity Measures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#applying-clustering-methods-manually">Applying Clustering Methods Manually</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Using <em>clustbench</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clustbench-documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/gagolews/clustering-benchmarks">Source Code (GitHub)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/clustering-benchmarks">PyPI Entry</a></li>
@@ -149,95 +205,55 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="colouriser.html">Colouriser: Planar Data Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colouriser.html">Colouriser: A Planar Data Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="external-validity-measures.html">External Cluster Validity Measures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internal-validity-measures.html">Side Note: Internal <em>(In)Validity</em> Measures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../z_bibliography.html">References</a></li>
 </ul>
 
-            
-          
-        </div>
-        
+</div></div>
+
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Clustering Benchmarks</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Using <em>clustbench</em></li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-
-        
-        
-        <a class="github-button" href="https://github.com/gagolews/clustering-benchmarks" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gagolews/clustering-benchmarks on GitHub">GitHub</a>
-        
-
-
-        
-      </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="../clustbench-documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
-        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
-  </div>
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <section class="tex2jax_ignore mathjax_ignore" id="using-clustbench">
-<span id="sec-clustbench-usage"></span><h1>Using <em>clustbench</em><a class="headerlink" href="#using-clustbench" title="Permalink to this heading"></a></h1>
-<p>The Python version of the <em>clustering-benchmarks</em> package for Python
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto colour theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="using-clustbench">
+<span id="sec-clustbench-usage"></span><h1>Using <em>clustbench</em><a class="headerlink" href="#using-clustbench" title="Link to this heading">#</a></h1>
+<p>The Python version of the <em>clustering-benchmarks</em> package
 can be installed from <a class="reference external" href="https://pypi.org/project/clustering-benchmarks/">PyPI</a>,
 e.g., via a call to:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">clustering</span><span class="o">-</span><span class="n">benchmarks</span>
@@ -253,13 +269,13 @@ package manager.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><em>To learn more about Python,
-check out Marek’s recent open-access (free!) textbook</em>
+check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id7" title="Gagolewski, M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2022).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">22</a>]</span>.</p>
 </div>
 <section id="fetching-benchmark-data">
-<h2>Fetching Benchmark Data<a class="headerlink" href="#fetching-benchmark-data" title="Permalink to this heading"></a></h2>
-<p>The datasets from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a> can be queried easily.
+<h2>Fetching Benchmark Data<a class="headerlink" href="#fetching-benchmark-data" title="Link to this heading">#</a></h2>
+<p>The datasets from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a> can be accessed easily.
 It is best to <a class="reference external" href="https://github.com/gagolews/clustering-data-v1">download</a>
 the whole repository onto our disk first.
 Let us assume they are available in the following directory:</p>
@@ -268,12 +284,13 @@ Let us assume they are available in the following directory:</p>
 <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here is the list of the currently available benchmark batteries:</p>
+<p>Here is the list of the currently available benchmark batteries
+(dataset collections):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_battery_names</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
 <span class="c1">## [&#39;fcps&#39;, &#39;g2mg&#39;, &#39;graves&#39;, &#39;h2mg&#39;, &#39;mnist&#39;, &#39;other&#39;, &#39;sipu&#39;, &#39;uci&#39;, &#39;wut&#39;]</span>
 </pre></div>
 </div>
-<p>We can ask for the names of the dataset in an example battery:</p>
+<p>We can list the datasets in an example battery by calling:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">battery</span> <span class="o">=</span> <span class="s2">&quot;wut&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">(</span><span class="n">battery</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
 <span class="c1">## [&#39;circles&#39;, &#39;cross&#39;, &#39;graph&#39;, &#39;isolation&#39;, &#39;labirynth&#39;, &#39;mk1&#39;, &#39;mk2&#39;, &#39;mk3&#39;, &#39;mk4&#39;, &#39;olympic&#39;, &#39;smile&#39;, &#39;stripes&#39;, &#39;trajectories&#39;, &#39;trapped_lovers&#39;, &#39;twosplashes&#39;, &#39;windows&#39;, &#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;z1&#39;, &#39;z2&#39;, &#39;z3&#39;]</span>
@@ -295,13 +312,14 @@ field:</p>
 <span class="c1">## `0` denotes the noise class (if present).</span>
 </pre></div>
 </div>
-<p>What is more, <code class="docutils literal notranslate"><span class="pre">data</span></code> is the data matrix, <code class="docutils literal notranslate"><span class="pre">labels</span></code> gives the list
+<p>What is more, the <code class="docutils literal notranslate"><span class="pre">data</span></code> field is the data matrix, <code class="docutils literal notranslate"><span class="pre">labels</span></code> gives the list
 of all ground truth partitions (encoded as label vectors),
 and <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> gives the corresponding numbers of subsets.
 In case of any doubt, we can always consult the official documentation
 of the <a class="reference internal" href="../clustbench-documentation.html#clustbench.load_dataset" title="clustbench.load_dataset"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.load_dataset</span></code></a> function.</p>
 <p>For instance, here is the shape (<em>n</em> and <em>d</em>) of the data matrix,
-the number of reference partitions, and their cardinalities <em>k</em>.</p>
+the number of reference partitions, and their cardinalities <em>k</em>,
+respectively:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
 <span class="c1">## (120, 2) 2 [3 4]</span>
 </pre></div>
@@ -321,19 +339,19 @@ illustrates the benchmark dataset at hand.</p>
 <figure class="align-default" id="id2">
 <span id="fig-using-clustbench-example1"></span><img alt="../_images/using-clustbench-example1-1.png" src="../_images/using-clustbench-example1-1.png" />
 <figcaption>
-<p><span class="caption-number">Figure 7:  </span><span class="caption-text">An example benchmark dataset and the corresponding ground truth labels.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 7:  </span><span class="caption-text">An example benchmark dataset and the corresponding ground truth labels.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="fetching-precomputed-results">
-<h2>Fetching Precomputed Results<a class="headerlink" href="#fetching-precomputed-results" title="Permalink to this heading"></a></h2>
-<p>Say we would like to study
-one of the sets of <a class="reference external" href="https://github.com/gagolews/clustering-results-v1">precomputed clustering results</a>
+<h2>Fetching Precomputed Results<a class="headerlink" href="#fetching-precomputed-results" title="Link to this heading">#</a></h2>
+<p>Let us study one of the sets of
+<a class="reference external" href="https://github.com/gagolews/clustering-results-v1">precomputed clustering results</a>
 stored in the following directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-results-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;original&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The results can be fetched by calling:</p>
+<p>They can be fetched by calling:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method_group</span> <span class="o">=</span> <span class="s2">&quot;Genie&quot;</span>  <span class="c1"># or &quot;*&quot; for everything</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_results</span><span class="p">(</span>
     <span class="n">method_group</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">battery</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">results_path</span>
@@ -342,11 +360,12 @@ stored in the following directory:</p>
 <span class="c1">## [&#39;Genie_G0.1&#39;, &#39;Genie_G0.3&#39;, &#39;Genie_G0.5&#39;, &#39;Genie_G0.7&#39;, &#39;Genie_G1.0&#39;]</span>
 </pre></div>
 </div>
-<p>We thus have got access to data generated by the <a class="reference external" href="https://genieclust.gagolewski.com"><em>Genie</em></a>
+<p>We thus have got access to precomputed data
+generated by the <a class="reference external" href="https://genieclust.gagolewski.com"><em>Genie</em></a>
 algorithm with different <code class="docutils literal notranslate"><span class="pre">gini_threshold</span></code> parameter settings.</p>
 </section>
 <section id="computing-external-cluster-validity-measures">
-<h2>Computing External Cluster Validity Measures<a class="headerlink" href="#computing-external-cluster-validity-measures" title="Permalink to this heading"></a></h2>
+<h2>Computing External Cluster Validity Measures<a class="headerlink" href="#computing-external-cluster-validity-measures" title="Link to this heading">#</a></h2>
 <p>Different
 <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">external cluster validity measures</span></a>
 can be computed by calling <a class="reference internal" href="../clustbench-documentation.html#clustbench.get_score" title="clustbench.get_score"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.get_score</span></code></a>:</p>
@@ -362,7 +381,7 @@ can be computed by calling <a class="reference internal" href="../clustbench-doc
 <span class="c1">## dtype: float64</span>
 </pre></div>
 </div>
-<p>By default, adjusted asymmetric accuracy is applied.
+<p>By default, normalised clustering accuracy is applied.
 As explained in the tutorial, we compare the predicted clusterings against
 <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">all</span></a> the reference partitions
 (<a class="reference internal" href="noise-points.html#sec-noise-points"><span class="std std-ref">ignoring noise points</span></a>)
@@ -380,18 +399,18 @@ and report the maximal score.</p>
 <figure class="align-default" id="id3">
 <span id="fig-using-clustbench-example2"></span><img alt="../_images/using-clustbench-example2-3.png" src="../_images/using-clustbench-example2-3.png" />
 <figcaption>
-<p><span class="caption-number">Figure 8:  </span><span class="caption-text">Results generated by Genie.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 8:  </span><span class="caption-text">Results generated by Genie.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="applying-clustering-methods-manually">
-<h2>Applying Clustering Methods Manually<a class="headerlink" href="#applying-clustering-methods-manually" title="Permalink to this heading"></a></h2>
+<h2>Applying Clustering Methods Manually<a class="headerlink" href="#applying-clustering-methods-manually" title="Link to this heading">#</a></h2>
 <p>Naturally, the aim of this benchmark framework is also to test new methods.
 We can use <a class="reference internal" href="../clustbench-documentation.html#clustbench.fit_predict_many" title="clustbench.fit_predict_many"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.fit_predict_many</span></code></a> to generate
 all the partitions required to compare ourselves against the reference labels.</p>
 <p>For instance, let us investigate the behaviour of the k-means algorithm:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.cluster</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">()</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">fit_predict_many</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
 <span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">])</span>
 <span class="c1">## 0.9848484848484849</span>
@@ -411,59 +430,96 @@ performs better than <em>Genie</em> on this particular dataset.</p>
 <figure class="align-default" id="id4">
 <span id="fig-using-clustbench-example3"></span><img alt="../_images/using-clustbench-example3-5.png" src="../_images/using-clustbench-example3-5.png" />
 <figcaption>
-<p><span class="caption-number">Figure 9:  </span><span class="caption-text">Results generated by K-Means.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 9:  </span><span class="caption-text">Results generated by K-Means.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>For more functions, please refer to the package’s documentation (in the next section).
-Moreover, <a class="reference internal" href="colouriser.html#sec-colouriser"><span class="std std-ref">Colouriser: Planar Data Editor</span></a> describes a standalone application
-that can be used for preparing our own two-dimensional datasets.</p>
+Moreover, <a class="reference internal" href="colouriser.html#sec-colouriser"><span class="std std-ref">Colouriser: A Planar Data Editor</span></a> describes a standalone application
+that can be used to prepare our own two-dimensional datasets.</p>
+<p>Note that you do not have to use the <em>clustering-benchmark</em> package
+to access the benchmark datasets from our repository.
+The <a class="reference internal" href="how-to-access.html#sec-how-to-access"><span class="std std-ref">Access from Python, R, MATLAB, etc.</span></a> section mentions that most operations
+involve simple operations on files and directories which you can
+implement manually. The package was developed merely for the users’
+convenience.</p>
 </section>
 </section>
 
-
-           </div>
-           
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../clustbench-documentation.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Documentation</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="contributing.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Contributing</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+              
+              
+              Copyright &#169; 2020–2023 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
+              Built with <a href="https://sphinx-doc.org/">Sphinx</a>
+              and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
+              Last updated on 2023-10-26T14:38:08+1100.
+              This site will never display any ads: it is a non-profit project.
+              It does not collect any data.
+            </div>
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../clustbench-documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            In this section
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Using <em>clustbench</em></a><ul>
+<li><a class="reference internal" href="#fetching-benchmark-data">Fetching Benchmark Data</a></li>
+<li><a class="reference internal" href="#fetching-precomputed-results">Fetching Precomputed Results</a></li>
+<li><a class="reference internal" href="#computing-external-cluster-validity-measures">Computing External Cluster Validity Measures</a></li>
+<li><a class="reference internal" href="#applying-clustering-methods-manually">Applying Clustering Methods Manually</a></li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        Copyright &#169; 2020–2023 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>. Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
-
-    Built with <a href="https://sphinx-doc.org/">Sphinx</a>
-    and a customised <a href="https://github.com/rtfd/sphinx_rtd_theme">rtd</a>
-    theme.
-      <span class="lastupdated">
-        Last updated on 2023-07-02T15:44:39+1000.
-      </span>
-
-
-    This site will never display any ads: it is a non-profit project.
-    It does not collect any data.
-
-    </p>
-  </div> 
-
-</footer>
+          </div>
         </div>
       </div>
-
-    </section>
-
+      
+      
+    </aside>
   </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+</div><script src="../_static/documentation_options.js?v=6f037312"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
 </html>

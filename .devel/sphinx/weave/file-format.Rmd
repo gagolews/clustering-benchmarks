@@ -34,14 +34,14 @@ we have the following corresponding files:
     ground truth partitions (as
     {ref}`there can be many <sec:many-partitions>` equally valid
     ways to cluster a dataset)
-    identified by consecutive  integers starting at 0.
+    identified by consecutive integers that start at 0.
 
     Each file stores a separate label vector:
 
     * a gzipped text file with exactly *n* integers, one per line;
     * the *i*-th label (line) corresponds to the *i*-th data point;
-    * `0` denotes the {ref}`noise class <sec:noise-points>` (if present),
-        and the first meaningful cluster is denoted with `1`;
+    * `0` encodes the {ref}`noise class <sec:noise-points>` (if present),
+        and the first meaningful cluster is denoted by `1`;
     * class labels are consecutive integers:
         `0`, `1`, `2`, ..., `K`, where `K = max(labels)` is the total
         number of clusters (noise not included in the counting);
@@ -50,7 +50,7 @@ we have the following corresponding files:
 
 
 Additionally, `battery/README.txt` gives some general information
-about the benchmark battery.
+about the benchmark battery (dataset collection).
 
 
 ## Clustering Results

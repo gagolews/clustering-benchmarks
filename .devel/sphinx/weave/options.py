@@ -14,8 +14,11 @@ os.environ["COLUMNS"] = "74"  # output width, in characters
 np.set_printoptions(linewidth=74)
 pd.set_option("display.width", 74)
 
+import sklearn
+sklearn.set_config(display="text")
 
-plt.style.use("seaborn-v0_8-whitegrid")  # overall plot style
+plt.style.use("seaborn-v0_8")  # overall plot style
+
 
 _colours = [  # the "R4" palette
     "#000000", "#DF536B", "#61D04F", "#2297E6",

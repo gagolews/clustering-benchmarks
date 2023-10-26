@@ -57,7 +57,8 @@ def get_score(
         ``results[K]`` gives a K-partition.
 
     metric : function
-        An external cluster validity measure.
+        An external cluster validity measure; defaults to
+        ``genieclust.compare_partitions.normalized_clustering_accuracy``.
         It will be called like ``metric(y_true, y_pred)``.
 
     compute_max : bool
@@ -70,8 +71,7 @@ def get_score(
     -------
 
     score : float or array thereof
-        The computed similarity scores. Ultimately,
-        it is a vector of
+        The computed similarity scores. Ultimately, it is a vector of
         ``metric(y_true[y_true>0], results[max(y_true)][y_true>0])``
         over all ``y_true`` in ``labels``
         or the maximum thereof if ``compute_max`` is ``True``.

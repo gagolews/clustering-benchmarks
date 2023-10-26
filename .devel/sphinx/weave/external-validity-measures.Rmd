@@ -21,7 +21,7 @@ clustering algorithm.
 
 **External cluster validity measures** are functions
 of the form $I(\mathbf{y}, \hat{\mathbf{y}})$ such that
-the more *similar* the partitions, the higher the score.
+the more *similar* the two partitions are, the higher the score is.
 They are normalised so that identical label vectors return the highest
 similarity score which is equal to 1. Some measures can be adjusted for
 chance, yielding approximately 0 for random partitions.
@@ -49,19 +49,19 @@ Let $\mathbf{C}$ be the *confusion* (matching) matrix corresponding
 to $\mathbf{y}$ and $\hat{\mathbf{y}}$,
 where $c_{i,j}=\#\{ u: y_u=i\text{ and }\hat{y}_u=j \}$ denotes
 the number of points in the true cluster $X_i$ and the predicted cluster
-$\hat{X}_j$ with $i,j,\in\{1,\dots,k\}$.
+$\hat{X}_j$ with $i,j\in\{1,\dots,k\}$.
 
 
 $$
 \begin{array}{|c||cccc|}
 \hline
-\mathbf{c}_{1,\cdot}   & c_{1,1}   & c_{1,2}  & \cdots & c_{1,k} \\
-\mathbf{c}_{2,\cdot}   & c_{2,1}   & c_{2,2}  & \cdots & c_{2,k} \\
-\mathbf{c}_{3,\cdot}   & c_{3,1}   & c_{3,2}  & \cdots & c_{3,k} \\
+{c}_{1,\cdot}   & c_{1,1}   & c_{1,2}  & \cdots & c_{1,k} \\
+{c}_{2,\cdot}   & c_{2,1}   & c_{2,2}  & \cdots & c_{2,k} \\
+{c}_{3,\cdot}   & c_{3,1}   & c_{3,2}  & \cdots & c_{3,k} \\
 \vdots                 &  \vdots   & \vdots   & \ddots & \vdots  \\
-\mathbf{c}_{k,\cdot}   & c_{k,1}   & c_{k,2}  & \cdots & c_{k,k} \\
+{c}_{k,\cdot}   & c_{k,1}   & c_{k,2}  & \cdots & c_{k,k} \\
 \hline\hline
-n & \mathbf{c}_{\cdot,1} & \mathbf{c}_{\cdot,2} & \cdots & \mathbf{c}_{\cdot,k} \\
+n & {c}_{\cdot,1} & {c}_{\cdot,2} & \cdots & {c}_{\cdot,k} \\
 \hline
 \end{array}
 $$
@@ -69,10 +69,10 @@ $$
 
 It  holds $\sum_{i=1}^k \sum_{j=1}^k c_{i,j} = n$.
 Moreover, let
-$\mathbf{c}_{i,\cdot} = \sum_{j=1}^k c_{i,j} = \#\{ u: y_u=i \}$
+${c}_{i,\cdot} = \sum_{j=1}^k c_{i,j} = \#\{ u: y_u=i \}$
 denote the number of elements in the reference cluster $X_i$
 and
-$\mathbf{c}_{\cdot,j} = \sum_{i=1}^k c_{i,j} = \#\{ u: \hat{y}_u=j \}$
+${c}_{\cdot,j} = \sum_{i=1}^k c_{i,j} = \#\{ u: \hat{y}_u=j \}$
 be the number of objects in the predicted cluster $\hat{X}_j$.
 
 All the measures reviewed here are expressed solely by means of operations
@@ -184,11 +184,11 @@ def all_measures(C):
         NCA=d["nca"],
         PS=d["psi"],
         SPS=d["spsi"],
-        NA=d["nacc"],
+        NA=d["npa"],
         AR=d["ar"],
         R=d["r"],
         NMI=d["nmi"],
-        PA=d["nacc"]*(1-1/C.shape[0])+1/C.shape[0],
+        A=d["npa"]*(1-1/C.shape[0])+1/C.shape[0],
         FM=d["fm"],
     )
 
@@ -272,7 +272,7 @@ plt.text(**param_txt, s="\n".join(
 ))
 plt.text(**param_mat, s=str(C))
 
-plt.tight_layout(pad=0)
+plt.tight_layout(pad=0.5)
 plt.show()
 ```
 
@@ -287,7 +287,7 @@ Still, here we only want to relate them to the *current* reference set.
 
 
 
-## Why Not the Simple Accuracy?
+## Why Not the Classification Accuracy?
 
 A common mistake is to compute the standard accuracy
 as known from the evaluation of classification models:
@@ -325,29 +325,30 @@ Optimal pairing leads to what we call here the pivoted accuracy
 {cite}`MeilaHeckerman2001`):
 
 $$
-\mathrm{PA}(\mathbf{C}) =
+\mathrm{A}(\mathbf{C}) =
 \max_\sigma \frac{1}{n} \sum_{i=1}^k  c_{i, \sigma(i)}.
 $$
 
-This relies on the best matching of the labels in $\mathbf{y}$
+It relies on the best matching of the labels in $\mathbf{y}$
 to the labels in  $\mathbf{\hat{y}}$ so as to maximise the standard accuracy.
-
-Unfortunately, PA is not adjusted for chance.
+Unfortunately, it is not adjusted for chance.
 The smallest possible value it can take is $1/k$.
-We can thus consider the *normalised accuracy*:
+We can thus consider the *normalised pivoted accuracy*:
 
 $$
 \mathrm{NA}(\mathbf{C}) =
-\max_\sigma
-\frac{
- \frac{1}{n} \sum_{i=1}^k  c_{i, \sigma(i)} - \frac{1}{k}
+\displaystyle\max_{\sigma}
+\frac{1}{k}\displaystyle\sum_{j=1}^k \frac{
+    c_{\sigma(j),j}
+    -
+    \frac{n}{k^2}
 }{
-1-\frac{1}{k}
+    \frac{n}{k} -\frac{n}{k^2}
 }.
 $$
 
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalized_accuracy`*.
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalized_pivoted_accuracy`*.
 
 Still, if there are clusters of highly imbalanced sizes,
 then its value is biased towards the quality of the match
@@ -357,41 +358,34 @@ in the largest point group.
 
 ### Normalised Clustering Accuracy
 
-In {cite}`nca`, the normalised for cluster sizes version of PA was proposed.
+In {cite}`nca`, the normalised for cluster sizes version of NA was proposed.
 Namely, the *normalised clustering accuracy* is defined as:
 
-<!-- TODO: update formula -->
-
 $$
-\mathrm{NCA}(\mathbf{C})
-=
-\frac{
-\max_\sigma \frac{1}{k} \sum_{i=1}^k \frac{c_{i, \sigma(i)}}{c_{i, \cdot}} - \frac{1}{k}
+\mathrm{NCA}(\mathbf{C}) =
+\displaystyle\max_{\sigma}
+\frac{1}{k}\displaystyle\sum_{j=1}^k \frac{
+    c_{\sigma(j),j}
+    -
+    \frac{1}{k} c_{\sigma(j),\cdot}
 }{
-1 - \frac{1}{k}
-}=
-1-
-\min_\sigma
-\left(
-\frac{1}{k}
-\sum_{i=1}^k \frac{c_{i, \cdot}-c_{i, \sigma(i)}}{ \frac{k-1}{k} c_{i, \cdot} }
-\right).
+    c_{\sigma(j),\cdot}-\frac{1}{k} c_{\sigma(j),\cdot}
+}.
 $$
 
 
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalised_clustering_accuracy`*.
+*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalized_clustering_accuracy`*.
 
 The measure is quite easily interpretable:
-it is the overall percentage of correctly classified points in each cluster
-(one minus average classification error).
-It also fulfils many desirable properties.
-
+it is the averaged percentage of correctly classified
+points in each cluster *above* the perfectly uniform label distribution.
 
 Normalised clustering accuracy is the only measure reviewed here
-that is not symmetric, i.e., it gives some special treatment
+that is not symmetric, i.e., it gives special treatment
 to the reference partition.
 As argued in {cite}`nca`, this is perfectly fine behaviour
 in our context, where we validate the predicted partitions.
+
 
 
 ::::{note}
@@ -453,11 +447,9 @@ $$
 \right\},
 $$
 
-where the correction-for-chance term,
+where the normalisation term,
 assuming that $c_{(i),\cdot}$ is the $i$-th largest
-row sum and that $c_{\cdot, (i)}$ is the $i$-th largest column sum,
-was derived under the assumption of the hypergeometric distribution
-(see {cite}`comparing_partitions`):
+row sum and that $c_{\cdot, (i)}$ is the $i$-th largest column sum, is:
 
 $$
 E= \frac{1}{k}  \sum_{i=1}^{k} \frac{
@@ -491,6 +483,10 @@ $$
 \right\}.
 $$
 
+These indices are manually clipped to the unit interval
+for negative values are difficult to interpret.
+
+
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.pair_sets_index`*.
 
 
@@ -504,7 +500,7 @@ that are concordant:
 
 and those that are concordant:
 
-* $\mathrm{NY} = \#\left\{ i<j : y_i \neq y_j\text{ but }\hat{y}_i \neq \hat{y}_j\right\} = \sum_{i=1}^k {c_{i,\cdot} \choose 2} - \mathrm{YY}$,
+* $\mathrm{NY} = \#\left\{ i<j : y_i \neq y_j\text{ but }\hat{y}_i = \hat{y}_j\right\} = \sum_{i=1}^k {c_{i,\cdot} \choose 2} - \mathrm{YY}$,
 * $\mathrm{YN} = \#\left\{ i<j : y_i = y_j\text{ but }\hat{y}_i \neq \hat{y}_j\right\} = \sum_{i=1}^k {c_{\cdot,j} \choose 2} - \mathrm{YY}$;
 
 see {cite}`comparing_partitions` for discussion.
@@ -519,17 +515,14 @@ $$
 =
 \frac{\mathrm{YY}+\mathrm{NN}}{{n \choose 2}}
 =
+1 -
 \frac{
-2T - (P+Q) + {n \choose 2}
+  \sum_{i=1}^k \left(c_{i, \cdot}^2-\sum_{j=1}^k c_{i,j}^2\right)
++ \sum_{j=1}^k \left(c_{\cdot, j}^2-\sum_{i=1}^k c_{i,j}^2\right)
 }{
-{n \choose 2}
-},
+n(n-1)
+}.
 $$
-
-where $T=\sum_{i=1}^k \sum_{j=1}^k {c_{i,j} \choose 2}$,
-$P=\sum_{i=1}^k {c_{i, \cdot} \choose 2}$,
-$Q=\sum_{i=1}^k {c_{\cdot, j} \choose 2}$,
-and $c_{i,j}=\#\{ u: y_u=i\text{ and }\hat{y}_u=j \}$.
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.rand_score`*.
 
@@ -549,9 +542,10 @@ $$
 }
 =
 \frac{
-T
+\sum_{i=1}^k \sum_{j=1}^k c_{i,j}^2 - n
 }{
-\sqrt{P Q}
+\sqrt{\sum_{i=1}^k c_{i,\cdot}^2 - n}\,
+\sqrt{\sum_{j=1}^k c_{\cdot,j}^2 - n}
 }.
 $$
 
@@ -559,20 +553,25 @@ $$
 
 Unfortunately, the lowest possible values of both indices, equal to $0$,
 can only be attained for the smallest $n$s.
-What is more, for large $n$ and partitions generated totally at random,
-their expected values and lower bounds are $1-2(k-1)/k^2$ and $1/k$,
-respectively.
 
 
 ### Adjusted Rand Score
 
-To remedy the latter problem, an adjusted-for-chance version
+An adjusted-for-chance version
 of the Rand index was proposed in {cite}`comparing_partitions`:
 
 $$
 \mathrm{AR}(\mathbf{C}) =
 \frac{R-E}{M-E}=
-\frac{{n \choose 2}T - PQ}{ {n \choose 2} (P+Q)/2 - PQ},
+\frac{
+    {n \choose 2}\sum_{i=1}^k \sum_{j=1}^k {c_{i,j} \choose 2} - \sum_{i=1}^k {c_{i, \cdot} \choose 2} \sum_{j=1}^k {c_{\cdot, j} \choose 2}
+}{
+    {n \choose 2} \frac{1}{2} \left(
+         \sum_{i=1}^k {c_{i, \cdot} \choose 2}
+        +\sum_{j=1}^k {c_{\cdot, j} \choose 2}
+    \right)
+    - \sum_{i=1}^k {c_{i, \cdot} \choose 2} \sum_{j=1}^k {c_{\cdot, j} \choose 2}
+},
 $$
 
 
@@ -582,38 +581,25 @@ $M=1$ is the maximal possible index value, and
 $E$ is the expected Rand index when
 cluster memberships are assigned randomly.
 
-In {cite}`comparing_partitions`, the hypergeometric model for randomness
-was assumed, i.e., where the partitions are picked at random
-given the current $n$ and $k$, namely:
-
-$$
-\mathbb{E}\left( \sum_{i=1}^k \sum_{j=1}^k {c_{i,j} \choose 2} \right)
-=
-\frac{
-    \left( \sum_{i=1}^k {c_{i,\cdot} \choose 2} \right)
-    \left( \sum_{j=1}^k {c_{\cdot,j} \choose 2} \right)
-}{
-{n \choose 2}
-}.
-$$
+Under the hypergeometric model for randomness,
+if two partitions are picked at random from the same marginal (cluster count)
+distributions, the expected value of AR is 0.
+Due to this property, the index might take negative values
+for partitions "worse than random" (whatever it means).
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.adjusted_rand_score`*.
 
 
-A similar adjustment can be applied onto the FM index. However,
-it then tends to be very similar to AR.
-
-Let us also note that these scores use $1/{n \choose 2}$ as the unit of
+Let us note that these scores use $1/{n \choose 2}$ as the unit of
 information, which might cause problems with their interpretability.
-The normalised clustering accuracy and the pair sets index
-work on the $1/n$ scale.
+The pivoted accuracies work on the $1/n$ scale.
 
 
 
 ## Information-Theoretic Measures
 
 The normalised mutual information {cite}`nmi`
-(denoted with $\mathrm{NMI}_\mathrm{sum}$ in {cite}`infmeasures`)
+(denoted by $\mathrm{NMI}_\mathrm{sum}$ in {cite}`infmeasures`)
 is given by:
 
 $$
@@ -621,9 +607,9 @@ $$
 \frac{
 \sum_{i=1}^k \sum_{j=1}^k \frac{c_{i,j}}{n}\, \log \frac{n c_{i,j}}{c_{i,\cdot} c_{\cdot,j}}
 }{
-0.5\left(\sum_{i=1}^k \frac{c_{i,\cdot}}{n} \log \frac{c_{i,\cdot}}{n}
+\frac{1}{2} \left(\sum_{i=1}^k \frac{c_{i,\cdot}}{n} \log \frac{n}{c_{i,\cdot}}
 +
-\sum_{j=1}^k \frac{c_{\cdot,j}}{n} \log \frac{c_{\cdot,j}}{n}\right)
+\sum_{j=1}^k \frac{c_{\cdot,j}}{n} \log \frac{n}{c_{\cdot,j}}\right)
 }.
 $$
 
@@ -631,8 +617,3 @@ Unfortunately,
 particular values of the score are rather difficult to interpret.
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalized_mi_score`*.
-
-In {cite}`infmeasures`, also different adjusted versions of the above are
-considered. However, in {cite}`psi`, it is noted
-that, amongst others, $\mathrm{AMI}_\mathrm{sum}$ is strongly correlated with
-$\mathrm{NMI}_\mathrm{sum}$.

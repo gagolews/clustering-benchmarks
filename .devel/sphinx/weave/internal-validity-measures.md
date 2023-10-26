@@ -17,22 +17,16 @@ Instead, their aim is to quantify different aspects of the obtained
 partitions, e.g., the average degree of cluster compactness or point
 separability.
 
-Sometimes internal measures are also used to compare
-the outputs of different clustering algorithms on the same dataset and
-determine which one is more correct.
+Sometimes, internal measures are also used to compare
+the outputs of different clustering algorithms on the same dataset
+with the intention to determine which one is more *valid*.
 
 However, in {cite}`cvi` (also see the {ref}`sec:results-v1` section),
 we have pointed out that **many measures promote some rather random
 groupings whilst other ones seem more suitable for...
 detecting outliers**.
-
-We should therefore not deem a high value of, say,
-the Silhouette or Davies–Bouldin index *better* than a lower one,
-at least not uncritically.
-
-Overall, **we do not recommend relying on such measures to judge whether
-a partition is meaningful or not**.
-
+We should therefore not uncritically deem a high value of, say,
+the Silhouette or Davies–Bouldin index *better* than a lower one.
 
 
 ## Notation
@@ -51,8 +45,8 @@ the $i$-th point, $i\in\{1,2,\dots,n\}$.
 
 A $k$-partition $\{X_1,\dots,X_k\}$ of a set
 $\{\mathbf{x}_1, \dots, \mathbf{x}_n\}$
-can be encoded by means of a *label vector*[^footsurj] $\mathbf{y}$, where
-$y_i\in\{1,\dots,k\}$ gives the cluster number of the $i$-th point.
+can be encoded by means of a *label vector* $\mathbf{y}$, where
+$y_i\in\{1,\dots,k\}$ gives the cluster ID of the $i$-th point.
 
 
 The measures listed below are based on Euclidean distances between all pairs
@@ -121,7 +115,7 @@ see {cite}`Ward1963:hier,EdwardsSforza1965:divisive,CalinskiHarabasz1974:index`.
 
 ### Davies–Bouldin
 
-The Davies-Bouldin (Def. 5 in {cite}`DaviesBouldin1979:index`)
+The Davies-Bouldin index (Def. 5 in {cite}`DaviesBouldin1979:index`)
 is given as the average similarity between each cluster and its most
 similar counterpart (note the minus sign again):
 
@@ -152,11 +146,11 @@ here (used, e.g., in {cite}`ArbelaitzEtAl2013:extensive_CVI`).
 
 ### Silhouette
 
-In Sec. 2 of {cite}`Rousseeuw1987:silhouettes`, Rousseeuw proposes the notion of
+In Sec. 2 of {cite}`Rousseeuw1987:silhouettes`, Rousseeuw proposed the notion of
 a silhouette as a graphical aid in cluster analysis.
 
 Denote the average dissimilarity between the $i$-th point and all other
-points in its own cluster with:
+points in its own cluster by:
 
 $$
 a_i = \frac{1}{|X_{y_i}|-1} \sum_{\mathbf{x}_u\in X_{y_i}} \| \mathbf{x}_i-\mathbf{x}_u \|,
@@ -275,7 +269,7 @@ On the other hand, $D$ can be, for example:
 
 There are thus 15 different combinations of the possible numerators and
 denominators, hence 15 different indices, which we may denote
-as *GDunn_dX_DY*. In particular, *GDunn_d1_D1* gives the original Dunn
+by *GDunn_dX_DY*. In particular, *GDunn_d1_D1* gives the original Dunn
 {cite}`Dunn1974:index` index.
 
 

@@ -7,7 +7,7 @@
 (sec:results-v1)=
 # Clustering Results Repository (v1.1.0)
 
-We have also prepared a repository of
+We have prepared a repository of
 [clustering results](https://github.com/gagolews/clustering-results-v1/)
 for problems from our {ref}`sec:suite-v1`.
 
@@ -34,6 +34,20 @@ Where applicable, we considered a wide range of control parameters.
     {cite}`genieclust,genieins`
     (note that *Genie* with *g=1.0* is equivalent to the single linkage algorithm);
 
+* `Genie+Ic` – Genie+Information Criterion, see {cite}`cvimst`,
+    as implemented in [`genieclust`](https://genieclust.gagolewski.com) 1.0.0 (Python/R).
+
+* `fcps_nonproj` – many algorithms, see {cite}`ThrunStier2021:fcas`, available via the
+    [`FCPS`](https://cran.r-project.org/package=FCPS) 1.3.4 package for R,
+    which provides a consistent interface to many other
+    R packages (versions current as of 2023-10-21).
+    We selected all which return an a priori-given number of clusters,
+    and do not rely on heavy feature engineering/fancy data projections,
+    as such methods should be evaluated separately.
+    We did not include the algorithms that are available in other packages and
+    are already part of this results repository,
+    e.g., `fastcluster`, `genieclust`, and `scikit-learn`.
+
 * [`ITM`](https://github.com/amueller/information-theoretic-mst)
     git commit 178fd43 (Python) {cite}`itm` –
     an "information-theoretic" algorithm based on
@@ -44,11 +58,15 @@ Where applicable, we considered a wide range of control parameters.
     being high-quality ones) of many
     {ref}`internal cluster validity measures <sec:external-validity-measures>`,
     including the Caliński–Harabasz, Dunn, or Silhouette index;
-    see {cite}`cvi`.
+    see {cite}`cvi`;
+
+* `optim_cvi_mst_divisive` – maximising internal cluster validity measures
+    over Euclidean minimum spanning trees using a divisive strategy;
+    see {cite}`cvimst`.
 
 New results will be added in the future (note that we can only consider
 methods that allow for setting the precise number of generated clusters).
-Quality contributions are {ref}`welcome <sec:contributing>`.
+New quality contributions are {ref}`welcome <sec:contributing>`.
 
 
 ## Feature Engineering
@@ -65,13 +83,14 @@ i.e., subject to only some mild preprocessing:
     of *all* entries is 1 (this is not standardisation).
 
 Note, however, that spectral clustering and Gaussian mixtures
-can be considered as ones that modifies the input data space.
+can be considered as ones that modify the input data space.
 
 Overall, comparisons between distance-based methods that apply automated
 feature engineering/selection and those that only operate on raw inputs
 are not exactly fair.
 In such settings, the classical methods should be run on the transformed
 data spaces as well.
+This is left for further research (stay tuned).
 
 
 

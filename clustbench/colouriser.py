@@ -38,7 +38,7 @@ import genieclust
 ##############################################################################
 class Colouriser:
     """
-    Interactive planar data editor
+    An interactive planar data editor
 
     See the dedicated section on the package homepage for more details.
 

@@ -1,12 +1,13 @@
 (sec:colouriser)=
-# Colouriser: Planar Data Editor
+# Colouriser: A Planar Data Editor
 
 The *{any}`clustbench.Colouriser <clustbench.Colouriser>`* class
-can help us with creating or modifying label vectors and data points
+can aid us in creating or modifying label vectors and data points
 in the case of 2D datasets.
 
 See an example [Jupyter Notebook](https://github.com/gagolews/clustering-benchmarks/blob/-/colouriser-demo.ipynb)
-and the [Console App](https://github.com/gagolews/clustering-benchmarks/blob/-/colouriser-app.ipynb) for easy ways to access its functionality.
+and the [Console App](https://github.com/gagolews/clustering-benchmarks/blob/-/colouriser-app.py) for easy ways to access its functionality.
+
 
 ::::{raw} html
 <figure class="align-default">
@@ -26,6 +27,5 @@ and the [Console App](https://github.com/gagolews/clustering-benchmarks/blob/-/c
 ::::
 
 ::::{note}
-Contributions to the benchmark battery
-are always {ref}`welcome <sec:contributing>`.
+New, quality contributions to the benchmark battery are always {ref}`welcome <sec:contributing>`.
 ::::

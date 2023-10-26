@@ -7,7 +7,7 @@
 
 
 Do you have any interesting additions to the benchmark battery?
-Let's prepare Version 2 thereof some time soon together!
+Let's prepare its Version 2.0 some time soon together!
 
 Contributions of new datasets and/or label vectors
 following the {ref}`sec:file-format` are warmly welcome.

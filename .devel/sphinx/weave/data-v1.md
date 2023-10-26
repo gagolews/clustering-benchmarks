@@ -44,7 +44,6 @@ A non-interactive dataset catalogue is available
 
 
 
-
 ::::{raw} html
 <script type="text/javascript">
 
@@ -185,6 +184,7 @@ function locationHashChanged()
 
         let img = document.createElement("img");
         img.title = img.alt = labels[l];
+        img.style = 'width: inherit';
         img.src = "../_static/catalogue-v1/" + battery + "/" +
             dataset + "." + labels[l] + ".png";
 

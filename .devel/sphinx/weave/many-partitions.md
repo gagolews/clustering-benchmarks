@@ -5,15 +5,16 @@
 (sec:many-partitions)=
 # There Can Be Many Valid Partitions
 
-We believe that it is in the very spirit of unsupervised learning
+We proclaim that it is in the very spirit of unsupervised learning
 that, in many cases, **there might be many equally
-valid/plausible/useful ways to partition a given dataset**
+valid/plausible/useful ways to partition a dataset**
 (see also {cite}`sdmc,LuxburgETAL2012:clustscienceart` for discussion).
 
 
 ## Alternative Labellings
 
-This is why some benchmark sets come with alternative labellings.
+To take the above postulate into account, we equipped
+some benchmark sets with alternative labellings.
 For instance, consider the {ref}`graves/zigzag_noisy <sec:suite-v1>`
 dataset {cite}`graves`:
 
@@ -26,7 +27,7 @@ data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"
 benchmark = clustbench.load_dataset("graves", "zigzag_noisy", url=data_url)
 ```
 
-It is equipped with two different reference partitions:
+It comes with two different reference partitions:
 
 
 
@@ -35,7 +36,7 @@ len(benchmark.labels)
 ## 2
 ```
 
-They are depicted below.
+We depict them below.
 
 
 
@@ -62,7 +63,7 @@ There can be many equally valid partitions.
 
 ## Predicted vs Best-Matching Reference Labelling
 
-An algorithm should be rewarded for finding a partition
+A clustering algorithm should be rewarded for finding a partition
 that matches *any* of the reference ones well.
 This might require running the method multiple times
 to find partitions of different cardinalities

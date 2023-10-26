@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Interactive Planar Data Editor
+An Interactive Planar Data Editor
 
 A standalone console app using clustbench.Colouriser
 
@@ -42,8 +42,8 @@ if __name__ == "__main__":
     # read input data
 
     print("""\
-Colouriser: Interactive Planar Data Editor
-Copyright (C) 2018-2022 Marek Gagolewski <https://www.gagolewski.com>
+Colouriser: An Interactive Planar Data Editor
+Copyright (C) 2018-2023 Marek Gagolewski <https://www.gagolewski.com>
 This program is free software licensed under the GNU GPL v3 or later.
 See <https://clustering-benchmarks.gagolewski.com> for more details.
 
