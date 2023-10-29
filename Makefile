@@ -1,8 +1,8 @@
 # Copyleft (C) 2020-2023, Marek Gagolewski <https://www.gagolewski.com>
 
-.PHONY: python check test sphinx docs clean
+.PHONY: python check test html docs clean
 
-.NOTPARALLEL: python test clean purge sphinx docs
+.NOTPARALLEL: python test clean purge html docs
 
 PKGNAME="clustering-benchmarks"
 
