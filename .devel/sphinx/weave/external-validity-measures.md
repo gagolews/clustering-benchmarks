@@ -477,8 +477,3 @@ Unfortunately,
 particular values of the score are rather difficult to interpret.
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.normalized_mi_score`*.
-
-In {cite}`infmeasures`, also different adjusted versions of the above are
-considered. However, in {cite}`psi`, it is noted
-that, amongst others, $\mathrm{AMI}_\mathrm{sum}$ is strongly correlated with
-$\mathrm{NMI}_\mathrm{sum}$.

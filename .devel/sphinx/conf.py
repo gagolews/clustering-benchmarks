@@ -6,6 +6,9 @@ sys.path.append(os.getcwd())
 
 import clustbench
 
+
+
+
 pkg_name = "clustbench"
 pkg_title = "Clustering Benchmarks"
 pkg_version = clustbench.__version__
@@ -35,6 +38,20 @@ smartquotes = True
 today_fmt = "%Y-%m-%dT%H:%M:%S%Z"
 highlight_language = "python"
 html_last_updated_fmt = today_fmt
+
+plot_include_source = True
+plot_html_show_source_link = False
+plot_pre_code = """
+import numpy as np
+import clustbench
+import matplotlib.pyplot as plt
+np.random.seed(123)
+"""
+doctest_global_setup = plot_pre_code
+numpydoc_use_plots = True
+# https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html
+autosummary_imported_members = True
+autosummary_generate = True
 
 extensions = [
     'myst_parser',
@@ -79,24 +96,6 @@ numfig_format = {
     'section': 'Section %s: '
 }
 numfig_secnum_depth = 0
-
-plot_include_source = True
-plot_html_show_source_link = False
-plot_pre_code = """
-import numpy as np
-import clustbench
-import matplotlib.pyplot as plt
-np.random.seed(123)
-"""
-
-doctest_global_setup = plot_pre_code
-
-numpydoc_use_plots = True
-
-# https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html
-autosummary_imported_members = True
-autosummary_generate = True
-
 
 html_theme = 'furo'
 
