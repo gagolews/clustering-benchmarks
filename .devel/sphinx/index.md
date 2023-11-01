@@ -123,6 +123,7 @@ to each dataset.
 ::::{toctree}
 :maxdepth: 2
 :caption: Methodology
+:hidden:
 
 Introduction <self>
 weave/true-vs-predicted
@@ -134,6 +135,7 @@ weave/many-partitions
 ::::{toctree}
 :maxdepth: 2
 :caption: Benchmark Batteries
+:hidden:
 
 weave/suite-v1
 weave/data-v1
@@ -143,9 +145,11 @@ weave/how-to-access
 weave/contributing
 ::::
 
+
 ::::{toctree}
 :maxdepth: 1
 :caption: Python API
+:hidden:
 
 weave/clustbench-usage
 clustbench-documentation
@@ -157,6 +161,7 @@ PyPI Entry <https://pypi.org/project/clustering-benchmarks>
 ::::{toctree}
 :maxdepth: 1
 :caption: See Also
+:hidden:
 
 Author's Homepage <https://www.gagolewski.com/>
 Data Wrangling in Python <https://datawranglingpy.gagolewski.com/>
@@ -168,6 +173,7 @@ genieclust Package <https://genieclust.gagolewski.com/>
 ::::{toctree}
 :maxdepth: 1
 :caption: Appendix
+:hidden:
 
 weave/colouriser
 weave/external-validity-measures
