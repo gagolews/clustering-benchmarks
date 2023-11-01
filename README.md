@@ -1,4 +1,5 @@
-# A Framework for Benchmarking Clustering Algorithms
+<a href="https://clustering-benchmarks.gagolewski.com"><img src="https://www.gagolewski.com/_static/img/clustbench.png" align="right" height="128" width="128" /></a>
+# [A Framework for Benchmarking Clustering Algorithms](https://clustering-benchmarks.gagolewski.com/)
 
 Maintained/edited/authored by [Marek Gagolewski](https://www.gagolewski.com).
 
