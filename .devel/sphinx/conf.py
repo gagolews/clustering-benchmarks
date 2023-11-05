@@ -15,6 +15,7 @@ pkg_version = clustbench.__version__
 copyright_year = '2020–2023'
 html_baseurl = "https://clustering-benchmarks.gagolewski.com/"
 html_logo = "https://www.gagolewski.com/_static/img/clustbench.png"
+html_favicon = "https://www.gagolewski.com/_static/img/clustbench.png"
 github_url = "https://github.com/gagolews/clustering-benchmarks/"
 github_star_repo = "gagolews/clustering-benchmarks"  # or None to disable
 analytics_id = None  # don't use it! this site does not track its users
@@ -22,7 +23,6 @@ author = "Marek Gagolewski"
 copyright = f"{copyright_year}"
 html_title = f"{pkg_title}"
 html_short_title = f"{pkg_title}"
-html_favicon = "_static/favicon.png"
 
 html_version_text = f'\
 by <a style="color: inherit" href="https://www.gagolewski.com">Marek \
