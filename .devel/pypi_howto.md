@@ -9,7 +9,7 @@ Versions:
 ```
 rm -f dist/*
 python3 setup.py sdist
-pip wheel -w dist . --no-deps
+pip3 wheel -w dist . --no-deps  #pip3 install wheel
 ```
 
 # upload to pypi:
