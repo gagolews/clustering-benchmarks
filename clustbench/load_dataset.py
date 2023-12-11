@@ -144,7 +144,7 @@ def load_dataset(
 
             labels.append(ll)
             i += 1
-        except FileNotFoundError:
+        except OSError:
             # this could be done better with glob.glob for local files,
             # but not for remote URLs
             break

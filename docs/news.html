@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="References" href="z_bibliography.html" /><link rel="prev" title="Side Note: Internal (In)Validity Measures" href="weave/internal-validity-measures.html" />
         <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/news.html" />
 
-    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 7.2.5 and Furo 2023.08.19 -->
+    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Changelog - Clustering Benchmarks</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
@@ -168,7 +168,7 @@
 <a class="sidebar-brand" href="index.html">Clustering Benchmarks</a>
 </span>
 <div class="sidebar-brand">
-1.1.2
+1.1.3
 </div>
 <form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -257,20 +257,27 @@
           <section class="tex2jax_ignore mathjax_ignore" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
 <section id="id1">
-<h2>1.1.2 (2023-10-19)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>1.1.3 (2023-12-11)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[BUGFIX] #5: <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> threw an <code class="docutils literal notranslate"><span class="pre">OSError</span></code> while trying to load
+a dataset.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>1.1.2 (2023-10-19)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[BUGFIX] <code class="docutils literal notranslate"><span class="pre">adjusted_asymetric_accuracy</span></code> is now called
 <code class="docutils literal notranslate"><span class="pre">normalized_clustering_accuracy</span></code> in <code class="docutils literal notranslate"><span class="pre">genieclust</span></code>.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>1.1.1 (2022-10-06)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>1.1.1 (2022-10-06)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[BUGFIX] #3: <code class="docutils literal notranslate"><span class="pre">root_dir</span></code> in <code class="docutils literal notranslate"><span class="pre">glob.glob</span></code> is only available Python &gt;= 3.10.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>1.1.0 (2022-09-17)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>1.1.0 (2022-09-17)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The project’s homepage was created. It is available at
 <a class="reference external" href="https://clustering-benchmarks.gagolewski.com">https://clustering-benchmarks.gagolewski.com</a>.</p></li>
@@ -281,16 +288,16 @@
 <a class="reference external" href="https://github.com/gagolews/clustering-results-v1">https://github.com/gagolews/clustering-results-v1</a>.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>1.0.0 (2020-05-08)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>1.0.0 (2020-05-08)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Datasets in the 1st (v1.0.0) version of the benchmark
 battery are now frozen. The historical snapshot is available at
 DOI: <a class="reference external" href="https://doi.org/10.5281/zenodo.3815066">10.5281/zenodo.3815066</a>.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>0.0.0 (2015-12-29)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>0.0.0 (2015-12-29)<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>Version 0 of the benchmark battery consists of the datasets
 studied in: Gagolewski M., Bartoszuk M., Cena A.,
@@ -339,7 +346,7 @@ DOI: <a class="reference external" href="https://doi.org/10.1016/j.ins.2016.05.0
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2023-11-05T12:32:42+1100.
+              Last updated on 2023-12-11T15:14:53+1100.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -361,11 +368,12 @@ DOI: <a class="reference external" href="https://doi.org/10.1016/j.ins.2016.05.0
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">1.1.2 (2023-10-19)</a></li>
-<li><a class="reference internal" href="#id2">1.1.1 (2022-10-06)</a></li>
-<li><a class="reference internal" href="#id3">1.1.0 (2022-09-17)</a></li>
-<li><a class="reference internal" href="#id4">1.0.0 (2020-05-08)</a></li>
-<li><a class="reference internal" href="#id5">0.0.0 (2015-12-29)</a></li>
+<li><a class="reference internal" href="#id1">1.1.3 (2023-12-11)</a></li>
+<li><a class="reference internal" href="#id2">1.1.2 (2023-10-19)</a></li>
+<li><a class="reference internal" href="#id3">1.1.1 (2022-10-06)</a></li>
+<li><a class="reference internal" href="#id4">1.1.0 (2022-09-17)</a></li>
+<li><a class="reference internal" href="#id5">1.0.0 (2020-05-08)</a></li>
+<li><a class="reference internal" href="#id6">0.0.0 (2015-12-29)</a></li>
 </ul>
 </li>
 </ul>
@@ -377,7 +385,7 @@ DOI: <a class="reference external" href="https://doi.org/10.1016/j.ins.2016.05.0
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=6f037312"></script>
+</div><script src="_static/documentation_options.js?v=cb7bf70b"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=32e29ea5"></script>

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3 (2023-12-11)
+
+-   [BUGFIX] #5: `load_dataset` threw an `OSError` while trying to load
+    a dataset.
+
+
 ## 1.1.2 (2023-10-19)
 
 -   [BUGFIX] `adjusted_asymetric_accuracy` is now called
