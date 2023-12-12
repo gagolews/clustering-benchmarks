@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.3 (2023-12-11)
+## 1.1.4 (2023-12-12)
 
 -   [BUGFIX] #5: `load_dataset` threw an `OSError` while trying to load
     a dataset.

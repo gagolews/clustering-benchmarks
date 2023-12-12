@@ -136,18 +136,16 @@ def load_dataset(
     labels = []
     i = 0
     while True:
-        try:
-            f = base_name + ".labels%d.gz" % i
-            ll = np.loadtxt(f, dtype="int")
-            if ll.ndim != 1 or ll.shape[0] != data.shape[0]:
-                raise ValueError("Incorrect number of labels in '%s'." % f)
+        f = base_name + ".labels%d.gz" % i
+        if not np.DataSource().exists(f):
+            break  # stop trying to find more label vectors
 
-            labels.append(ll)
-            i += 1
-        except OSError:
-            # this could be done better with glob.glob for local files,
-            # but not for remote URLs
-            break
+        ll = np.loadtxt(f, dtype="int")
+        if ll.ndim != 1 or ll.shape[0] != data.shape[0]:
+            raise ValueError("Incorrect number of labels in '%s'." % f)
+
+        labels.append(ll)
+        i += 1
 
     n_clusters = np.array([np.max(ll) for ll in labels])
 

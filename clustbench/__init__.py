@@ -21,7 +21,7 @@ clustering-benchmarks Package
 # ############################################################################ #
 
 # version string, e.g., "1.0.0.9001" or "1.1.1"
-__version__ = "1.1.3"
+__version__ = "1.1.4"
 
 
 from .get_names import get_dataset_names, get_battery_names

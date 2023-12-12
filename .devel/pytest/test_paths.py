@@ -19,6 +19,10 @@ def test_paths():
         assert "wut" in clustbench.get_battery_names("../clustering-data-v1/")
         assert "x1" in clustbench.get_dataset_names("wut", "../clustering-data-v1/")
 
+        assert len(clustbench.load_dataset("wut", "x2", "../clustering-data-v1/")["labels"]) == 2
+
+        assert len(clustbench.assertload_dataset("wut", "x2", url="https://github.com/gagolews/clustering-data-v1/raw/v1.1.0")["labels"]) == 2
+
 
 if __name__ == "__main__":
     test_paths()
