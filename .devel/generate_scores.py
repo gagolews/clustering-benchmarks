@@ -8,7 +8,7 @@ SoftwareX 20, 2022, 101270, https://clustering-benchmarks.gagolewski.com,
 DOI: 10.1016/j.softx.2022.101270.
 
 
-Copyright (C) 2023, Marek Gagolewski <https://www.gagolewski.com>
+Copyright (C) 2023-2024, Marek Gagolewski <https://www.gagolewski.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
