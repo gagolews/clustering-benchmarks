@@ -56,8 +56,8 @@ data_path = "/home/gagolews/Projects/clustering-data-v1"
 
 results_path_base = "/home/gagolews/Projects/clustering-results-v1/original"
 results_subdirs = [
-    #"Genie",
-    #"ITM",
+    "Genie",
+    "ITM",
     #"IcA",
     #"GenieIc",
     #"Test_Genie_ForcedMerge",
