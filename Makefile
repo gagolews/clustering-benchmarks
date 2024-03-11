@@ -1,4 +1,4 @@
-# Copyleft (C) 2020-2023, Marek Gagolewski <https://www.gagolewski.com>
+# Copyleft (C) 2020-2024, Marek Gagolewski <https://www.gagolewski.com>
 
 .PHONY: python check test html docs clean
 
