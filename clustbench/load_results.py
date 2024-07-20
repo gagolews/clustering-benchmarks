@@ -213,7 +213,9 @@ def save_results(filename, results, expanduser=True, expandvars=True):
     >>> results_path = os.path.join("~", "Projects", "clustering-results-v1", "original")
     >>> res = clustbench.load_results("*", "wut", "x2", 3, path=results_path)
     >>> print(res.keys())
-    >>> clustbench.save_results("x1.result3.gz", clustbench.transpose_results(res)[3])
+    >>> clustbench.save_results(
+    ...     os.path.join(results_path, "method", "wut", "x2.result3.gz"),
+    ...     clustbench.transpose_results(res)[3])
     """
     if type(results) is not dict:
         raise ValueError("`results` is not a dict")
@@ -223,11 +225,11 @@ def save_results(filename, results, expanduser=True, expandvars=True):
     if not np.all(res.min().isin([0, 1])):
         raise ValueError("Minimal label neither 0 nor 1.")
 
-    mx = res.max()
-    if not mx[0] >= 1:
+    mx = res.max(axis=None)
+    if not mx >= 1:
         raise ValueError("At least 1 cluster is necessary.")
 
-    if not np.all(mx == mx[0]):
+    if not np.all(res.max(axis=0) == mx):
         raise ValueError("All partitions should be of the same cardinality.")
 
     if not np.all(res.apply(np.bincount).iloc[1:, :] > 0):
