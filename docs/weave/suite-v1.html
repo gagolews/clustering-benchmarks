@@ -6,12 +6,12 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Explore Datasets (v1.1.0)" href="data-v1.html" /><link rel="prev" title="There Can Be Many Valid Partitions" href="many-partitions.html" />
         <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/suite-v1.html" />
 
-    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>Benchmark Suite (v1.1.0) - Clustering Benchmarks</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5282ffc2" />
     
@@ -84,7 +84,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -99,7 +99,7 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
@@ -107,7 +107,7 @@
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <path d="M13 12h5" />
@@ -115,6 +115,60 @@
       <path d="M13 18h1" />
       <path d="M13 9h4" />
       <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
 </svg>
@@ -168,7 +222,7 @@
 <a class="sidebar-brand" href="../index.html">Clustering Benchmarks</a>
 </span>
 <div class="sidebar-brand">
-1.1.4
+1.1.5
 </div>
 <form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -233,11 +287,7 @@
         <div class="content-icon-container">
           <div class="edit-this-page">
   <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" title="Edit this page">
-    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-    </svg>
+    <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
 </div><div class="theme-toggle-container theme-toggle-content">
@@ -255,7 +305,7 @@
         </div>
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="benchmark-suite-v1-1-0">
-<span id="sec-suite-v1"></span><h1>Benchmark Suite (v1.1.0)<a class="headerlink" href="#benchmark-suite-v1-1-0" title="Link to this heading">#</a></h1>
+<span id="sec-suite-v1"></span><h1>Benchmark Suite (v1.1.0)<a class="headerlink" href="#benchmark-suite-v1-1-0" title="Link to this heading">¶</a></h1>
 <p>We have compiled <strong>a large suite of benchmark datasets</strong>.
 For reproducibility, the datasets and label vectors are <strong>versioned</strong>.</p>
 <p>Version 1.1.0 of the
@@ -296,7 +346,7 @@ can be browsed in the <a class="reference internal" href="data-v1.html#sec-data-
 <p>For the <strong>results</strong> generated by different clustering algorithms,
 see the <a class="reference internal" href="results-v1.html#sec-results-v1"><span class="std std-ref">Clustering Results Repository (v1.1.0)</span></a> section.</p>
 <p>For example studies featuring different versions of this suite,
-see <a class="reference external" href="https://genieclust.gagolewski.com/">https://genieclust.gagolewski.com/</a> and <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2023).  Normalised clustering accuracy: An asymmetric external cluster validity measure. under review (preprint). URL: https://arxiv.org/pdf/2209.02935.pdf, DOI: 10.48550/arXiv.2209.02935.">24</a>, <a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski, M., Bartoszuk, M., and Cena, A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. URL: https://arxiv.org/pdf/2208.01261, DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span>.</p>
+see <a class="reference external" href="https://genieclust.gagolewski.com/">https://genieclust.gagolewski.com/</a> and <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>, <a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski, M., Bartoszuk, M., and Cena, A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. URL: https://arxiv.org/pdf/2208.01261, DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span>.</p>
 </div>
 <p>The datasets are provided <strong>solely for research purposes</strong>,
 unless stated otherwise.
@@ -312,7 +362,7 @@ Some datasets are equipped with
 <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">additional reference labellings</span></a>
 that did not appear in the original setting.</p>
 <section id="wut">
-<span id="sec-battery-wut"></span><h2><code class="docutils literal notranslate"><span class="pre">wut</span></code><a class="headerlink" href="#wut" title="Link to this heading">#</a></h2>
+<span id="sec-battery-wut"></span><h2><code class="docutils literal notranslate"><span class="pre">wut</span></code><a class="headerlink" href="#wut" title="Link to this heading">¶</a></h2>
 <p>22 datasets in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> or <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>
 authored by the wonderful students of Marek’s 2016/2017 courses on Data Analysis
 in <a class="reference external" href="https://deepr.gagolewski.com/">R</a>
@@ -573,7 +623,7 @@ Thanks!</p>
 </div>
 </section>
 <section id="sipu">
-<span id="sec-battery-sipu"></span><h2><code class="docutils literal notranslate"><span class="pre">sipu</span></code><a class="headerlink" href="#sipu" title="Link to this heading">#</a></h2>
+<span id="sec-battery-sipu"></span><h2><code class="docutils literal notranslate"><span class="pre">sipu</span></code><a class="headerlink" href="#sipu" title="Link to this heading">¶</a></h2>
 <p>An excellent battery of 20 diverse datasets created/compiled/maintained
 by P. Fränti and his colleagues and research students
 from the University of Eastern Finland.
@@ -868,7 +918,7 @@ We excluded the <code class="docutils literal notranslate"><span class="pre">DIM
 </div>
 </section>
 <section id="fcps">
-<span id="sec-battery-fcps"></span><h2><code class="docutils literal notranslate"><span class="pre">fcps</span></code><a class="headerlink" href="#fcps" title="Link to this heading">#</a></h2>
+<span id="sec-battery-fcps"></span><h2><code class="docutils literal notranslate"><span class="pre">fcps</span></code><a class="headerlink" href="#fcps" title="Link to this heading">¶</a></h2>
 <p>9 datasets from the <em>Fundamental Clustering Problem Suite</em>
 proposed by A. Ultsch <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id29" title="Ultsch, A. (2005).  Clustering with SOM: U*C. In: Workshop on Self-Organizing Maps, pp. 75–82.">55</a>]</span> from the Marburg University,
 Germany.</p>
@@ -998,7 +1048,7 @@ see also <span id="id17">[<a class="reference internal" href="../z_bibliography.
 </div>
 </section>
 <section id="graves">
-<span id="sec-battery-graves"></span><h2><code class="docutils literal notranslate"><span class="pre">graves</span></code><a class="headerlink" href="#graves" title="Link to this heading">#</a></h2>
+<span id="sec-battery-graves"></span><h2><code class="docutils literal notranslate"><span class="pre">graves</span></code><a class="headerlink" href="#graves" title="Link to this heading">¶</a></h2>
 <p>10 <em>synthetic data sets</em> discussed by D. Graves and W. Pedrycz
 in <span id="id18">[<a class="reference internal" href="../z_bibliography.html#id32" title="Graves, D. and Pedrycz, W. (2010).  Kernel-based fuzzy clustering and fuzzy clustering: A comparative experimental study. Fuzzy Sets and Systems, 161:522–543. DOI: 10.1016/j.fss.2009.10.021.">30</a>]</span>.</p>
 <p>The dataset consist of 200–1050 observations in 2 dimensions.
@@ -1193,7 +1243,7 @@ They came with no reference labels, so we had to create them ourselves.</p>
 </div>
 </section>
 <section id="other">
-<span id="sec-battery-other"></span><h2><code class="docutils literal notranslate"><span class="pre">other</span></code><a class="headerlink" href="#other" title="Link to this heading">#</a></h2>
+<span id="sec-battery-other"></span><h2><code class="docutils literal notranslate"><span class="pre">other</span></code><a class="headerlink" href="#other" title="Link to this heading">¶</a></h2>
 <p>Datasets from multiple sources:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">chameleon_t4_8k</span></code>, <code class="docutils literal notranslate"><span class="pre">chameleon_t5_8k</span></code>, <code class="docutils literal notranslate"><span class="pre">chameleon_t7_10k</span></code>,
@@ -1307,7 +1357,7 @@ and its imbalanced version considered in <span id="id24">[<a class="reference in
 </div>
 </section>
 <section id="uci">
-<span id="sec-battery-uci"></span><h2><code class="docutils literal notranslate"><span class="pre">uci</span></code><a class="headerlink" href="#uci" title="Link to this heading">#</a></h2>
+<span id="sec-battery-uci"></span><h2><code class="docutils literal notranslate"><span class="pre">uci</span></code><a class="headerlink" href="#uci" title="Link to this heading">¶</a></h2>
 <p>A selection of 8 high-dimensional datasets available through the UCI
 (University of California, Irvine)
 <a class="reference external" href="http://archive.ics.uci.edu/ml/">Machine Learning Repository</a> <span id="id25">[<a class="reference internal" href="../z_bibliography.html#id56" title="Dua, D. and Graff, C. (2022).  UCI Machine Learning Repository. http://archive.ics.uci.edu/ml.">12</a>]</span>.
@@ -1409,7 +1459,7 @@ to verify the sensibleness of the reference labels.</p>
 </div>
 </section>
 <section id="mnist">
-<span id="sec-battery-mnist"></span><h2><code class="docutils literal notranslate"><span class="pre">mnist</span></code><a class="headerlink" href="#mnist" title="Link to this heading">#</a></h2>
+<span id="sec-battery-mnist"></span><h2><code class="docutils literal notranslate"><span class="pre">mnist</span></code><a class="headerlink" href="#mnist" title="Link to this heading">¶</a></h2>
 <p>This battery features two large, high-dimensional datasets:</p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> –
@@ -1460,7 +1510,7 @@ see <span id="id27">[<a class="reference internal" href="../z_bibliography.html#
 </div>
 </section>
 <section id="g2mg">
-<span id="sec-battery-g2mg"></span><h2><code class="docutils literal notranslate"><span class="pre">g2mg</span></code><a class="headerlink" href="#g2mg" title="Link to this heading">#</a></h2>
+<span id="sec-battery-g2mg"></span><h2><code class="docutils literal notranslate"><span class="pre">g2mg</span></code><a class="headerlink" href="#g2mg" title="Link to this heading">¶</a></h2>
 <p>Each dataset consists of 2,048 observations from
 two equisized Gaussian clusters in <span class="math notranslate nohighlight">\(d=1, 2, \dots, 128\)</span> dimensions
 (the components are sampled independently from a normal distribution).</p>
@@ -2798,7 +2848,7 @@ the non-parametric approaches.</p>
 </div>
 </section>
 <section id="h2mg">
-<span id="sec-battery-h2mg"></span><h2><code class="docutils literal notranslate"><span class="pre">h2mg</span></code><a class="headerlink" href="#h2mg" title="Link to this heading">#</a></h2>
+<span id="sec-battery-h2mg"></span><h2><code class="docutils literal notranslate"><span class="pre">h2mg</span></code><a class="headerlink" href="#h2mg" title="Link to this heading">¶</a></h2>
 <p>Two Gaussian-like hubs of equal sizes,
 with spread dependent on datasets’ dimensionalities.
 Each dataset consists of 2,048 observations in 1, 2, …, 128 dimensions.
@@ -4159,7 +4209,7 @@ that these datasets be studied separately from other batteries.</p>
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2024-03-11T11:46:14+1100.
+              Last updated on 2024-07-25T15:57:52+0200.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -4201,10 +4251,10 @@ that these datasets be studied separately from other batteries.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=00f267c6"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+</div><script src="../_static/documentation_options.js?v=a48ae3df"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>

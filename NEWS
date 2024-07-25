@@ -1,5 +1,11 @@
 # Changelog
 
+
+## 1.1.5 (pending)
+
+-   Minor extensions/updates.
+
+
 ## 1.1.4 (2023-12-12)
 
 -   [BUGFIX] #5: `load_dataset` threw an `OSError` while trying to load
@@ -20,7 +26,7 @@
 ##  1.1.0 (2022-09-17)
 
 -   The project's homepage was created. It is available at
-    <https://clustering-benchmarks.gagolewski.com>.
+    <https://clustering-benchmarks.gagolewski.com/>.
 
 -   Python package `clustering-benchmarks` released on PyPI.
 
