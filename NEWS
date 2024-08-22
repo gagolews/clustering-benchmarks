@@ -1,7 +1,7 @@
 # Changelog
 
 
-## 1.1.5 (pending)
+## 1.1.5 (2024-08-22)
 
 -   Minor extensions/updates.
 
