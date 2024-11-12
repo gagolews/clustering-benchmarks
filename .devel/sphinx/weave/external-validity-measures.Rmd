@@ -383,8 +383,8 @@ points in each cluster *above* the perfectly uniform label distribution.
 Normalised clustering accuracy is the only measure reviewed here
 that is not symmetric, i.e., it gives special treatment
 to the reference partition.
-As argued in {cite}`nca`, this is perfectly fine behaviour
-in our context, where we validate the predicted partitions.
+As argued in {cite}`nca`, this is fine a behaviour
+in the current context, where we validate the predicted partitions.
 
 
 
