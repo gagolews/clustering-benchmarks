@@ -127,13 +127,14 @@ def load_dataset(
 
     data_file = base_name + ".data.gz"
     data = np.loadtxt(data_file, ndmin=2)
-    data = np.ascontiguousarray(data)
 
     if data.ndim != 2:
         raise ValueError("Not a matrix.")
 
     if preprocess:
         data = preprocess_data(data, random_state=random_state)
+
+    data = np.ascontiguousarray(data)
 
     labels = []
     i = 0
