@@ -29,8 +29,8 @@ jobs:
         source python-venv/bin/activate
         python3 -m pip install --upgrade pip
         if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt --upgrade; fi
-        pip3 install flake8 pytest --upgrade
+        python3 -m pip install flake8 pytest --upgrade
     - name: Test and check Python
       run: |
-        make test
-        make check
+        source python-venv/bin/activate
+        python3 -m pytest
