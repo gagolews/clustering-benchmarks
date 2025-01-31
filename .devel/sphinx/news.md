@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 1.1.x (2025-xx-xx)
+
+-   [BUGFIX] `numpy.DataSource` is now `numpy.lib.npyio.DataSource`.
+
+
 ## 1.1.5 (2024-08-22)
 
 -   Minor extensions/updates.

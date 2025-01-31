@@ -1,7 +1,6 @@
 (sec:clustbench-usage)=
 # Using *clustbench*
 
-
 The Python version of the *clustering-benchmarks* package
 can be installed from [PyPI](https://pypi.org/project/clustering-benchmarks/),
 e.g., via a call to:

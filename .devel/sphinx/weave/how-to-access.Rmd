@@ -87,8 +87,10 @@ the [*rpy2*](https://pypi.org/project/rpy2/) package.
 
 ## MATLAB
 
-Unfortunately, MATLAB does not seem to be able to un*gzip* files
-on the fly, but these can be decompressed to a temporary folder
+Unfortunately, MATLAB is not free software.
+
+It does not seem to be able to un*gzip* files
+on the fly, but they can be decompressed to a temporary folder
 manually.
 
 ```matlab
@@ -100,10 +102,9 @@ labels = readmatrix(char(gunzip(base_name + ".labels0.gz", t)), FileType="text")
 
 Note that there is also a MATLAB
 [interface](https://au.mathworks.com/products/matlab/matlab-and-python.html)
-for Python. This way, algorithms that  have only been implemented in the
+for Python. This way, algorithms that have only been implemented in the
 former can be called from within the latter.
 
-Unfortunately, MATLAB is not free software.
 
 <!--
 ## Julia
