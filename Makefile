@@ -15,7 +15,7 @@ python:
 	python3 -m pip install .
 
 test: python
-	pytest
+	python3 -m pytest
 	#cd .devel/sphinx && make doctest && cd ../../
 
 check: python
