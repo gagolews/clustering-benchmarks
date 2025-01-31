@@ -1,4 +1,4 @@
-# Copyleft (C) 2020-2024, Marek Gagolewski <https://www.gagolewski.com>
+# Copyleft (C) 2020-2025, Marek Gagolewski <https://www.gagolewski.com>
 # Configuration file for the Sphinx documentation builder.
 
 import sys, os
@@ -12,7 +12,7 @@ import clustbench
 pkg_name = "clustbench"
 pkg_title = "Clustering Benchmarks"
 pkg_version = clustbench.__version__
-copyright_year = '2020–2024'
+copyright_year = '2020–2025'
 html_baseurl = "https://clustering-benchmarks.gagolewski.com/"
 html_logo = "https://www.gagolewski.com/_static/img/clustbench.png"
 html_favicon = "https://www.gagolewski.com/_static/img/clustbench.png"

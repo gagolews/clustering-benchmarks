@@ -5,7 +5,7 @@ clustering-benchmarks Package
 
 # ############################################################################ #
 #                                                                              #
-#   Copyleft (C) 2020-2024, Marek Gagolewski <https://www.gagolewski.com>      #
+#   Copyleft (C) 2020-2025, Marek Gagolewski <https://www.gagolewski.com>      #
 #                                                                              #
 #                                                                              #
 #   This program is free software: you can redistribute it and/or modify       #
@@ -25,6 +25,7 @@ import os.path
 import numpy as np
 from collections import namedtuple
 from .preprocess_data import preprocess_data
+from numpy.lib.npyio import DataSource
 
 
 def load_dataset(
@@ -137,7 +138,7 @@ def load_dataset(
     i = 0
     while True:
         f = base_name + ".labels%d.gz" % i
-        if not np.DataSource().exists(f):
+        if not DataSource().exists(f):
             break  # stop trying to find more label vectors
 
         ll = np.loadtxt(f, dtype="int")
@@ -149,7 +150,7 @@ def load_dataset(
 
     n_clusters = np.array([np.max(ll) for ll in labels])
 
-    with np.DataSource().open(base_name + ".txt", "r") as readme_file:
+    with DataSource().open(base_name + ".txt", "r") as readme_file:
         description = readme_file.read()
 
     RetClass = namedtuple(

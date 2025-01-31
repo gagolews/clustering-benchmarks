@@ -12,7 +12,7 @@ This project aims to:
     sizes, and cluster types,
 * propose a **consistent methodology** for evaluating clustering algorithms.
 
-See <https://clustering-benchmarks.gagolewski.com/> for a detailed description.
+See <https://clustering-benchmarks.gagolewski.com/> for more details.
 
 **How to cite**:
 Gagolewski M., A framework for benchmarking clustering algorithms,

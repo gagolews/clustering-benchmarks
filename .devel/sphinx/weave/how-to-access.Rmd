@@ -1,6 +1,10 @@
 (sec:how-to-access)=
 # Access from Python, R, MATLAB, etc.
 
+
+The current version of the benchmark dataset battery can be downloaded
+from <https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0>.
+
 ## Python
 
 To facilitate the comparison of clustering algorithms in the
@@ -68,9 +72,8 @@ are implemented in the R version of the
 [*genieclust*](https://genieclust.gagolewski.com) package.
 
 
-Algorithms implemented in R
-can be called from within Python
-using, for example, the [*rpy2*](https://pypi.org/project/rpy2/) package.
+R code can be called in Python using, for example,
+the [*rpy2*](https://pypi.org/project/rpy2/) package.
 
 
 ::::{note}

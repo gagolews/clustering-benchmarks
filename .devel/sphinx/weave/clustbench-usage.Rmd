@@ -34,7 +34,7 @@ check out Marek's open-access (free!) textbook*
 ## Fetching Benchmark Data
 
 The datasets from the {ref}`sec:suite-v1` can be accessed easily.
-It is best to [download](https://github.com/gagolews/clustering-data-v1)
+It is best to [download](https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0)
 the whole repository onto our disk first.
 Let us assume they are available in the following directory:
 
@@ -66,19 +66,28 @@ dataset = "x2"
 b = clustbench.load_dataset(battery, dataset, path=data_path)
 ```
 
-The above call returned a named tuple.
-For instance, the README file can be accessed via the `description`
-field:
+The above call returned a named tuple. For instance, the corresponding README
+file can be inspected by accessing the `description` field:
 
 ```{python}
 print(b.description)
 ```
 
-What is more, the `data` field is the data matrix, `labels` gives the list
+Moreover, the `data` field gives the data matrix, `labels` is the list
 of all ground truth partitions (encoded as label vectors),
 and `n_clusters` gives the corresponding numbers of subsets.
 In case of any doubt, we can always consult the official documentation
 of the {any}`clustbench.load_dataset` function.
+
+::::{note}
+Particular datasets can be retrieved from an online repository directly
+(no need to download the whole battery first) by calling:
+
+```{python}
+data_url = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"
+b = clustbench.load_dataset("wut", "x2", url=data_url)
+```
+::::
 
 For instance, here is the shape (*n* and *d*) of the data matrix,
 the number of reference partitions, and their cardinalities *k*,
