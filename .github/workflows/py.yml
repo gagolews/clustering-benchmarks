@@ -25,10 +25,12 @@ jobs:
         sudo apt-get update
         sudo apt-get -y upgrade
         sudo apt-get -y install libcurl4-openssl-dev python3-rpy2 libmlpack-dev r-base-dev python3-dev pandoc
-        #sudo python3 -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then sudo pip3 install -r requirements.txt --upgrade; fi
-        sudo pip3 install flake8 pytest --upgrade
+        python3 -m venv python-venv
+        source python-venv/bin/activate
+        python3 -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip3 install -r requirements.txt --upgrade; fi
+        pip3 install flake8 pytest --upgrade
     - name: Test and check Python
       run: |
-        sudo make test
-        sudo make check
+        make test
+        make check
