@@ -19,8 +19,7 @@ Let us consider the {ref}`other/hdbscan <sec:suite-v1>` dataset
 {cite}`hdbscanpkg`, which consists of 2,309 points in $\mathbb{R}^2$.
 
 
-
-```python
+``` python
 import numpy as np
 import pandas as pd
 import clustbench
@@ -34,8 +33,7 @@ y_true = benchmark.labels[0]
 Here is a summary of the number of points in each reference cluster:
 
 
-
-```python
+``` python
 pd.Series(y_true).value_counts()
 ## 0    510
 ## 1    410
@@ -51,8 +49,7 @@ There are six clusters (1–6) and a special point group with ID=0
 that marks some points as noise.
 
 
-
-```python
+``` python
 import genieclust
 genieclust.plots.plot_scatter(X, labels=y_true-1, axis="equal", title="y_true")
 plt.show()
@@ -75,8 +72,7 @@ After all, it is an unsupervised learning task.
 
 
 
-
-```python
+``` python
 k = np.max(y_true)  # the number of clusters to detect
 g = genieclust.Genie(n_clusters=k)  # using default parameters
 y_pred = g.fit_predict(X) + 1  # +1 makes cluster IDs in 1..k, not 0..(k-1)
@@ -89,8 +85,7 @@ noise point markers are propagated from the ground truth vector
 
 
 
-
-```python
+``` python
 plt.subplot(1, 2, 1)
 genieclust.plots.plot_scatter(X, labels=y_pred-1, axis="equal", title="y_pred")
 plt.subplot(1, 2, 2)
@@ -111,8 +106,7 @@ Noise points make the life of a clustering algorithm harder.
 Here is the confusion matrix:
 
 
-
-```python
+``` python
 genieclust.compare_partitions.confusion_matrix(y_true, y_pred)
 ## array([[116,  84, 124,  51,  52,  83],
 ##        [409,   0,   1,   0,   0,   0],
@@ -142,8 +136,7 @@ Let us compute the normalised clustering accuracy,
 ignoring the first row in the confusion matrix:
 
 
-
-```python
+``` python
 genieclust.compare_partitions.normalized_clustering_accuracy(
     y_true[y_true>0],
     y_pred[y_true>0]
@@ -154,10 +147,9 @@ genieclust.compare_partitions.normalized_clustering_accuracy(
 or, equivalently:
 
 
-
-```python
+``` python
 clustbench.get_score(y_true, y_pred)  # the NCA metric is used by default
-## 0.7828220858895705
+## np.float64(0.7828220858895705)
 ```
 
 The score is somewhere between 4/6 (four clusters discovered correctly)

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5282ffc2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1981fb80" />
     
     
 
@@ -222,7 +222,7 @@
 <a class="sidebar-brand" href="../index.html">Clustering Benchmarks</a>
 </span>
 <div class="sidebar-brand">
-1.1.5
+1.1.6
 </div>
 <form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -321,15 +321,14 @@ package manager.</p>
 <p>Below we discuss its basic features/usage.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><em>To learn more about Python,
-check out Marek’s open-access (free!) textbook</em>
+<p><em>To learn more about Python, check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2024).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2025).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">24</a>]</span>.</p>
 </div>
 <section id="fetching-benchmark-data">
 <h2>Fetching Benchmark Data<a class="headerlink" href="#fetching-benchmark-data" title="Link to this heading">¶</a></h2>
 <p>The datasets from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a> can be accessed easily.
-It is best to <a class="reference external" href="https://github.com/gagolews/clustering-data-v1">download</a>
+It is best to <a class="reference external" href="https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0">download</a>
 the whole repository onto our disk first.
 Let us assume they are available in the following directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load from a local library (download the suite manually)</span>
@@ -354,9 +353,8 @@ Let us assume they are available in the following directory:</p>
 <span class="n">b</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">battery</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The above call returned a named tuple.
-For instance, the README file can be accessed via the <code class="docutils literal notranslate"><span class="pre">description</span></code>
-field:</p>
+<p>The above call returned a named tuple. For instance, the corresponding README
+file can be inspected by accessing the <code class="docutils literal notranslate"><span class="pre">description</span></code> field:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
 <span class="c1">## Author: Eliza Kaczorek (Warsaw University of Technology)</span>
 <span class="c1">## </span>
@@ -365,11 +363,20 @@ field:</p>
 <span class="c1">## `0` denotes the noise class (if present).</span>
 </pre></div>
 </div>
-<p>What is more, the <code class="docutils literal notranslate"><span class="pre">data</span></code> field is the data matrix, <code class="docutils literal notranslate"><span class="pre">labels</span></code> gives the list
+<p>Moreover, the <code class="docutils literal notranslate"><span class="pre">data</span></code> field gives the data matrix, <code class="docutils literal notranslate"><span class="pre">labels</span></code> is the list
 of all ground truth partitions (encoded as label vectors),
 and <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> gives the corresponding numbers of subsets.
 In case of any doubt, we can always consult the official documentation
 of the <a class="reference internal" href="../clustbench-documentation.html#clustbench.load_dataset" title="clustbench.load_dataset"><code class="xref any py py-func docutils literal notranslate"><span class="pre">clustbench.load_dataset</span></code></a> function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Particular datasets can be retrieved from an online repository directly
+(no need to download the whole battery first) by calling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.1.0&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <p>For instance, here is the shape (<em>n</em> and <em>d</em>) of the data matrix,
 the number of reference partitions, and their cardinalities <em>k</em>,
 respectively:</p>
@@ -466,7 +473,7 @@ all the partitions required to compare ourselves against the reference labels.</
 <span class="n">m</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">fit_predict_many</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
 <span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">])</span>
-<span class="c1">## 0.9848484848484849</span>
+<span class="c1">## np.float64(0.9848484848484849)</span>
 </pre></div>
 </div>
 <p>We see that k-means (which specialises in detecting symmetric Gaussian-like blobs)
@@ -529,11 +536,11 @@ convenience.</p>
             <div class="copyright">
               
               
-              Copyright &#169; 2020–2024 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Copyright &#169; 2020–2025 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2024-08-22T12:55:54+0200.
+              Last updated on 2025-02-03T12:53:44+0100.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -570,7 +577,7 @@ convenience.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=a48ae3df"></script>
+</div><script src="../_static/documentation_options.js?v=937269b5"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=4e2eecee"></script>

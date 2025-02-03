@@ -23,8 +23,7 @@ Below we discuss its basic features/usage.
 
 
 ::::{note}
-*To learn more about Python,
-check out Marek's open-access (free!) textbook*
+*To learn more about Python, check out Marek's open-access (free!) textbook*
 [Minimalist Data Wrangling in Python](https://datawranglingpy.gagolewski.com/)
 {cite}`datawranglingpy`.
 ::::

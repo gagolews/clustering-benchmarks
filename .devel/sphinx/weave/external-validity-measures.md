@@ -230,8 +230,8 @@ points in each cluster *above* the perfectly uniform label distribution.
 Normalised clustering accuracy is the only measure reviewed here
 that is not symmetric, i.e., it gives special treatment
 to the reference partition.
-As argued in {cite}`nca`, this is perfectly fine behaviour
-in our context, where we validate the predicted partitions.
+As argued in {cite}`nca`, this is fine a behaviour
+in the current context, where we validate the predicted partitions.
 
 
 
@@ -241,8 +241,7 @@ normalising each row of the confusion matrix so that the elements
 therein sum to 1:
 
 
-
-```python
+``` python
 C = np.array([  # an example confusion matrix
     [12, 37,  1],
     [40,  0,  0],
@@ -257,8 +256,7 @@ C = np.array([  # an example confusion matrix
 and then by calling:
 
 
-
-```python
+``` python
 (o := genieclust.compare_partitions.normalizing_permutation(C_norm) + 1)
 ## array([2, 1, 3])
 ```
@@ -268,8 +266,7 @@ Here is a version of the confusion matrix with the columns
 reordered accordingly:
 
 
-
-```python
+``` python
 C[:, o-1]
 ## array([[37, 12,  1],
 ##        [ 0, 40,  0],
@@ -278,76 +275,6 @@ C[:, o-1]
 ::::
 
 
-
-
-### Pair Sets Index
-
-If the symmetry property is required, the pair sets index
-{cite}`psi` can be used as a partition similarity score.
-In the case of partitions of the same cardinalities, it reduces to:
-
-$$
-\mathrm{PS}(\mathbf{C}) =
-\max\left\{0,
-\max_\sigma \frac{
-    \frac{1}{k}
-     \sum_{i=1}^k
-    \frac{
-        c_{i, \sigma(i)}
-    }{
-        \max\{ c_{i,\cdot},  c_{\cdot, \sigma(i)} \}
-    }
-    -
-    E
-}{
-    1
-    -
-    E
-}
-\right\},
-$$
-
-where the normalisation term,
-assuming that $c_{(i),\cdot}$ is the $i$-th largest
-row sum and that $c_{\cdot, (i)}$ is the $i$-th largest column sum, is:
-
-$$
-E= \frac{1}{k}  \sum_{i=1}^{k} \frac{
-    c_{(i),\cdot}\, c_{\cdot, (i)}
-}{
-    n\, \max\{ c_{(i),\cdot},  c_{\cdot, (i)} \}
-}.
-$$
-
-Furthermore, we can consider a simplified variant of the pair sets index, PS,
-also proposed in {cite}`psi`. Under the assumption that the expected score is
-$E = 1/k$, we get:
-
-$$
-\mathrm{SPS}(\mathbf{C}) =
-\max\left\{0,
-   \max_\sigma \frac{
-         \frac{1}{k} \sum_{i=1}^k
-        \frac{
-            c_{i, \sigma(i)}
-        }{
-            \max\{ c_{i,\cdot},  c_{\cdot, \sigma(i)} \}
-        }
-        -
-        \frac{1}{k}
-    }{
-    1
-    -
-    \frac{1}{k}
-    }
-\right\}.
-$$
-
-These indices are manually clipped to the unit interval
-for negative values are difficult to interpret.
-
-
-*Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.pair_sets_index`*.
 
 
 ## Counting Concordant and Discordant Point Pairs

@@ -419,7 +419,7 @@ C[:, o-1]
 
 
 
-
+<!--
 ### Pair Sets Index
 
 If the symmetry property is required, the pair sets index
@@ -488,7 +488,7 @@ for negative values are difficult to interpret.
 
 
 *Implementation: [`genieclust`](https://genieclust.gagolewski.com/)`.compare_partitions.pair_sets_index`*.
-
+-->
 
 ## Counting Concordant and Discordant Point Pairs
 

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5282ffc2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1981fb80" />
     
     
 
@@ -222,7 +222,7 @@
 <a class="sidebar-brand" href="../index.html">Clustering Benchmarks</a>
 </span>
 <div class="sidebar-brand">
-1.1.5
+1.1.6
 </div>
 <form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -353,7 +353,7 @@ or, more formally, a <em>k</em>-partition<a class="footnote-reference brackets" 
 <p>The number of subsets, <em>k</em>, is thus an inherent part of the
 reference set:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">k</span> <span class="o">:=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_true</span><span class="p">))</span>  <span class="c1"># or benchmark.n_clusters[0]</span>
-<span class="c1">## 3</span>
+<span class="c1">## np.int64(3)</span>
 </pre></div>
 </div>
 </section>
@@ -467,7 +467,7 @@ They should have been coloured black.</p>
 to judge the similarity between the two partitions. However,
 if we wish to compare the quality of different algorithms,
 we would rather have it summarised in the form of a single number.</p>
-<p>Following <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, we recommend the use of the
+<p>Following <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, we recommend the use of the
 <strong>normalised clustering accuracy</strong> (NCA) as an <em>external cluster validity measure</em>
 which quantifies the degree of agreement between the reference <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and
 the predicted <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>. It is given by:</p>
@@ -501,7 +501,7 @@ or all the points were put into a single large cluster. In our case:</p>
 </div>
 <p>or, equivalently:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  <span class="c1"># the NCA metric is used by default</span>
-<span class="c1">## 0.8700000000000001</span>
+<span class="c1">## np.float64(0.8700000000000001)</span>
 </pre></div>
 </div>
 <p>This value indicates a decent degree of similarity between the reference
@@ -510,14 +510,14 @@ and the discovered partitions.</p>
 Rand index or normalised mutual information, are discussed
 in the <a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">Appendix</span></a>.
 In particular, this is where we argue why the classic (classification)
-accuracy rate should not be used in our context (this is a common mistake!).</p>
+accuracy rate should not be used in our context (a common mistake!).</p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="footbook" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Check out Marek’s open-access (free!) textbook
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id7">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2024).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+<span id="id7">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2025).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">24</a>]</span>.</p>
 </aside>
 <aside class="footnote brackets" id="footmanyreference" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
@@ -580,11 +580,11 @@ based on the solution to the maximal assignment problem.</p>
             <div class="copyright">
               
               
-              Copyright &#169; 2020–2024 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Copyright &#169; 2020–2025 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2024-08-22T12:55:54+0200.
+              Last updated on 2025-02-03T12:53:44+0100.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -623,7 +623,7 @@ based on the solution to the maximal assignment problem.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=a48ae3df"></script>
+</div><script src="../_static/documentation_options.js?v=937269b5"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=4e2eecee"></script>

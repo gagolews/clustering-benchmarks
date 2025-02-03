@@ -5,6 +5,10 @@
 (sec:how-to-access)=
 # Access from Python, R, MATLAB, etc.
 
+
+The current version of the benchmark dataset battery can be downloaded
+from <https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0>.
+
 ## Python
 
 To facilitate the comparison of clustering algorithms in the
@@ -18,13 +22,14 @@ all data files are neat and tidy. Therefore, we can access them
 easily using some more low-level functions from *numpy*. For example:
 
 
-
-```python
+``` python
 import numpy as np
 import os.path
 # to do: change to your local path
 base_name = os.path.join("~", "Projects", "clustering-data-v1", "wut", "smile")
 base_name = os.path.expanduser(base_name)
+# alternatively, use:
+# base_name = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile"
 data    = np.loadtxt(base_name + ".data.gz", ndmin=2)
 data[:6, :]  # preview
 ## array([[-1.545826,  2.471133],
@@ -33,6 +38,10 @@ data[:6, :]  # preview
 ##        [-4.384334,  1.176669],
 ##        [-3.950311,  6.94172 ],
 ##        [-4.23157 ,  7.156661]])
+```
+
+
+``` python
 labels  = np.loadtxt(base_name + ".labels0.gz", dtype="int")
 labels[:6]  # preview
 ## array([2, 2, 2, 2, 2, 2])
@@ -60,10 +69,11 @@ Following the {ref}`sec:file-format`,
 the datasets can be accessed using the built-in R functions:
 
 
-
-```r
+``` r
 # to do: change to your local path
 base_name <- file.path("~", "Projects", "clustering-data-v1", "wut", "smile")
+# alternatively, use:
+# base_name <- "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile"
 data    <- as.matrix(read.table(paste0(base_name, ".data.gz")))
 head(data)  # preview
 ##           V1     V2
@@ -73,6 +83,10 @@ head(data)  # preview
 ## [4,] -4.3843 1.1767
 ## [5,] -3.9503 6.9417
 ## [6,] -4.2316 7.1567
+```
+
+
+``` r
 labels  <- scan(paste0(base_name, ".labels0.gz"), integer())
 head(labels)  # preview
 ## [1] 2 2 2 2 2 2
@@ -85,9 +99,8 @@ are implemented in the R version of the
 [*genieclust*](https://genieclust.gagolewski.com) package.
 
 
-Algorithms implemented in R
-can be called from within Python
-using, for example, the [*rpy2*](https://pypi.org/project/rpy2/) package.
+R code can be called in Python using, for example,
+the [*rpy2*](https://pypi.org/project/rpy2/) package.
 
 
 ::::{note}
@@ -101,8 +114,10 @@ using, for example, the [*rpy2*](https://pypi.org/project/rpy2/) package.
 
 ## MATLAB
 
-Unfortunately, MATLAB does not seem to be able to un*gzip* files
-on the fly, but these can be decompressed to a temporary folder
+Unfortunately, MATLAB is not free software.
+
+It does not seem to be able to un*gzip* files
+on the fly, but they can be decompressed to a temporary folder
 manually.
 
 
@@ -115,10 +130,9 @@ labels = readmatrix(char(gunzip(base_name + ".labels0.gz", t)), FileType="text")
 
 Note that there is also a MATLAB
 [interface](https://au.mathworks.com/products/matlab/matlab-and-python.html)
-for Python. This way, algorithms that  have only been implemented in the
+for Python. This way, algorithms that have only been implemented in the
 former can be called from within the latter.
 
-Unfortunately, MATLAB is not free software.
 
 
 

@@ -23,6 +23,8 @@ import os.path
 # to do: change to your local path
 base_name = os.path.join("~", "Projects", "clustering-data-v1", "wut", "smile")
 base_name = os.path.expanduser(base_name)
+# alternatively, use:
+# base_name = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile"
 data    = np.loadtxt(base_name + ".data.gz", ndmin=2)
 data[:6, :]  # preview
 ```
@@ -56,6 +58,8 @@ the datasets can be accessed using the built-in R functions:
 ```{r}
 # to do: change to your local path
 base_name <- file.path("~", "Projects", "clustering-data-v1", "wut", "smile")
+# alternatively, use:
+# base_name <- "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile"
 data    <- as.matrix(read.table(paste0(base_name, ".data.gz")))
 head(data)  # preview
 ```

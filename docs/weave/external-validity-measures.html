@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5282ffc2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1981fb80" />
     
     
 
@@ -222,7 +222,7 @@
 <a class="sidebar-brand" href="../index.html">Clustering Benchmarks</a>
 </span>
 <div class="sidebar-brand">
-1.1.5
+1.1.6
 </div>
 <form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -309,7 +309,7 @@
 <p>In this section, we review the external cluster validity scores
 that are implemented in the <a class="reference external" href="https://genieclust.gagolewski.com/"><em>genieclust</em></a>
 package for Python and R <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id11" title="Gagolewski, M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. URL: https://genieclust.gagolewski.com/, DOI: 10.1016/j.softx.2021.100722.">20</a>]</span> and discussed in detail
-in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>.</p>
+in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> be a <a class="reference internal" href="true-vs-predicted.html#sec-true-vs-predicted"><span class="std std-ref">label</span></a>
 vector representing <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">one</span></a> of the reference
 <span class="math notranslate nohighlight">\(k\)</span>-partitions <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of a benchmark dataset<a class="footnote-reference brackets" href="#footnoise" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <span class="math notranslate nohighlight">\(X\)</span>,
@@ -329,7 +329,7 @@ chance, yielding approximately 0 for random partitions.</p>
 the adjusted Rand index or the normalised mutual information score)
 are used as <span class="math notranslate nohighlight">\(I\)</span>s. They are <strong>symmetric</strong> in the sense that
 <span class="math notranslate nohighlight">\(I(\mathbf{y}, \hat{\mathbf{y}})= I(\hat{\mathbf{y}}, \mathbf{y})\)</span>.
-However, as argued in <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, <strong>in our context we do not need this
+However, as argued in <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, <strong>in our context we do not need this
 property</strong> because the reference label vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is considered
 fixed. The normalised clustering accuracy is an example of a
 non-symmetric measure.</p>
@@ -374,10 +374,10 @@ interchangeably.</p>
 <code class="docutils literal notranslate"><span class="pre">wut/x2</span></code> <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">dataset</span></a>
 are displayed below. We also report the confusion matrices and the
 values of the validity measures discussed in the sequel.</p>
-<figure class="align-default" id="id18">
+<figure class="align-default" id="id16">
 <span id="fig-partition-similarity-example-4"></span><img alt="../_images/partition-similarity-example-4-1.png" src="../_images/partition-similarity-example-4-1.png" />
 <figcaption>
-<p><span class="caption-number">Figure 10:  </span><span class="caption-text">The reference (ground truth) partition and a few predicted clusterings that we relate to it (wut/x2 dataset). Confusion matrices and the values of a few external cluster validity measures are also reported.</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Figure 10:  </span><span class="caption-text">The reference (ground truth) partition and a few predicted clusterings that we relate to it (wut/x2 dataset). Confusion matrices and the values of a few external cluster validity measures are also reported.</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Actually, both Genie and the k-means method output some quite reasonable
@@ -453,7 +453,7 @@ in the largest point group.</p>
 </section>
 <section id="normalised-clustering-accuracy">
 <h3>Normalised Clustering Accuracy<a class="headerlink" href="#normalised-clustering-accuracy" title="Link to this heading">¶</a></h3>
-<p>In <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, the normalised for cluster sizes version of NA was proposed.
+<p>In <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, the normalised for cluster sizes version of NA was proposed.
 Namely, the <em>normalised clustering accuracy</em> is defined as:</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -476,8 +476,8 @@ points in each cluster <em>above</em> the perfectly uniform label distribution.<
 <p>Normalised clustering accuracy is the only measure reviewed here
 that is not symmetric, i.e., it gives special treatment
 to the reference partition.
-As argued in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, this is perfectly fine behaviour
-in our context, where we validate the predicted partitions.</p>
+As argued in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, this is fine a behaviour
+in the current context, where we validate the predicted partitions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The optimal relabelling (permutation <span class="math notranslate nohighlight">\(\sigma\)</span>) can be determined by
@@ -510,76 +510,6 @@ reordered accordingly:</p>
 </div>
 </div>
 </section>
-<section id="pair-sets-index">
-<h3>Pair Sets Index<a class="headerlink" href="#pair-sets-index" title="Link to this heading">¶</a></h3>
-<p>If the symmetry property is required, the pair sets index
-<span id="id10">[<a class="reference internal" href="../z_bibliography.html#id18" title="Rezaei, M. and Fränti, P. (2016).  Set matching measures for external cluster validity. IEEE Transactions on Knowledge and Data Engineering, 28(8):2173–2186. DOI: 10.1109/TKDE.2016.2551240.">47</a>]</span> can be used as a partition similarity score.
-In the case of partitions of the same cardinalities, it reduces to:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[
-\mathrm{PS}(\mathbf{C}) =
-\max\left\{0,
-\max_\sigma \frac{
-    \frac{1}{k}
-     \sum_{i=1}^k
-    \frac{
-        c_{i, \sigma(i)}
-    }{
-        \max\{ c_{i,\cdot},  c_{\cdot, \sigma(i)} \}
-    }
-    -
-    E
-}{
-    1
-    -
-    E
-}
-\right\},
-\]</div>
-</div>
-<p>where the normalisation term,
-assuming that <span class="math notranslate nohighlight">\(c_{(i),\cdot}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th largest
-row sum and that <span class="math notranslate nohighlight">\(c_{\cdot, (i)}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th largest column sum, is:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[
-E= \frac{1}{k}  \sum_{i=1}^{k} \frac{
-    c_{(i),\cdot}\, c_{\cdot, (i)}
-}{
-    n\, \max\{ c_{(i),\cdot},  c_{\cdot, (i)} \}
-}.
-\]</div>
-</div>
-<p>Furthermore, we can consider a simplified variant of the pair sets index, PS,
-also proposed in <span id="id11">[<a class="reference internal" href="../z_bibliography.html#id18" title="Rezaei, M. and Fränti, P. (2016).  Set matching measures for external cluster validity. IEEE Transactions on Knowledge and Data Engineering, 28(8):2173–2186. DOI: 10.1109/TKDE.2016.2551240.">47</a>]</span>. Under the assumption that the expected score is
-<span class="math notranslate nohighlight">\(E = 1/k\)</span>, we get:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[
-\mathrm{SPS}(\mathbf{C}) =
-\max\left\{0,
-   \max_\sigma \frac{
-         \frac{1}{k} \sum_{i=1}^k
-        \frac{
-            c_{i, \sigma(i)}
-        }{
-            \max\{ c_{i,\cdot},  c_{\cdot, \sigma(i)} \}
-        }
-        -
-        \frac{1}{k}
-    }{
-    1
-    -
-    \frac{1}{k}
-    }
-\right\}.
-\]</div>
-</div>
-<p>These indices are manually clipped to the unit interval
-for negative values are difficult to interpret.</p>
-<p><em>Implementation: <a class="reference external" href="https://genieclust.gagolewski.com/"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a><code class="docutils literal notranslate"><span class="pre">.compare_partitions.pair_sets_index</span></code></em>.</p>
-</section>
 </section>
 <section id="counting-concordant-and-discordant-point-pairs">
 <h2>Counting Concordant and Discordant Point Pairs<a class="headerlink" href="#counting-concordant-and-discordant-point-pairs" title="Link to this heading">¶</a></h2>
@@ -594,10 +524,10 @@ that are concordant:</p>
 <li><p><span class="math notranslate nohighlight">\(\mathrm{NY} = \#\left\{ i&lt;j : y_i \neq y_j\text{ but }\hat{y}_i = \hat{y}_j\right\} = \sum_{i=1}^k {c_{i,\cdot} \choose 2} - \mathrm{YY}\)</span>,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathrm{YN} = \#\left\{ i&lt;j : y_i = y_j\text{ but }\hat{y}_i \neq \hat{y}_j\right\} = \sum_{i=1}^k {c_{\cdot,j} \choose 2} - \mathrm{YY}\)</span>;</p></li>
 </ul>
-<p>see <span id="id12">[<a class="reference internal" href="../z_bibliography.html#id14" title="Hubert, L. and Arabie, P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">32</a>]</span> for discussion.</p>
+<p>see <span id="id10">[<a class="reference internal" href="../z_bibliography.html#id14" title="Hubert, L. and Arabie, P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">32</a>]</span> for discussion.</p>
 <section id="rand-score">
 <h3>Rand Score<a class="headerlink" href="#rand-score" title="Link to this heading">¶</a></h3>
-<p>The Rand index <span id="id13">[<a class="reference internal" href="../z_bibliography.html#id61" title="Rand, W.M. (1971).  Objective criteria for the evaluation of clustering methods. Journal of the American Statistical Association, 66(336):846–850. DOI: 10.2307/2284239.">46</a>]</span> is simply defined as the classification accuracy:</p>
+<p>The Rand index <span id="id11">[<a class="reference internal" href="../z_bibliography.html#id61" title="Rand, W.M. (1971).  Objective criteria for the evaluation of clustering methods. Journal of the American Statistical Association, 66(336):846–850. DOI: 10.2307/2284239.">46</a>]</span> is simply defined as the classification accuracy:</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
@@ -618,7 +548,7 @@ n(n-1)
 </section>
 <section id="fowlkes-mallows-score">
 <h3>Fowlkes–Mallows Score<a class="headerlink" href="#fowlkes-mallows-score" title="Link to this heading">¶</a></h3>
-<p>The Fowlkes–Mallows index <span id="id14">[<a class="reference internal" href="../z_bibliography.html#id60" title="Fowlkes, E.B. and Mallows, C.L. (1983).  A method for comparing two hierarchical clusterings. Journal of the American Statistical Association, 78(383):553–569.">16</a>]</span> is defined as
+<p>The Fowlkes–Mallows index <span id="id12">[<a class="reference internal" href="../z_bibliography.html#id60" title="Fowlkes, E.B. and Mallows, C.L. (1983).  A method for comparing two hierarchical clusterings. Journal of the American Statistical Association, 78(383):553–569.">16</a>]</span> is defined as
 the geometric mean between precision and recall:</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -646,7 +576,7 @@ can only be attained for the smallest <span class="math notranslate nohighlight"
 <section id="adjusted-rand-score">
 <h3>Adjusted Rand Score<a class="headerlink" href="#adjusted-rand-score" title="Link to this heading">¶</a></h3>
 <p>An adjusted-for-chance version
-of the Rand index was proposed in <span id="id15">[<a class="reference internal" href="../z_bibliography.html#id14" title="Hubert, L. and Arabie, P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">32</a>]</span>:</p>
+of the Rand index was proposed in <span id="id13">[<a class="reference internal" href="../z_bibliography.html#id14" title="Hubert, L. and Arabie, P. (1985).  Comparing partitions. Journal of Classification, 2(1):193–218. DOI: 10.1007/BF01908075.">32</a>]</span>:</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
@@ -681,8 +611,8 @@ The pivoted accuracies work on the <span class="math notranslate nohighlight">\(
 </section>
 <section id="information-theoretic-measures">
 <h2>Information-Theoretic Measures<a class="headerlink" href="#information-theoretic-measures" title="Link to this heading">¶</a></h2>
-<p>The normalised mutual information <span id="id16">[<a class="reference internal" href="../z_bibliography.html#id19" title="Kvalseth, T.O. (1987).  Entropy and correlation: Some comments. IEEE Trans. Systems, Man and Cybernetics, 17(3):517–519. DOI: 10.1109/TSMC.1987.4309069.">36</a>]</span>
-(denoted by <span class="math notranslate nohighlight">\(\mathrm{NMI}_\mathrm{sum}\)</span> in <span id="id17">[<a class="reference internal" href="../z_bibliography.html#id20" title="Vinh, N.X., Epps, J., and Bailey, J. (2010).  Information theoretic measures for clusterings comparison: Variants, properties, normalization and correction for chance. Journal of Machine Learning Research, 11(95):2837–2854. URL: http://jmlr.org/papers/v11/vinh10a.html.">57</a>]</span>)
+<p>The normalised mutual information <span id="id14">[<a class="reference internal" href="../z_bibliography.html#id19" title="Kvalseth, T.O. (1987).  Entropy and correlation: Some comments. IEEE Trans. Systems, Man and Cybernetics, 17(3):517–519. DOI: 10.1109/TSMC.1987.4309069.">36</a>]</span>
+(denoted by <span class="math notranslate nohighlight">\(\mathrm{NMI}_\mathrm{sum}\)</span> in <span id="id15">[<a class="reference internal" href="../z_bibliography.html#id20" title="Vinh, N.X., Epps, J., and Bailey, J. (2010).  Information theoretic measures for clusterings comparison: Variants, properties, normalization and correction for chance. Journal of Machine Learning Research, 11(95):2837–2854. URL: http://jmlr.org/papers/v11/vinh10a.html.">57</a>]</span>)
 is given by:</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -743,11 +673,11 @@ before the data analysis.</p>
             <div class="copyright">
               
               
-              Copyright &#169; 2020–2024 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Copyright &#169; 2020–2025 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2024-08-22T12:55:54+0200.
+              Last updated on 2025-02-03T12:53:44+0100.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -775,7 +705,6 @@ before the data analysis.</p>
 <li><a class="reference internal" href="#set-matching-measures">Set-Matching Measures</a><ul>
 <li><a class="reference internal" href="#pivoted-and-normalised-accuracy">Pivoted and Normalised Accuracy</a></li>
 <li><a class="reference internal" href="#normalised-clustering-accuracy">Normalised Clustering Accuracy</a></li>
-<li><a class="reference internal" href="#pair-sets-index">Pair Sets Index</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#counting-concordant-and-discordant-point-pairs">Counting Concordant and Discordant Point Pairs</a><ul>
@@ -796,7 +725,7 @@ before the data analysis.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=a48ae3df"></script>
+</div><script src="../_static/documentation_options.js?v=937269b5"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=4e2eecee"></script>

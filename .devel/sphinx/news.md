@@ -1,9 +1,10 @@
 # Changelog
 
 
-## 1.1.x (2025-xx-xx)
+## 1.1.6 (2025-02-03)
 
 -   [BUGFIX] `numpy.DataSource` is now `numpy.lib.npyio.DataSource`.
+-   `load_dataset` now guarantees to return a C-contiguous `data` matrix.
 
 
 ## 1.1.5 (2024-08-22)
