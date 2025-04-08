@@ -108,58 +108,6 @@ and
 Adam Wawrzeńczyk.
 Thanks!
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0      4000
-1      2000
-2      2500
-3      9000
-4      3546
-5       300
-6      1000
-7       600
-8      1500
-9      5000
-10     1000
-11     1000
-12     5000
-13    10000
-14     5000
-15      400
-16     2977
-17      120
-18      120
-19      120
-20      185
-21      185
-22      192
-23      900
-24     1000
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0     2
-1     2
-2     2
-3     2
-4     2
-5     2
-6     2
-7     3
-8     3
-9     2
-10    2
-11    2
-12    2
-13    2
-14    3
-15    2
-16    2
-17    2
-18    2
-19    2
-20    2
-21    2
-22    2
-23    2
-24    2
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset            | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
 |:---|:-------------------|:------|:------|:-------------------|------:|---------------:|------:|
 | 1  | **circles**        | 4000  | 2     | labels0            |     4 |              0 |  0    |
@@ -220,64 +168,6 @@ see {ref}`sec:battery-g2mg` for an alternative.
 We excluded the `DIM`-sets as they are too easy for most algorithms.
 
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0       3000
-1       5250
-2       7500
-3        788
-4     100000
-5     100000
-6        399
-7        399
-8        399
-9        399
-10       399
-11      3100
-12       240
-13       240
-14       373
-15       300
-16       300
-17       600
-18       600
-19       600
-20      5000
-21      5000
-22      5000
-23      5000
-24       312
-25      6500
-26    105600
-27    105000
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0      2
-1      2
-2      2
-3      2
-4      2
-5      2
-6      2
-7      2
-8      2
-9      2
-10     2
-11     2
-12     2
-13     2
-14     2
-15     2
-16     2
-17     2
-18     2
-19     2
-20     2
-21     2
-22     2
-23     2
-24     2
-25     2
-26     2
-27    64
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset         | *n*    | *d*   | reference labels   |   *k* |   noise points |   *g* |
 |:---|:----------------|:-------|:------|:-------------------|------:|---------------:|------:|
 | 1  | **a1**          | 3000   | 2     | labels0            |    20 |              0 |  0    |
@@ -327,30 +217,6 @@ can be accessed, e.g., via the R package
 [*FCPS*](https://CRAN.R-project.org/package=FCPS);
 see also {cite}`ThrunUltsch2020:fcps`.
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0      800
-1     1000
-2     4096
-3     4096
-4      212
-5      400
-6      770
-7      770
-8      400
-9      800
-10    1016
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0     3
-1     3
-2     2
-3     2
-4     3
-5     2
-6     2
-7     2
-8     3
-9     2
-10    2
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
 |:---|:----------------|:------|:------|:-------------------|------:|---------------:|------:|
 | 1  | **atom**        | 800   | 3     | labels0            |     2 |              0 |  0    |
@@ -378,46 +244,6 @@ in {cite}`graves`.
 The dataset consist of 200–1050 observations in 2 dimensions.
 They came with no reference labels, so we had to create them ourselves.
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0      200
-1     1000
-2     1000
-3     1000
-4     1000
-5     1000
-6      250
-7     1000
-8     1000
-9     1000
-10    1050
-11    1030
-12    1030
-13     250
-14     250
-15     300
-16     300
-17     280
-18     280
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0     2
-1     2
-2     2
-3     2
-4     2
-5     2
-6     2
-7     2
-8     2
-9     2
-10    2
-11    2
-12    2
-13    2
-14    2
-15    2
-16    2
-17    2
-18    2
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset             | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
 |:---|:--------------------|:------|:------|:-------------------|------:|---------------:|------:|
 | 1  | **dense**           | 200   | 2     | labels0            |     2 |              0 |  0    |
@@ -474,24 +300,6 @@ Datasets from multiple sources:
 * `square` – a dataset of unknown/unconfirmed origin
     (🚧 help needed 🚧).
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0     8000
-1     8000
-2    10000
-3     8000
-4     2309
-5      150
-6      105
-7     1000
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0    2
-1    2
-2    2
-3    2
-4    2
-5    4
-6    4
-7    2
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset              |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
 |---:|:---------------------|------:|------:|:-------------------|------:|---------------:|------:|
 |  1 | **chameleon_t4_8k**  |  8000 |     2 | labels0            |     6 |            761 |  0.25 |
@@ -519,24 +327,6 @@ not clustering algorithms. Most clustering algorithms find them
 problematic; due to their being high-dimensional, it is difficult
 to verify the sensibleness of the reference labels.
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0     336
-1     214
-2     351
-3     208
-4    2310
-5     569
-6     178
-7    1484
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0     7
-1     9
-2    34
-3    60
-4    19
-5    30
-6    13
-7     8
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset        |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
 |---:|:---------------|------:|------:|:-------------------|------:|---------------:|------:|
 |  1 | **ecoli**      |   336 |     7 | labels0            |     8 |              0 |  0.65 |
@@ -569,12 +359,6 @@ This battery features two large, high-dimensional datasets:
 Both datasets consist of 70,000 flattened 28x28 greyscale images
 (train and test samples combined).
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0    70000
-1    70000
-Name: *n*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0    784
-1    784
-Name: *d*, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset     |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
 |---:|:------------|------:|------:|:-------------------|------:|---------------:|------:|
 |  1 | **digits**  | 70000 |   784 | labels0            |    10 |              0 |  0.03 |
@@ -612,30 +396,6 @@ Gaussian blobs (*k*-means, expectation-maximisation (EM)
 for Gaussian mixtures) will naturally perform better thereon than
 the non-parametric approaches.
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0      2048
-1      2048
-2      2048
-3      2048
-4      2048
-       ... 
-139    2048
-140    2048
-141    2048
-142    2048
-143    2048
-Name: *n*, Length: 144, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0        1
-1        1
-2        1
-3        1
-4        1
-      ... 
-139    128
-140    128
-141    128
-142    128
-143    128
-Name: *d*, Length: 144, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
 |:---|:----------------|:------|:------|:-------------------|------:|---------------:|------:|
 | 1  | **g2mg_1_10**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
@@ -801,30 +561,6 @@ Generator: <https://github.com/gagolews/clustering-data-v1/blob/master/.devel/ge
 Just like in the case of {ref}`sec:battery-g2mg`, we recommend
 that these datasets be studied separately from other batteries.
 
-<string>:19: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0      2048
-1      2048
-2      2048
-3      2048
-4      2048
-       ... 
-139    2048
-140    2048
-141    2048
-142    2048
-143    2048
-Name: *n*, Length: 144, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-<string>:20: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0        1
-1        1
-2        1
-3        1
-4        1
-      ... 
-139    128
-140    128
-141    128
-142    128
-143    128
-Name: *d*, Length: 144, dtype: object' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
 |    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
 |:---|:----------------|:------|:------|:-------------------|------:|---------------:|------:|
 | 1  | **h2mg_1_10**   | 2048  | 1     | labels0            |     2 |              0 |  0    |

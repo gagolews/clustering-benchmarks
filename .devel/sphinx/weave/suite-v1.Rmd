@@ -11,7 +11,8 @@ def summarise_battery(battery):
         "~/Projects/clustering-data-v1/.catalogue/%s.csv" % battery
     )
     x = x.iloc[:, 1:]  # skip battery
-    x["g"] = np.round(x["g"], 2)
+    x.loc[:, "g"] = np.round(x.loc[:, "g"], 2)
+    x = x.astype(str)
     x = x.rename(columns=dict(
         noise="noise points",
         k="*k*",
@@ -20,11 +21,6 @@ def summarise_battery(battery):
         g="*g*",
         labels="reference labels",
     ))
-
-
-    x.iloc[:, 0] = x.iloc[:, 0].astype(str)
-    x.iloc[:, 1] = x.iloc[:, 1].astype(str)
-    x.iloc[:, 2] = x.iloc[:, 2].astype(str)
 
     idx = [""]*x.shape[0]
     j = 1
