@@ -110,11 +110,19 @@ for Python. This way, algorithms that have only been implemented in the
 former can be called from within the latter.
 
 
-<!--
+
 ## Julia
 
-TODO: describe (help needed)
--->
+Very similar to Python and R the datasets can be accessed in Julia using the [*CSV.jl*](https://csv.juliadata.org) package.
+
+```{julia}
+using CSV
+
+base_name = joinpath("~", "Projects", "clustering-data-v1", "wut", "smile")
+base_name = expanduser(base_name)
+data = CSV.read(base_name * ".data.gz", CSV.Tables.matrix; header=false, delim=' ')
+labels = CSV.read(base_name * ".labels0.gz", CSV.Tables.matrix; header=false, delim=' ')
+```
 
 
 ::::{todo}
