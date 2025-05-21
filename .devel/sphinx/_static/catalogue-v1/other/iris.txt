@@ -17,3 +17,8 @@ A rather small dataset, where one point group is clearly well-separated.
 Datapoints are encoded with 1 decimal digits precision, hence
 the pairwise point distance matrix might have non-unique entries.
 
+
+Gagolewski M., A framework for benchmarking clustering algorithms,
+SoftwareX 20:101270, 2022. DOI: 10.1016/j.softx.2022.101270.
+URL: <https://clustering-benchmarks.gagolewski.com/>.
+

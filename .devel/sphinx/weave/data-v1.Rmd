@@ -13,6 +13,7 @@ shutil.copytree(
     "../_static/catalogue-v1",
     ignore=shutil.ignore_patterns('*.md', '*.csv')
 )
+
 # shutil.copytree(
 #     os.path.expanduser("~/Projects/clustering-results-v1/.catalogue/original/"),
 #     "../_static/catalogue-v1",

@@ -6,3 +6,8 @@ see https://creativecommons.org/licenses/by/4.0/
 
 `labels0` come from the Author himself.
 
+
+Gagolewski M., A framework for benchmarking clustering algorithms,
+SoftwareX 20:101270, 2022. DOI: 10.1016/j.softx.2022.101270.
+URL: <https://clustering-benchmarks.gagolewski.com/>.
+
