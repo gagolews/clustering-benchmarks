@@ -347,7 +347,7 @@ package.</p>
 <p><em>To learn more about Python,
 check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2025).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">24</a>]</span>.</p>
+<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2025).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
 </div>
 </section>
 <section id="r">
@@ -381,7 +381,7 @@ the <a class="reference external" href="https://pypi.org/project/rpy2/"><em>rpy2
 <p class="admonition-title">Note</p>
 <p><em>To learn more about R, check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://deepr.gagolewski.com/">Deep R Programming</a>
-<span id="id2">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski, M. (2025).  Deep R Programming. Zenodo, Melbourne. ISBN 978-0-6455719-2-9. URL: https://deepr.gagolewski.com/, DOI: 10.5281/zenodo.7490464.">23</a>]</span>.</p>
+<span id="id2">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski, M. (2025).  Deep R Programming. Zenodo, Melbourne. ISBN 978-0-6455719-2-9. URL: https://deepr.gagolewski.com/, DOI: 10.5281/zenodo.7490464.">22</a>]</span>.</p>
 </div>
 </section>
 <section id="matlab">
@@ -400,11 +400,26 @@ manually.</p>
 <a class="reference external" href="https://au.mathworks.com/products/matlab/matlab-and-python.html">interface</a>
 for Python. This way, algorithms that have only been implemented in the
 former can be called from within the latter.</p>
+</section>
+<section id="julia">
+<h2>Julia<a class="headerlink" href="#julia" title="Link to this heading">¶</a></h2>
+<p>Very similar to Python and R the datasets can be accessed
+in Julia using the <a class="reference external" href="https://csv.juliadata.org"><em>CSV.jl</em></a> package.</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">CSV</span>
+
+<span class="n">base_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Projects&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clustering-data-v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wut&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;smile&quot;</span><span class="p">)</span>
+<span class="n">base_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expanduser</span><span class="p">(</span><span class="n">base_name</span><span class="p">)</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">Tables</span><span class="o">.</span><span class="n">matrix</span><span class="p">;</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">delim</span><span class="o">=</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+<span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">Tables</span><span class="o">.</span><span class="n">matrix</span><span class="p">;</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">delim</span><span class="o">=</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">Todo</p>
 <p>Contributions are welcome: Describe how to load
 the datasets and benchmark results
-in GNU Octave, Scilab, Julia, Mathematica, … (🚧 help needed 🚧)</p>
+in GNU Octave, Scilab, Mathematica, … (🚧 help needed 🚧)</p>
+<p>Thanks to <a class="reference external" href="https://github.com/tstoeter">Torsten Stöter</a> for contributing
+the Julia code.</p>
 </div>
 </section>
 </section>
@@ -444,7 +459,7 @@ in GNU Octave, Scilab, Julia, Mathematica, … (🚧 help needed 🚧)</p>
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2025-04-08T13:43:38+0200.
+              Last updated on 2025-05-21T11:51:24+0200.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -469,6 +484,7 @@ in GNU Octave, Scilab, Julia, Mathematica, … (🚧 help needed 🚧)</p>
 <li><a class="reference internal" href="#python">Python</a></li>
 <li><a class="reference internal" href="#r">R</a></li>
 <li><a class="reference internal" href="#matlab">MATLAB</a></li>
+<li><a class="reference internal" href="#julia">Julia</a></li>
 </ul>
 </li>
 </ul>

@@ -309,7 +309,7 @@
 <p>In this section, we review the external cluster validity scores
 that are implemented in the <a class="reference external" href="https://genieclust.gagolewski.com/"><em>genieclust</em></a>
 package for Python and R <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id11" title="Gagolewski, M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. URL: https://genieclust.gagolewski.com/, DOI: 10.1016/j.softx.2021.100722.">20</a>]</span> and discussed in detail
-in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>.</p>
+in <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id5" title="Gagolewski, M. (2025).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification, 42:2–30. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> be a <a class="reference internal" href="true-vs-predicted.html#sec-true-vs-predicted"><span class="std std-ref">label</span></a>
 vector representing <a class="reference internal" href="many-partitions.html#sec-many-partitions"><span class="std std-ref">one</span></a> of the reference
 <span class="math notranslate nohighlight">\(k\)</span>-partitions <span class="math notranslate nohighlight">\(\{X_1,\dots,X_k\}\)</span> of a benchmark dataset<a class="footnote-reference brackets" href="#footnoise" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <span class="math notranslate nohighlight">\(X\)</span>,
@@ -329,7 +329,7 @@ chance, yielding approximately 0 for random partitions.</p>
 the adjusted Rand index or the normalised mutual information score)
 are used as <span class="math notranslate nohighlight">\(I\)</span>s. They are <strong>symmetric</strong> in the sense that
 <span class="math notranslate nohighlight">\(I(\mathbf{y}, \hat{\mathbf{y}})= I(\hat{\mathbf{y}}, \mathbf{y})\)</span>.
-However, as argued in <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, <strong>in our context we do not need this
+However, as argued in <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id5" title="Gagolewski, M. (2025).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification, 42:2–30. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, <strong>in our context we do not need this
 property</strong> because the reference label vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is considered
 fixed. The normalised clustering accuracy is an example of a
 non-symmetric measure.</p>
@@ -453,7 +453,7 @@ in the largest point group.</p>
 </section>
 <section id="normalised-clustering-accuracy">
 <h3>Normalised Clustering Accuracy<a class="headerlink" href="#normalised-clustering-accuracy" title="Link to this heading">¶</a></h3>
-<p>In <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, the normalised for cluster sizes version of NA was proposed.
+<p>In <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id5" title="Gagolewski, M. (2025).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification, 42:2–30. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, the normalised for cluster sizes version of NA was proposed.
 Namely, the <em>normalised clustering accuracy</em> is defined as:</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -476,7 +476,7 @@ points in each cluster <em>above</em> the perfectly uniform label distribution.<
 <p>Normalised clustering accuracy is the only measure reviewed here
 that is not symmetric, i.e., it gives special treatment
 to the reference partition.
-As argued in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M. (2024).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification. in press. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">22</a>]</span>, this is fine a behaviour
+As argued in <span id="id9">[<a class="reference internal" href="../z_bibliography.html#id5" title="Gagolewski, M. (2025).  Normalised clustering accuracy: An asymmetric external cluster validity measure. Journal of Classification, 42:2–30. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09482-2.pdf, DOI: 10.1007/s00357-024-09482-2.">24</a>]</span>, this is fine a behaviour
 in the current context, where we validate the predicted partitions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -677,7 +677,7 @@ before the data analysis.</p>
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2025-04-08T13:43:38+0200.
+              Last updated on 2025-05-21T11:51:24+0200.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>

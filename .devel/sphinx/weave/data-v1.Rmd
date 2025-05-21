@@ -90,3 +90,10 @@ cat(readLines("include-dataset-browser.js"), sep="\n")
 ```
 </script>
 ::::
+
+
+::::{important}
+As a courtesy, **please cite** the original source as well as the current project
+{cite}`clustering_benchmarks` as well as mention {cite}`clustering_data_v1`
+which gives the exact version and URL of the dataset suite. Thank you.
+::::

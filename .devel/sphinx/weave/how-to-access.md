@@ -135,9 +135,27 @@ former can be called from within the latter.
 
 
 
+## Julia
+
+Very similar to Python and R the datasets can be accessed
+in Julia using the [*CSV.jl*](https://csv.juliadata.org) package.
+
+
+```julia
+using CSV
+
+base_name = joinpath("~", "Projects", "clustering-data-v1", "wut", "smile")
+base_name = expanduser(base_name)
+data = CSV.read(base_name * ".data.gz", CSV.Tables.matrix; header=false, delim=' ')
+labels = CSV.read(base_name * ".labels0.gz", CSV.Tables.matrix; header=false, delim=' ')
+```
+
 
 ::::{todo}
 Contributions are welcome: Describe how to load
 the datasets and benchmark results
-in GNU Octave, Scilab, Julia, Mathematica, ... (🚧 help needed 🚧)
+in GNU Octave, Scilab, Mathematica, ... (🚧 help needed 🚧)
+
+Thanks to [Torsten Stöter](https://github.com/tstoeter) for contributing
+the Julia code.
 ::::

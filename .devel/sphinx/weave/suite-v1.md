@@ -10,7 +10,7 @@
 (sec:suite-v1)=
 # Benchmark Suite (v1.1.0)
 
-We have compiled **a large suite of benchmark datasets**.
+We have compiled, curated, and polished **a large suite of benchmark datasets**.
 For reproducibility, the datasets and label vectors are **versioned**.
 
 
@@ -43,7 +43,7 @@ index *g*, where $g=0$ means that all clusters consist of the same number
 of points.
 
 
-::::{important}
+::::{note}
 The versioned **snapshots of the suite** are available for download at:
 <https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0>.
 
@@ -70,9 +70,11 @@ each dataset is accompanied by a text file specifying more details thereon
 (e.g., the literature references that we are asked to cite).
 
 
-As a courtesy, **please cite** also the current project
+::::{important}
+As a courtesy, **please cite** the original source as well as the current project
 {cite}`clustering_benchmarks` as well as mention {cite}`clustering_data_v1`
 which gives the exact version and URL of the dataset suite. Thank you.
+::::
 
 
 There is some inherent overlap between the original databases.
@@ -203,7 +205,7 @@ We excluded the `DIM`-sets as they are too easy for most algorithms.
 (sec:battery-fcps)=
 ## `fcps`
 
-9 datasets from the *Fundamental Clustering Problem Suite*
+Nine datasets from the *Fundamental Clustering Problem Suite*
 proposed by A. Ultsch {cite}`fcps` from the Marburg University,
 Germany.
 
@@ -238,7 +240,7 @@ see also {cite}`ThrunUltsch2020:fcps`.
 (sec:battery-graves)=
 ## `graves`
 
-10 *synthetic data sets* discussed by D. Graves and W. Pedrycz
+Ten *synthetic data sets* discussed by D. Graves and W. Pedrycz
 in {cite}`graves`.
 
 The dataset consist of 200–1050 observations in 2 dimensions.
@@ -316,7 +318,7 @@ Datasets from multiple sources:
 (sec:battery-uci)=
 ## `uci`
 
-A selection of 8 high-dimensional datasets available through the UCI
+A selection of eight high-dimensional datasets available through the UCI
 (University of California, Irvine)
 [Machine Learning Repository](http://archive.ics.uci.edu/ml/) {cite}`uci`.
 Some of them were considered for benchmark purposes
