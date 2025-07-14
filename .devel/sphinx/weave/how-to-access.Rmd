@@ -121,8 +121,8 @@ using CSV
 
 base_name = joinpath("~", "Projects", "clustering-data-v1", "wut", "smile")
 base_name = expanduser(base_name)
-data = CSV.read(base_name * ".data.gz", CSV.Tables.matrix; header=false, delim=' ')
-labels = CSV.read(base_name * ".labels0.gz", CSV.Tables.matrix; header=false, delim=' ')
+data = CSV.read(base_name * ".data.gz", CSV.Tables.matrix; header=false)
+labels = CSV.read(base_name * ".labels0.gz", CSV.Tables.matrix; header=false)
 ```
 
 
