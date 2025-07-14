@@ -7,7 +7,7 @@ options(digits=5)
 options(stringsAsFactors=FALSE)  # default in R 4.0
 options(max.print=99)
 options(useFancyQuotes=FALSE)
-reticulate::use_python("/home/gagolews/.virtualenvs/python3-default/bin/python3")
+reticulate::use_python("/usr/bin/python3")
 options(warnPartialMatchArgs=TRUE)
 options(warnPartialMatchAttr=TRUE)
 options(warnPartialMatchDollar=TRUE)

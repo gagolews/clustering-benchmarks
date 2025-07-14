@@ -5,9 +5,9 @@
 (sec:how-to-access)=
 # Access from Python, R, MATLAB, etc.
 
-
 The current version of the benchmark dataset battery can be downloaded
 from <https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0>.
+
 
 ## Python
 
@@ -146,16 +146,16 @@ using CSV
 
 base_name = joinpath("~", "Projects", "clustering-data-v1", "wut", "smile")
 base_name = expanduser(base_name)
-data = CSV.read(base_name * ".data.gz", CSV.Tables.matrix; header=false, delim=' ')
-labels = CSV.read(base_name * ".labels0.gz", CSV.Tables.matrix; header=false, delim=' ')
+data = CSV.read(base_name * ".data.gz", CSV.Tables.matrix; header=false)
+labels = CSV.read(base_name * ".labels0.gz", CSV.Tables.matrix; header=false)
 ```
+
+Thanks to [Torsten Stöter](https://github.com/tstoeter) for contributing
+the Julia code.
 
 
 ::::{todo}
 Contributions are welcome: Describe how to load
 the datasets and benchmark results
 in GNU Octave, Scilab, Mathematica, ... (🚧 help needed 🚧)
-
-Thanks to [Torsten Stöter](https://github.com/tstoeter) for contributing
-the Julia code.
 ::::
