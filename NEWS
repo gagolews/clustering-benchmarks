@@ -1,9 +1,14 @@
 # Changelog
 
+## 1.1.6-2 (2026-10-22)
+
+-   Site docs updated to clustering-data-v1.2.0.
+
 
 ## 1.1.6 (2025-02-03)
 
 -   [BUGFIX] `numpy.DataSource` is now `numpy.lib.npyio.DataSource`.
+
 -   `load_dataset` now guarantees to return a C-contiguous `data` matrix.
 
 

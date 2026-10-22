@@ -85,12 +85,6 @@ Some datasets are equipped with
 that did not appear in the original setting.
 
 
-
-
-
-
-
-
 (sec:battery-wut)=
 ## `wut`
 
