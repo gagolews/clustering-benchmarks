@@ -1,18 +1,19 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Contributing" href="contributing.html" /><link rel="prev" title="File Format Specification" href="file-format.html" />
-        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/how-to-access.html" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Contributing" href="contributing.html"><link rel="prev" title="File Format Specification" href="file-format.html">
+        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/how-to-access.html">
+        <link rel="prefetch" href="https://www.gagolewski.com/_static/img/clustbench.png" as="image">
 
-    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"><!-- Generated with Sphinx 9.1.1 and Furo 2025.12.19 -->
         <title>Access from Python, R, MATLAB, etc. - Clustering Benchmarks</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1981fb80" />
     
     
@@ -226,9 +227,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Clustering Results Repository (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.2.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.2.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Clustering Results Repository (v1.2.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -273,7 +274,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" title="Edit this page">
+  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -308,11 +309,11 @@ easily using some more low-level functions from <em>numpy</em>. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
 <span class="c1"># to do: change to your local path</span>
-<span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;smile&quot;</span><span class="p">)</span>
+<span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"~"</span><span class="p">,</span> <span class="s2">"Projects"</span><span class="p">,</span> <span class="s2">"clustering-data-v1"</span><span class="p">,</span> <span class="s2">"wut"</span><span class="p">,</span> <span class="s2">"smile"</span><span class="p">)</span>
 <span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">base_name</span><span class="p">)</span>
 <span class="c1"># alternatively, use:</span>
-<span class="c1"># base_name = &quot;https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile&quot;</span>
-<span class="n">data</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">base_name</span> <span class="o">+</span> <span class="s2">&quot;.data.gz&quot;</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># base_name = "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile"</span>
+<span class="n">data</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">base_name</span> <span class="o">+</span> <span class="s2">".data.gz"</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[:</span><span class="mi">6</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># preview</span>
 <span class="c1">## array([[-1.545826,  2.471133],</span>
 <span class="c1">##        [-5.001664,  1.066568],</span>
@@ -320,7 +321,7 @@ easily using some more low-level functions from <em>numpy</em>. For example:</p>
 <span class="c1">##        [-4.384334,  1.176669],</span>
 <span class="c1">##        [-3.950311,  6.94172 ],</span>
 <span class="c1">##        [-4.23157 ,  7.156661]])</span>
-<span></span><span class="n">labels</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">base_name</span> <span class="o">+</span> <span class="s2">&quot;.labels0.gz&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span></span><span class="n">labels</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">base_name</span> <span class="o">+</span> <span class="s2">".labels0.gz"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"int"</span><span class="p">)</span>
 <span class="n">labels</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># preview</span>
 <span class="c1">## array([2, 2, 2, 2, 2, 2])</span>
 </pre></div>
@@ -334,7 +335,7 @@ package.</p>
 <p><em>To learn more about Python,
 check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2025).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+<span class="bibtex-citation" id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2026).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
 </div>
 </section>
 <section id="r">
@@ -342,10 +343,10 @@ check out Marek’s open-access (free!) textbook</em>
 <p>Following the <a class="reference internal" href="file-format.html#sec-file-format"><span class="std std-ref">File Format Specification</span></a>,
 the datasets can be accessed using the built-in R functions:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># to do: change to your local path</span>
-<span class="n">base_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Projects&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clustering-data-v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wut&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;smile&quot;</span><span class="p">)</span>
+<span class="n">base_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="s">"~"</span><span class="p">,</span><span class="w"> </span><span class="s">"Projects"</span><span class="p">,</span><span class="w"> </span><span class="s">"clustering-data-v1"</span><span class="p">,</span><span class="w"> </span><span class="s">"wut"</span><span class="p">,</span><span class="w"> </span><span class="s">"smile"</span><span class="p">)</span>
 <span class="c1"># alternatively, use:</span>
-<span class="c1"># base_name &lt;- &quot;https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile&quot;</span>
-<span class="n">data</span><span class="w">    </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.matrix</span><span class="p">(</span><span class="nf">read.table</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">)))</span>
+<span class="c1"># base_name &lt;- "https://github.com/gagolews/clustering-data-v1/raw/v1.1.0/wut/smile"</span>
+<span class="n">data</span><span class="w">    </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.matrix</span><span class="p">(</span><span class="nf">read.table</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span><span class="w"> </span><span class="s">".data.gz"</span><span class="p">)))</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">  </span><span class="c1"># preview</span>
 <span class="c1">##           V1     V2</span>
 <span class="c1">## [1,] -1.5458 2.4711</span>
@@ -354,7 +355,7 @@ the datasets can be accessed using the built-in R functions:</p>
 <span class="c1">## [4,] -4.3843 1.1767</span>
 <span class="c1">## [5,] -3.9503 6.9417</span>
 <span class="c1">## [6,] -4.2316 7.1567</span>
-<span></span><span class="n">labels</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">scan</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">),</span><span class="w"> </span><span class="nf">integer</span><span class="p">())</span>
+<span></span><span class="n">labels</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">scan</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">base_name</span><span class="p">,</span><span class="w"> </span><span class="s">".labels0.gz"</span><span class="p">),</span><span class="w"> </span><span class="nf">integer</span><span class="p">())</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="w">  </span><span class="c1"># preview</span>
 <span class="c1">## [1] 2 2 2 2 2 2</span>
 </pre></div>
@@ -368,7 +369,7 @@ the <a class="reference external" href="https://pypi.org/project/rpy2/"><em>rpy2
 <p class="admonition-title">Note</p>
 <p><em>To learn more about R, check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://deepr.gagolewski.com/">Deep R Programming</a>
-<span id="id2">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski, M. (2025).  Deep R Programming. Zenodo, Melbourne. ISBN 978-0-6455719-2-9. URL: https://deepr.gagolewski.com/, DOI: 10.5281/zenodo.7490464.">22</a>]</span>.</p>
+<span class="bibtex-citation" id="id2">[<a class="reference internal" href="../z_bibliography.html#id9" title="Gagolewski, M. (2026).  Deep R Programming. Zenodo, Melbourne. ISBN 978-0-6455719-2-9. URL: https://deepr.gagolewski.com/, DOI: 10.5281/zenodo.7490464.">22</a>]</span>.</p>
 </div>
 </section>
 <section id="matlab">
@@ -377,10 +378,10 @@ the <a class="reference external" href="https://pypi.org/project/rpy2/"><em>rpy2
 <p>It does not seem to be able to un<em>gzip</em> files
 on the fly, but they can be decompressed to a temporary folder
 manually.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">base_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;~/Projects/clustering-data-v1/wut/smile&quot;</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">base_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"~/Projects/clustering-data-v1/wut/smile"</span><span class="p">;</span>
 <span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">tempdir</span><span class="p">();</span>
-<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">&quot;text&quot;</span><span class="p">);</span>
-<span class="n">labels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">&quot;text&quot;</span><span class="p">);</span>
+<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">".data.gz"</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">"text"</span><span class="p">);</span>
+<span class="n">labels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="nb">gunzip</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">".labels0.gz"</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)),</span><span class="w"> </span><span class="n">FileType</span><span class="p">=</span><span class="s">"text"</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Note that there is also a MATLAB
@@ -394,10 +395,10 @@ former can be called from within the latter.</p>
 in Julia using the <a class="reference external" href="https://csv.juliadata.org"><em>CSV.jl</em></a> package.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">CSV</span>
 
-<span class="n">base_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Projects&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clustering-data-v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wut&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;smile&quot;</span><span class="p">)</span>
+<span class="n">base_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="s">"~"</span><span class="p">,</span><span class="w"> </span><span class="s">"Projects"</span><span class="p">,</span><span class="w"> </span><span class="s">"clustering-data-v1"</span><span class="p">,</span><span class="w"> </span><span class="s">"wut"</span><span class="p">,</span><span class="w"> </span><span class="s">"smile"</span><span class="p">)</span>
 <span class="n">base_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expanduser</span><span class="p">(</span><span class="n">base_name</span><span class="p">)</span>
-<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s">&quot;.data.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">Tables</span><span class="o">.</span><span class="n">matrix</span><span class="p">;</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
-<span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s">&quot;.labels0.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">Tables</span><span class="o">.</span><span class="n">matrix</span><span class="p">;</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s">".data.gz"</span><span class="p">,</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">Tables</span><span class="o">.</span><span class="n">matrix</span><span class="p">;</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
+<span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">base_name</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s">".labels0.gz"</span><span class="p">,</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">Tables</span><span class="o">.</span><span class="n">matrix</span><span class="p">;</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Thanks to <a class="reference external" href="https://github.com/tstoeter">Torsten Stöter</a> for contributing
@@ -442,11 +443,11 @@ in GNU Octave, Scilab, Mathematica, … (🚧 help needed 🚧)</p>
             <div class="copyright">
               
               
-              Copyright &#169; 2020–2025 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Copyright &#169; 2020–2026 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2025-07-14T10:36:50+0200.
+              Last updated on 2026-10-22T14:32:40+0200.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -484,8 +485,8 @@ in GNU Octave, Scilab, Mathematica, … (🚧 help needed 🚧)</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=937269b5"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

@@ -8,29 +8,30 @@
 
 
 (sec:suite-v1)=
-# Benchmark Suite (v1.1.0)
+# Benchmark Suite (v1.2.0)
 
 We have compiled, curated, and polished **a large suite of benchmark datasets**.
 For reproducibility, the datasets and label vectors are **versioned**.
 
 
-Version 1.1.0 of the
+Version 1.2.0 of the
 [*Benchmark Suite for Clustering Algorithms*](https://github.com/gagolews/clustering-data-v1)
-consists of **nine benchmark batteries** (dataset collections).
-The five recommended ones:
+consists of **ten benchmark batteries** (dataset collections).
+The six recommended ones:
 
 1. {ref}`sec:battery-wut` 🌟,
 2. {ref}`sec:battery-sipu` 🌟,
 3. {ref}`sec:battery-fcps` 🌟,
 4. {ref}`sec:battery-graves` 🌟,
-5. {ref}`sec:battery-other` 🌟,
+5. {ref}`sec:battery-cdc` 🌟,
+6. {ref}`sec:battery-other` 🌟,
 
 and four additional ones:
 
-6. {ref}`sec:battery-uci`,
-7. {ref}`sec:battery-mnist`,
-8. {ref}`sec:battery-g2mg`,
-9. {ref}`sec:battery-h2mg`.
+7. {ref}`sec:battery-uci`,
+8. {ref}`sec:battery-mnist`,
+9. {ref}`sec:battery-g2mg`,
+10. {ref}`sec:battery-h2mg`.
 
 Each battery consists of **several datasets of different origins**.
 When referring to a particular benchmark problem, we use the convention
@@ -45,10 +46,10 @@ of points.
 
 ::::{note}
 The versioned **snapshots of the suite** are available for download at:
-<https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0>.
+<https://github.com/gagolews/clustering-data-v1/releases/tag/v1.2.0>.
 
 All files can be browsed at:
-<https://github.com/gagolews/clustering-data-v1/tree/v1.1.0>.
+<https://github.com/gagolews/clustering-data-v1/tree/v1.2.0>.
 
 The **datasets** and the corresponding ground truth labels
 can be browsed in the {ref}`sec:data-v1` section.
@@ -110,33 +111,33 @@ and
 Adam Wawrzeńczyk.
 Thanks!
 
-|    | dataset            | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
-|:---|:-------------------|:------|:------|:-------------------|------:|---------------:|------:|
-| 1  | **circles**        | 4000  | 2     | labels0            |     4 |              0 |  0    |
-| 2  | **cross**          | 2000  | 2     | labels0            |     4 |              0 |  0    |
-| 3  | **graph**          | 2500  | 2     | labels0            |    10 |              0 |  0    |
-| 4  | **isolation**      | 9000  | 2     | labels0            |     3 |              0 |  0    |
-| 5  | **labirynth**      | 3546  | 2     | labels0            |     6 |              0 |  0.5  |
-| 6  | **mk1**            | 300   | 2     | labels0            |     3 |              0 |  0    |
-| 7  | **mk2**            | 1000  | 2     | labels0            |     2 |              0 |  0    |
-| 8  | **mk3**            | 600   | 3     | labels0            |     3 |              0 |  0    |
-| 9  | **mk4**            | 1500  | 3     | labels0            |     3 |              0 |  0    |
-| 10 | **olympic**        | 5000  | 2     | labels0            |     5 |              0 |  0    |
-| 11 | **smile**          | 1000  | 2     | labels0            |     6 |              0 |  0.4  |
+|    | dataset            |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:-------------------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **circles**        |  4000 |     2 | labels0            |     4 |              0 |  0    |
+|  2 | **cross**          |  2000 |     2 | labels0            |     4 |              0 |  0    |
+|  3 | **graph**          |  2500 |     2 | labels0            |    10 |              0 |  0    |
+|  4 | **isolation**      |  9000 |     2 | labels0            |     3 |              0 |  0    |
+|  5 | **labirynth**      |  3546 |     2 | labels0            |     6 |              0 |  0.5  |
+|  6 | **mk1**            |   300 |     2 | labels0            |     3 |              0 |  0    |
+|  7 | **mk2**            |  1000 |     2 | labels0            |     2 |              0 |  0    |
+|  8 | **mk3**            |   600 |     3 | labels0            |     3 |              0 |  0    |
+|  9 | **mk4**            |  1500 |     3 | labels0            |     3 |              0 |  0    |
+| 10 | **olympic**        |  5000 |     2 | labels0            |     5 |              0 |  0    |
+| 11 | **smile**          |  1000 |     2 | labels0            |     6 |              0 |  0.4  |
 |    |                    |       |       | labels1            |     4 |              0 |  0.4  |
-| 12 | **stripes**        | 5000  | 2     | labels0            |     2 |              0 |  0    |
-| 13 | **trajectories**   | 10000 | 2     | labels0            |     4 |              0 |  0    |
-| 14 | **trapped_lovers** | 5000  | 3     | labels0            |     3 |              0 |  0.4  |
-| 15 | **twosplashes**    | 400   | 2     | labels0            |     2 |              0 |  0    |
-| 16 | **windows**        | 2977  | 2     | labels0            |     5 |              0 |  0.58 |
-| 17 | **x1**             | 120   | 2     | labels0            |     3 |              0 |  0.17 |
-| 18 | **x2**             | 120   | 2     | labels0            |     3 |              0 |  0.17 |
+| 12 | **stripes**        |  5000 |     2 | labels0            |     2 |              0 |  0    |
+| 13 | **trajectories**   | 10000 |     2 | labels0            |     4 |              0 |  0    |
+| 14 | **trapped_lovers** |  5000 |     3 | labels0            |     3 |              0 |  0.4  |
+| 15 | **twosplashes**    |   400 |     2 | labels0            |     2 |              0 |  0    |
+| 16 | **windows**        |  2977 |     2 | labels0            |     5 |              0 |  0.58 |
+| 17 | **x1**             |   120 |     2 | labels0            |     3 |              0 |  0.17 |
+| 18 | **x2**             |   120 |     2 | labels0            |     3 |              0 |  0.17 |
 |    |                    |       |       | labels1            |     4 |             10 |  0.35 |
-| 19 | **x3**             | 185   | 2     | labels0            |     4 |              0 |  0.21 |
+| 19 | **x3**             |   185 |     2 | labels0            |     4 |              0 |  0.21 |
 |    |                    |       |       | labels1            |     3 |              0 |  0.42 |
-| 20 | **z1**             | 192   | 2     | labels0            |     3 |              0 |  0    |
-| 21 | **z2**             | 900   | 2     | labels0            |     5 |              0 |  0.58 |
-| 22 | **z3**             | 1000  | 2     | labels0            |     4 |              0 |  0.33 |
+| 20 | **z1**             |   192 |     2 | labels0            |     3 |              0 |  0    |
+| 21 | **z2**             |   900 |     2 | labels0            |     5 |              0 |  0.58 |
+| 22 | **z3**             |  1000 |     2 | labels0            |     4 |              0 |  0.33 |
 
 
 
@@ -170,36 +171,33 @@ see {ref}`sec:battery-g2mg` for an alternative.
 We excluded the `DIM`-sets as they are too easy for most algorithms.
 
 
-|    | dataset         | *n*    | *d*   | reference labels   |   *k* |   noise points |   *g* |
-|:---|:----------------|:-------|:------|:-------------------|------:|---------------:|------:|
-| 1  | **a1**          | 3000   | 2     | labels0            |    20 |              0 |  0    |
-| 2  | **a2**          | 5250   | 2     | labels0            |    35 |              0 |  0    |
-| 3  | **a3**          | 7500   | 2     | labels0            |    50 |              0 |  0    |
-| 4  | **aggregation** | 788    | 2     | labels0            |     7 |              0 |  0.45 |
-| 5  | **birch1**      | 100000 | 2     | labels0            |   100 |              0 |  0.01 |
-| 6  | **birch2**      | 100000 | 2     | labels0            |   100 |              0 |  0    |
-| 7  | **compound**    | 399    | 2     | labels0            |     6 |              0 |  0.44 |
-|    |                 |        |       | labels1            |     4 |              0 |  0.41 |
-|    |                 |        |       | labels2            |     5 |             50 |  0.48 |
-|    |                 |        |       | labels3            |     4 |             50 |  0.42 |
-|    |                 |        |       | labels4            |     5 |              0 |  0.48 |
-| 8  | **d31**         | 3100   | 2     | labels0            |    31 |              0 |  0    |
-| 9  | **flame**       | 240    | 2     | labels0            |     2 |              0 |  0.28 |
+|    | dataset         |    *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:----------------|-------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **a1**          |   3000 |     2 | labels0            |    20 |              0 |  0    |
+|  2 | **a2**          |   5250 |     2 | labels0            |    35 |              0 |  0    |
+|  3 | **a3**          |   7500 |     2 | labels0            |    50 |              0 |  0    |
+|  4 | **aggregation** |    788 |     2 | labels0            |     7 |              0 |  0.45 |
+|  5 | **birch1**      | 100000 |     2 | labels0            |   100 |              0 |  0.01 |
+|  6 | **birch2**      | 100000 |     2 | labels0            |   100 |              0 |  0    |
+|  7 | **compound**    |    399 |     2 | labels0            |     6 |              0 |  0.44 |
+|    |                 |        |       | labels1            |     5 |             50 |  0.48 |
+|  8 | **d31**         |   3100 |     2 | labels0            |    31 |              0 |  0    |
+|  9 | **flame**       |    240 |     2 | labels0            |     2 |              0 |  0.28 |
 |    |                 |        |       | labels1            |     2 |             12 |  0.27 |
-| 10 | **jain**        | 373    | 2     | labels0            |     2 |              0 |  0.48 |
-| 11 | **pathbased**   | 300    | 2     | labels0            |     3 |              0 |  0.06 |
+| 10 | **jain**        |    373 |     2 | labels0            |     2 |              0 |  0.48 |
+| 11 | **pathbased**   |    300 |     2 | labels0            |     3 |              0 |  0.06 |
 |    |                 |        |       | labels1            |     4 |              0 |  0.2  |
-| 12 | **r15**         | 600    | 2     | labels0            |    15 |              0 |  0    |
+| 12 | **r15**         |    600 |     2 | labels0            |    15 |              0 |  0    |
 |    |                 |        |       | labels1            |     9 |              0 |  0.4  |
 |    |                 |        |       | labels2            |     8 |              0 |  0.47 |
-| 13 | **s1**          | 5000   | 2     | labels0            |    15 |              0 |  0.03 |
-| 14 | **s2**          | 5000   | 2     | labels0            |    15 |              0 |  0.03 |
-| 15 | **s3**          | 5000   | 2     | labels0            |    15 |              0 |  0.03 |
-| 16 | **s4**          | 5000   | 2     | labels0            |    15 |              0 |  0.03 |
-| 17 | **spiral**      | 312    | 2     | labels0            |     3 |              0 |  0.02 |
-| 18 | **unbalance**   | 6500   | 2     | labels0            |     8 |              0 |  0.63 |
-| 19 | **worms_2**     | 105600 | 2     | labels0            |    35 |              0 |  0.28 |
-| 20 | **worms_64**    | 105000 | 64    | labels0            |    25 |              0 |  0    |
+| 13 | **s1**          |   5000 |     2 | labels0            |    15 |              0 |  0.03 |
+| 14 | **s2**          |   5000 |     2 | labels0            |    15 |              0 |  0.03 |
+| 15 | **s3**          |   5000 |     2 | labels0            |    15 |              0 |  0.03 |
+| 16 | **s4**          |   5000 |     2 | labels0            |    15 |              0 |  0.03 |
+| 17 | **spiral**      |    312 |     2 | labels0            |     3 |              0 |  0.02 |
+| 18 | **unbalance**   |   6500 |     2 | labels0            |     8 |              0 |  0.63 |
+| 19 | **worms_2**     | 105600 |     2 | labels0            |    35 |              0 |  0.28 |
+| 20 | **worms_64**    | 105000 |    64 | labels0            |    25 |              0 |  0    |
 
 
 (sec:battery-fcps)=
@@ -219,22 +217,19 @@ can be accessed, e.g., via the R package
 [*FCPS*](https://CRAN.R-project.org/package=FCPS);
 see also {cite}`ThrunUltsch2020:fcps`.
 
-|    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
-|:---|:----------------|:------|:------|:-------------------|------:|---------------:|------:|
-| 1  | **atom**        | 800   | 3     | labels0            |     2 |              0 |  0    |
-| 2  | **chainlink**   | 1000  | 3     | labels0            |     2 |              0 |  0    |
-| 3  | **engytime**    | 4096  | 2     | labels0            |     2 |              0 |  0    |
+|    | dataset         |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:----------------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **atom**        |   800 |     3 | labels0            |     2 |              0 |  0    |
+|  2 | **chainlink**   |  1000 |     3 | labels0            |     2 |              0 |  0    |
+|  3 | **engytime**    |  4096 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 4  | **hepta**       | 212   | 3     | labels0            |     7 |              0 |  0.01 |
-| 5  | **lsun**        | 400   | 2     | labels0            |     3 |              0 |  0.25 |
-| 6  | **target**      | 770   | 2     | labels0            |     6 |              0 |  0.79 |
+|  4 | **hepta**       |   212 |     3 | labels0            |     7 |              0 |  0.01 |
+|  5 | **lsun**        |   400 |     2 | labels0            |     3 |              0 |  0.25 |
+|  6 | **target**      |   770 |     2 | labels0            |     6 |              0 |  0.79 |
 |    |                 |       |       | labels1            |     2 |             12 |  0.04 |
-| 7  | **tetra**       | 400   | 3     | labels0            |     4 |              0 |  0    |
-| 8  | **twodiamonds** | 800   | 2     | labels0            |     2 |              0 |  0    |
-| 9  | **wingnut**     | 1016  | 2     | labels0            |     2 |              0 |  0    |
-
-
-
+|  7 | **tetra**       |   400 |     3 | labels0            |     4 |              0 |  0    |
+|  8 | **twodiamonds** |   800 |     2 | labels0            |     2 |              0 |  0    |
+|  9 | **wingnut**     |  1016 |     2 | labels0            |     2 |              0 |  0    |
 
 
 (sec:battery-graves)=
@@ -243,33 +238,60 @@ see also {cite}`ThrunUltsch2020:fcps`.
 Ten *synthetic data sets* discussed by D. Graves and W. Pedrycz
 in {cite}`graves`.
 
-The dataset consist of 200–1050 observations in 2 dimensions.
+The datasets consist of 200–1050 observations in 2 dimensions.
 They came with no reference labels, so we had to create them ourselves.
 
-|    | dataset             | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
-|:---|:--------------------|:------|:------|:-------------------|------:|---------------:|------:|
-| 1  | **dense**           | 200   | 2     | labels0            |     2 |              0 |  0    |
-| 2  | **fuzzyx**          | 1000  | 2     | labels0            |     5 |              0 |  0.06 |
+|    | dataset             |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:--------------------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **dense**           |   200 |     2 | labels0            |     2 |              0 |  0    |
+|  2 | **fuzzyx**          |  1000 |     2 | labels0            |     5 |              0 |  0.06 |
 |    |                     |       |       | labels1            |     2 |            138 |  0.01 |
 |    |                     |       |       | labels2            |     4 |            126 |  0.03 |
 |    |                     |       |       | labels3            |     2 |            135 |  0.01 |
 |    |                     |       |       | labels4            |     2 |            130 |  0.03 |
-| 3  | **line**            | 250   | 2     | labels0            |     2 |              0 |  0.6  |
-| 4  | **parabolic**       | 1000  | 2     | labels0            |     2 |              0 |  0.02 |
+|  3 | **line**            |   250 |     2 | labels0            |     2 |              0 |  0.6  |
+|  4 | **parabolic**       |  1000 |     2 | labels0            |     2 |              0 |  0.02 |
 |    |                     |       |       | labels1            |     4 |              0 |  0.04 |
-| 5  | **ring**            | 1000  | 2     | labels0            |     2 |              0 |  0    |
-| 6  | **ring_noisy**      | 1050  | 2     | labels0            |     2 |             43 |  0    |
-| 7  | **ring_outliers**   | 1030  | 2     | labels0            |     5 |              0 |  0.71 |
+|  5 | **ring**            |  1000 |     2 | labels0            |     2 |              0 |  0    |
+|  6 | **ring_noisy**      |  1050 |     2 | labels0            |     2 |             43 |  0    |
+|  7 | **ring_outliers**   |  1030 |     2 | labels0            |     5 |              0 |  0.71 |
 |    |                     |       |       | labels1            |     2 |             30 |  0    |
-| 8  | **zigzag**          | 250   | 2     | labels0            |     3 |              0 |  0.4  |
+|  8 | **zigzag**          |   250 |     2 | labels0            |     3 |              0 |  0.4  |
 |    |                     |       |       | labels1            |     5 |              0 |  0.04 |
-| 9  | **zigzag_noisy**    | 300   | 2     | labels0            |     3 |             38 |  0.41 |
+|  9 | **zigzag_noisy**    |   300 |     2 | labels0            |     3 |             38 |  0.41 |
 |    |                     |       |       | labels1            |     5 |             38 |  0.01 |
-| 10 | **zigzag_outliers** | 280   | 2     | labels0            |     3 |             30 |  0.4  |
+| 10 | **zigzag_outliers** |   280 |     2 | labels0            |     3 |             30 |  0.4  |
 |    |                     |       |       | labels1            |     5 |             30 |  0.04 |
 
+(sec:battery-cdc)=
+## `cdc`
+
+Twelve two-dimensional *synthetic data sets* discussed in {cite}`cdc` and
+published [here](https://github.com/ZPGuiGroupWhu/ClusteringDirectionCentrality/tree/master/Toolkit/Synthetic%20Data%20Analysis).
+
+Exclusions:
+
+* DS2 - a version of compound
+* DS3 - a version of `chameleon_t5_8k` (no background noise, but with added ring)
+* DS5 - exactly the `aggregation` dataset
+* DS9 - a version of `chameleon_t5_8k `(no background noise)
+* DS14 - a version of `DS10` (no background noise), similar to `jain`
 
 
+|    | dataset   |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:----------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **DS1**   |   999 |     2 | labels0            |    10 |              0 |  0    |
+|  2 | **DS4**   |   442 |     2 | labels0            |    13 |              0 |  0.44 |
+|  3 | **DS6**   |  1000 |     2 | labels0            |     7 |              0 |  0.6  |
+|  4 | **DS7**   |  1487 |     2 | labels0            |     3 |              0 |  0.73 |
+|  5 | **DS8**   |  3000 |     2 | labels0            |     9 |              0 |  0    |
+|  6 | **DS10**  |   619 |     2 | labels0            |     2 |             88 |  0.02 |
+|  7 | **DS11**  |  2930 |     2 | labels0            |     5 |             61 |  0.59 |
+|  8 | **DS12**  |  1030 |     2 | labels0            |     7 |            116 |  0.17 |
+|  9 | **DS13**  |   998 |     2 | labels0            |     5 |            148 |  0.43 |
+| 10 | **DS15**  |  3603 |     2 | labels0            |     3 |              0 |  0.39 |
+| 11 | **DS16**  |   356 |     2 | labels0            |     7 |              0 |  0.35 |
+| 12 | **DS17**  |   611 |     2 | labels0            |     5 |              0 |  0.34 |
 
 
 (sec:battery-other)=
@@ -361,10 +383,12 @@ This battery features two large, high-dimensional datasets:
 Both datasets consist of 70,000 flattened 28x28 greyscale images
 (train and test samples combined).
 
-|    | dataset     |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
-|---:|:------------|------:|------:|:-------------------|------:|---------------:|------:|
-|  1 | **digits**  | 70000 |   784 | labels0            |    10 |              0 |  0.03 |
-|  2 | **fashion** | 70000 |   784 | labels0            |    10 |              0 |  0    |
+|    | dataset        |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:---------------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **digits10k**  | 10000 |   784 | labels0            |    10 |              0 |  0.03 |
+|  2 | **digits70k**  | 70000 |   784 | labels0            |    10 |              0 |  0.03 |
+|  3 | **fashion10k** | 10000 |   784 | labels0            |    10 |              0 |  0    |
+|  4 | **fashion70k** | 70000 |   784 | labels0            |    10 |              0 |  0    |
 
 
 
@@ -398,151 +422,151 @@ Gaussian blobs (*k*-means, expectation-maximisation (EM)
 for Gaussian mixtures) will naturally perform better thereon than
 the non-parametric approaches.
 
-|    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
-|:---|:----------------|:------|:------|:-------------------|------:|---------------:|------:|
-| 1  | **g2mg_1_10**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|    | dataset         |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:----------------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **g2mg_1_10**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 2  | **g2mg_1_20**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  2 | **g2mg_1_20**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 3  | **g2mg_1_30**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  3 | **g2mg_1_30**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 4  | **g2mg_1_40**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  4 | **g2mg_1_40**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 5  | **g2mg_1_50**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  5 | **g2mg_1_50**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 6  | **g2mg_1_60**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  6 | **g2mg_1_60**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 7  | **g2mg_1_70**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  7 | **g2mg_1_70**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 8  | **g2mg_1_80**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  8 | **g2mg_1_80**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 9  | **g2mg_1_90**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  9 | **g2mg_1_90**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 10 | **g2mg_2_10**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 10 | **g2mg_2_10**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 11 | **g2mg_2_20**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 11 | **g2mg_2_20**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 12 | **g2mg_2_30**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 12 | **g2mg_2_30**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 13 | **g2mg_2_40**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 13 | **g2mg_2_40**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 14 | **g2mg_2_50**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 14 | **g2mg_2_50**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 15 | **g2mg_2_60**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 15 | **g2mg_2_60**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 16 | **g2mg_2_70**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 16 | **g2mg_2_70**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 17 | **g2mg_2_80**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 17 | **g2mg_2_80**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 18 | **g2mg_2_90**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 18 | **g2mg_2_90**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 19 | **g2mg_4_10**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 19 | **g2mg_4_10**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 20 | **g2mg_4_20**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 20 | **g2mg_4_20**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 21 | **g2mg_4_30**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 21 | **g2mg_4_30**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 22 | **g2mg_4_40**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 22 | **g2mg_4_40**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 23 | **g2mg_4_50**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 23 | **g2mg_4_50**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 24 | **g2mg_4_60**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 24 | **g2mg_4_60**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 25 | **g2mg_4_70**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 25 | **g2mg_4_70**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 26 | **g2mg_4_80**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 26 | **g2mg_4_80**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 27 | **g2mg_4_90**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 27 | **g2mg_4_90**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 28 | **g2mg_8_10**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 28 | **g2mg_8_10**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 29 | **g2mg_8_20**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 29 | **g2mg_8_20**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 30 | **g2mg_8_30**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 30 | **g2mg_8_30**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 31 | **g2mg_8_40**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 31 | **g2mg_8_40**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 32 | **g2mg_8_50**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 32 | **g2mg_8_50**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 33 | **g2mg_8_60**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 33 | **g2mg_8_60**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 34 | **g2mg_8_70**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 34 | **g2mg_8_70**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 35 | **g2mg_8_80**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 35 | **g2mg_8_80**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.03 |
-| 36 | **g2mg_8_90**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 36 | **g2mg_8_90**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.03 |
-| 37 | **g2mg_16_10**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 37 | **g2mg_16_10**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 38 | **g2mg_16_20**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 38 | **g2mg_16_20**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 39 | **g2mg_16_30**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 39 | **g2mg_16_30**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 40 | **g2mg_16_40**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 40 | **g2mg_16_40**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 41 | **g2mg_16_50**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 41 | **g2mg_16_50**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 42 | **g2mg_16_60**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 42 | **g2mg_16_60**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 43 | **g2mg_16_70**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 43 | **g2mg_16_70**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 44 | **g2mg_16_80**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 44 | **g2mg_16_80**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 45 | **g2mg_16_90**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 45 | **g2mg_16_90**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 46 | **g2mg_32_10**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 46 | **g2mg_32_10**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 47 | **g2mg_32_20**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 47 | **g2mg_32_20**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 48 | **g2mg_32_30**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 48 | **g2mg_32_30**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 49 | **g2mg_32_40**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 49 | **g2mg_32_40**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 50 | **g2mg_32_50**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 50 | **g2mg_32_50**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 51 | **g2mg_32_60**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 51 | **g2mg_32_60**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 52 | **g2mg_32_70**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 52 | **g2mg_32_70**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 53 | **g2mg_32_80**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 53 | **g2mg_32_80**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 54 | **g2mg_32_90**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 54 | **g2mg_32_90**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 55 | **g2mg_64_10**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 55 | **g2mg_64_10**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 56 | **g2mg_64_20**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 56 | **g2mg_64_20**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 57 | **g2mg_64_30**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 57 | **g2mg_64_30**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 58 | **g2mg_64_40**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 58 | **g2mg_64_40**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 59 | **g2mg_64_50**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 59 | **g2mg_64_50**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 60 | **g2mg_64_60**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 60 | **g2mg_64_60**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 61 | **g2mg_64_70**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 61 | **g2mg_64_70**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 62 | **g2mg_64_80**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 62 | **g2mg_64_80**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 63 | **g2mg_64_90**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 63 | **g2mg_64_90**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 64 | **g2mg_128_10** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 64 | **g2mg_128_10** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 65 | **g2mg_128_20** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 65 | **g2mg_128_20** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 66 | **g2mg_128_30** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 66 | **g2mg_128_30** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 67 | **g2mg_128_40** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 67 | **g2mg_128_40** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 68 | **g2mg_128_50** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 68 | **g2mg_128_50** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 69 | **g2mg_128_60** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 69 | **g2mg_128_60** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 70 | **g2mg_128_70** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 70 | **g2mg_128_70** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 71 | **g2mg_128_80** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 71 | **g2mg_128_80** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 72 | **g2mg_128_90** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 72 | **g2mg_128_90** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
 
 
@@ -563,149 +587,149 @@ Generator: <https://github.com/gagolews/clustering-data-v1/blob/master/.devel/ge
 Just like in the case of {ref}`sec:battery-g2mg`, we recommend
 that these datasets be studied separately from other batteries.
 
-|    | dataset         | *n*   | *d*   | reference labels   |   *k* |   noise points |   *g* |
-|:---|:----------------|:------|:------|:-------------------|------:|---------------:|------:|
-| 1  | **h2mg_1_10**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|    | dataset         |   *n* |   *d* | reference labels   |   *k* |   noise points |   *g* |
+|---:|:----------------|------:|------:|:-------------------|------:|---------------:|------:|
+|  1 | **h2mg_1_10**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 2  | **h2mg_1_20**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  2 | **h2mg_1_20**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 3  | **h2mg_1_30**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  3 | **h2mg_1_30**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.09 |
-| 4  | **h2mg_1_40**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  4 | **h2mg_1_40**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.22 |
-| 5  | **h2mg_1_50**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  5 | **h2mg_1_50**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.32 |
-| 6  | **h2mg_1_60**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  6 | **h2mg_1_60**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.41 |
-| 7  | **h2mg_1_70**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  7 | **h2mg_1_70**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.47 |
-| 8  | **h2mg_1_80**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  8 | **h2mg_1_80**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.53 |
-| 9  | **h2mg_1_90**   | 2048  | 1     | labels0            |     2 |              0 |  0    |
+|  9 | **h2mg_1_90**   |  2048 |     1 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.57 |
-| 10 | **h2mg_2_10**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 10 | **h2mg_2_10**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 11 | **h2mg_2_20**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 11 | **h2mg_2_20**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 12 | **h2mg_2_30**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 12 | **h2mg_2_30**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 13 | **h2mg_2_40**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 13 | **h2mg_2_40**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 14 | **h2mg_2_50**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 14 | **h2mg_2_50**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 15 | **h2mg_2_60**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 15 | **h2mg_2_60**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 16 | **h2mg_2_70**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 16 | **h2mg_2_70**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 17 | **h2mg_2_80**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 17 | **h2mg_2_80**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 18 | **h2mg_2_90**   | 2048  | 2     | labels0            |     2 |              0 |  0    |
+| 18 | **h2mg_2_90**   |  2048 |     2 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 19 | **h2mg_4_10**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 19 | **h2mg_4_10**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 20 | **h2mg_4_20**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 20 | **h2mg_4_20**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 21 | **h2mg_4_30**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 21 | **h2mg_4_30**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 22 | **h2mg_4_40**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 22 | **h2mg_4_40**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 23 | **h2mg_4_50**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 23 | **h2mg_4_50**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 24 | **h2mg_4_60**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 24 | **h2mg_4_60**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 25 | **h2mg_4_70**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 25 | **h2mg_4_70**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 26 | **h2mg_4_80**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 26 | **h2mg_4_80**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 27 | **h2mg_4_90**   | 2048  | 4     | labels0            |     2 |              0 |  0    |
+| 27 | **h2mg_4_90**   |  2048 |     4 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 28 | **h2mg_8_10**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 28 | **h2mg_8_10**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 29 | **h2mg_8_20**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 29 | **h2mg_8_20**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 30 | **h2mg_8_30**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 30 | **h2mg_8_30**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 31 | **h2mg_8_40**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 31 | **h2mg_8_40**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 32 | **h2mg_8_50**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 32 | **h2mg_8_50**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 33 | **h2mg_8_60**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 33 | **h2mg_8_60**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 34 | **h2mg_8_70**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 34 | **h2mg_8_70**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 35 | **h2mg_8_80**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 35 | **h2mg_8_80**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 36 | **h2mg_8_90**   | 2048  | 8     | labels0            |     2 |              0 |  0    |
+| 36 | **h2mg_8_90**   |  2048 |     8 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 37 | **h2mg_16_10**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 37 | **h2mg_16_10**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 38 | **h2mg_16_20**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 38 | **h2mg_16_20**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 39 | **h2mg_16_30**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 39 | **h2mg_16_30**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 40 | **h2mg_16_40**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 40 | **h2mg_16_40**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 41 | **h2mg_16_50**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 41 | **h2mg_16_50**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 42 | **h2mg_16_60**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 42 | **h2mg_16_60**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 43 | **h2mg_16_70**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 43 | **h2mg_16_70**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 44 | **h2mg_16_80**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 44 | **h2mg_16_80**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 45 | **h2mg_16_90**  | 2048  | 16    | labels0            |     2 |              0 |  0    |
+| 45 | **h2mg_16_90**  |  2048 |    16 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 46 | **h2mg_32_10**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 46 | **h2mg_32_10**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 47 | **h2mg_32_20**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 47 | **h2mg_32_20**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 48 | **h2mg_32_30**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 48 | **h2mg_32_30**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 49 | **h2mg_32_40**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 49 | **h2mg_32_40**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 50 | **h2mg_32_50**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 50 | **h2mg_32_50**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.02 |
-| 51 | **h2mg_32_60**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 51 | **h2mg_32_60**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 52 | **h2mg_32_70**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 52 | **h2mg_32_70**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 53 | **h2mg_32_80**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 53 | **h2mg_32_80**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 54 | **h2mg_32_90**  | 2048  | 32    | labels0            |     2 |              0 |  0    |
+| 54 | **h2mg_32_90**  |  2048 |    32 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 55 | **h2mg_64_10**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 55 | **h2mg_64_10**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 56 | **h2mg_64_20**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 56 | **h2mg_64_20**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 57 | **h2mg_64_30**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 57 | **h2mg_64_30**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 58 | **h2mg_64_40**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 58 | **h2mg_64_40**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 59 | **h2mg_64_50**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 59 | **h2mg_64_50**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 60 | **h2mg_64_60**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 60 | **h2mg_64_60**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 61 | **h2mg_64_70**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 61 | **h2mg_64_70**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 62 | **h2mg_64_80**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 62 | **h2mg_64_80**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 63 | **h2mg_64_90**  | 2048  | 64    | labels0            |     2 |              0 |  0    |
+| 63 | **h2mg_64_90**  |  2048 |    64 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 64 | **h2mg_128_10** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 64 | **h2mg_128_10** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 65 | **h2mg_128_20** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 65 | **h2mg_128_20** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 66 | **h2mg_128_30** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 66 | **h2mg_128_30** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0    |
-| 67 | **h2mg_128_40** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 67 | **h2mg_128_40** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 68 | **h2mg_128_50** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 68 | **h2mg_128_50** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 69 | **h2mg_128_60** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 69 | **h2mg_128_60** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 70 | **h2mg_128_70** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 70 | **h2mg_128_70** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 71 | **h2mg_128_80** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 71 | **h2mg_128_80** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |
-| 72 | **h2mg_128_90** | 2048  | 128   | labels0            |     2 |              0 |  0    |
+| 72 | **h2mg_128_90** |  2048 |   128 | labels0            |     2 |              0 |  0    |
 |    |                 |       |       | labels1            |     2 |              0 |  0.01 |

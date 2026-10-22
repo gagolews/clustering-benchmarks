@@ -19,10 +19,9 @@ sklearn.set_config(display="text")
 
 plt.style.use("seaborn-v0_8")  # overall plot style
 
-
 _colours = [  # the "R4" palette
-    "#000000", "#DF536B", "#61D04F", "#2297E6",
-    "#28E2E5", "#CD0BBC", "#F5C710", "#999999"
+    "#000000f0", "#DF536Bf0", "#61D04Ff0", "#2297E6f0",
+    "#28E2E5f0", "#CD0BBCf0", "#F5C710f0", "#999999f0"
 ]
 
 _linestyles = [
@@ -38,7 +37,7 @@ plt.rcParams["patch.facecolor"] = _colours[0]
 np.random.seed(123)  # initialise the pseudorandom number generator
 
 plt.rcParams.update({  # further graphical parameters
-    "font.size":         13,
+    "font.size":         12.5,
     "font.family":       "sans-serif",
     "font.sans-serif":   ["Alegreya Sans", "Alegreya"],
     "figure.autolayout": True,

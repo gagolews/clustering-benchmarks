@@ -50,21 +50,22 @@ For reproducibility, the datasets and label vectors are **versioned**.
 
 Version `r VERSION` of the
 [*Benchmark Suite for Clustering Algorithms*](https://github.com/gagolews/clustering-data-v1)
-consists of **nine benchmark batteries** (dataset collections).
-The five recommended ones:
+consists of **ten benchmark batteries** (dataset collections).
+The six recommended ones:
 
 1. {ref}`sec:battery-wut` 🌟,
 2. {ref}`sec:battery-sipu` 🌟,
 3. {ref}`sec:battery-fcps` 🌟,
 4. {ref}`sec:battery-graves` 🌟,
-5. {ref}`sec:battery-other` 🌟,
+5. {ref}`sec:battery-cdc` 🌟,
+6. {ref}`sec:battery-other` 🌟,
 
 and four additional ones:
 
-6. {ref}`sec:battery-uci`,
-7. {ref}`sec:battery-mnist`,
-8. {ref}`sec:battery-g2mg`,
-9. {ref}`sec:battery-h2mg`.
+7. {ref}`sec:battery-uci`,
+8. {ref}`sec:battery-mnist`,
+9. {ref}`sec:battery-g2mg`,
+10. {ref}`sec:battery-h2mg`.
 
 Each battery consists of **several datasets of different origins**.
 When referring to a particular benchmark problem, we use the convention
@@ -210,24 +211,37 @@ summarise_battery("fcps")
 ```
 
 
-
-
-
 (sec:battery-graves)=
 ## `graves`
 
 Ten *synthetic data sets* discussed by D. Graves and W. Pedrycz
 in {cite}`graves`.
 
-The dataset consist of 200–1050 observations in 2 dimensions.
+The datasets consist of 200–1050 observations in 2 dimensions.
 They came with no reference labels, so we had to create them ourselves.
 
 ```{python echo=FALSE,results="asis"}
 summarise_battery("graves")
 ```
 
+(sec:battery-cdc)=
+## `cdc`
+
+Twelve two-dimensional *synthetic data sets* discussed in {cite}`cdc` and
+published [here](https://github.com/ZPGuiGroupWhu/ClusteringDirectionCentrality/tree/master/Toolkit/Synthetic%20Data%20Analysis).
+
+Exclusions:
+
+* DS2 - a version of compound
+* DS3 - a version of `chameleon_t5_8k` (no background noise, but with added ring)
+* DS5 - exactly the `aggregation` dataset
+* DS9 - a version of `chameleon_t5_8k `(no background noise)
+* DS14 - a version of `DS10` (no background noise), similar to `jain`
 
 
+```{python echo=FALSE,results="asis"}
+summarise_battery("cdc")
+```
 
 
 (sec:battery-other)=

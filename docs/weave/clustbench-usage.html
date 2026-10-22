@@ -1,18 +1,19 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Documentation" href="../clustbench-documentation.html" /><link rel="prev" title="Contributing" href="contributing.html" />
-        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/clustbench-usage.html" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Documentation" href="../clustbench-documentation.html"><link rel="prev" title="Contributing" href="contributing.html">
+        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/clustbench-usage.html">
+        <link rel="prefetch" href="https://www.gagolewski.com/_static/img/clustbench.png" as="image">
 
-    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"><!-- Generated with Sphinx 9.1.1 and Furo 2025.12.19 -->
         <title>Using clustbench - Clustering Benchmarks</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1981fb80" />
     
     
@@ -226,9 +227,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Clustering Results Repository (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.2.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.2.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results-v1.html">Clustering Results Repository (v1.2.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -273,7 +274,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" title="Edit this page">
+  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -310,33 +311,33 @@ package manager.</p>
 <p class="admonition-title">Note</p>
 <p><em>To learn more about Python, check out Marek’s open-access (free!) textbook</em>
 <a class="reference external" href="https://datawranglingpy.gagolewski.com/">Minimalist Data Wrangling in Python</a>
-<span id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2025).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
+<span class="bibtex-citation" id="id1">[<a class="reference internal" href="../z_bibliography.html#id8" title="Gagolewski, M. (2026).  Minimalist Data Wrangling with Python. Zenodo, Melbourne. ISBN 978-0-6455719-1-2. URL: https://datawranglingpy.gagolewski.com/, DOI: 10.5281/zenodo.6451068.">23</a>]</span>.</p>
 </div>
 <section id="fetching-benchmark-data">
 <h2>Fetching Benchmark Data<a class="headerlink" href="#fetching-benchmark-data" title="Link to this heading">¶</a></h2>
-<p>The datasets from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a> can be accessed easily.
+<p>The datasets from the <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.2.0)</span></a> can be accessed easily.
 It is best to <a class="reference external" href="https://github.com/gagolews/clustering-data-v1/releases/tag/v1.1.0">download</a>
 the whole repository onto our disk first.
 Let us assume they are available in the following directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load from a local library (download the suite manually)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
-<span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-data-v1&quot;</span><span class="p">)</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"~"</span><span class="p">,</span> <span class="s2">"Projects"</span><span class="p">,</span> <span class="s2">"clustering-data-v1"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Here is the list of the currently available benchmark batteries
 (dataset collections):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_battery_names</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
-<span class="c1">## [&#39;fcps&#39;, &#39;g2mg&#39;, &#39;graves&#39;, &#39;h2mg&#39;, &#39;mnist&#39;, &#39;other&#39;, &#39;sipu&#39;, &#39;uci&#39;, &#39;wut&#39;]</span>
+<span class="c1">## ['fcps', 'g2mg', 'graves', 'h2mg', 'mnist', 'other', 'sipu', 'uci', 'wut']</span>
 </pre></div>
 </div>
 <p>We can list the datasets in an example battery by calling:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">battery</span> <span class="o">=</span> <span class="s2">&quot;wut&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">battery</span> <span class="o">=</span> <span class="s2">"wut"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">clustbench</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">(</span><span class="n">battery</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">))</span>
-<span class="c1">## [&#39;circles&#39;, &#39;cross&#39;, &#39;graph&#39;, &#39;isolation&#39;, &#39;labirynth&#39;, &#39;mk1&#39;, &#39;mk2&#39;, &#39;mk3&#39;, &#39;mk4&#39;, &#39;olympic&#39;, &#39;smile&#39;, &#39;stripes&#39;, &#39;trajectories&#39;, &#39;trapped_lovers&#39;, &#39;twosplashes&#39;, &#39;windows&#39;, &#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;z1&#39;, &#39;z2&#39;, &#39;z3&#39;]</span>
+<span class="c1">## ['circles', 'cross', 'graph', 'isolation', 'labirynth', 'mk1', 'mk2', 'mk3', 'mk4', 'olympic', 'smile', 'stripes', 'trajectories', 'trapped_lovers', 'twosplashes', 'windows', 'x1', 'x2', 'x3', 'z1', 'z2', 'z3']</span>
 </pre></div>
 </div>
 <p>For instance, let us load the <code class="docutils literal notranslate"><span class="pre">wut/x2</span></code> dataset:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;x2&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">"x2"</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">battery</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">data_path</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -359,8 +360,8 @@ of the <a class="reference internal" href="../clustbench-documentation.html#clus
 <p class="admonition-title">Note</p>
 <p>Particular datasets can be retrieved from an online repository directly
 (no need to download the whole battery first) by calling:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gagolews/clustering-data-v1/raw/v1.1.0&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;wut&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_url</span> <span class="o">=</span> <span class="s2">"https://github.com/gagolews/clustering-data-v1/raw/v1.1.0"</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">"wut"</span><span class="p">,</span> <span class="s2">"x2"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">data_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -378,7 +379,7 @@ illustrates the benchmark dataset at hand.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">)):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
-        <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;labels</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">"equal"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"labels</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span>
     <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -395,16 +396,16 @@ illustrates the benchmark dataset at hand.</p>
 <p>Let us study one of the sets of
 <a class="reference external" href="https://github.com/gagolews/clustering-results-v1">precomputed clustering results</a>
 stored in the following directory:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="s2">&quot;Projects&quot;</span><span class="p">,</span> <span class="s2">&quot;clustering-results-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;original&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"~"</span><span class="p">,</span> <span class="s2">"Projects"</span><span class="p">,</span> <span class="s2">"clustering-results-v1"</span><span class="p">,</span> <span class="s2">"original"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>They can be fetched by calling:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method_group</span> <span class="o">=</span> <span class="s2">&quot;Genie&quot;</span>  <span class="c1"># or &quot;*&quot; for everything</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method_group</span> <span class="o">=</span> <span class="s2">"Genie"</span>  <span class="c1"># or "*" for everything</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">load_results</span><span class="p">(</span>
     <span class="n">method_group</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">battery</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">results_path</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-<span class="c1">## [&#39;Genie_G0.1&#39;, &#39;Genie_G0.3&#39;, &#39;Genie_G0.5&#39;, &#39;Genie_G0.7&#39;, &#39;Genie_G1.0&#39;]</span>
+<span class="c1">## ['Genie_G0.1', 'Genie_G0.3', 'Genie_G0.5', 'Genie_G0.7', 'Genie_G1.0']</span>
 </pre></div>
 </div>
 <p>We thus have got access to precomputed data
@@ -434,11 +435,11 @@ As explained in the tutorial, we compare the predicted clusterings against
 (<a class="reference internal" href="noise-points.html#sec-noise-points"><span class="std std-ref">ignoring noise points</span></a>)
 and report the maximal score.</p>
 <p>Let us depict the results for the <code class="docutils literal notranslate"><span class="pre">&quot;Genie_G0.3&quot;</span></code> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;Genie_G0.3&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">"Genie_G0.3"</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
-        <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">"equal"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span>
     <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -458,18 +459,18 @@ all the partitions required to compare ourselves against the reference labels.</
 <p>For instance, let us investigate the behaviour of the k-means algorithm:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sklearn.cluster</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">fit_predict_many</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
-<span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;KMeans&quot;</span><span class="p">])</span>
+<span class="n">res</span><span class="p">[</span><span class="s2">"KMeans"</span><span class="p">]</span> <span class="o">=</span> <span class="n">clustbench</span><span class="o">.</span><span class="n">fit_predict_many</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
+<span class="n">clustbench</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s2">"KMeans"</span><span class="p">])</span>
 <span class="c1">## np.float64(0.9848484848484849)</span>
 </pre></div>
 </div>
 <p>We see that k-means (which specialises in detecting symmetric Gaussian-like blobs)
 performs better than <em>Genie</em> on this particular dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;KMeans&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s2">"KMeans"</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">]),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">genieclust</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
-        <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">"equal"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span>
     <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -523,11 +524,11 @@ convenience.</p>
             <div class="copyright">
               
               
-              Copyright &#169; 2020–2025 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Copyright &#169; 2020–2026 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2025-07-14T10:36:50+0200.
+              Last updated on 2026-10-22T14:32:40+0200.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -565,8 +566,8 @@ convenience.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=937269b5"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

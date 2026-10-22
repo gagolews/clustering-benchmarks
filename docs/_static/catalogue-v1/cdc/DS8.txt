@@ -1,0 +1,9 @@
+Synthetic benchmark dataset from
+Peng, D., Gui, Z., Wang, D. et al., Clustering by measuring local direction centrality for data with heterogeneous density and weak connectivity, Nature Communications 13, 5455, 2022, DOI:10.1038/s41467-022-33136-9.
+
+Source: https://github.com/ZPGuiGroupWhu/ClusteringDirectionCentrality/tree/master/Toolkit/Synthetic%20Data%20Analysis
+
+The project is released under the Apache 2.0 License.
+
+`0` denotes the noise class (if present).
+

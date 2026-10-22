@@ -13,7 +13,7 @@ A non-interactive results catalogue is available
 [here](https://github.com/gagolews/clustering-results-v1/tree/master/.catalogue/original).
 
 
-
+<!--
 ## Methods
 
 Currently, the outputs of the following methods are included.
@@ -65,6 +65,7 @@ Where applicable, we considered a wide range of control parameters.
 New results will be added in the future (note that we can only consider
 methods that allow for setting the precise number of generated clusters).
 New quality contributions are {ref}`welcome <sec:contributing>`.
+-->
 
 
 ## Feature Engineering
@@ -89,9 +90,6 @@ are not exactly fair.
 In such settings, the classical methods should be run on the transformed
 data spaces as well.
 This is left for further research (stay tuned).
-
-
-
 
 
 <!--

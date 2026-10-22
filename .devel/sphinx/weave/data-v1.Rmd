@@ -56,7 +56,6 @@ A non-interactive dataset catalogue is available
 ::::
 
 
-
 ::::{raw} html
 <script type="text/javascript">
 
@@ -66,7 +65,7 @@ import pandas as pd
 import json
 
 batteries = [
-    "wut", "sipu", "fcps", "graves", "other",
+    "wut", "sipu", "fcps", "graves", "cdc", "other",
     "uci", "mnist", "g2mg", "h2mg"
 ]
 

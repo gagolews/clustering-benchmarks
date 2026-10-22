@@ -1,18 +1,19 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="File Format Specification" href="file-format.html" /><link rel="prev" title="Explore Datasets (v1.1.0)" href="data-v1.html" />
-        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/results-v1.html" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="File Format Specification" href="file-format.html"><link rel="prev" title="Explore Datasets (v1.2.0)" href="data-v1.html">
+        <link rel="canonical" href="https://clustering-benchmarks.gagolewski.com/weave/results-v1.html">
+        <link rel="prefetch" href="https://www.gagolewski.com/_static/img/clustbench.png" as="image">
 
-    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Clustering Results Repository (v1.1.0) - Clustering Benchmarks</title>
+    <link rel="shortcut icon" href="https://www.gagolewski.com/_static/img/clustbench.png"><!-- Generated with Sphinx 9.1.1 and Furo 2025.12.19 -->
+        <title>Clustering Results Repository (v1.2.0) - Clustering Benchmarks</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1981fb80" />
     
     
@@ -226,9 +227,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Benchmark Batteries</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.1.0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.1.0)</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Clustering Results Repository (v1.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suite-v1.html">Benchmark Suite (v1.2.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-v1.html">Explore Datasets (v1.2.0)</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Clustering Results Repository (v1.2.0)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-format.html">File Format Specification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-to-access.html">Access from Python, R, MATLAB, etc.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -273,7 +274,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" title="Edit this page">
+  <a class="muted-link" href="https://github.com/gagolews/clustering-benchmarks//issues/" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -291,58 +292,13 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="clustering-results-repository-v1-1-0">
-<span id="sec-results-v1"></span><h1>Clustering Results Repository (v1.1.0)<a class="headerlink" href="#clustering-results-repository-v1-1-0" title="Link to this heading">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="clustering-results-repository-v1-2-0">
+<span id="sec-results-v1"></span><h1>Clustering Results Repository (v1.2.0)<a class="headerlink" href="#clustering-results-repository-v1-2-0" title="Link to this heading">¶</a></h1>
 <p>We have prepared a repository of
 <a class="reference external" href="https://github.com/gagolews/clustering-results-v1/">clustering results</a>
-for problems from our <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.1.0)</span></a>.</p>
+for problems from our <a class="reference internal" href="suite-v1.html#sec-suite-v1"><span class="std std-ref">Benchmark Suite (v1.2.0)</span></a>.</p>
 <p>A non-interactive results catalogue is available
 <a class="reference external" href="https://github.com/gagolews/clustering-results-v1/tree/master/.catalogue/original">here</a>.</p>
-<section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
-<p>Currently, the outputs of the following methods are included.
-Where applicable, we considered a wide range of control parameters.</p>
-<ul class="simple">
-<li><p>k-means, Gaussian mixtures, spectral, and Birch available in
-<a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html"><code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a>
-0.23.1 (Python) <span id="id1">[<a class="reference internal" href="../z_bibliography.html#id24" title="Buitinck, L. and others. (2013).  API design for machine learning software: Experiences from the scikit-learn project. In: ECML PKDD Workshop: Languages for Data Mining and Machine Learning, pp. 108–122.">6</a>, <a class="reference internal" href="../z_bibliography.html#id25" title="Pedregosa, F. and others. (2011).  Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12(85):2825–2830. URL: http://jmlr.org/papers/v12/pedregosa11a.html.">45</a>]</span>;</p></li>
-<li><p>hierarchical agglomerative methods with the average, centroid, complete,
-median, Ward, and weighted/McQuitty linkages implemented
-in <a class="reference external" href="http://www.danifold.net/fastcluster.html"><code class="docutils literal notranslate"><span class="pre">fastcluster</span></code></a> 1.1.26
-(Python/R) <span id="id2">[<a class="reference internal" href="../z_bibliography.html#id15" title="Müllner, D. (2013).  fastcluster: Fast hierarchical, agglomerative clustering routines for R and Python. Journal of Statistical Software, 53(9):1–18. DOI: 10.18637/jss.v053.i09.">44</a>]</span></p></li>
-<li><p><a class="reference external" href="https://genieclust.gagolewski.com"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a> 1.0.0 (Python/R)
-<span id="id3">[<a class="reference internal" href="../z_bibliography.html#id11" title="Gagolewski, M. (2021).  genieclust: Fast and robust hierarchical clustering. SoftwareX, 15:100722. URL: https://genieclust.gagolewski.com/, DOI: 10.1016/j.softx.2021.100722.">20</a>, <a class="reference internal" href="../z_bibliography.html#id12" title="Gagolewski, M., Bartoszuk, M., and Cena, A. (2016).  Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm. Information Sciences, 363:8–23. URL: https://arxiv.org/pdf/2209.05757, DOI: 10.1016/j.ins.2016.05.003.">25</a>]</span>
-(note that <em>Genie</em> with <em>g=1.0</em> is equivalent to the single linkage algorithm);</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Genie+Ic</span></code> – Genie+Information Criterion, see <span id="id4">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M., Cena, A., Bartoszuk, M., and Brzozowski, L. (2025).  Clustering with minimum spanning trees: How good can it be? Journal of Classification, 42:90–112. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09483-1.pdf, DOI: 10.1007/s00357-024-09483-1.">27</a>]</span>,
-as implemented in <a class="reference external" href="https://genieclust.gagolewski.com"><code class="docutils literal notranslate"><span class="pre">genieclust</span></code></a> 1.0.0 (Python/R).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fcps_nonproj</span></code> – many algorithms, see <span id="id5">[<a class="reference internal" href="../z_bibliography.html#id31" title="Thrun, M.C. and Stier, Q. (2021).  Fundamental clustering algorithms suite. SoftwareX, 13:100642. DOI: 10.1016/j.softx.2020.100642.">51</a>]</span>, available via the
-<a class="reference external" href="https://cran.r-project.org/package=FCPS"><code class="docutils literal notranslate"><span class="pre">FCPS</span></code></a> 1.3.4 package for R,
-which provides a consistent interface to many other
-R packages (versions current as of 2023-10-21).
-We selected all which return an a priori-given number of clusters,
-and do not rely on heavy feature engineering/fancy data projections,
-as such methods should be evaluated separately.
-We did not include the algorithms that are available in other packages and
-are already part of this results repository,
-e.g., <code class="docutils literal notranslate"><span class="pre">fastcluster</span></code>, <code class="docutils literal notranslate"><span class="pre">genieclust</span></code>, and <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
-<li><p><a class="reference external" href="https://github.com/amueller/information-theoretic-mst"><code class="docutils literal notranslate"><span class="pre">ITM</span></code></a>
-git commit 178fd43 (Python) <span id="id6">[<a class="reference internal" href="../z_bibliography.html#id77" title="Müller, A.C., Nowozin, S., and Lampert, C.H. (2012).  Information theoretic clustering using minimum spanning trees. In: Proc. German Conference on Pattern Recognition. URL: https://github.com/amueller/information-theoretic-mst.">43</a>]</span> –
-an “information-theoretic” algorithm based on
-minimum spanning trees;</p></li>
-<li><p><a class="reference external" href="https://github.com/gagolews/optim_cvi"><code class="docutils literal notranslate"><span class="pre">optim_cvi</span></code></a> —
-local maxima (great effort was made to maximise the probability of their
-being high-quality ones) of many
-<a class="reference internal" href="external-validity-measures.html#sec-external-validity-measures"><span class="std std-ref">internal cluster validity measures</span></a>,
-including the Caliński–Harabasz, Dunn, or Silhouette index;
-see <span id="id7">[<a class="reference internal" href="../z_bibliography.html#id10" title="Gagolewski, M., Bartoszuk, M., and Cena, A. (2021).  Are cluster validity measures (in)valid? Information Sciences, 581:620–636. URL: https://arxiv.org/pdf/2208.01261, DOI: 10.1016/j.ins.2021.10.004.">26</a>]</span>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">optim_cvi_mst_divisive</span></code> – maximising internal cluster validity measures
-over Euclidean minimum spanning trees using a divisive strategy;
-see <span id="id8">[<a class="reference internal" href="../z_bibliography.html#id4" title="Gagolewski, M., Cena, A., Bartoszuk, M., and Brzozowski, L. (2025).  Clustering with minimum spanning trees: How good can it be? Journal of Classification, 42:90–112. URL: https://link.springer.com/content/pdf/10.1007/s00357-024-09483-1.pdf, DOI: 10.1007/s00357-024-09483-1.">27</a>]</span>.</p></li>
-</ul>
-<p>New results will be added in the future (note that we can only consider
-methods that allow for setting the precise number of generated clusters).
-New quality contributions are <a class="reference internal" href="contributing.html#sec-contributing"><span class="std std-ref">welcome</span></a>.</p>
-</section>
 <section id="feature-engineering">
 <h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Link to this heading">¶</a></h2>
 <p>The algorithms operated on the <em>original</em> data spaces,
@@ -388,7 +344,7 @@ This is left for further research (stay tuned).</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Explore Datasets (v1.1.0)</div>
+                <div class="title">Explore Datasets (v1.2.0)</div>
                 
               </div>
             </a>
@@ -398,11 +354,11 @@ This is left for further research (stay tuned).</p>
             <div class="copyright">
               
               
-              Copyright &#169; 2020–2025 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
+              Copyright &#169; 2020–2026 by <a href="https://www.gagolewski.com">Marek Gagolewski</a>.
               Some rights reserved. Licensed under <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>.
               Built with <a href="https://sphinx-doc.org/">Sphinx</a>
               and a customised <a href="https://github.com/pradyunsg/furo">Furo</a> theme.
-              Last updated on 2025-07-14T10:36:50+0200.
+              Last updated on 2026-10-22T14:32:40+0200.
               This site will never display any ads: it is a non-profit project.
               It does not collect any data.
             </div>
@@ -423,8 +379,7 @@ This is left for further research (stay tuned).</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Clustering Results Repository (v1.1.0)</a><ul>
-<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#">Clustering Results Repository (v1.2.0)</a><ul>
 <li><a class="reference internal" href="#feature-engineering">Feature Engineering</a></li>
 </ul>
 </li>
@@ -438,8 +393,8 @@ This is left for further research (stay tuned).</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=937269b5"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>
